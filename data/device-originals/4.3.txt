@@ -1,0 +1,703 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+4. Device Security 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+4.3 Describe various security threats 
+• Computer viruses (worms, trojan horse, logic bombs, ransomware) 
+• Adware 
+• Spyware 
+• Denial of Service (DoS) attacks 
+• Social engineering attacks (to include, but not limited to Phishing, 
+smishing, 
+vishing, dumpster diving, spoofing, and clone phishing) 
+• Physical attacks (errant thumb drives, theft, shoulder surfing, screen 
+scrapers) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Introducere 
+Peisajul digital contemporan este definit de o evoluție constantă și o 
+complexitate crescândă a amenințărilor de securitate cibernetică. 
+Acestea vizează o gamă largă de sisteme informatice, de la dispozitivele 
+personale la infrastructurile critice naționale, având potențialul de a 
+genera efecte destabilizatoare la nivel regional și internațional. În acest 
+context dinamic, înțelegerea naturii acestor amenințări nu mai este o 
+opțiune, ci o necesitate fundamentală pentru orice utilizator de 
+tehnologie. Indiferent de progresele tehnologice în materie de securitate, 
+factorul uman rămâne una dintre principalele vulnerabilități, adesea 
+exploatată de atacatori pentru a ocoli chiar și cele mai robuste apărări 
+tehnice. Prin urmare, educația și conștientizarea riscurilor sunt la fel de 
+critice ca și implementarea soluțiilor software. 
+Partea I: Amenințări de tip malware 
+Prezentare generală 
+Termenul "malware", o contracție a expresiei englezești "malicious 
+software" (software rău intenționat), este un termen generic ce descrie 
+orice software ostil sau intruziv, proiectat pentru a perturba operațiunile 
+normale ale unui sistem informatic, pentru a obține acces neautorizat la 
+acesta sau pentru a fura informații sensibile, fără consimțământul 
+utilizatorului. Infractorii cibernetici utilizează malware-ul pentru o 
+varietate de scopuri, de la furtul de date și acreditări bancare la 
+vânzarea accesului la resurse informatice sau obținerea de plăți prin 
+șantaj. Impactul unui atac malware reușit poate fi devastator pentru o 
+organizație, generând pierderi financiare semnificative, breșe de date, 
+întreruperi operaționale și daune de reputație pe termen lung. 
+Viruși informatici și software infecțios 
+Viruși (Viruses) 
+Virușii informatici reprezintă una dintre cele mai vechi și mai cunoscute 
+forme de malware. Un virus este un fragment de cod malițios care se 
+atașează de un fișier executabil legitim. Atunci când fișierul infectat este 
+rulat de către utilizator, virusul se activează și se replică, infectând alte 
+fișiere de pe sistemul compromis. Principalii vectori de răspândire sunt 
+partajarea de fișiere infectate între computere și atașamentele de e-mail. 
+
+
+ 
+Scopul lor principal este de a perturba funcționarea normală a sistemului 
+sau de a distruge date. 
+Viermi (Worms) 
+Spre deosebire de viruși, viermii informatici sunt programe malware 
+autonome, care nu au nevoie să se atașeze de un program gazdă 
+pentru a se propaga. Aceștia se auto-replică și se răspândesc activ prin 
+rețelele de calculatoare, exploatând vulnerabilități de securitate ale 
+sistemelor țintă pentru a se copia pe noi dispozitive, adesea fără nicio 
+intervenție umană. Impactul lor principal este asupra rețelei, unde pot 
+provoca daune prin consumarea excesivă a lățimii de bandă și 
+supraîncărcarea traficului. Vectorii de propagare pentru viermi sunt 
+diverși și includ: 
+●​ Rețele locale (LAN): Se răspândesc de la un sistem la altul prin 
+stabilirea de conexiuni directe în rețeaua locală. 
+●​ E-mail: Utilizează atașamente infectate sau link-uri malițioase în 
+e-mailuri de tip spam pentru a se activa atunci când utilizatorul 
+interacționează cu ele. 
+●​ Internet: Scanează activ internetul în căutarea computerelor 
+vulnerabile (fără firewall sau actualizări de securitate) pentru a le 
+infecta direct. 
+●​ Mesagerie instantanee și rețele P2P: Se propagă prin trimiterea 
+de link-uri infectate către listele de contacte ale utilizatorilor sau 
+prin copierea în directoarele de partajare ale rețelelor peer-to-peer 
+(P2P). 
+●​ Dispozitive mobile: Se pot răspândi prin tehnologii precum 
+Bluetooth sau prin mesaje SMS/MMS. 
+Cai troieni (Trojans) 
+Un cal troian este un tip de malware deghizat într-un software legitim, util 
+sau dezirabil, pentru a păcăli utilizatorul să îl descarce și să îl instaleze. 
+Numele provine din analogia cu legenda greacă a calului troian, unde un 
+dar aparent inofensiv ascundea o amenințare distructivă. Spre deosebire 
+de viruși și viermi, troienii nu se auto-replică și nu se propagă activ în 
+rețea; succesul lor depinde în întregime de capacitatea de a înșela 
+utilizatorul. Odată activat, un troian poate executa o gamă largă de 
+acțiuni malițioase, printre care: 
+
+
+ 
+●​ Crearea unei "uși secrete" (backdoor): Permite atacatorului să 
+obțină acces și control de la distanță asupra computerului infectat. 
+●​ Furtul de informații: Poate înregistra apăsările de taste 
+(keylogging), parolele, detaliile de autentificare și istoricul de 
+navigare, trimițându-le unui server controlat de atacator. 
+●​ Descărcarea de malware suplimentar: Acționează ca un 
+"distribuitor" de malware, instalând pe sistemul compromis alți 
+viruși, viermi sau ransomware. 
+●​ Utilizarea în alte atacuri: Poate înrola computerul infectat într-o 
+rețea de tip botnet pentru a lansa atacuri de tip DDoS sau pentru a 
+trimite e-mailuri spam. 
+Bombe logice (Logic bombs) 
+O bombă logică este un fragment de cod malițios, inserat intenționat 
+într-un program software, care rămâne latent și nedetectat până la 
+îndeplinirea unei anumite condiții logice sau a unui set de condiții. Nu 
+este un malware de sine stătător, ci mai degrabă o funcționalitate 
+ascunsă, programată să se declanșeze la un moment specific. Această 
+natură condițională face ca bombele logice să fie extrem de dificil de 
+identificat în timpul testării software-ului, deoarece acestea nu prezintă 
+niciun comportament malițios în condiții normale de operare. 
+Condițiile de declanșare ("triggers") pot fi variate: 
+●​ Pozitive: Activarea la o anumită dată și oră (caz în care se 
+numește și bombă cu ceas sau "time bomb"), sau după 
+executarea unui anumit număr de operațiuni. 
+●​ Negative: Activarea atunci când o anumită condiție nu mai este 
+îndeplinită, cum ar fi ștergerea unui cont de utilizator din sistemul 
+de salarizare al unei companii, un indicator clasic al unui atac din 
+interior ("insider threat"). 
+Exemplele din lumea reală ilustrează potențialul distructiv al acestor 
+atacuri. În 2013, un atac coordonat în Coreea de Sud a folosit bombe cu 
+ceas pentru a șterge simultan hard disk-urile a trei bănci și două 
+companii media. Un alt caz notoriu este cel al unui administrator de 
+sistem de la UBS, care a plantat o bombă logică cu scopul de a distruge 
+rețeaua companiei și de a-i prăbuși valoarea acțiunilor. De asemenea, 
+
+
+ 
+un contractant al Siemens a inserat bombe logice în software-ul livrat 
+pentru a provoca defecțiuni periodice, asigurându-și astfel contracte de 
+mentenanță plătite. Aceste cazuri subliniază faptul că bombele logice 
+sunt adesea o armă preferată de angajați sau foști angajați nemulțumiți, 
+care dețin cunoștințe interne și acces autorizat la sisteme. 
+Ransomware 
+Ransomware-ul este un tip specializat de malware, adesea livrat 
+printr-un cal troian, care blochează accesul victimei la propriile date, de 
+obicei prin criptarea fișierelor de pe hard disk. După ce datele devin 
+inaccesibile, atacatorii cer plata unei răscumpărări (ransom), de obicei în 
+criptomonede, în schimbul cheii de decriptare necesare pentru a restabili 
+accesul. Exemple de impact global, precum WannaCry și CryptoLocker, 
+au demonstrat capacitatea ransomware-ului de a paraliza organizații 
+întregi și de a provoca pierderi financiare masive. 
+Adware și spyware 
+Adware 
+Adware-ul, prescurtarea de la "advertisement-supported software", este 
+un software conceput pentru a afișa materiale publicitare utilizatorului, 
+cum ar fi ferestre pop-up sau bannere în browser. Acesta este adesea 
+inclus în pachet cu aplicații gratuite (freeware), reprezentând o metodă 
+prin care dezvoltatorii își monetizează produsele. Deși inițial considerat 
+mai mult o neplăcere decât o amenințare, adware-ul poate încetini 
+performanța computerului, poate modifica pagina de pornire a 
+browserului și poate degrada semnificativ experiența de utilizare. 
+Spyware 
+Spyware-ul este un software spion care se instalează pe un dispozitiv 
+fără știrea sau consimțământul utilizatorului, cu scopul de a colecta în 
+secret informații. Aceste informații pot include date personale, nume de 
+utilizator și parole, detalii despre carduri de credit, obiceiuri de navigare 
+pe internet și chiar apăsările de taste. Datele colectate sunt apoi 
+transmise atacatorului și pot fi folosite pentru furt de identitate, fraudă 
+financiară sau în scopuri de marketing. 
+ 
+
+
+ 
+Convergența dintre adware și spyware 
+În peisajul actual al amenințărilor, distincția clară dintre adware și 
+spyware a devenit din ce în ce mai neclară. Inițial, adware-ul era 
+perceput ca un model de afaceri legitim, deși deranjant, prin care 
+utilizatorii primeau software gratuit în schimbul vizualizării de reclame. 
+Spyware-ul, pe de altă parte, a fost întotdeauna considerat malițios 
+datorită naturii sale ascunse și a scopului de a fura informații. 
+Astăzi, însă, multe aplicații adware au depășit simpla afișare de reclame. 
+Pentru a livra publicitate cât mai relevantă și, prin urmare, mai 
+profitabilă, aceste programe au început să încorporeze funcționalități de 
+urmărire a activității utilizatorului. Ele monitorizează site-urile vizitate, 
+căutările efectuate și alte comportamente online pentru a construi un 
+profil detaliat al consumatorului. Acest proces de colectare a datelor, 
+realizat adesea fără un consimțământ clar și informat, este, prin definiție, 
+o funcționalitate de spyware. Prin urmare, utilizatorii nu mai pot 
+considera adware-ul doar o simplă neplăcere. Acesta a evoluat într-un 
+vector de colectare a datelor, prezentând riscuri semnificative de 
+confidențialitate, similare cu cele ale spyware-ului tradițional. Această 
+convergență impune ca ambele tipuri de amenințări să fie tratate cu 
+aceeași seriozitate, necesitând măsuri de protecție vigilente. 
+Protecție și eliminare malware pe Windows 10 și 11 
+Atât Windows 10, cât și Windows 11 sunt echipate cu o soluție de 
+securitate robustă și integrată, numită Securitate Windows, al cărei 
+nucleu este Microsoft Defender Antivirus. Acesta este un program 
+antivirus gratuit, care oferă protecție în timp real împotriva virușilor, 
+spyware-ului și altor tipuri de malware, și este menținut la zi automat prin 
+intermediul serviciului Windows Update. 
+Pașii pentru a accesa și configura setările de protecție sunt similari în 
+ambele sisteme de operare. Utilizatorii pot naviga la Start > Setări, apoi 
+Actualizare și securitate (în Windows 10) sau Confidențialitate și 
+securitate (în Windows 11), și de acolo să selecteze Securitate Windows 
+pentru a deschide centrul de control. 
+ 
+ 
+
+
+ 
+Funcționalitățile cheie disponibile pentru utilizatori includ: 
+●​ Scanări la cerere: Pe lângă scanările automate, utilizatorii pot 
+iniția manual mai multe tipuri de scanări: 
+○​ Scanare rapidă: Verifică locațiile comune unde se poate 
+ascunde malware-ul. 
+○​ Scanare completă: Examinează toate fișierele și 
+programele de pe hard disk. 
+○​ Scanare particularizată: Permite utilizatorului să selecteze 
+anumite fișiere sau foldere pentru verificare. 
+○​ Scanare offline Microsoft Defender: Aceasta este o 
+opțiune deosebit de puternică, care repornește computerul și 
+rulează o scanare înainte ca sistemul de operare să se 
+încarce complet. Acest mod de operare face dificilă 
+ascunderea sau auto-apărarea malware-ului persistent (cum 
+ar fi rootkit-urile). 
+●​ Protecție în timp real: Această funcție monitorizează continuu 
+activitatea de pe computer și blochează amenințările înainte ca 
+acestea să poată provoca daune. Este important de menționat că 
+protecția în timp real a Microsoft Defender se dezactivează 
+automat dacă este instalată o altă soluție antivirus compatibilă, 
+pentru a evita conflictele de sistem. 
+●​ Protecție împotriva falsificării (Tamper Protection): Disponibilă 
+în ambele versiuni de Windows, această setare critică împiedică 
+aplicațiile neautorizate, inclusiv malware-ul, să modifice setările 
+esențiale de securitate ale Microsoft Defender, cum ar fi 
+dezactivarea protecției în timp real sau a protecției livrate în cloud. 
+●​ Protecție anti-ransomware (Acces controlat la directoare): O 
+măsură proactivă extrem de eficientă, care permite utilizatorilor să 
+definească o listă de foldere protejate (de exemplu, Documente, 
+Imagini, Desktop). Doar aplicațiile de încredere, aprobate de 
+utilizator, pot modifica fișierele din aceste locații, blocând astfel 
+tentativele de criptare neautorizată ale programelor ransomware. 
+În cazul în care se suspectează prezența unui program nedorit care nu 
+este detectat automat, acesta poate fi eliminat manual prin panoul de 
+control Aplicații și caracteristici. După dezinstalare, este esențială golirea 
+Coșului de reciclare pentru a asigura eliminarea completă a fișierelor. 
+
+
+ 
+Partea II: Atacuri asupra disponibilității serviciilor 
+Atacuri de tip denial of service (DoS) 
+Un atac de tip Denial of Service (DoS), sau refuzul serviciului, este o 
+tentativă malițioasă de a face o resursă de rețea, cum ar fi un site web 
+sau un server, indisponibilă pentru utilizatorii săi legitimi. Acest lucru se 
+realizează, de obicei, prin inundarea țintei cu un volum copleșitor de 
+cereri de rețea sau trafic de date, epuizându-i resursele (lățime de 
+bandă, putere de procesare) până la punctul în care nu mai poate 
+răspunde solicitărilor legitime sau se blochează complet. 
+O formă mult mai puternică și mai greu de contracarat este atacul 
+Distributed Denial of Service (DDoS). Într-un atac DDoS, traficul 
+malițios nu provine dintr-o singură sursă, ci este distribuit pe sute, mii 
+sau chiar milioane de dispozitive compromise, răspândite geografic. 
+Aceste dispozitive, care pot fi computere, servere sau dispozitive IoT 
+(Internet of Things), sunt infectate cu malware și organizate într-o rețea 
+numită botnet, pe care atacatorul o poate controla de la distanță pentru 
+a lansa atacuri coordonate. 
+Măsuri de mitigare pe platforme Windows 
+Deși mitigarea unui atac DDoS la scară largă necesită intervenția 
+furnizorului de servicii de internet (ISP) sau a unor servicii specializate 
+de protecție anti-DDoS, există măsuri care pot fi luate la nivelul 
+sistemului de operare Windows pentru a reduce riscul ca un dispozitiv să 
+fie compromis și înrolat într-un botnet. 
+●​ Configurarea Windows Defender Firewall: Firewall-ul integrat în 
+Windows 10 și 11 este o primă linie de apărare esențială. Acesta 
+poate fi configurat pentru a bloca traficul de intrare pe porturi care 
+nu sunt necesare și pentru a restricționa accesul de la adrese IP 
+cunoscute ca fiind malițioase. Deși nu poate opri un atac de volum, 
+o configurare corectă a firewall-ului reduce suprafața de atac a 
+dispozitivului. 
+●​ Reducerea suprafeței de atac (Attack Surface Reduction - 
+ASR): Disponibilă în edițiile Enterprise ale Windows 10 și 11, ca 
+parte a suitei Microsoft Defender for Endpoint, ASR este o colecție 
+de reguli inteligente care blochează comportamente software 
+asociate adesea cu malware-ul. De exemplu, regulile ASR pot 
+
+
+ 
+împiedica scripturile ofuscate să ruleze, pot bloca procesele create 
+de atașamentele de e-mail sau pot preveni executarea de fișiere 
+de pe unități USB. Prin implementarea acestor reguli, se reduce 
+semnificativ șansa ca un dispozitiv să fie infectat cu malware-ul 
+necesar pentru a-l transforma într-un "bot". 
+●​ Bune practici generale: Cea mai eficientă metodă de a preveni 
+ca un computer să devină parte dintr-un botnet este menținerea 
+riguroasă a igienei cibernetice. Aceasta implică aplicarea promptă 
+a actualizărilor de securitate pentru sistemul de operare și pentru 
+toate aplicațiile instalate. Actualizările corectează vulnerabilitățile 
+pe care atacatorii le exploatează pentru a prelua controlul asupra 
+dispozitivelor. 
+Partea III: Atacuri de inginerie socială 
+Prezentare generală 
+Ingineria socială reprezintă arta manipulării psihologice, prin care un 
+atacator convinge o persoană să execute acțiuni care îi compromit 
+securitatea sau să divulge informații confidențiale. În loc să exploateze 
+vulnerabilități tehnice în software, ingineria socială țintește 
+vulnerabilitățile umane: încrederea, frica, curiozitatea sau dorința de a 
+ajuta. Este adesea descrisă ca un atac asupra "verigii umane", care este 
+frecvent considerată cea mai slabă componentă a oricărui lanț de 
+securitate. 
+Phishing și variantele sale specializate 
+Phishing 
+Phishing-ul este cea mai comună formă de inginerie socială și constă în 
+tentative frauduloase, de obicei prin e-mail, de a obține informații 
+sensibile precum nume de utilizator, parole sau detalii de card de credit. 
+Atacatorii se deghizează într-o entitate de încredere, cum ar fi o bancă, 
+o companie de curierat sau o platformă de social media. E-mailurile de 
+phishing conțin adesea link-uri care direcționează victima către un site 
+web fals, conceput să imite perfect pagina legitimă de autentificare. 
+ 
+ 
+
+
+ 
+Indicatorii comuni ai unui e-mail de phishing includ: 
+●​ Crearea unui sentiment de urgență sau frică: Mesaje precum 
+"Contul dvs. va fi blocat" sau "Activitate suspectă detectată". 
+●​ Greșeli gramaticale și de ortografie: Adesea, e-mailurile sunt 
+traduse automat sau scrise de persoane care nu sunt vorbitori 
+nativi. 
+●​ Adrese de expeditor suspecte: Adresa de e-mail poate semăna 
+cu cea legitimă, dar conține mici diferențe (ex: micbmd.com în loc 
+de micb.md sau rnicrosoft.com). 
+●​ Link-uri înșelătoare: Trecând cursorul mouse-ului peste un link 
+(fără a da clic), se poate vedea adresa reală către care acesta 
+duce, care este adesea diferită de textul afișat. 
+Smishing și Vishing 
+Acestea sunt variante ale phishing-ului care utilizează alte canale de 
+comunicare: 
+●​ Smishing (SMS Phishing): Atacul este livrat printr-un mesaj text 
+(SMS). Exemplele tipice includ mesaje care pretind a fi de la o 
+firmă de curierat, solicitând plata unei taxe vamale printr-un link, 
+sau alerte false de la o bancă. 
+●​ Vishing (Voice Phishing): Atacul se desfășoară prin apeluri 
+telefonice. Atacatorii pot pretinde că sunt de la suportul tehnic 
+Microsoft, de la bancă sau chiar de la poliție, încercând să 
+convingă victima să instaleze software de acces la distanță sau să 
+furnizeze date personale. 
+Tehnici avansate de înșelăciune 
+Spoofing 
+Spoofing-ul este tehnica de a falsifica identitatea digitală a sursei unei 
+comunicări pentru a o face să pară că provine de la cineva sau ceva de 
+încredere. Este o componentă fundamentală care stă la baza majorității 
+atacurilor de inginerie socială, permițând atacatorilor să își construiască 
+credibilitatea. Tipurile comune de spoofing includ: 
+●​ Email Spoofing: Falsificarea adresei de expeditor (From:) dintr-un 
+e-mail pentru a părea că mesajul vine de la o sursă legitimă. 
+
+
+ 
+●​ Caller ID Spoofing: Modificarea numărului de telefon afișat pe 
+ecranul destinatarului unui apel, adesea pentru a imita numărul 
+unei bănci sau al unei instituții guvernamentale. 
+●​ Website/URL Spoofing: Crearea unei copii fidele a unui site web 
+legitim, găzduită pe o adresă URL similară, dar frauduloasă, 
+pentru a fura credențialele introduse de utilizatori. 
+●​ IP Spoofing: Mascarea adresei IP reale a unui computer prin 
+modificarea antetelor pachetelor de rețea, o tehnică frecvent 
+utilizată în atacurile DDoS pentru a ascunde originea atacului. 
+Clone phishing 
+Clone phishing-ul este o formă deosebit de sofisticată și periculoasă de 
+phishing. În acest scenariu, atacatorul obține o copie a unui e-mail 
+legitim care a fost deja livrat (de exemplu, o notificare de expediere, o 
+factură sau un newsletter). Apoi, el "clonează" acest e-mail, păstrând 
+aspectul și conținutul original, dar înlocuiește link-urile sau atașamentele 
+legitime cu unele malițioase. E-mailul clonat este apoi retrimis victimei, 
+adesea de la o adresă de e-mail falsificată (spoofed) care seamănă cu 
+cea a expeditorului original, cu o justificare precum "Aceasta este o 
+versiune actualizată a e-mailului anterior". 
+Eficiența acestei tehnici este mult mai mare decât a phishing-ului 
+tradițional, deoarece se bazează pe încrederea și familiaritatea victimei 
+cu comunicarea originală. Deoarece e-mailul pare a fi o continuare a 
+unei conversații legitime, este mai probabil să ocolească atât filtrele 
+tehnice de spam, cât și vigilența umană. 
+Metode de colectare a informațiilor 
+Dumpster diving 
+Termenul "dumpster diving" se referă la practica de a căuta prin 
+gunoiul unei persoane sau organizații pentru a descoperi informații 
+valoroase. Aceasta poate fi o căutare fizică, prin containere de gunoi, 
+sau digitală, prin analiza hard disk-urilor vechi sau a altor medii de 
+stocare aruncate necorespunzător. Informațiile căutate pot părea banale 
+luate individual, dar pot fi extrem de utile pentru un atacator: facturi, 
+extrase de cont, documente interne, organigrame, liste de contacte, 
+
+
+ 
+notițe cu parole sau chiar echipamente hardware vechi care încă 
+stochează date sensibile. 
+Ciclul de atac hibrid: de la gunoi la compromiterea rețelei 
+Amenințările cibernetice moderne rareori există în izolare; ele sunt 
+adesea parte a unui lanț de atac complex care poate traversa granița 
+dintre lumea fizică și cea digitală. Un exemplu elocvent este modul în 
+care o tehnică aparent primitivă precum "dumpster diving" poate 
+alimenta un atac de "clone phishing" extrem de sofisticat. 
+1.​ Faza de recunoaștere fizică: Atacatorul începe prin a căuta în 
+gunoiul unei companii țintă. Acolo, poate descoperi documente 
+aparent inofensive, cum ar fi o factură veche de la un furnizor de 
+servicii de curierat și o listă internă de contacte de la 
+departamentul financiar. 
+2.​ Colectarea de informații: Din aceste documente, atacatorul 
+extrage date critice: numele și formatul unui furnizor legitim, 
+structura unui număr de factură, și numele și adresa de e-mail a 
+unui angajat specific de la departamentul financiar. 
+3.​ Pregătirea atacului digital: Folosind aceste informații, atacatorul 
+construiește un e-mail de tip "clone phishing". El creează o factură 
+falsă care imită perfect formatul celei reale, dar înlocuiește contul 
+bancar pentru plată cu unul propriu sau atașează un fișier PDF 
+care conține malware, în loc de factura legitimă. 
+4.​ Lansarea atacului: E-mailul este trimis angajatului de la financiar, 
+folosind o adresă de expeditor falsificată pentru a semăna cu cea 
+a firmei de curierat. Deoarece contextul (furnizor, formatul 
+documentului, destinatarul) este familiar și credibil, probabilitatea 
+ca angajatul să proceseze plata sau să deschidă atașamentul 
+malițios crește exponențial. 
+Acest ciclu demonstrează că securitatea digitală a unei organizații este 
+direct dependentă de politicile sale de securitate fizică și de procedurile 
+de distrugere a documentelor. O verigă slabă în gestionarea deșeurilor 
+fizice poate oferi unui atacator informațiile necesare pentru a ocoli cele 
+mai avansate sisteme de apărare digitală, subliniind natura 
+interconectată a riscurilor de securitate. 
+
+
+ 
+Protecție împotriva ingineriei sociale pe Windows 
+Sistemele de operare Windows 10 și 11 includ tehnologii menite să 
+protejeze utilizatorii împotriva acestor tipuri de atacuri, dar eficiența lor 
+maximă este atinsă doar în combinație cu vigilența umană. 
+●​ Microsoft Defender SmartScreen: Aceasta este o componentă 
+de securitate esențială, integrată atât în sistemul de operare, cât și 
+în browserul Microsoft Edge. SmartScreen funcționează pe bază 
+de reputație, verificând adresele URL vizitate, fișierele descărcate 
+și aplicațiile instalate în raport cu o bază de date cloud actualizată 
+constant. Dacă o resursă este identificată ca fiind asociată cu 
+phishing-ul sau cu distribuția de malware, SmartScreen va afișa un 
+avertisment proeminent, blocând accesul utilizatorului. 
+●​ Protecție bazată pe reputație (Reputation-based protection): 
+Această setare, disponibilă în secțiunea Control aplicații și browser 
+din Securitate Windows, oferă un control mai granular. Permite 
+blocarea aplicațiilor potențial nedorite (PUA) – care, deși nu sunt 
+viruși, pot degrada performanța sau confidențialitatea – și oferă 
+protecție specifică împotriva site-urilor de phishing. 
+●​ Vigilența umană: În final, cea mai bună apărare împotriva 
+ingineriei sociale este un utilizator educat și sceptic. Nicio 
+tehnologie nu poate înlocui capacitatea de a recunoaște semnele 
+unei înșelătorii. Utilizatorii trebuie să fie învățați să verifice 
+întotdeauna sursa comunicărilor nesolicitate, să nu deschidă 
+niciodată atașamente sau link-uri suspecte și să nu furnizeze 
+informații personale sau financiare ca răspuns la un e-mail sau un 
+apel telefonic neașteptat. 
+Partea IV: Atacuri fizice 
+Prezentare generală 
+Atacurile fizice reprezintă o categorie de amenințări care necesită 
+prezența fizică a atacatorului în proximitatea dispozitivului țintă sau 
+accesul direct la acesta. Aceste acțiuni pot fi scopul final (furtul 
+dispozitivului) sau, mai frecvent, un pas intermediar pentru a facilita un 
+atac digital ulterior. Securitatea fizică a echipamentelor este, prin 
+urmare, un pilon fundamental al securității cibernetice generale. 
+
+
+ 
+Amenințări legate de dispozitive și medii de stocare 
+Unități USB rătăcite 
+Unitățile flash USB, datorită portabilității și ubicuității lor, reprezintă un 
+vector de atac extrem de eficient. Atacatorii pot exploata curiozitatea 
+umană prin tehnica "baiting" (momeală) sau "USB drop attack", care 
+presupune lăsarea intenționată a unor stick-uri USB infectate în locuri 
+publice precum parcări, cafenele sau zone comune ale unei companii, în 
+speranța că cineva le va găsi și le va conecta la un computer. 
+Riscurile asociate cu o unitate USB compromisă sunt multiple: 
+●​ Infecție cu malware: Unitatea poate conține malware care se 
+execută automat la conectare (dacă funcția AutoRun este activată) 
+sau care păcălește utilizatorul să ruleze un fișier executabil 
+deghizat. Atacuri celebre, precum cel cu viermele Stuxnet, au 
+folosit unități USB pentru a pătrunde în rețele izolate (air-gapped). 
+●​ Atacuri de tip BadUSB: Unitatea USB poate fi modificată la nivel 
+de firmware pentru a se prezenta computerului nu ca un dispozitiv 
+de stocare, ci ca o tastatură (Human Interface Device - HID). 
+Odată conectată, aceasta poate injecta automat o serie de 
+comenzi malițioase, preluând controlul asupra sistemului. 
+●​ Spionaj cibernetic: Actori statali și grupări de spionaj folosesc din 
+ce în ce mai des unități USB pentru a exfiltra date sensibile din 
+rețele securizate sau pentru a instala malware persistent. 
+Furtul de dispozitive 
+Furtul sau pierderea unui dispozitiv, fie că este vorba de un laptop, o 
+tabletă sau un smartphone, reprezintă o amenințare directă și imediată 
+la adresa securității datelor. Consecințele pot include pierderea de 
+informații critice de afaceri, date personale, secrete comerciale și 
+proprietate intelectuală. Aceste date pot fi vândute pe dark web, folosite 
+pentru furt de identitate sau pentru a lansa atacuri ulterioare împotriva 
+organizației. În acest scenariu, singura măsură de protecție cu adevărat 
+eficientă care face datele de pe dispozitiv inaccesibile pentru hoț este 
+criptarea completă a discului de stocare. 
+ 
+
+
+ 
+Tehnici de observare și interceptare 
+Shoulder surfing 
+"Shoulder surfing" (privitul peste umăr) este o tehnică de inginerie 
+socială care constă în obținerea de informații confidențiale prin 
+observarea directă a ecranului sau a tastaturii unei persoane. Aceasta 
+se poate întâmpla: 
+●​ De la mică distanță: O persoană se poziționează în spatele 
+victimei pentru a-i vedea parola, codul PIN sau alte date sensibile 
+pe care le introduce. 
+●​ De la distanță: Utilizând echipamente precum binocluri, camere 
+video cu zoom sau microfoane direcționale pentru a captura 
+informații de la o distanță sigură. 
+Locațiile cu risc ridicat pentru acest tip de atac sunt spațiile publice 
+aglomerate, cum ar fi bancomatele (ATM), mijloacele de transport în 
+comun, cafenelele și birourile de tip open-space. 
+Screen scrapers 
+Termenul "screen scraper" se referă la un software capabil să extragă 
+date direct de pe un afișaj digital, capturând informația așa cum este ea 
+prezentată vizual utilizatorului. Deși există utilizări legitime pentru 
+această tehnologie (de exemplu, extragerea de date de pe site-uri web 
+vechi care nu dispun de o interfață de programare a aplicațiilor - API), în 
+contextul securității, un screen scraper poate funcționa ca o formă de 
+spyware. Acesta poate realiza capturi de ecran periodice ale activității 
+victimei, permițând unui atacator să fure informații vizuale, inclusiv date 
+introduse în formulare securizate, ocolind astfel mecanismele de 
+protecție anti-keylogging. Este important de diferențiat "screen scraping" 
+de "web scraping": în timp ce web scraping-ul extrage codul sursă HTML 
+al unei pagini web, screen scraping-ul capturează datele vizuale, pixel 
+cu pixel, de pe ecran. 
+Măsuri de securitate fizică și de protecție a datelor pe Windows 
+Atât Windows 10, cât și Windows 11 oferă instrumente puternice pentru 
+a contracara amenințările fizice, cu condiția ca acestea să fie activate și 
+utilizate corect. 
+
+
+ 
+ 
+●​ Criptarea cu BitLocker: 
+○​ BitLocker Drive Encryption: Aceasta este soluția nativă de 
+criptare completă a discului, disponibilă în edițiile Pro, 
+Enterprise și Education ale Windows. BitLocker criptează 
+întreaga partiție de sistem, făcând datele de pe aceasta 
+complet ilizibile fără cheia de recuperare corectă sau 
+autentificarea la pornire. Este măsura esențială pentru 
+protejarea datelor în cazul furtului sau pierderii unui laptop. 
+○​ BitLocker To Go: Această funcționalitate extinde protecția 
+BitLocker la mediile de stocare amovibile, cum ar fi stick-urile 
+USB și hard disk-urile externe. Criptarea unei unități USB cu 
+BitLocker To Go asigură că, în cazul pierderii, datele de pe 
+aceasta rămân confidențiale. 
+●​ Windows Hello: Sistemul de autentificare biometrică din Windows 
+(recunoaștere facială sau cititor de amprente) este o contramăsură 
+extrem de eficientă împotriva atacurilor de tip "shoulder surfing". 
+Deoarece nu mai este necesară introducerea unei parole, nu 
+există nicio informație vizuală pe care un atacator să o poată fura 
+prin observare. 
+●​ Dezactivarea AutoRun/AutoPlay: O setare de securitate critică 
+este dezactivarea funcției AutoRun, care previne executarea 
+automată a conținutului de pe mediile amovibile (inclusiv USB) la 
+conectarea acestora. Această măsură simplă poate bloca o mare 
+parte din atacurile care se bazează pe unități USB infectate. 
+●​ Vigilență și bune practici: Pe lângă măsurile tehnice, 
+comportamentul utilizatorului este crucial. Nu conectați niciodată o 
+unitate USB de proveniență necunoscută la computer. În spațiile 
+publice, utilizați filtre de confidențialitate pentru ecran, care 
+limitează unghiul de vizualizare și fac "shoulder surfing-ul" dificil. 
+De asemenea, este esențial să blocați întotdeauna computerul 
+(folosind combinația de taste​
+ Win + L) atunci când vă îndepărtați de el, chiar și pentru o 
+perioadă scurtă. 
+ 
+
+
+ 
+Partea V: Arhitectura de securitate: Comparație între 
+Windows 10 și Windows 11 
+Diferențele de securitate dintre Windows 10 și Windows 11 nu se 
+rezumă doar la adăugarea de noi funcționalități software. Windows 11 
+reprezintă o schimbare fundamentală de paradigmă, impunând un nou 
+standard de securitate bazat pe cerințe hardware stricte, care nu erau 
+obligatorii pentru predecesorul său. 
+Fundația securității hardware 
+Elementele centrale ale acestei noi fundații de securitate sunt două 
+tehnologii hardware care, deși existau și erau suportate de Windows 10, 
+devin obligatorii pentru Windows 11. 
+Trusted Platform Module (TPM) 2.0 
+Rolul TPM: Un Trusted Platform Module (TPM) este un microcontroler 
+securizat, un criptoprocesor dedicat, proiectat pentru a oferi funcții de 
+securitate bazate pe hardware. Rolul său principal este de a genera, 
+stoca și proteja cheile de criptare, asigurându-se că acestea nu pot fi 
+extrase sau manipulate de software malițios. 
+Diferența cheie: În timp ce Windows 10 putea funcționa cu sau fără un 
+cip TPM (sau cu versiunea mai veche, 1.2), Windows 11 impune 
+prezența și activarea unui cip TPM versiunea 2.0. Această cerință este 
+fundamentală, deoarece ancorează în hardware securitatea unor funcții 
+critice precum BitLocker (unde cheile de criptare sunt protejate de TPM) 
+și Windows Hello (unde datele biometrice sunt securizate). Prin 
+impunerea TPM 2.0, Windows 11 devine inerent mai rezistent la atacuri 
+care vizează furtul de credențiale și parole. 
+Secure Boot (Pornire securizată) 
+Rolul Secure Boot: Secure Boot este o caracteristică a firmware-ului 
+modern UEFI (succesorul BIOS-ului tradițional) care garantează că, în 
+timpul procesului de pornire a computerului, sunt încărcate doar 
+componente software de încredere, semnate digital de către 
+producătorul de echipamente originale (OEM) sau de Microsoft. 
+
+
+ 
+Diferența cheie: La fel ca TPM, Secure Boot era o funcție opțională în 
+Windows 10, putând fi dezactivată de utilizator. În Windows 11, aceasta 
+este obligatorie. Implicația este majoră: Secure Boot previne încărcarea 
+de malware la nivel de boot, cum ar fi rootkit-urile sau bootkit-urile, care 
+se activează înainte ca sistemul de operare și soluțiile antivirus să 
+pornească, devenind astfel extrem de greu de detectat și eliminat. 
+ 
+Concluzii și bune practici generale de securitate 
+Analiza diverselor amenințări de securitate relevă un ecosistem complex 
+și interconectat, în care vulnerabilitățile tehnice sunt adesea exploatate 
+prin manipulare psihologică, iar atacurile digitale pot fi facilitate de 
+neglijența în securitatea fizică. De la malware-ul care criptează datele 
+pentru răscumpărare, la atacurile de inginerie socială care fură 
+credențiale și la atacurile fizice care compromit dispozitive, fiecare 
+amenințare necesită o abordare de apărare stratificată. Comparația 
+dintre Windows 10 și Windows 11 demonstrează o evoluție clară către 
+un model de securitate proactiv, ancorat în hardware, care face sistemul 
+de operare mai nou fundamental mai rezistent la anumite clase de 
+atacuri. 
+Indiferent de sistemul de operare utilizat, implementarea unui set de 
+bune practici de igienă cibernetică este esențială pentru a reduce 
+semnificativ riscul de compromitere. Următoarele recomandări sunt 
+universale și aplicabile atât pentru utilizatorii de Windows 10, cât și 
+pentru cei de Windows 11: 
+●​ Managementul parolelor: Utilizați parole lungi, complexe și unice 
+pentru fiecare cont online. Evitați reutilizarea parolelor. Pentru a 
+gestiona eficient un număr mare de parole unice, se recomandă 
+utilizarea unui manager de parole de încredere. 
+●​ Autentificare multi-factor (MFA/2FA): Activați autentificarea cu 
+doi factori pe toate conturile care o permit (e-mail, rețele sociale, 
+servicii bancare). Aceasta adaugă un strat suplimentar de 
+securitate, solicitând un cod de pe telefonul mobil sau o altă 
+metodă de verificare pe lângă parolă, ceea ce face accesul 
+neautorizat aproape imposibil, chiar dacă parola este furată. 
+
+
+ 
+●​ Actualizări regulate: Asigurați-vă că sistemul de operare, 
+browserul web și toate aplicațiile instalate sunt menținute la zi. 
+Actualizările conțin adesea patch-uri critice de securitate care 
+remediază vulnerabilități recent descoperite. 
+●​ Backup-uri periodice: Efectuați în mod regulat copii de siguranță 
+ale datelor importante. Stocați aceste backup-uri pe un hard disk 
+extern (care este deconectat după finalizarea backup-ului) sau 
+într-un serviciu de stocare în cloud. Un backup recent este cea mai 
+eficientă metodă de recuperare în cazul unui atac ransomware sau 
+a unei defecțiuni hardware. 
+●​ Prudență în rețelele Wi-Fi publice: Evitați efectuarea de 
+operațiuni sensibile (online banking, cumpărături) atunci când 
+sunteți conectat la o rețea Wi-Fi publică și nesecurizată (ex: 
+aeroporturi, cafenele). Dacă este absolut necesar, utilizați o rețea 
+privată virtuală (VPN) pentru a cripta tot traficul de internet. 
+●​ Educație și vigilență continuă: Rămâneți informat cu privire la 
+cele mai recente tipuri de înșelătorii și amenințări cibernetice. 
+Abordați toate comunicările nesolicitate cu un grad sănătos de 
+scepticism. Gândiți-vă de două ori înainte de a da clic pe un link 
+sau de a descărca un atașament și nu oferiți niciodată informații 
+personale ca răspuns la o solicitare neașteptată. Educația este 
+cea mai puternică armă împotriva ingineriei sociale. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 

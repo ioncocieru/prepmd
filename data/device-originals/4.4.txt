@@ -1,0 +1,711 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+4. Device Security 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+4.4 Describe how to respond to various malware and social 
+engineering 
+attacks 
+• Computer viruses 
+• Adware 
+• Spyware 
+• Phishing 
+• Physical attacks (errant thumb drives) 
+• Antimalware program configuration options 
+• Analyze Antimalware scan results 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Fundamentele răspunsului la malware 
+Această secțiune stabilește protocolul fundamental de intervenție în 
+cazul unei suspiciuni de infecție, concentrându-se pe acțiuni imediate de 
+izolare și pe utilizarea uneltelor de diagnosticare ale sistemului de 
+operare pentru a prelua controlul asupra unui sistem compromis. 
+Primii pași critici în cazul unei suspiciuni de infecție 
+Izolarea sistemului 
+Prima și cea mai importantă acțiune în cazul unei suspiciuni de infecție 
+cu malware este deconectarea imediată a dispozitivului de la orice rețea. 
+Aceasta implică dezactivarea conexiunii Wi-Fi sau deconectarea cablului 
+Ethernet. Această măsură este un principiu fundamental al răspunsului 
+la incidente, cunoscut sub numele de "conținere". Un malware modern, 
+precum un vierme informatic sau un bot, va încerca activ să se propage 
+către alte sisteme din rețeaua locală (un proces numit mișcare laterală) 
+sau să comunice cu serverele sale de comandă și control (C&C) pentru 
+a exfiltra date sau a primi noi instrucțiuni. Deconectarea imediată 
+întrerupe acest lanț cauzal, transformând un potențial incident de rețea 
+într-unul izolat la un singur computer, limitând astfel daunele. 
+Identificarea simptomelor 
+Înainte de a începe procesul de curățare, este esențială documentarea 
+simptomelor observate. Acestea pot oferi indicii valoroase despre tipul 
+de infecție. Simptomele comune includ: 
+●​ Încetinirea drastică și inexplicabilă a performanței sistemului. 
+●​ Apariția frecventă a ferestrelor pop-up, chiar și atunci când 
+browserul este închis. 
+●​ Modificarea neautorizată a paginii de start sau a motorului de 
+căutare din browser. 
+●​ Programe care pornesc, se închid sau se reconfigurează fără 
+intervenția utilizatorului. 
+●​ Activitate intensă a hard disk-ului (LED-ul de activitate clipește 
+constant) chiar și atunci când computerul nu este utilizat. 
+●​ Mesaje de eroare aleatorii de la sistemul de operare sau de la 
+diverse aplicații. 
+
+
+ 
+●​ Dezactivarea sau funcționarea defectuoasă a programului antivirus 
+sau a firewall-ului.​
+O listă detaliată a acestor simptome ajută la formarea unei ipoteze 
+inițiale; de exemplu, un număr mare de pop-up-uri sugerează o 
+infecție cu adware. 
+Utilizarea modului de siguranță (Safe Mode) pentru diagnosticare și 
+eliminare 
+Context strategic 
+Modul de siguranță (Safe Mode) este un mediu de diagnosticare 
+esențial care pornește sistemul de operare Windows încărcând doar un 
+set minim de drivere și servicii necesare pentru funcționarea de bază.6 
+Multe tipuri de malware sunt programate să se lanseze automat la 
+pornirea normală a sistemului. Deoarece Safe Mode blochează aceste 
+mecanisme de pornire automată, oferă un mediu de operare mult mai 
+stabil și mai sigur, din care amenințările pot fi eliminate mai eficient. 
+ 
+ 
+
+
+ 
+Proceduri de pornire în Safe Mode 
+Metodele de accesare a modului de siguranță sunt în mare parte 
+similare între Windows 10 și Windows 11. 
+Metoda 
+de 
+acces 
+Pași pentru 
+Windows 10 
+Pași pentru 
+Windows 11 
+Comentarii 
+Din 
+Setări 
+Navigați la Setări 
+> Update & 
+Security > 
+Recovery. Sub 
+Advanced startup, 
+selectați Restart 
+now. 
+Navigați la Setări 
+> System > 
+Recovery. Lângă 
+Advanced startup, 
+selectați Restart 
+now. 
+Recomandat 
+atunci când 
+sistemul de 
+operare este 
+încă 
+funcțional și 
+accesibil. 
+De la 
+ecranul 
+de 
+login 
+Pe ecranul de 
+autentificare, țineți 
+apăsată tasta 
+Shift și selectați 
+Power > Restart. 
+Pe ecranul de 
+autentificare, țineți 
+apăsată tasta 
+Shift și selectați 
+Power > Restart. 
+Metodă 
+universală și 
+rapidă, utilă 
+când nu vă 
+puteți 
+autentifica, 
+dar sistemul 
+ajunge la 
+ecranul de 
+login. 
+
+
+ 
+Forțat 
+(WinRE
+) 
+Opriți forțat 
+computerul 
+(ținând apăsat 
+butonul de 
+pornire) de trei ori 
+consecutiv, 
+imediat ce apare 
+logo-ul Windows. 
+A treia oară, 
+lăsați-l să 
+pornească 
+complet; va intra 
+automat în 
+Windows 
+Recovery 
+Environment 
+(WinRE). 
+Opriți forțat 
+computerul 
+(ținând apăsat 
+butonul de 
+pornire) de trei ori 
+consecutiv, 
+imediat ce apare 
+logo-ul Windows. 
+A treia oară, 
+lăsați-l să 
+pornească 
+complet; va intra 
+automat în 
+Windows 
+Recovery 
+Environment 
+(WinRE). 
+Utilizat ca 
+ultimă soluție, 
+atunci când 
+Windows nu 
+reușește să 
+pornească 
+deloc. 
+ 
+După oricare dintre aceste metode, sistemul va reporni în meniul 
+"Choose an option". De aici, calea este identică: Troubleshoot > 
+Advanced options > Startup Settings > Restart. După o nouă repornire, 
+va apărea o listă de opțiuni de pornire. 
+
+
+ 
+ 
+Prezentarea tipurilor de Safe Mode 
+●​ Safe Mode (Tasta 4 sau F4): Pornește Windows cu setul minim 
+de drivere. Este modul ideal pentru eliminarea majorității tipurilor 
+de malware, deoarece nu încarcă drivere de rețea, izolând complet 
+sistemul. 
+●​ Safe Mode with Networking (Tasta 5 sau F5): Adaugă driverele 
+de rețea, permițând accesul la internet. Alegerea acestui mod este 
+o decizie strategică ce implică un compromis între funcționalitate și 
+securitate. Este util doar dacă este absolut necesar să descărcați 
+o unealtă de curățare sau să actualizați definițiile antivirus. Trebuie 
+utilizat pentru o perioadă cât mai scurtă, deoarece deschide o cale 
+de comunicare pentru malware-ul sofisticat care ar putea funcționa 
+chiar și în acest mod limitat. 
+●​ Safe Mode with Command Prompt (Tasta 6 sau F6): Încarcă 
+interfața în linie de comandă (CMD) în locul interfeței grafice. 
+Acest mod este destinat utilizatorilor avansați pentru a rula unelte 
+de diagnosticare sau scripturi de eliminare direct din linia de 
+comandă. 
+
+
+ 
+Curățarea manuală a fișierelor temporare și dezinstalarea 
+programelor suspecte. 
+Ștergerea fișierelor temporare 
+Malware-ul utilizează frecvent folderele de fișiere temporare ale 
+sistemului pentru a stoca componente, pentru a se extrage sau pentru a 
+se replica. Curățarea acestor foldere este un pas important în procesul 
+de dezinfectare. Acest lucru se poate realiza prin două metode 
+principale: 
+1.​ Utilizarea uneltei Disk Cleanup, 
+căutând-o în meniul Start. 
+2.​ Apăsarea tastelor Windows + R pentru 
+a deschide caseta Run, tastarea 
+%temp% și apăsarea Enter. Se va 
+deschide folderul temporar al 
+utilizatorului, al cărui conținut poate fi 
+șters integral (fișierele aflate în uz vor fi 
+omise). 
+Dezinstalarea programelor suspecte 
+Dacă simptomele au apărut după instalarea unui program nou, acesta ar 
+trebui considerat suspect și dezinstalat. Procesul de dezinstalare 
+standard din Windows poate fi însă insuficient, deoarece se bazează pe 
+scripturi furnizate de dezvoltator, care pot lăsa în urmă fișiere, foldere și 
+intrări în registru. Aceste "rămășițe" pot cauza probleme de performanță 
+sau pot constitui vulnerabilități. 
+Pașii pentru dezinstalare sunt: 
+●​ Windows 11: Navigați la Settings > Apps > Installed apps. 
+Selectați aplicația suspectă și alegeți Uninstall. 
+●​ Windows 10: Navigați la Settings > Apps > Apps & features. 
+Selectați aplicația și alegeți Uninstall. 
+●​ Metoda clasică (ambele sisteme): Accesați Control Panel > 
+Programs > Programs and Features. Această interfață este 
+adesea preferată pentru aplicațiile desktop mai vechi. Selectați 
+programul și faceți clic pe Uninstall. 
+
+
+ 
+În cazurile în care dezinstalarea eșuează sau este incompletă, se poate 
+apela la unelte terțe specializate, precum Revo Uninstaller, care 
+efectuează o scanare aprofundată pentru a elimina toate fișierele și 
+intrările de registru asociate cu programul respectiv. 
+Utilizarea și configurarea programelor antimalware 
+Această secțiune detaliază utilizarea soluției de securitate native 
+Microsoft Defender, integrată în Windows. Se va acoperi configurarea 
+modulelor de protecție, executarea scanărilor și interpretarea rezultatelor 
+pentru o gestionare eficientă a amenințărilor. 
+Prezentare generală a interfeței Windows Security 
+Aplicația Windows Security este centrul de comandă pentru toate 
+funcțiile de securitate din Windows 10 și 11. Poate fi accesată din meniul 
+Start (căutând "Windows Security") sau prin meniul Setări: 
+●​ Windows 11: Setări > Privacy & Security > Windows Security. 
+●​ Windows 10: Setări > Update & Security > Windows Security. 
+Interfața este organizată în mai multe secțiuni cheie care împreună 
+formează o strategie de "apărare în profunzime" (Defense-in-Depth): 
+●​ Virus & threat protection: Nucleul funcționalității antimalware. 
+●​ Account protection: Gestionarea opțiunilor de autentificare și 
+securitate a contului. 
+●​ Firewall & network protection: Controlul traficului de rețea. 
+●​ App & browser control: Protecție bazată pe reputație pentru 
+aplicații și navigare web (SmartScreen). 
+●​ Device security: Gestionarea funcțiilor de securitate hardware, 
+cum ar fi izolarea nucleului. 
+●​ Protection history: Jurnalul tuturor evenimentelor și acțiunilor de 
+securitate. 
+Configurarea opțiunilor cheie în "Virus & threat protection" 
+Pentru a accesa setările avansate, navigați la Virus & threat protection > 
+Manage settings. Următoarele opțiuni sunt critice pentru o protecție 
+robustă: 
+ 
+
+
+ 
+Protecția în timp real (Real-time protection) 
+Aceasta este prima linie de apărare. Funcția monitorizează activ 
+sistemul, scanând fișierele la accesare și procesele la execuție pentru a 
+detecta și bloca malware-ul înainte ca acesta să poată provoca daune. 
+Dezactivarea acestei funcții, chiar și temporar, expune sistemul la riscuri 
+imediate și ar trebui evitată. 
+Protecția furnizată de cloud (Cloud-delivered protection) 
+Această funcție transformă Microsoft Defender dintr-un antivirus 
+tradițional, bazat pe semnături, într-o soluție modernă, proactivă. Când 
+este activată, trimite metadate despre amenințările potențiale către 
+serverele Microsoft pentru o analiză rapidă folosind machine learning și 
+euristici avansate. Acest lucru permite o reacție aproape instantanee la 
+amenințări noi, necunoscute (zero-day), care nu au încă o semnătură în 
+baza de date locală. Fără această funcție, eficiența Defender împotriva 
+atacurilor moderne este semnificativ redusă. Se recomandă activarea și 
+a funcției Automatic sample submission, care permite trimiterea fișierelor 
+suspecte pentru o analiză aprofundată. 
+Accesul controlat la foldere (Controlled Folder Access) 
+ 
+Aceasta este o măsură 
+esențială anti-ransomware, 
+funcționând ca un "seif" 
+digital pentru datele cele 
+mai valoroase. Când este 
+activată, funcția împiedică 
+aplicațiile neautorizate și 
+necunoscute să modifice 
+fișierele din folderele 
+protejate. Implicit, sunt protejate folderele standard ale utilizatorului 
+(Documente, Imagini, Desktop etc.), dar se pot adăuga și alte locații 
+personalizate. La prima activare, se recomandă utilizarea 
+Audit Mode. Acest mod nu blochează efectiv aplicațiile, dar înregistrează 
+în jurnalul de evenimente ce acțiuni ar fi fost blocate, permițând 
+administratorului să identifice aplicațiile legitime care ar trebui adăugate 
+
+
+ 
+la lista de excepții (Allow an app through Controlled Folder Access) 
+înainte de a activa modul de blocare complet (Enabled). 
+Efectuarea scanărilor antimalware 
+Opțiunile de scanare sunt accesibile din Virus & threat protection > Scan 
+options. Alegerea tipului corect de scanare este crucială pentru o 
+utilizare eficientă a timpului și resurselor. 
+Tip 
+Scanare 
+Descriere 
+Durată 
+estimat
+ă 
+Scenariu de 
+utilizare ideal 
+Scanare 
+rapidă 
+(Quick 
+scan) 
+Verifică zonele critice 
+ale sistemului unde 
+malware-ul se 
+instalează frecvent: 
+procese în memorie, 
+regiștri de pornire, 
+folderul Windows. 
+Câteva 
+minute 
+Verificare zilnică 
+de rutină sau o 
+primă evaluare 
+rapidă în cazul 
+unei suspiciuni. 
+Scanare 
+completă 
+(Full 
+scan) 
+Analizează fiecare 
+fișier și program de 
+pe toate unitățile de 
+stocare conectate. 
+Este cea mai 
+amănunțită scanare 
+posibilă cu sistemul 
+de operare pornit. 
+De la o 
+oră la 
+câteva 
+ore 
+După o infecție 
+cunoscută pentru 
+a asigura 
+curățarea 
+completă, sau ca 
+verificare 
+periodică 
+(săptămânală). 
+Scanare 
+personali
+zată 
+Permite selectarea 
+manuală a unor 
+fișiere, foldere sau 
+Variabil
+ă 
+Analiza unei 
+unități USB 
+externe, a unui 
+folder de 
+descărcări sau a 
+
+
+ 
+(Custom 
+scan) 
+unități specifice 
+pentru a fi scanate. 
+unui fișier 
+suspect. 
+Scanare 
+Microsoft 
+Defender 
+Offline 
+Repornește PC-ul 
+într-un mediu de 
+recuperare securizat, 
+independent de 
+Windows. Scanează 
+sistemul înainte ca 
+sistemul de operare 
+și malware-ul să se 
+încarce. 
+15-30 
+minute 
+Suspiciune de 
+rootkit sau 
+malware 
+persistent care se 
+ascunde sau se 
+protejează în 
+timpul funcționării 
+normale a 
+Windows. 
+Existența scanării Offline este o recunoaștere a faptului că malware-ul 
+modern, în special rootkit-urile, poate compromite sistemul de operare la 
+un nivel atât de fundamental încât devine "invizibil" pentru uneltele care 
+rulează în interiorul său. Scanarea Offline este echivalentul digital al 
+"scoaterii hard disk-ului și scanării lui pe un computer curat", fiind 
+unealta de ultim resort pentru eradicarea infecțiilor persistente. 
+Analiza și interpretarea rezultatelor scanării 
+Navigarea în "Istoricul protecției" (Protection History) 
+Toate evenimentele de securitate, de la amenințări detectate la acțiuni 
+de remediere, sunt înregistrate în Protection History, accesibil din panoul 
+principal Virus & threat protection. Acesta este jurnalul central pentru 
+auditarea securității dispozitivului. 
+Înțelegerea alertelor 
+Evenimentele sunt prezentate sub formă de carduri, marcate cu un cod 
+de culoare pentru a indica nivelul de urgență: 
+●​ Roșu: Indică o amenințare serioasă care necesită acțiune 
+imediată din partea utilizatorului. 
+
+
+ 
+●​ Galben: Reprezintă o alertă care nu este urgentă, dar care 
+necesită atenție, cum ar fi detectarea unei aplicații potențial 
+nedorite (Potentially Unwanted Application - PUA). 
+Gestionarea amenințărilor detectate 
+La extinderea unui card de amenințare, meniul Actions oferă mai multe 
+opțiuni: 
+●​ Carantină (Quarantine): Aceasta este acțiunea implicită și cea 
+mai sigură. Fișierul malițios este izolat într-o locație securizată, 
+unde nu mai poate rula sau provoca daune. Carantina permite 
+restaurarea fișierului în cazul în care detecția a fost un fals pozitiv. 
+●​ Eliminare (Remove): Șterge permanent fișierul infectat de pe 
+sistem. Această acțiune este ireversibilă. 
+●​ Permitere (Allow on device): Marchează fișierul ca fiind sigur și 
+instruiește Microsoft Defender să îl ignore în viitor. Această opțiune 
+trebuie utilizată cu maximă prudență și doar cu certitudine absolută 
+că fișierul este legitim. O amenințare permisă poate fi gestionată 
+ulterior din secțiunea Allowed threats. 
+Răspunsul la tipuri specifice de atacuri 
+Această secțiune oferă planuri de acțiune detaliate ("playbooks") pentru 
+cele mai comune scenarii de atac, de la malware generic la atacuri 
+complexe de inginerie socială, care exploatează psihologia umană 
+(curiozitate, urgență, încredere) pentru a ocoli măsurile tehnice de 
+securitate. 
+Viruși informatici și malware generic 
+Pentru o infecție standard cu viruși, troieni sau viermi, se va urma un 
+protocol secvențial riguros pentru a asigura eradicarea completă: 
+1.​ Izolare: Deconectați imediat computerul de la rețea pentru a 
+preveni răspândirea și comunicarea externă a malware-ului. 
+2.​ Diagnosticare inițială: Rulați o Scanare rapidă cu Microsoft 
+Defender pentru a identifica și neutraliza rapid amenințările cele 
+mai evidente. 
+
+
+ 
+3.​ Curățare în Safe Mode: Reporniți computerul în Safe Mode (fără 
+rețea). În acest mediu izolat, rulați o Scanare completă. Acest pas 
+este esențial, deoarece malware-ul nu se poate apăra sau 
+ascunde la fel de eficient ca în modul normal de funcționare. 
+4.​ Eradicare persistentă: Dacă problema persistă după pașii 
+anteriori sau dacă există suspiciunea unei infecții la nivel de root 
+(de exemplu, antivirusul este dezactivat în mod repetat), rulați o 
+Scanare Microsoft Defender Offline. Aceasta este cea mai 
+eficientă metodă pentru eliminarea malware-ului persistent. 
+5.​ Verificare finală: După ce computerul repornește în modul 
+normal, rulați o a doua Scanare completă pentru a confirma că 
+toate urmele infecției au fost eliminate. 
+Adware și spyware 
+Identificarea simptomelor 
+●​ Adware: Se manifestă prin reclame pop-up agresive și intruzive, 
+redirecționări neașteptate către site-uri web necunoscute, apariția 
+de noi bare de instrumente (toolbars) sau extensii în browser și 
+modificarea paginii de start sau a motorului de căutare implicit fără 
+consimțământ. 
+●​ Spyware: Este adesea mai discret. Simptomele pot include o 
+încetinire generală a sistemului și a conexiunii la internet, activitate 
+suspectă a camerei web sau a microfonului (LED-ul se aprinde 
+singur) și un consum neobișnuit de mare de resurse. Scopul său 
+principal este furtul de date (informații de autentificare, date 
+financiare), care este adesea invizibil pentru utilizator. 
+Proceduri de eliminare 
+Pe lângă scanările complete cu Microsoft Defender, eliminarea 
+adware-ului și spyware-ului necesită pași suplimentari: 
+1.​ Curățarea browserelor: Verificați manual lista de extensii 
+instalate în toate browserele (Microsoft Edge, Google Chrome, 
+Mozilla Firefox) și eliminați orice extensie suspectă sau 
+necunoscută. Ulterior, resetați setările fiecărui browser la valorile 
+implicite pentru a elimina orice modificare persistentă. 
+
+
+ 
+2.​ Dezinstalarea aplicațiilor (PUPs): Adware-ul și spyware-ul sunt 
+adesea împachetate cu software gratuit, fiind clasificate ca 
+Programe Potențial Nedorite (PUPs). Verificați lista de programe 
+instalate din Settings sau Control Panel și dezinstalați orice 
+aplicație pe care nu vă amintiți să o fi instalat sau care pare 
+suspectă. 
+3.​ Utilizarea uneltelor specializate: Pentru infecții persistente cu 
+adware, se poate utiliza o unealtă dedicată, precum Malwarebytes 
+AdwCleaner, care este specializată în detectarea și eliminarea 
+acestui tip de software nedorit. 
+Răspunsul la un atac de phishing depinde de nivelul de interacțiune al 
+victimei. Consecințele depășesc adesea simpla infectare a unui 
+computer, vizând compromiterea identității digitale a utilizatorului. 
+●​ Scenariul 1: S-a dat clic pe un link malițios, dar nu s-au 
+introdus date. 
+1.​ Acțiune imediată: Închideți imediat tab-ul sau fereastra 
+browserului. 
+2.​ Precauție: Rulați o Scanare rapidă pentru a verifica dacă 
+vizitarea site-ului a declanșat o descărcare de tip "drive-by". 
+3.​ Igienă: Ștergeți memoria cache, cookie-urile și istoricul de 
+navigare recent pentru a elimina orice element de urmărire. 
+●​ Scenariul 2: S-au introdus date de autentificare pe un site fals. 
+1.​ Acțiune critică: Deconectați imediat dispozitivul de la rețea. 
+2.​ Resetarea parolei: De pe un dispozitiv diferit și sigur, 
+accesați site-ul legitim al serviciului compromis (bancă, 
+e-mail etc.) și schimbați imediat parola. Dacă parola a fost 
+reutilizată, schimbați-o pe toate conturile unde a fost folosită. 
+3.​ Activarea 2FA/MFA: Activați autentificarea cu doi factori 
+(sau multi-factor) pe contul compromis și pe toate celelalte 
+conturi importante. Acest lucru adaugă un strat de securitate 
+care poate bloca accesul atacatorului, chiar dacă acesta 
+deține parola. 
+4.​ Monitorizare și raportare: Monitorizați cu atenție conturile 
+pentru orice activitate suspectă (tranzacții neautorizate, 
+e-mailuri trimise în numele dvs.) și raportați incidentul 
+furnizorului de servicii și, dacă este cazul, autorităților. 
+
+
+ 
+●​ Scenariul 3: S-a descărcat și deschis un atașament periculos. 
+1.​ Izolare imediată: Deconectați sistemul de la rețea. Este 
+aproape sigur că atașamentul a executat un payload de 
+malware (ransomware, keylogger, infostealer). 
+2.​ Eradicare completă: Urmați protocolul complet de eliminare 
+a malware-ului descris mai sus, inclusiv scanarea în Safe 
+Mode și, dacă este necesar, scanarea Offline. 
+3.​ Compromiterea credențialelor: Presupuneți că toate 
+parolele stocate sau tastate pe computerul infectat au fost 
+compromise. După curățarea completă a sistemului, 
+schimbați toate parolele importante de pe un dispozitiv sigur. 
+Atacuri fizice: gestionarea unităților USB necunoscute 
+Unitățile USB găsite sau primite din surse necunoscute reprezintă un 
+risc de securitate fizică semnificativ. Amenințările au evoluat de la simple 
+fișiere infectate la atacuri la nivel de hardware. 
+●​ Riscuri asociate: 
+○​ Malware cu AutoRun: Unități care exploatează 
+funcționalitatea (acum în mare parte dezactivată în 
+Windows) de a rula automat un program la conectare. 
+○​ BadUSB: Un atac sofisticat în care unitatea USB nu se 
+prezintă sistemului ca un dispozitiv de stocare, ci emulează o 
+tastatură (Human Interface Device - HID) și introduce rapid 
+comenzi malițioase. 
+○​ USB Killer: Un dispozitiv deghizat în stick USB care, la 
+conectare, descarcă o sarcină electrică de înaltă tensiune în 
+port, distrugând fizic placa de bază sau alte componente.
+ 
+
+
+ 
+Măsuri de precauție: Dezactivarea funcționalității AutoPlay/AutoRun 
+Pentru a preveni execuția automată, este crucial să dezactivați complet 
+AutoPlay. 
+●​ Prin Setări: 
+○​ Windows 11: Setări > Bluetooth & devices > AutoPlay. 
+Dezactivați comutatorul principal și setați opțiunile pentru 
+Removable drive și Memory card la Take no action sau Ask 
+me every time. 
+○​ Windows 10: Setări > Devices > AutoPlay. Dezactivați 
+comutatorul și setați opțiunile la Take no action. 
+●​ Prin Panoul de Control (ambele sisteme): Accesați Control 
+Panel (cu vizualizare Large/Small icons), selectați AutoPlay și 
+debifați caseta Use AutoPlay for all media and devices. 
+●​ Prin Editorul de Politici de Grup (doar edițiile Pro/Enterprise): 
+Lansați gpedit.msc. Navigați la Computer Configuration > 
+Administrative Templates > Windows Components > AutoPlay 
+Policies. Aici, activați politica Turn off AutoPlay pentru a o 
+dezactiva complet. 
+Metoda sigură de analiză 
+1.​ Asigurați-vă că AutoPlay este dezactivat folosind metodele de 
+mai sus. 
+2.​ Conectați unitatea USB la computer. 
+3.​ Nu deschideți unitatea prin dublu clic din File Explorer. 
+4.​ Lansați Windows Security și navigați la Virus & threat protection 
+> Scan options. 
+5.​ Selectați Custom scan și apoi Scan now. În fereastra care apare, 
+selectați doar unitatea USB corespunzătoare și porniți scanarea. 
+6.​ Accesați conținutul doar după ce scanarea se finalizează și 
+raportează că nu au fost găsite amenințări. 
+ 
+ 
+
+
+ 
+Măsuri preventive și consolidarea securității 
+post-incident 
+După ce un incident a fost remediat, este crucială tranziția de la o 
+abordare reactivă la una proactivă. Consolidarea securității sistemului  
+reduce suprafața de atac și previne viitoarele infecții. 
+Importanța menținerii la zi a sistemului și a aplicațiilor 
+Actualizările de software, în special cele de securitate, conțin remedieri 
+(patch-uri) pentru vulnerabilități recent descoperite. Multe atacuri 
+malware nu se bazează pe tehnici "zero-day" avansate, ci pe scanarea 
+automată a internetului în căutarea sistemelor care au vulnerabilități 
+cunoscute, dar pentru care nu s-au aplicat actualizările. O politică 
+riguroasă de actualizare prin Windows Update pentru sistemul de 
+operare și menținerea la zi a aplicațiilor terțe (browsere, Adobe Reader, 
+Java etc.) este una dintre cele mai eficiente măsuri preventive. 
+Configurarea și verificarea Firewall-ului Windows 
+Firewall-ul Windows acționează ca o barieră de control al traficului între 
+computer și rețelele externe (inclusiv internetul). Acesta monitorizează și 
+filtrează pachetele de date, blocând conexiunile neautorizate. Este 
+esențial să se verifice dacă firewall-ul este activ pentru toate profilurile 
+de rețea (Domain, Private, Public). Această verificare se poate face din 
+Windows Security > Firewall & network protection. 
+Rolul Controlului Contului de Utilizator (UAC) și al Microsoft 
+Defender SmartScreen 
+●​ UAC (User Account Control): Această funcție previne 
+modificările neautorizate la nivel de sistem, solicitând confirmarea 
+utilizatorului sau o parolă de administrator pentru acțiunile care 
+necesită privilegii elevate. Menținerea UAC la nivelul implicit sau 
+mai ridicat adaugă un strat important de protecție împotriva 
+malware-ului care încearcă să se instaleze sau să modifice fișiere 
+de sistem. 
+●​ SmartScreen: Este o funcție de protecție bazată pe reputație, 
+integrată în Windows și în browserul Microsoft Edge. Aceasta 
+verifică aplicațiile, fișierele și site-urile web accesate, 
+comparându-le cu o bază de date extinsă de amenințări 
+
+
+ 
+cunoscute. SmartScreen poate bloca site-urile de phishing, 
+descărcările malițioase și execuția aplicațiilor nerecunoscute care 
+ar putea fi periculoase. 
+Strategii de backup și importanța acestora 
+Backup-urile regulate reprezintă plasa de siguranță finală împotriva 
+pierderii de date, fie că aceasta este cauzată de o defecțiune hardware, 
+o ștergere accidentală sau un atac cibernetic distructiv, cum ar fi 
+ransomware. Un backup nu este doar o sarcină tehnică, ci un element 
+central al rezilienței operaționale. Pentru un individ, înseamnă diferența 
+dintre a pierde documente și amintiri de neînlocuit și a putea restaura 
+sistemul la o stare funcțională în câteva ore. Se recomandă adoptarea 
+strategiei 3-2-1: 
+●​ Trei copii ale datelor importante. 
+●​ Pe două tipuri diferite de medii de stocare (de exemplu, hard disk 
+intern și hard disk extern). 
+●​ Cu cel puțin o copie păstrată într-o locație diferită (off-site), fie fizic, 
+fie în cloud. 
+Concluzii 
+Securitatea cibernetică în mediul Windows modern se bazează pe o 
+abordare stratificată, care combină uneltele tehnologice avansate cu 
+acțiuni proactive și conștientizarea utilizatorului. Răspunsul eficient la un 
+incident de malware nu se rezumă la simpla rulare a unei scanări 
+antivirus, ci implică un protocol structurat: izolare, diagnosticare, 
+eradicare și validare. Utilizarea corectă a modului de siguranță și a 
+scanării offline sunt competențe esențiale pentru a combate amenințările 
+persistente. 
+Mai mult, configurarea proactivă a funcțiilor precum protecția în timp 
+real, protecția cloud și accesul controlat la foldere transformă Microsoft 
+Defender într-o barieră robustă. În final, cele mai puternice unelte 
+tehnice pot fi subminate de ingineria socială. Prin urmare, consolidarea 
+apărării prin actualizări constante, backup-uri regulate și, cel mai 
+important, educarea continuă cu privire la tacticile de phishing și riscurile 
+dispozitivelor fizice, rămâne piatra de temelie a unei strategii de 
+securitate complete și reziliente. 

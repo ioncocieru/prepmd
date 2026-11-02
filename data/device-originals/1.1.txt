@@ -1,0 +1,458 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+Windows Installation 
+and Configuration 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+1.1 Recognize basic computer components and explain their 
+functions,including: 
+• RAM 
+• CPU/APU (x86 [32-bit and 64-bit], ARM) 
+• Graphics Card 
+• Physical Storage 
+• Motherboard 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Componentele Fundamentale ale unui Calculator:  
+Un calculator modern este o mașinărie complexă, alcătuită dintr-o 
+multitudine de componente care lucrează împreună pentru a procesa 
+informații și a executa sarcini. Înțelegerea funcției fiecărei componente 
+este esențială pentru oricine dorește să opereze, să depaneze sau să 
+gestioneze eficient un sistem informatic. Acest ghid detaliază cele mai 
+importante componente hardware, explicând rolul și caracteristicile 
+fiecăreia. 
+1.​ Placa de Bază (Motherboard) 
+Placa de bază, denumită și "motherboard", este una dintre cele mai 
+importante componente ale unui calculator. Rolul său fundamental este 
+de a asigura interconectarea și comunicarea între toate celelalte 
+elemente hardware ale sistemului, cum ar fi procesorul, memoria RAM, 
+unitățile de stocare, placa grafică și alte periferice. Practic, este "terenul 
+comun" pe care toate piesele joacă în echipă.   
+ 
+
+
+ 
+Componente și Caracteristici Cheie ale Plăcii de Bază: 
+●​ Chipset-ul: Este o componentă esențială a plăcii de bază, este 
+principalul coordonator al componentelor din calculator, gestionând 
+fluxul de date și comunicarea între CPU, RAM, sloturile de 
+expansiune și periferice. Este crucial pentru funcționalități precum 
+overclocking-ul.   
+●​ Socket-ul Procesorului (CPU Socket): Este locația fizică de pe 
+placa de bază unde se montează procesorul. Alegerea plăcii de 
+bază depinde întotdeauna de tipul de procesor (Intel sau AMD) și 
+de socket-ul specific al acestuia (ex: Intel 1150, 1151, 2011; AMD 
+AM4, AM3+, FM2).   
+●​ Sloturi de RAM (RAM Slots): Acestea sunt sloturile în care se 
+instalează modulele de memorie RAM. Numărul de sloturi (de 
+obicei 2, 4 sau 8) și tipul de memorie suportat (DDR4, DDR5 etc.) 
+determină capacitatea maximă de RAM pe care o poate avea 
+sistemul. Plăcile de bază moderne suportă adesea memorii în 
+configurații dual channel sau quad channel pentru performanțe 
+îmbunătățite.   
+●​ Sloturi PCI Express (PCIe Slots): Sunt sloturi de expansiune de 
+mare viteză utilizate pentru conectarea plăcilor grafice dedicate 
+(PCIe x16), a SSD-urilor NVMe și a altor plăci de expansiune (cum 
+ar fi plăci de rețea sau de sunet de înaltă performanță). Cu cât 
+sunt mai multe sloturi PCIe și cu cât versiunea lor este mai nouă, 
+cu atât mai multe componente de înaltă performanță pot fi 
+conectate.   
+●​ Porturi SATA (Serial ATA): Aceste porturi sunt utilizate pentru 
+conectarea unităților de stocare interne, cum ar fi HDD-urile și 
+SSD-urile SATA. Majoritatea plăcilor de bază moderne sunt dotate 
+cu 4, 6 sau chiar 8 conectori SATA.   
+●​ Sloturi PCI (Peripheral Component Interconnect): Acestea sunt 
+sloturi de expansiune mai vechi, utilizate pentru conectarea unor 
+dispozitive precum plăci de sunet, plăci de rețea, TV-Tunere sau 
+adaptoare Wi-Fi. Deși încă prezente pe unele plăci de bază, sunt 
+înlocuite treptat de PCIe.   
+●​ Porturi USB: Placa de bază include diverse porturi USB (USB 2.0, 
+USB 3.0, USB-C) pentru conectarea perifericelor externe, cum ar fi 
+
+
+ 
+tastaturi, mouse-uri, imprimante, unități flash și alte dispozitive.  
+ 
+●​ Ieșiri Video și Audio: Pentru sistemele care utilizează grafică 
+integrată, placa de bază include ieșiri video (HDMI, DisplayPort, 
+VGA, DVI) pentru conectarea la monitor. De asemenea, 
+majoritatea plăcilor de bază au o placă de sunet integrată cu ieșiri 
+audio pentru căști, difuzoare și microfon.   
+Factori de Formă (Dimensiune): Plăcile de bază vin în diverse 
+dimensiuni, cunoscute sub numele de factori de formă. Această 
+dimensiune influențează posibilitățile de adăugare a componentelor și 
+tipul de carcasă necesar. Cele mai comune tipuri includ:   
+●​ ATX: Dimensiuni mari, oferă spațiu amplu pentru componente 
+puternice și multiple sloturi de expansiune.   
+●​ mATX (micro ATX): Mai mici decât ATX, potrivite pentru 
+computere dedicate activităților simple sau pentru sisteme 
+compacte.   
+●​ BTX, DTX, LPX: Alte factori de formă, mai puțin comuni în 
+prezent.   
+Importanța Plăcii de Bază: Alegerea unei plăci de bază adecvate este 
+crucială, deoarece de ea depinde compatibilitatea și dezvoltarea 
+ulterioară a întregului sistem. Funcționalitatea și dotările sale vor 
+determina câte plăci de expansiune pot fi instalate și cu câtă memorie 
+RAM sau unități de stocare poate fi echipat sistemul în viitor.   
+2.​ Memoria RAM (Random Access Memory) 
+Memoria RAM, sau Memoria cu Acces Aleatoriu, este o componentă 
+hardware esențială care servește drept "memorie pe termen scurt" a 
+
+
+ 
+computerului. Rolul său principal este de a stoca temporar datele și 
+instrucțiunile pe care procesorul le utilizează activ. Spre deosebire de 
+stocarea permanentă (cum ar fi un hard disk sau SSD), datele din RAM 
+sunt volatile, adică se pierd atunci când computerul este oprit. Cu cât un 
+computer are mai multă memorie RAM, cu atât poate rula mai multe 
+sarcini simultan și mai rapid.   
+Ce este DDR? DDR este o formă de SDRAM (Synchronous Dynamic 
+Random Access Memory) și înseamnă "Double Data Rate" (Rată Dublă 
+de Date). Aceasta sincronizează transferul de date între CPU și 
+memoria sistemului, transferând date de două ori pe ciclu de ceas (pe 
+ambele margini, ascendentă și descendentă, ale semnalului de ceas). 
+Fiecare iterație a tehnologiei DDR aduce îmbunătățiri semnificative de 
+performanță față de predecesoarea sa.   
+ 
+ 
+Evoluția și Caracteristicile Generațiilor RAM: 
+Generație 
+RAM 
+Prefet
+ch 
+Rată 
+de 
+Date 
+(MT/s) 
+Rată de 
+Transfer 
+(GB/s) 
+Tens
+iune 
+(V) 
+Note Cheie 
+DDR 
+2-Bit 
+266 - 
+400 
+2.1 - 3.2 
+2.5 - 
+2.6 
+Prima generație DDR, îmbunătățire 
+față de SDRAM.   
+DDR2 
+4-Bit 
+533 - 
+800 
+4.2 - 6.4 
+1.8 
+De două ori mai rapidă decât DDR 
+datorită semnalului de magistrală 
+
+
+ 
+îmbunătățit; poate rula în mod 
+"dual channel".   
+DDR3 
+8-Bit 
+1066 - 
+2133 
+8.5 - 
+14.9 
+1.35 
+- 1.5 Rate de transfer mai mari cu un 
+consum mai mic de energie, ideală 
+pentru laptopuri.   
+DDR4 
+Bit 
+per 
+Bank 
+2133 - 
+5100 
+17 - 25.6 1.2 
+Tensiune de operare mai mică, 
+rate de transfer mai mari, mai 
+eficientă; poate procesa mai multe 
+cereri de date într-un ciclu de ceas.  
+DDR5 
+16-Bit 
+3200 - 
+8000+ 
+38.4 - 
+51.2 
+1.1 
+Cea mai recentă tehnologie, 
+densitate mai mare (până la 128 
+GB pe modul), eficiență energetică 
+îmbunătățită prin PMIC integrat pe 
+modul, dar generează mai multă 
+căldură.   
+Compatibilitate: Este crucial de reținut că nu toate tipurile de RAM sunt 
+compatibile cu toate plăcile de bază. Plăcile de bază sunt construite 
+pentru a suporta un singur tip de memorie (de exemplu, DDR4 sau 
+DDR5), iar modulele de memorie de generații diferite nu sunt 
+interschimbabile și nici nu se potrivesc în aceleași sloturi.   
+ 3. CPU/APU (Unitatea Centrală de Procesare / Unitatea de 
+Procesare Accelerată) 
+CPU, sau Unitatea Centrală de Procesare, este adesea denumită 
+"creierul" computerului. Rolul său principal este de a interpreta 
+instrucțiunile din software și de a controla celelalte componente pentru a 
+executa sarcini, procesând date și gestionând operațiunile computerului. 
+Arhitectura CPU definește setul de instrucțiuni, modelele de memorie și 
+modelele de excepție ale procesorului.   
+ 
+
+
+ 
+ 
+ 
+Arhitecturi CPU Populare: 
+●​ x86 (32-bit, IA-32, i386, i686): 
+○​ Este o arhitectură larg utilizată pentru unitățile centrale de 
+procesare (CPU) și a devenit dominantă pentru computerele 
+personale și servere. Numele "x86" provine de la 8086, un 
+procesor timpuriu lansat de Intel®.   
+○​ Procesoarele x86 utilizează un design CISC (Complex 
+Instruction Set Computer), permițându-le să execute mai 
+multe instrucțiuni într-un singur ciclu, ceea ce le face 
+versatile, dar potențial mai consumatoare de energie.   
+○​ Limitări: Arhitectura x86 pe 32 de biți este mai veche și 
+limitată la adresarea a maximum 4 GB de memorie RAM.   
+●​ x86-64 (x64, AMD64): 
+○​ Este o extensie pe 64 de biți a arhitecturii x86, introdusă de 
+AMD (de unde și numele AMD64) și adoptată ulterior de Intel 
+(sub denumirea EM64T).   
+○​ Avantaje: Permite CPU-ului să gestioneze cantități 
+semnificativ mai mari de memorie virtuală și fizică (mult 
+peste 4 GB, cu implementări curente de până la 256 TiB de 
+spațiu de adresare virtuală și potențial 4 PiB de RAM în 
+viitor). Aceasta duce la o procesare mai eficientă a datelor și 
+o performanță generală îmbunătățită.   
+○​ Compatibilitate inversă: Procesoarele x86-64 sunt 
+compatibile invers cu software-ul x86 pe 32 de biți, 
+permițând rularea aplicațiilor pe 16, 32 și 64 de biți pe un 
+sistem de operare pe 64 de biți, fără penalizări semnificative 
+de performanță.   
+○​ Este arhitectura predominantă în majoritatea PC-urilor și 
+serverelor moderne.   
+●​ ARM (32-bit): 
+○​ Se bazează pe designul RISC (Reduced Instruction Set 
+Computer), care simplifică execuția instrucțiunilor, făcându-l 
+extrem de eficient din punct de vedere energetic.   
+
+
+ 
+○​ Este utilizat în principal în sisteme mobile mai vechi și 
+sisteme încorporate.   
+●​ ARM64 (AArch64): 
+○​ Versiunea pe 64 de biți a arhitecturii ARM.   
+○​ Suportă mai multă memorie RAM și este utilizată în 
+telefoane moderne, servere și în procesoarele Apple Silicon 
+(cum ar fi M1, M2, M3, M4).   
+APU (Accelerated Processing Unit): Termenul APU este folosit de unii 
+producători (în special AMD) pentru a descrie un procesor care 
+integrează atât un CPU, cât și o unitate de procesare grafică (GPU) pe 
+același cip. Aceasta permite o grafică comutabilă, unde sistemul poate 
+alege din mers între grafica integrată și o placă grafică dedicată, 
+optimizând atât durata de viață a bateriei, cât și performanța.   
+4. Placa Grafică (Graphics Card / GPU) 
+Placa grafică, cunoscută și sub denumirea de placă video sau GPU 
+(Graphics Processing Unit), este o componentă hardware esențială a 
+cărei funcție principală este de a genera imagini și de a le transmite 
+către un monitor. Este crucială pentru o experiență vizuală optimă, fie că 
+este vorba de jocuri video, editare video sau pur și simplu de utilizarea 
+zilnică a computerului.   
+
+
+ 
+ 
+Funcțiile Plăcii Grafice: Pe lângă generarea imaginilor de bază, plăcile 
+grafice moderne oferă funcții avansate, cum ar fi: 
+●​ Redarea accelerată a scenelor 2D și 3D.   
+●​ Capacitatea de a utiliza mai multe monitoare (multi-monitor).   
+●​ Tehnologii avansate precum RTX (Ray Tracing) pentru iluminare 
+realistă și DLSS (Deep Learning Super Sampling) pentru 
+îmbunătățirea performanței în jocuri.   
+Tipuri de Plăci Grafice: 
+1.​ Plăci Video Integrate (IGP - Integrated Graphics Processor): 
+○​ Sunt încorporate direct în procesorul central (CPU) sau în 
+chipset-ul plăcii de bază.   
+○​ Funcționare: Acestea nu au propria memorie dedicată și 
+utilizează o parte din memoria RAM a sistemului (memorie 
+partajată). De asemenea, folosesc din puterea de procesare 
+a CPU-ului.   
+
+
+ 
+○​ Avantaje: Sunt o soluție mai economică, consumă mai 
+puțină energie și generează mai puțină căldură, fiind ideale 
+pentru laptopuri și PC-uri compacte unde spațiul și eficiența 
+energetică sunt importante.   
+○​ Dezavantaje: Performanța lor este limitată. Sunt potrivite 
+pentru sarcini grafice de bază, navigare web, vizionare de 
+clipuri video și aplicații de birou. Pot întâmpina dificultăți cu 
+aplicații mai solicitante, cum ar fi programele CAD complexe 
+sau jocurile moderne.   
+2.​ Plăci Video Dedicate (GPU - Graphics Processing Unit): 
+○​ Sunt plăci de expansiune separate, care au propriul procesor 
+grafic (GPU) și propria memorie RAM dedicată (VRAM - 
+Video RAM).   
+○​ Funcționare: VRAM-ul este o memorie separată de 
+memoria RAM a sistemului și este utilizată exclusiv de GPU 
+pentru stocarea datelor grafice necesare randării. Aceasta 
+permite GPU-ului să acceseze rapid datele, îmbunătățind 
+semnificativ viteza de randare și performanța generală.   
+○​ Avantaje: Oferă performanțe mult superioare, fiind capabile 
+să gestioneze sarcini complexe și intensive în resurse, cum 
+ar fi randarea 3D, editarea video la rezoluție înaltă, designul 
+grafic avansat și jocurile moderne.   
+○​ Dezavantaje: Necesită o investiție inițială mai mare, 
+consumă mai multă energie și generează mai multă căldură, 
+necesitând soluții de răcire robuste.   
+○​ Producători principali: Cei doi mari jucători pe piața plăcilor 
+grafice sunt AMD și NVIDIA.   
+○​ Slot de conectare: Se montează într-un slot de expansiune 
+de pe placa de bază, numit PCI Express x16 (sau PCIe x16).   
+Sisteme Hibride (Grafică Comutabilă): Multe laptopuri moderne și 
+unele desktop-uri dețin un sistem hibrid de plăci grafice, având atât o 
+placă integrată, cât și una dedicată. Sistemul poate comuta automat 
+între cele două, în funcție de solicitările grafice (de exemplu, utilizând 
+placa integrată pentru sarcini uzuale pentru a economisi energie și placa 
+dedicată pentru aplicații solicitante).   
+
+
+ 
+5. Stocarea Fizică (Physical Storage) 
+Stocarea fizică se referă la componentele hardware care permit stocarea 
+permanentă a datelor pe un computer. Spre deoseosebire de RAM, 
+datele stocate pe aceste dispozitive rămân intacte chiar și după oprirea 
+computerului.   
+ 
+Tipuri Principale de Stocare Fizică: 
+1.​ HDD (Hard Disk Drive - Unitate de Hard Disk): 
+○​ Principiu de funcționare: Este un tip de stocare mai vechi, 
+care funcționează pe baza unor discuri magnetice rotative. 
+Informațiile sunt scrise și citite de pe aceste discuri cu 
+ajutorul unor capete de citire/scriere.   
+○​ Capacitate: HDD-urile oferă, de obicei, capacități de stocare 
+mult mai mari (până la mai mulți terabaiți) la un cost pe 
+gigabyte semnificativ mai mic comparativ cu SSD-urile.   
+○​ Viteză: Sunt mult mai lente decât SSD-urile din cauza 
+limitărilor mecanice. Vitezele de citire/scriere nu depășesc, 
+de obicei, 150 MB/s.   
+○​ Durabilitate și Fiabilitate: Sunt mai predispuse la defecțiuni 
+mecanice din cauza pieselor mobile. Cu toate acestea, 
+teoretic, pot rezista la un număr nelimitat de rescrieri, iar 
+durata lor de viață este limitată de uzura mecanică 
+(aproximativ 10-20 de ani).   
+
+
+ 
+○​ Consum de energie și Zgomot: Consumă mai multă 
+energie și produc zgomot sesizabil din cauza rotației 
+discurilor.   
+○​ Factori de formă și Interfețe: Cel mai comun factor de 
+formă este de 3.5 inch pentru desktop-uri și 2.5 inch pentru 
+laptopuri. Se conectează, de obicei, prin interfața SATA.   
+2.​ SSD (Solid State Drive - Unitate Solid-State): 
+○​ Principiu de funcționare: Este un tip de stocare mai nou, 
+care nu are părți în mișcare. Datele sunt stocate pe cipuri de 
+memorie flash (NAND).   
+○​ Capacitate: Oferă capacități de stocare mai mici comparativ 
+cu HDD-urile la un cost pe gigabyte mai mare (de obicei 
+până la 4 TB pentru consumatori, până la 8 TB pentru 
+profesioniști).   
+○​ Viteză: Sunt mult mai rapide decât HDD-urile. Chiar și un 
+SSD de buget poate atinge viteze de scriere de până la 250 
+MB/s și viteze de citire de peste 400 MB/s, în timp ce 
+SSD-urile de înaltă performanță pot depăși 5000 MB/s. 
+Această viteză mare accelerează semnificativ timpul de 
+pornire al sistemului de operare și încărcarea aplicațiilor.   
+○​ Durabilitate și Fiabilitate: Sunt mai durabile deoarece nu 
+au piese mobile. Cu toate acestea, au un număr limitat de 
+cicluri de scriere/ștergere (de exemplu, un SSD de buget 
+poate fi suprascris de până la 500 de ori, ceea ce înseamnă 
+o durată de viață de 2-3 ani în cazul utilizării intensive).   
+○​ Consum de energie și Zgomot: Consumă mai puțină 
+energie și funcționează silențios.   
+○​ Factori de formă și Interfețe: Vin în diverse factori de 
+formă, inclusiv 2.5 inch (SATA), M.2 (SATA sau NVMe) și 
+PCIe (NVMe).   
+3.​ NVMe (Non-Volatile Memory Express): 
+○​ NVMe nu este un tip de stocare în sine, ci un protocol de 
+interfață dezvoltat special pentru SSD-uri. SSD-urile NVMe 
+se conectează prin intermediul sloturilor PCIe de pe placa de 
+bază, oferind viteze mult mai mari și o latență mai mică decât 
+SSD-urile SATA. Sunt ideale pentru aplicații de înaltă 
+performanță și jocuri.   
+
+
+ 
+Comparație Sumară HDD vs. SSD: 
+Caracteristică 
+Hard Diskuri (HDD) 
+Unități SSD (SSD) 
+Viteză 
+Mai lent (80-160 MB/s) 
+Mult mai rapid (200 MB/s - peste 5000 
+MB/s)   
+Capacitate 
+Mai mare (până la TB) 
+Mai mică (până la 4 TB, profesional 
+până la 8 TB)   
+Rezistență 
+Mai puțin durabil (piese 
+mobile) 
+Mai durabil (fără piese mobile)   
+Consum 
+Energie 
+Mai mare 
+Mai mic   
+Zgomot 
+Sesizabil 
+Silențios   
+Cost per GB 
+Inferior 
+Superior   
+Factori de 
+Formă 
+2.5 inch, 3.5 inch 
+2.5 inch, M.2 (SATA, NVMe), PCIe 
+(NVMe)   
+Interfețe 
+SATA 
+SATA, M.2, PCIe   
+ 

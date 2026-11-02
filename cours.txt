@@ -1,0 +1,46 @@
+/* =====================================================================
+   CURSURI — capitole, video-uri și resurse pentru fiecare examen.
+
+   VIDEO din GitHub:   { title: "Titlu", file: "videos/deviceConfig/domain1/01-instalare.mp4" }
+   VIDEO de pe YouTube:{ title: "Titlu", youtube: "https://youtu.be/XXXXXXXXXXX" }
+   RESURSĂ de descărcat:{ title: "Titlu", file: "resources/deviceConfig/Workbook.pdf" }
+
+   Ordinea de aici = ordinea pe site. Cheile: python, databases, deviceConfig, networking
+   ===================================================================== */
+window.COURSE_DATA = {
+
+  deviceConfig: {
+    resources: [
+      { title: "Student Workbook (PDF)", file: "resources/deviceConfig/Device_Configuration_and_Management_Student_Workbook.pdf" },
+      { title: "Support Files (ZIP)",    file: "resources/deviceConfig/Device_Configuration_and_Management_Support_Files.zip" }
+    ],
+    chapters: [
+      { title: "Domain 1 — Windows Installation and Configuration", videos: [
+        // { title: "1.1 Instalarea Windows", file: "videos/deviceConfig/domain1/01-instalare.mp4" },
+      ]},
+      { title: "Domain 2 — Application and Peripheral Management", videos: [
+        // { title: "2.1 Aplicații", youtube: "https://youtu.be/XXXXXXXXXXX" },
+      ]},
+      { title: "Domain 3 — Data Access and Management", videos: [] },
+      { title: "Domain 4 — Device Security", videos: [] },
+      { title: "Domain 5 — Troubleshooting", videos: [] }
+    ]
+  },
+
+  python: {
+    resources: [],
+    chapters: [
+      // { title: "Capitolul 1 — Introducere", videos: [ { title: "Titlu video", file: "videos/python/cap1/01.mp4" } ] },
+    ]
+  },
+
+  databases: {
+    resources: [],
+    chapters: []
+  },
+
+  networking: {
+    resources: [],
+    chapters: []
+  }
+};

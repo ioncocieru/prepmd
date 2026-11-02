@@ -1,0 +1,708 @@
+Device Configuration and
+Management
+3. Data Access and
+Management
+3.1 Describe cloud services
+• Cloud storage and collaboration concepts
+• Identify common cloud storage and service providers, such as Azure,
+Microsoft 365 (to include but not limited to: SharePoint, OneDrive,
+Outlook,
+Teams, Windows 365)
+• File sharing capabilities and permissions
+• Offline file synchronization
+• Describe and configure storage
+• Understand when and why to use partitioning
+• Partition and format a drive.
+• Choose a file system to use when formatting the drive (NTFS, FAT32,
+and
+exFAT)
+• Configure File and folder attributes
+• Identify the effect on permissions and attributes when copying or
+moving
+data between file systems
+• GPT and MBR partition style
+Partea I: Descrierea serviciilor cloud
+Secțiunea 1: Concepte fundamentale de cloud storage și colaborare
+Stocarea în cloud reprezintă un model de servicii în care datele digitale sunt stocate
+într-un ansamblu de servere la distanță, gestionate de un furnizor terț, și accesate
+prin internet. Un principiu fundamental al acestui model este flexibilitatea financiară,
+bazată pe un sistem de plată "pay-as-you-go", unde se plătește doar pentru
+resursele efectiv utilizate. Responsabilitatea pentru întreținerea hardware-ului,
+asigurarea disponibilității continue a datelor și implementarea măsurilor de securitate
+revine în totalitate furnizorului de servicii cloud, permițând organizațiilor să se
+concentreze pe activitatea lor de bază.
+Tipuri de stocare în cloud
+Stocarea în cloud se manifestă în principal prin trei modele, fiecare adaptat unor
+nevoi specifice:
+● Stocare de obiecte (Object Storage): Acest model gestionează datele
+nestructurate ca unități discrete numite "obiecte", fiecare stocat într-un spațiu
+plat, fără ierarhie de foldere. Fiecare obiect include datele, metadate extinse
+și un identificator unic global. Accesul se realizează prin API-uri web (precum
+REST API), fiind ideal pentru aplicații cloud-native, backup și arhivare pe
+termen lung, găzduire de site-uri statice și livrare de conținut media la scară
+largă (de ex., video streaming). Oferă o scalabilitate practic nelimitată și o
+durabilitate ridicată a datelor.
+● Stocare de fișiere (File Storage): Acest tip de stocare oferă un sistem de
+fișiere partajat, accesibil printr-o rețea, similar unui server de fișiere tradițional
+(Network Attached Storage - NAS). Datele sunt organizate într-o ierarhie de
+foldere și fișiere, fiind potrivite pentru aplicații care necesită acces partajat la
+fișiere, cum ar fi directoarele de lucru ale echipelor sau depozitele de conținut
+centralizate.
+● Stocare de blocuri (Block
+Storage): Acest model divizează
+datele în blocuri de dimensiuni fixe,
+fiecare cu o adresă unică, dar fără
+metadate de nivel superior. Este
+echivalentul unui hard disk virtual
+(un volum brut) care poate fi atașat
+mașinilor virtuale din cloud. Oferă
+performanțe ridicate și latență
+scăzută, fiind ideal pentru baze de
+date tranzacționale, sisteme de
+fișiere de înaltă performanță și
+aplicații care necesită acces direct,
+la nivel de bloc, la stocare.
+Modele de servicii cloud
+Serviciile de cloud computing sunt livrate prin trei modele principale, care definesc
+nivelul de control și responsabilitate al clientului versus cel al furnizorului:
+● IaaS (Infrastructure as a Service): Furnizorul oferă infrastructura de bază:
+servere virtuale, stocare și rețelistică. Clientul este responsabil pentru
+instalarea, configurarea și gestionarea sistemului de operare, a
+middleware-ului și a aplicațiilor. Este cel mai flexibil model, oferind un control
+maxim asupra mediului. Un exemplu clasic este Azure Virtual Machines.
+Exemplu: creezi un server virtual pentru a găzdui un website
+● PaaS (Platform as a Service): Furnizorul gestionează infrastructura și
+sistemul de operare, oferind clientului o platformă completă pentru
+dezvoltarea, implementarea și gestionarea aplicațiilor, fără a se preocupa de
+complexitatea administrării hardware-ului subiacent. Exemple includ Azure
+App Service sau Google App Engine.
+Exemplu: creezi rapid o aplicație web fără să instalezi manual servere și baze
+de date.
+● SaaS (Software as a Service): Furnizorul oferă o aplicație software complet
+funcțională, accesibilă de obicei printr-un browser web, pe bază de
+abonament. Clientul nu gestionează niciun aspect al infrastructurii sau
+platformei; pur și simplu utilizează software-ul. Microsoft 365 este un exemplu
+proeminent de SaaS.
+Exemplu: Microsoft 365, Teams, Outlook.
+Beneficiile și conceptele de colaborare
+Adoptarea serviciilor cloud aduce numeroase avantaje strategice și operaționale:
+● Scalabilitate și flexibilitate: Resursele pot fi alocate sau eliberate dinamic,
+în funcție de necesități, permițând adaptarea rapidă la cerințele afacerii.
+● Accesibilitate globală: Datele și serviciile pot fi accesate de oriunde din
+lume, de pe orice dispozitiv cu o conexiune la internet, facilitând munca la
+distanță și colaborarea între echipe dispersate geografic.
+● Fiabilitate și disponibilitate ridicată: Furnizorii de cloud utilizează
+redundanța hardware și replicarea datelor între multiple centre de date pentru
+a garanta un timp de funcționare ridicat și pentru a proteja datele împotriva
+defecțiunilor hardware.
+● Recuperare în caz de dezastru (Disaster Recovery): Stocarea datelor în
+cloud oferă o soluție robustă pentru continuitatea afacerii. În cazul unui
+dezastru local (incendiu, inundație), datele pot fi recuperate rapid din replicile
+stocate în alte regiuni geografice.
+● Colaborare îmbunătățită: Centralizarea datelor într-o singură locație
+accesibilă tuturor membrilor echipei elimină problemele legate de versiunile
+multiple ale documentelor și facilitează co-editarea în timp real, sporind
+productivitatea.
+Secțiunea 2: Furnizori comuni de servicii și stocare în cloud
+Piața serviciilor cloud este dominată de câțiva furnizori majori, însă pentru
+ecosistemul Windows, soluțiile Microsoft sunt cele mai relevante și integrate.
+Microsoft Azure
+Microsoft Azure este platforma de cloud computing publică a Microsoft, lansată inițial
+în 2008 sub numele de Windows Azure. Aceasta oferă un portofoliu vast de peste
+200 de produse și servicii, acoperind toate modelele de servicii (IaaS, PaaS, SaaS)
+și o gamă largă de scenarii, de la găzduirea de mașini virtuale și baze de date la
+inteligență artificială și Internet of Things (IoT). Azure se distinge prin infrastructura
+sa globală, având mai multe regiuni de centre de date decât orice alt furnizor, ceea
+ce permite clienților să implementeze servicii mai aproape de utilizatorii lor pentru o
+latență redusă și pentru a respecta cerințele de suveranitate a datelor.
+Platforma Azure Storage include servicii specializate pentru diverse nevoi de date:
+● Azure Blobs: Un serviciu de stocare de obiecte masiv scalabil, utilizat pentru
+date nestructurate precum fișiere media, documente și backup-uri.
+● Azure Files: Oferă partajări de fișiere complet gestionate în cloud, accesibile
+prin protocoalele standard SMB și NFS.
+● Azure Managed Disks: Volume de stocare la nivel de bloc, de înaltă
+performanță, utilizate ca discuri pentru mașinile virtuale Azure.
+Beneficiile cheie ale Azure Storage includ durabilitatea (prin replicare), securitatea
+(toate datele sunt criptate automat în repaus), scalabilitatea masivă și
+managementul complet al infrastructurii de către Microsoft.
+Microsoft 365
+Microsoft 365 este o suită integrată de aplicații și servicii, livrată pe bază de
+abonament, care a evoluat din cunoscutul Office 365. Rebranduirea a avut loc în
+2020 pentru a reflecta mai bine extinderea ofertei dincolo de aplicațiile clasice Office
+(Word, Excel, PowerPoint), incluzând acum unelte avansate de colaborare, servicii
+cloud inteligente și soluții de securitate de nivel enterprise.
+Cloud Storage.mp4
+Un abonament Microsoft 365 include, de obicei, următoarele componente cheie:
+● Aplicații de productivitate: Versiunile desktop, web și mobile ale aplicațiilor
+Word, Excel, PowerPoint, Outlook, OneNote etc.
+● Stocare în cloud: Spațiu de stocare generos per utilizator prin intermediul
+OneDrive.
+● Servicii de colaborare și comunicare: Microsoft Teams, SharePoint Online
+și Exchange Online.
+● Management și securitate: Instrumente pentru gestionarea dispozitivelor și
+protecția datelor.
+Planurile de abonament sunt segmentate pentru a satisface nevoi diferite:
+● Pentru acasă: Planurile Microsoft 365 Personal și Family, destinate
+utilizatorilor individuali și familiilor.
+● Pentru afaceri: Planuri precum Microsoft 365 Business Basic, Business
+Standard și Business Premium, adaptate pentru întreprinderi mici și mijlocii.
+● Pentru întreprinderi (Enterprise): Planuri precum Microsoft 365 E3 și E5,
+care oferă funcționalități avansate de securitate, conformitate și analiză.
+Componentele cheie ale Microsoft 365
+● SharePoint: Este o platformă web versatilă utilizată de organizații pentru a
+crea site-uri intranet, portaluri de comunicare și depozite de documente.
+Acesta facilitează managementul centralizat al conținutului, colaborarea pe
+documente și automatizarea proceselor de business.
+● OneDrive: Este serviciul de stocare a fișierelor în cloud al Microsoft. Acesta
+permite utilizatorilor să stocheze, să sincronizeze și să partajeze fișiere în
+siguranță, accesându-le de pe orice dispozitiv. Este esențial să se facă
+distincția între OneDrive personal (asociat cu un cont Microsoft) și OneDrive
+for work or school (asociat cu un cont de organizație și gestionat prin Azure
+Active Directory), acesta din urmă fiind parte a suitei Microsoft 365.
+● Outlook: Este clientul de e-mail, calendar, contacte și sarcini, profund integrat
+în ecosistemul Microsoft 365, facilitând comunicarea și organizarea.
+● Microsoft Teams: A devenit centrul pentru colaborare în echipă în Microsoft
+365. Este o platformă unificată care combină chat-ul persistent, întâlnirile
+video, apelurile telefonice și stocarea de fișiere, împreună cu integrarea a
+numeroase aplicații terțe.
+● Windows 365: Este un serviciu inovator care oferă un "PC în cloud". Acesta
+transmite o experiență Windows 10 sau Windows 11 completă și
+personalizată (aplicații, date, setări) din cloud-ul Microsoft către orice
+dispozitiv (PC, Mac, tabletă, etc.). Beneficiile majore sunt flexibilitatea
+(permite scenarii de tip "Bring Your Own PC" - BYOPC), securitatea sporită
+(datele nu părăsesc niciodată centrul de date Microsoft) și managementul
+simplificat al stațiilor de lucru.
+Interconectivitatea acestor servicii este un aspect fundamental. De exemplu, atunci
+când un utilizator încarcă un fișier într-un canal Microsoft Teams, acel fișier nu este
+stocat în Teams în sine, ci într-o bibliotecă de documente dintr-un site SharePoint
+care este creat automat în fundal pentru fiecare echipă. Similar, fișierele din
+chat-urile private Teams sunt stocate în folderul OneDrive for Business al
+utilizatorului care le-a partajat. Această arhitectură integrată înseamnă că
+managementul fișierelor și al permisiunilor în Teams este, în esență, managementul
+site-ului SharePoint subiacent. Înțelegerea acestei relații este crucială pentru
+administrarea și depanarea eficientă a problemelor de acces și colaborare, fiind un
+punct cheie în evaluările de certificare.
+Secțiunea 3: Capabilități de partajare a fișierelor și permisiuni
+Capacitatea de a partaja fișiere și foldere în mod securizat și eficient este una dintre
+cele mai importante funcționalități ale serviciilor de stocare în cloud precum
+OneDrive și SharePoint. Procesul este similar în ambele platforme și oferă un control
+granular asupra accesului la date.
+Procesul de partajare și tipuri de linkuri
+Pentru a partaja un element, utilizatorul îl selectează și alege opțiunea "Partajare"
+("Share"), care deschide o casetă de dialog unde se pot configura permisiunile.
+Există patru tipuri principale de linkuri de partajare, fiecare cu un nivel diferit de
+acces și securitate:
+1. Oricine are linkul (Anyone with the link): Acesta este cel mai permisiv tip
+de link. Creează un link public, anonim, care poate fi accesat de oricine îl
+primește, fără a necesita autentificare. Poate fi redirecționat liber. Din motive
+de securitate, administratorii de sistem pot dezactiva această opțiune la nivel
+de organizație.
+2. Persoane din <Organizația dvs.> cu linkul (People in with the link): Acest
+link funcționează pentru oricine din interiorul organizației (care are un cont în
+același tenant Microsoft 365). Utilizatorii trebuie să se autentifice pentru a-și
+demonstra apartenența la organizație.
+3. Persoane cu acces existent (People with existing access): Această
+opțiune nu acordă permisiuni noi. Este utilă pentru a trimite un link direct către
+un fișier sau folder unor persoane care au deja acces la el, fără a modifica
+permisiunile existente.
+4. Anumite persoane (Specific people): Acesta este cel mai sigur și mai
+restrictiv mod de partajare. Accesul este acordat doar persoanelor specificate
+prin adresele lor de e-mail. Destinatarii primesc o invitație pe e-mail și trebuie
+să se autentifice pentru a verifica identitatea înainte de a putea accesa
+conținutul.
+Configurarea permisiunilor și setări avansate
+Pentru fiecare tip de link, se poate specifica nivelul de permisiune:
+● Poate vizualiza (Can view): Permite utilizatorului doar să deschidă și să
+citească fișierul. Nu poate face modificări.
+● Poate edita (Can edit): Acordă drepturi complete asupra fișierului sau
+folderului, inclusiv posibilitatea de a modifica, copia, muta, redenumi, șterge și
+repartaja conținutul.
+În plus, pentru un control și mai fin, sunt disponibile setări avansate:
+● Setarea unei date de expirare: Linkul devine automat inactiv după data
+specificată, revocând accesul.
+● Setarea unei parole: Se poate adăuga o parolă la linkurile de tip "Oricine",
+adăugând un strat suplimentar de securitate.
+● Blocarea descărcării: Această opțiune, disponibilă pentru linkurile de
+vizualizare, împiedică utilizatorii să descarce o copie locală a fișierului,
+permițându-le doar vizualizarea în browser.
+Platforma oferă o tensiune inerentă între nevoia de colaborare facilă și cerințele
+stricte de securitate. Spectrul de opțiuni de partajare este conceput pentru a
+gestiona acest echilibru. În timp ce partajarea cu "Oricine" este extrem de
+convenabilă pentru distribuirea de conținut non-sensibil, ea reprezintă un risc de
+securitate, deoarece linkul poate fi distribuit necontrolat. Prin urmare, o bună practică
+de securitate, esențială în mediile de afaceri, este aplicarea principiului privilegiului
+minim: utilizarea celei mai restrictive opțiuni de partajare care îndeplinește scopul
+propus, de obicei "Anumite persoane".
+Secțiunea 4: Sincronizarea offline a fișierelor
+Sincronizarea offline este o funcționalitate esențială care permite utilizatorilor să
+lucreze cu fișierele stocate în cloud (OneDrive sau SharePoint) direct de pe
+computerul lor, chiar și atunci când nu au o conexiune la internet. Tehnologia
+centrală care face acest lucru posibil și eficient este "Fișiere la cerere" (Files
+On-Demand).
+Conceptul "Fișiere la cerere"
+"Fișiere la cerere" este o caracteristică a clientului de sincronizare OneDrive care
+permite utilizatorilor să vadă și să navigheze prin întreaga structură de fișiere și
+foldere din cloud direct în File Explorer, fără a fi necesar să descarce conținutul
+fiecărui fișier pe discul local. Acest lucru economisește o cantitate semnificativă de
+spațiu de stocare. Fișierele sunt descărcate pe computer doar atunci când utilizatorul
+le accesează (de ex., prin dublu clic).
+Această tehnologie rezolvă un conflict major al erei digitale: accesul la cantități
+masive de date stocate în cloud (adesea 1 TB sau mai mult per utilizator) de pe
+dispozitive cu stocare locală limitată, cum ar fi laptopurile moderne cu SSD-uri
+rapide, dar de capacitate mai mică. Prin utilizarea de "placeholdere" (fișiere de
+substituție), Files On-Demand oferă iluzia că toate fișierele sunt locale,
+integrându-se perfect în experiența utilizatorului.
+Configurare și utilizare în Windows 10 și 11
+Procesul de activare și utilizare a sincronizării offline este identic în Windows 10 și
+Windows 11.
+1. Activarea "Fișiere la cerere": Această opțiune este de obicei activată
+implicit la instalarea clientului OneDrive. Pentru a verifica sau modifica
+setarea, se face clic pe pictograma nor OneDrive din zona de notificare, se
+accesează Setări, iar în secțiunea "Setări avansate" se asigură că opțiunea
+"Eliberați spațiu pe disc" (sau similar) este selectată.
+2. Sincronizarea unei biblioteci SharePoint: Pentru a lucra offline cu fișierele
+dintr-un site SharePoint, utilizatorul navighează la biblioteca de documente
+respectivă în browser și selectează opțiunea "Adăugare comandă rapidă la
+OneDrive" ("Add shortcut to OneDrive"). Aceasta este metoda modernă și
+recomandată, care adaugă un link către biblioteca SharePoint direct în
+structura de foldere OneDrive a utilizatorului, făcând-o disponibilă pentru
+sincronizare. O metodă mai veche este butonul "Sincronizare" ("Sync"), care
+realizează un scop similar.
+Interpretarea pictogramelor de stare
+Odată ce sincronizarea este activă, File Explorer afișează pictograme de stare lângă
+fiecare fișier și folder, indicând starea lor de sincronizare. Înțelegerea acestor
+pictograme este esențială pentru a lucra eficient și este un subiect frecvent în
+examenele de certificare:
+● Pictograma Nor (Disponibil online): Fișierul este doar un placeholder și nu
+ocupă spațiu pe discul local (cu excepția câtorva KB pentru metadate). Este
+necesară o conexiune la internet pentru a-l deschide. La deschidere, fișierul
+va fi descărcat și starea sa se va schimba.
+● Pictograma Cerc verde cu bifă albă (Disponibil pe acest dispozitiv):
+Fișierul a fost descărcat pe computer și este disponibil atât online, cât și
+offline. Acesta ocupă spațiu pe discul local. De obicei, un fișier ajunge în
+această stare după ce a fost deschis cel puțin o dată.
+● Pictograma Cerc verde plin cu bifă albă (Păstrat întotdeauna pe acest
+dispozitiv): Utilizatorul a marcat manual fișierul sau folderul pentru a fi
+întotdeauna disponibil offline. Aceste fișiere vor fi descărcate complet și vor
+rămâne pe dispozitiv, ocupând spațiu pe disc, până când utilizatorul decide
+altceva.
+Utilizatorii pot gestiona activ spațiul de stocare. Făcând clic dreapta pe un fișier sau
+folder care este disponibil local (oricare dintre pictogramele verzi) și selectând
+opțiunea "Eliberați spațiu" ("Free up space"), conținutul local al fișierului este șters,
+iar pictograma revine la starea de nor, eliberând spațiu pe disc.
+Partea II: Descrierea și configurarea stocării locale
+Secțiunea 5: Partiționarea unei unități de stocare
+Partiționarea este procesul de divizare a unei unități de stocare fizice, cum ar fi un
+Hard Disk Drive (HDD) sau un Solid State Drive (SSD), în una sau mai multe regiuni
+logice, numite partiții. Din perspectiva sistemului de operare, fiecare partiție apare ca
+o unitate de disc separată, având propria sa literă de unitate (de exemplu, C:, D:, E:).
+Când și de ce se utilizează partiționarea
+Deși în trecut partiționarea era o practică standard, în special pentru optimizarea
+performanței pe HDD-uri, relevanța sa s-a schimbat odată cu apariția SSD-urilor. Pe
+un HDD mecanic, capetele de citire/scriere se mișcă fizic, iar datele de la începutul
+discului (pe pistele exterioare) sunt accesate mai rapid. Prin crearea unei partiții mici
+pentru sistemul de operare la începutul discului, se putea obține o îmbunătățire a
+timpilor de pornire și de încărcare a aplicațiilor. Această optimizare a performanței
+este însă neglijabilă pe un SSD, care oferă timpi de acces aproape instantanei și
+uniformi, indiferent de locația fizică a datelor.
+Cu toate acestea, partiționarea rămâne o tehnică valoroasă din alte motive
+strategice:
+● Separarea sistemului de operare de datele utilizatorului: Acesta este cel
+mai comun și convingător motiv. Prin plasarea sistemului de operare Windows
+și a programelor instalate pe partiția C: și a tuturor datelor personale
+(documente, imagini, muzică) pe o partiție separată, D:, se obține o izolare
+benefică. În cazul unei probleme grave a sistemului de operare care necesită
+o reinstalare, partiția C: poate fi formatată și Windows-ul reinstalat fără a
+afecta datele de pe partiția D:.
+● Instalarea mai multor sisteme de operare (Multi-boot): Pentru a rula două
+sau mai multe sisteme de operare pe același computer (de exemplu,
+Windows și o distribuție Linux), este necesar să se creeze partiții separate
+pentru fiecare dintre ele.
+● Organizare îmbunătățită: Utilizatorii avansați pot crea partiții dedicate pentru
+scopuri specifice, cum ar fi o partiție pentru jocuri, una pentru mașini virtuale
+sau una pentru fișiere de backup, pentru o mai bună structurare a datelor.
+● Securitate (limitată): Deși nu este o măsură de securitate infailibilă, izolarea
+datelor pe o partiție separată poate oferi un grad de protecție împotriva
+anumitor tipuri de malware, cum ar fi ransomware-ul, care ar putea cripta doar
+fișierele de pe partiția de sistem. Totuși, malware-ul sofisticat poate scana și
+afecta toate unitățile conectate.
+Configurarea și monitorizarea spațiului de stocare se face prin unelte specifice
+Windows:
+● Disk Management: În Windows 10/11, instrumentul Disk Management
+(Gestionare discului) este accesibil din Computer Management sau din meniul
+Start tastând „diskmgmt”. Aici se văd toate discurile fizice și volumele
+(partițiile) existente. Prin Disk Management se pot crea noi partiții (New
+Simple Volume), șterge, extinde sau micșora volumele existente și schimba
+literele de unitate. De exemplu, dacă conectați un hard disk nou neformatat,
+Disk Management vă permite să îl inițializați (MBR sau GPT) și să creați o
+partiție nouă cu sistem de fișiere NTFS. De asemenea, puteți aloca un volum
+ca unitate virtuală (mount point).
+● Storage Spaces: Windows 10/11 oferă Storage Spaces, un mecanism
+pentru combinarea mai multor discuri fizice într-un singur spațiu virtual de
+stocare. Puteți crea un pool de discuri și defini spații de stocare cu paritate
+sau mirroring, îmbunătățind redundanța și performanța (similar RAID). Panoul
+Storage Spaces se găsește în Settings > System > Storage > Manage
+Storage Spaces. De exemplu, puteți configura un spațiu cu paritate pe două
+SSD-uri pentru siguranță la defectarea unuia dintre ele.
+● Storage Sense și gestionarea stocării: În setările de stocare (Settings >
+System > Storage) Windows afișează analiza spațiului (cât ocupă documente,
+aplicații, fișiere temporare etc.). Aici puteți activa Storage Sense, funcție care
+eliberează automat spațiul (șterge fișiere temporare, goleste Recycle Bin,
+curăță cache, etc.). Puteți defini regulile după care Storage Sense șterge
+automat fișierele vechi sau neutilizate, foarte util pentru laptopuri cu spațiu
+limitat.
+● Optimizarea volumelor: Pentru unităţile HDD tradiţionale se folosește
+Defragmentare (Optimize Drives) care rearanjează datele în scopul creşterii
+vitezei de acces. Pentru SSD-uri se realizează operația TRIM automat,
+menținând performanța stocării flash. În Windows 10/11, instrumentul
+Defragment and Optimize Drives poate fi folosit pentru a analiza și optimiza
+fiecare disc.
+● Monitorizarea stocării: Instrumente precum Task Manager sau aplicația
+Settings pot arăta ce procente de spațiu sunt ocupate de diferite tipuri de
+fișiere (sistem, aplicații, media). Totodată, în Disk Management se pot vedea
+erori sau partiții suspecte care trebuie reparate (Check Disk) sau initialize.
+Gestionarea stocării presupune deci nu doar partiționarea și formatarea discurilor, ci
+și monitorizarea și întreținerea spațiului, fie că e vorba de un hard disk intern, un
+SSD, un USB extern sau o unitate în rețea.
+Ghid pas-cu-pas pentru partiționare în Windows 10 și 11
+Procesul de creare a unei noi partiții dintr-un spațiu existent este identic în Windows
+10 și Windows 11 și se realizează cu ajutorul utilitarului "Disk Management":
+1. Deschiderea Disk Management:
+○ Faceți clic dreapta pe butonul Start și selectați "Disk Management" din
+meniul care apare.
+○ Alternativ, apăsați tastele Win + R, tastați diskmgmt.msc și apăsați Enter.
+2. Micșorarea unui volum existent (Shrink Volume):
+○ În fereastra Disk Management, identificați partiția pe care doriți să o
+micșorați (de obicei C:).
+○ Faceți clic dreapta pe acea partiție și selectați "Shrink Volume...".
+○ În caseta de dialog, introduceți cantitatea de spațiu pe care doriți să o
+eliberați pentru noua partiție, în megabytes (MB). De exemplu, pentru a
+crea o partiție de 100 GB, introduceți 102400. Apoi, faceți clic pe
+"Shrink".
+○ După finalizarea procesului, veți vedea un nou spațiu marcat ca
+"Unallocated" (Nealocat).
+3. Crearea unui nou volum simplu (New Simple Volume):
+○ Faceți clic dreapta pe spațiul "Unallocated" și selectați "New Simple
+Volume...".
+○ Se va deschide un expert ("wizard"). Faceți clic pe "Next".
+○ Specificați dimensiunea noului volum (de obicei, se lasă valoarea
+maximă implicită) și faceți clic pe "Next".
+○ Alocați o literă de unitate (de exemplu, D:) din meniul derulant și faceți
+clic pe "Next".
+○ În ecranul de formatare, alegeți un sistem de fișiere (NTFS este
+recomandat pentru uz intern), introduceți o etichetă pentru volum (un
+nume, de ex., "Date") și asigurați-vă că este bifată opțiunea "Perform a
+quick format". Faceți clic pe "Next".
+○ Revizuiți setările și faceți clic pe "Finish" pentru a crea și formata noua
+partiție.
+Secțiunea 6: Formatarea unei partiții și alegerea sistemului de fișiere
+Formatarea este procesul de pregătire a unei partiții (sau a unei unități de stocare
+întregi) pentru a stoca date. Acest proces creează o structură de organizare numită
+sistem de fișiere, care acționează ca o indexare, permițând sistemului de operare să
+localizeze și să gestioneze fișierele. Este crucial de reținut că formatarea unei partiții
+șterge ireversibil toate datele existente pe aceasta.
+Procesul de formatare se poate realiza din Disk Management, făcând clic dreapta pe
+partiția dorită și selectând "Format...". Utilizatorul va trebui apoi să aleagă sistemul
+de fișiere, dimensiunea unității de alocare (de obicei se lasă "Default") și eticheta
+volumului.
+Cum partiționăm și formatăm: În Windows 10 și 11 se folosește Disk Management:
+1. Deschide Disk Management: click dreapta pe butonul Start și alege Disk
+Management (Gestionare disc).
+2. Selectează discul nealocat (unallocated) pe care vrei să-l folosești. Dacă e un
+disc nou, va apărea ca Not Initialized. Dă click dreapta pe disc și alege
+Initialize Disk (alege MBR sau GPT, în funcție de necesități – vezi secțiunea
+„GPT și MBR”).
+3. Pe spațiul nealocat, click dreapta > New Simple Volume. Se va porni un
+wizard (New Simple Volume Wizard).
+○ Setează dimensiunea partiției: poți folosi întreg spațiul sau o parte,
+dacă vrei să creezi mai multe partiții pe același disc.
+○ Alege litera de unitate: sau poți aloca ca folder din alt drive.
+○ Formatează volumul: alege sistemul de fișiere (de obicei NTFS pentru
+Windows, vezi mai jos), poți seta eticheta volumului (numărul de disc
+pe care îl vede utilizatorul), și opțiuni de formatare (Quick format).
+○ Finalizează wizard-ul pentru a crea partiția și formatarea ei.
+După terminare, veți avea o nouă partiție afișată în File Explorer cu litera și eticheta
+aleasă. De exemplu, puteți crea partiția „Data” (Volume Label: Data) pe un hard disk
+secundar și să o formatați NTFS pentru a stoca documente și imagini separate de
+partiția sistemului.
+Exemplu cu diskpart (linii de comandă): Pentru utilizatorii avansați, Windows are
+utilitarul diskpart. În Command Prompt cu drepturi de administrator se poate scrie:
+Acest set de comenzi curăță discul selectat, îl inițializează în stilul dorit, crează o
+partiție de ~200 GB, o formatează NTFS cu eticheta "Date" și îi atribuie litera D.
+(Marcați întotdeauna corect discul înainte de a șterge sau a crea partiții.)
+Formatare ulterioară: Dacă doriți să reformatați o partiție deja creată cu alt sistem
+de fișiere, tot Disk Management permite: click dreapta pe partiție > Format și alege
+opțiunea dorită. Sau, în File Explorer, click dreapta pe partiția respectivă > Format și
+selectați sistemul de fișiere din listă (NTFS, FAT32, exFAT).
+Alegerea sistemului de fișiere
+Alegerea sistemului de fișiere corect este o decizie importantă care depinde de
+scopul partiției, de tipul de dispozitiv și de sistemele de operare cu care va
+interacționa. Windows oferă trei opțiuni principale: NTFS, FAT32 și exFAT.
+● NTFS (New Technology File System): Este sistemul de fișiere modern și
+standard pentru toate versiunile recente de Windows, utilizat implicit pentru
+partițiile de sistem și unitățile interne.
+○ Avantaje: Nu are limitări practice privind dimensiunea fișierelor sau a
+partițiilor. Oferă caracteristici avansate esențiale pentru un sistem de
+operare modern, inclusiv securitate la nivel de fișier prin permisiuni
+(ACLs), criptare (EFS), compresie la nivel de sistem de fișiere, și un
+jurnal (journaling) care asigură o recuperare rapidă și fiabilă în cazul
+unei căderi de sistem.
+○ Dezavantaje: Compatibilitatea este principalul său punct slab. Deși
+sistemele macOS pot citi partiții NTFS în mod nativ, ele nu pot scrie pe
+acestea fără software terț. Suportul pe Linux este bun, dar poate
+necesita configurări suplimentare. Multe alte dispozitive (console de
+jocuri mai vechi, media playere) nu îl suportă deloc.
+● FAT32 (File Allocation Table 32): Este cel mai vechi dintre cele trei, dar și
+cel mai compatibil universal.
+○ Avantaje: Funcționează cu practic orice dispozitiv care are un port
+USB, inclusiv Windows, macOS, Linux, console de jocuri, televizoare
+inteligente, camere foto etc. Această compatibilitate largă îl face ideal
+pentru unități flash USB care trebuie mutate între diverse dispozitive.
+○ Dezavantaje: Are limitări severe: dimensiunea maximă a unui singur
+fișier este de 4 GB, iar dimensiunea maximă a partiției pe care
+Windows o poate formata este de 32 GB (deși poate citi partiții mai
+mari). Nu dispune de nicio caracteristică de securitate, cum ar fi
+permisiunile de fișier.
+● exFAT (Extended File Allocation Table): A fost creat de Microsoft ca un
+succesor modern pentru FAT32, special conceput pentru medii de stocare
+flash, cum ar fi stick-uri USB și carduri SD de mare capacitate.
+○ Avantaje: Elimină limitările de dimensiune ale FAT32, permițând fișiere
+și partiții de dimensiuni foarte mari. Este optimizat pentru dispozitive
+flash și oferă o compatibilitate excelentă între Windows și macOS
+(suport complet de citire/scriere pe ambele platforme).
+○ Dezavantaje: Nu este la fel de universal compatibil ca FAT32, în
+special cu dispozitive mai vechi. De asemenea, îi lipsesc
+caracteristicile avansate de robustețe și securitate ale NTFS, cum ar fi
+journaling-ul, ceea ce îl face mai susceptibil la coruperea datelor în
+cazul unei întreruperi bruște de alimentare sau a unei deconectări
+incorecte.
+Tabel comparativ: sisteme de fișiere
+Următorul tabel sintetizează caracteristicile cheie pentru a facilita alegerea corectă în
+diverse scenarii, o competență esențială pentru examenele de certificare.
+Caracteristică NTFS FAT32 exFAT
+Dimensiune
+max. fișier
+Practic nelimitată
+(~16 EB)
+4 GB Practic nelimitată
+(~16 EB)
+Dimensiune
+max. partiție
+Practic nelimitată
+(~8 PB)
+8 TB (limitat la 32
+GB de Windows)
+Practic nelimitată
+(~128 PB)
+Compatibilitate
+Windows
+Citire/Scriere
+(Toate versiunile)
+Citire/Scriere (Toate
+versiunile)
+Citire/Scriere (Toate
+versiunile)
+Compatibilitate
+macOS
+Doar citire
+(implicit)
+Citire/Scriere Citire/Scriere
+Compatibilitate
+Linux
+Citire/Scriere (cu
+drivere)
+Citire/Scriere Citire/Scriere (kernel
+modern)
+Securitate
+(Permisiuni)
+Da Nu Nu
+Journaling
+(Robustețe)
+Da Nu Nu
+Utilizare ideală Unități interne
+Windows, hard
+disk-uri externe
+folosite exclusiv cu
+Windows.
+Unități externe mici,
+pentru
+compatibilitate
+maximă cu o gamă
+largă de dispozitive.
+Unități externe
+moderne (USB,
+carduri SD), pentru
+transferul de fișiere
+mari între Windows
+și macOS.
+Când folosim fiecare sistem:
+● Pentru sistem de operare Windows și aplicații, recomandăm NTFS.
+● Pentru compatible mari (de ex. stick USB între Mac și PC) și fișiere mari,
+folosiți exFAT.
+● Pentru compatibilitate cu echipamente vechi (console, camere foto, PC-uri
+foarte vechi), folosiți FAT32, dar țineți fișiere sub 4GB.
+● Dacă o partiție trebuie citită și de un BIOS mai vechi la pornire, va trebui
+FAT32 sau exFAT (NTFS nu e suportat de BIOS-uri vechi).
+● Notă: Windows nu mai foloseşte ReFS (Resilient File System) decât în
+anumite versiuni de server, deci nu e relevant în mod normal pentru un
+examen de utilizator obișnuit.
+Secțiunea 7: Configurarea atributelor pentru fișiere și foldere
+Atributele de fișier sunt metadate speciale stocate de sistemul de fișiere, care
+definesc sau indică anumite proprietăți ale unui fișier sau folder. Acestea informează
+sistemul de operare și aplicațiile despre cum să trateze elementul respectiv. Aceste
+atribute reprezintă un sistem de control de bază, distinct de sistemul de permisiuni
+NTFS, care este mult mai complex și granular. În timp ce permisiunile definesc
+cine poate accesa un fișier, atributele definesc proprietăți intrinseci ale fișierului
+însuși.
+Atribute standard
+În Windows, cele mai comune atribute pot fi vizualizate și modificate din fereastra de
+proprietăți a unui fișier sau folder (clic dreapta -> Properties -> fila General).
+● Read-only (Doar în citire): Când acest atribut este setat pe un fișier,
+sistemul de operare va preveni suprascrierea sau ștergerea accidentală a
+acestuia. Orice încercare de a salva modificări va genera o avertizare. Este
+important de clarificat o confuzie frecventă legată de
+foldere: caseta de selectare "Read-only" din proprietățile unui folder nu face
+folderul în sine "read-only" (se pot crea, șterge sau redenumi fișiere în
+interiorul său). Această casetă de selectare este un instrument pentru a aplica
+sau a elimina în masă atributul "Read-only" de pe toate fișierele conținute în
+acel folder și în subfolderele sale.
+● Hidden (Ascuns): Când acest atribut este setat, fișierul sau folderul devine
+invizibil în vizualizările standard din File Explorer. Aceasta este o metodă de a
+reduce aglomerația vizuală prin ascunderea fișierelor de sistem, de
+configurare sau a altor fișiere pe care utilizatorul nu dorește să le vadă în mod
+normal.
+Vizualizarea și modificarea atributelor în Windows 10 și 11
+● Prin File Explorer: Pentru a schimba atributele "Read-only" sau "Hidden", se
+face clic dreapta pe fișierul sau folderul dorit, se selectează "Properties", iar în
+fila "General" se bifează sau se debifează casetele corespunzătoare, apoi se
+apasă "Apply".
+● Afișarea fișierelor ascunse: Pentru a lucra cu fișierele ascunse, acestea
+trebuie mai întâi făcute vizibile.
+○ În Windows 10: Deschideți File Explorer, accesați fila "View" și bifați
+caseta "Hidden items".
+○ În Windows 11: Deschideți File Explorer, faceți clic pe meniul "View"
+din bara de sus, selectați "Show" și apoi faceți clic pe "Hidden items".
+Atribute avansate (specifice NTFS)
+Sistemul de fișiere NTFS suportă atribute suplimentare, accesibile din fereastra de
+proprietăți, făcând clic pe butonul "Advanced..." din fila "General".
+● Archive (Arhivă): Acest bit este setat automat de sistemul de operare ori de
+câte ori un fișier este modificat. Software-ul de backup îl folosește pentru a
+identifica rapid fișierele care trebuie salvate într-un backup incremental sau
+diferențial.
+● Compress (Comprimare): Permite comprimarea fișierelor și folderelor la
+nivel de sistem de fișiere pentru a economisi spațiu pe disc. Procesul este
+transparent pentru utilizator; la accesare, fișierul este decomprimat automat în
+memorie.
+● Encrypt (Criptare): Activează Encrypting File System (EFS), o caracteristică
+de securitate care criptează datele fișierului pe disc. Doar utilizatorul care a
+criptat fișierul (sau un agent de recuperare desemnat) îl poate accesa. În File
+Explorer, numele fișierelor criptate sunt afișate de obicei cu culoare verde.
+Secțiunea 8: Efectul asupra permisiunilor la copierea și mutarea datelor
+Comportamentul permisiunilor de securitate la copierea și mutarea fișierelor este un
+subiect fundamental în administrarea sistemelor Windows și o sursă frecventă de
+întrebări în examenele de certificare. Regulile se bazează pe o distincție esențială:
+permisiunile granulare sunt o caracteristică specifică sistemului de fișiere NTFS și nu
+sunt suportate de FAT32 sau exFAT.
+Comportamentul permisiunilor nu este arbitrar, ci o consecință directă a modului în
+care sistemul de operare gestionează operațiunile cu fișiere la nivel fundamental. O
+"mutare" în cadrul aceluiași volum este o operațiune logică rapidă, care implică doar
+actualizarea unui pointer în tabela de fișiere a volumului (Master File Table - MFT).
+Datele fișierului și descriptorul său de securitate nu sunt atinse. În contrast, o
+"copiere" sau o "mutare" între volume diferite este o operațiune fizică: sistemul de
+operare trebuie să citească datele de pe volumul sursă și să le scrie pe volumul
+destinație, creând efectiv un fișier nou. Acest proces de creare declanșează
+mecanismul de moștenire a permisiunilor.
+Următoarele reguli se aplică la utilizarea File Explorer în Windows:
+● Regula 1: Copierea unui fișier (pe același volum sau pe un volum NTFS
+diferit)
+○ Atunci când un fișier este copiat, el este tratat ca un fișier nou în locația
+de destinație. Ca urmare, fișierul moștenește permisiunile de la
+folderul părinte de destinație. Toate permisiunile explicite pe care le
+avea fișierul original sunt pierdute.
+● Regula 2: Mutarea unui fișier (în cadrul aceluiași volum NTFS)
+○ Când un fișier este mutat într-un alt folder pe același volum NTFS,
+sistemul de operare doar actualizează calea către fișier în tabela de
+fișiere. Deoarece datele fișierului nu sunt mutate fizic, acesta își
+păstrează permisiunile originale, explicite. Nu moștenește
+permisiunile de la noul folder părinte.
+● Regula 3: Mutarea unui fișier (pe un volum NTFS diferit)
+○ Mutarea unui fișier de pe un volum NTFS pe altul (de ex., de pe C: pe
+D:) este gestionată de sistem ca o operațiune de copiere urmată de
+ștergerea fișierului original. Prin urmare, se aplică aceeași logică ca la
+copiere: fișierul moștenește permisiunile de la folderul părinte de
+destinație.
+● Regula 4: Copierea sau mutarea unui fișier de pe NTFS pe FAT32/exFAT
+○ Deoarece sistemele de fișiere de destinație, FAT32 și exFAT, nu au un
+model de securitate pentru permisiuni, atunci când un fișier este copiat
+sau mutat de pe un volum NTFS pe un volum formatat cu unul dintre
+aceste sisteme, toate permisiunile de securitate NTFS (ACLs) sunt
+complet eliminate. Atributele de bază, cum ar fi "Read-only" sau
+"Hidden", pot fi păstrate, dar caracteristicile avansate NTFS, precum
+criptarea (EFS) sau compresia, sunt, de asemenea, pierdute.
+Secțiunea 9: Stiluri de partiționare: GPT și MBR
+Înainte ca o unitate de stocare să poată fi partiționată și formatată, aceasta trebuie
+inițializată cu un stil de partiționare. Acesta definește structura de nivel scăzut pe
+care sistemul de operare o va folosi pentru a organiza partițiile de pe disc. Cele două
+stiluri utilizate în sistemele Windows sunt MBR și GPT.
+MBR (Master Boot Record)
+MBR este stilul de partiționare tradițional, utilizat încă din 1983. Acesta stochează
+informațiile despre partiții și codul de pornire (boot loader) într-un sector special,
+primul de pe disc, numit Master Boot Record.
+● Limitări: MBR are limitări semnificative care îl fac inadecvat pentru
+hardware-ul modern. Cea mai importantă este că poate adresa doar unități de
+stocare de până la 2 TB (mai exact, 2.2 TB). Orice spațiu de pe un disc mai
+mare de 2 TB va fi inaccesibil. De asemenea, MBR permite crearea a
+maximum patru partiții primare. Pentru a avea mai multe partiții, una dintre
+cele patru trebuie desemnată ca "partiție extinsă", în interiorul căreia se pot
+crea mai multe "partiții logice".
+● Compatibilitate: MBR este asociat cu firmware-ul tradițional BIOS (Basic
+Input/Output System).
+● Robustețe: Deoarece toate informațiile critice de partiționare sunt stocate
+într-un singur loc, MBR este vulnerabil. Dacă acest sector este corupt,
+întregul disc poate deveni ilizibil.
+GPT (GUID Partition Table)
+GPT este standardul modern pentru layout-ul tabelei de partiții, fiind parte a
+specificației UEFI (Unified Extensible Firmware Interface), care a înlocuit BIOS-ul
+tradițional.
+● Avantaje: GPT depășește toate limitările MBR. Suportă discuri de dimensiuni
+teoretice enorme (până la 9.4 Zettabytes, un ZB fiind un miliard de terabytes),
+cu mult peste orice este disponibil comercial în prezent. Permite crearea a
+până la 128 de partiții primare în Windows, eliminând necesitatea partițiilor
+extinse și logice.
+● Compatibilitate: GPT este strâns legat de firmware-ul UEFI. Sistemele de
+operare moderne pe 64 de biți, inclusiv Windows 10 și Windows 11, necesită
+o partiție GPT pentru a porni în modul UEFI, care oferă timpi de pornire mai
+rapizi și caracteristici de securitate avansate, cum ar fi Secure Boot.
+● Robustețe: GPT este mult mai robust decât MBR. Stochează o copie a
+tabelei de partiții la sfârșitul discului, pe lângă cea de la început. De
+asemenea, utilizează sume de control (Cyclic Redundancy Check - CRC)
+pentru a verifica integritatea antetului și a tabelei de partiții. Dacă antetul
+primar este corupt, sistemul poate folosi copia de rezervă pentru a recupera
+accesul la disc.
+Alegerea între MBR și GPT
+Pentru orice computer modern (fabricat după aproximativ 2011) care rulează o
+versiune pe 64 de biți a Windows 10 sau Windows 11, GPT este alegerea standard
+și recomandată. MBR ar trebui utilizat doar în scenarii de compatibilitate cu
+hardware foarte vechi care nu suportă UEFI sau la crearea de medii de stocare
+bootabile pentru sisteme de operare mai vechi.
+Tabel comparativ: MBR vs. GPT
+Acest tabel oferă o sinteză clară a diferențelor tehnice, esențială pentru a răspunde
+corect la întrebările de examen.
+Caracteristică MBR (Master Boot Record) GPT (GUID Partition Table)
+Dimensiune max. disc 2 TB 9.4 ZB (Zettabytes)
+Număr max. partiții 4 primare (sau 3 primare +
+1 extinsă)
+128 (în Windows)
+Compatibilitate
+Firmware
+BIOS UEFI
+Robustețe/Recuperare Scăzută (un singur sector
+de boot)
+Ridicată (tabele duplicate,
+CRC)
+Suport OS modern Da (dar limitat) Da (standardul pentru
+Windows 10/11 64-bit)
+Când se utilizează Sisteme vechi, non-UEFI;
+compatibilitate
+Toate sistemele moderne;
+discuri > 2 TB

@@ -1,0 +1,15 @@
+/* Desktop-only layout correction. Existing phone styles remain untouched. */
+@media (min-width:721px){
+ #screen-dashboard #exam-grid{width:calc(100% - 2 * clamp(24px,4vw,56px));max-width:1480px;margin-left:auto;margin-right:auto;padding:0 0 56px;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+ #screen-dashboard .dash-hero-top,#screen-dashboard .dash-hero-copy{max-width:1480px;margin-left:auto;margin-right:auto}
+ #screen-dashboard .resume-banner{width:calc(100% - 2 * clamp(24px,4vw,56px));max-width:1480px;margin-left:auto;margin-right:auto;padding-left:0;padding-right:0}
+ #screen-dashboard .exam-card{min-width:0}
+ #screen-dashboard .exam-card h3,#screen-dashboard .exam-card p{overflow-wrap:anywhere}
+ #screen-dashboard .exam-card-actions{margin-top:auto}
+ #screen-dashboard .hero-actions{justify-content:flex-end}
+}
+@media (min-width:1180px){
+ #screen-dashboard #exam-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+ #screen-dashboard #exam-grid:has(>.exam-card:nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+ #screen-dashboard #exam-grid:has(>.exam-card:only-child){grid-template-columns:minmax(0,1fr)}
+}

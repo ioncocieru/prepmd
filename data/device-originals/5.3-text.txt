@@ -1,0 +1,727 @@
+Device Configuration and
+Management
+5. Windows
+Management and
+Troubleshooting
+5.3 Manage and troubleshoot hardware and peripherals
+• Hardware troubleshooting methods (connections, ports, power)
+• Update or roll back drivers
+• Uninstall or reinstall a device to reconfigure drivers
+• Describe the purpose and capabilities of Device Manager and Disk
+Management
+• Manage and troubleshoot peripheral device connections
+• Keyboard, mouse, display, headset, microphone, camera, local and
+network storage devices, printers, scanners, connection cables,
+Bluetooth
+Introducere în depanarea hardware
+Metode fundamentale de diagnosticare
+Depanarea eficientă a problemelor hardware nu se bazează pe
+presupuneri, ci pe o metodologie structurată de eliminare a cauzelor
+posibile. O abordare stratificată, care pornește de la cele mai simple și
+probabile defecțiuni și avansează progresiv către cele mai complexe,
+este esențială pentru un diagnostic rapid și precis. Acest proces începe
+întotdeauna cu verificările fizice (cabluri, porturi, alimentare) și continuă
+cu aspectele software (drivere, setări de sistem), culminând, dacă este
+necesar, cu diagnosticarea componentelor hardware interne.
+Fiecare pas în acest proces este conceput pentru a izola o singură
+variabilă. De exemplu, deconectarea tuturor perifericelor non-esențiale,
+cum ar fi stick-urile USB, imprimantele sau camerele web, permite
+testarea sistemului în configurația sa minimă. Dacă problema dispare, se
+poate concluziona că unul dintre perifericele deconectate este sursa
+erorii. Similar, testarea unui dispozitiv suspect pe un alt computer ajută
+la izolarea problemei: dacă dispozitivul funcționează pe alt PC, cauza
+este probabil legată de software-ul sau hardware-ul computerului
+original; dacă nu funcționează, dispozitivul în sine este probabil defect.
+Această metodă de "izolare și testare" constituie piatra de temelie a unui
+diagnostic hardware de succes, transformând un proces potențial haotic
+într-o secvență logică de pași.
+Verificarea conexiunilor fizice, a porturilor și a alimentării
+Primul pas în orice proces de depanare hardware este inspecția vizuală
+și fizică a conexiunilor. Cablurile USB, HDMI, DisplayPort sau de
+alimentare trebuie verificate pentru orice semn de deteriorare, cum ar fi
+tăieturi, îndoituri severe sau pini deformați. Este crucial să se asigure că
+fiecare cablu este conectat ferm atât la dispozitivul periferic, cât și la
+computer.
+Dacă un dispozitiv nu este recunoscut, o metodă simplă și eficientă este
+mutarea conexiunii la un alt port. Un port USB sau video poate fi defect,
+iar testarea pe un port adiacent poate confirma sau infirma rapid această
+ipoteză. Pentru dispozitivele care necesită alimentare externă, cum ar fi
+monitoarele, imprimantele sau unele hard disk-uri externe, este esențial
+să se verifice dacă sunt conectate la o priză funcțională și dacă sunt
+pornite. În cazul dispozitivelor wireless, cum ar fi mouse-urile sau
+tastaturile, verificarea nivelului bateriilor este un pas obligatoriu.
+Acțiunea de a deconecta și reconecta un dispozitiv, în special unul USB,
+are o semnificație tehnică mai profundă decât o simplă verificare
+mecanică. Acest proces activează serviciul Plug and Play (PnP) din
+Windows, care forțează sistemul de operare să "descarce" driverul și
+configurația curentă a dispozitivului. La reconectare, Windows inițiază un
+nou proces de enumerare, identificare și încărcare a driverului
+corespunzător. Această reinițializare poate rezolva erori tranzitorii de
+stare, atât în firmware-ul dispozitivului, cât și în stiva de drivere a
+sistemului de operare, funcționând ca un "soft reset" eficient pentru
+interacțiunea dintre hardware și software.
+Utilizarea instrumentelor de depanare integrate în windows
+Sistemele de operare Windows 11 și Windows 10 includ o suită de
+instrumente de depanare automate, concepute pentru a diagnostica și a
+remedia probleme comune de configurare. Aceste utilitare verifică starea
+serviciilor esențiale, setările de registru, permisiunile și alte configurații
+critice, aplicând automat remedieri standard.
+Accesarea depanatoarelor:
+● În Windows 11: Navigați la Setări > Sistem > Depanare > Alte
+depanatoare. Aici veți găsi o listă de depanatoare specifice pentru
+Bluetooth, Imprimantă, Rețea, Sunet și altele.
+● În Windows 10: Navigați la Setări > Actualizare și securitate >
+Depanare > Depanatoare suplimentare. Lista este similară cu cea
+din Windows 11.
+Rularea depanatorului relevant (de exemplu, pentru o imprimantă care
+nu funcționează) este un pas inițial excelent, deoarece poate rezolva
+rapid problemele de configurare fără a necesita intervenții manuale
+complexe.
+Gestionarea și depanarea hardware-ului și a perifericelor
+Actualizarea driverelor prin windows update și manager dispozitive
+Driverele sunt programe software esențiale care permit sistemului de
+operare Windows să comunice cu componentele hardware. Menținerea
+lor actualizată este vitală pentru stabilitate, performanță și securitate.
+Există mai multe metode de actualizare, fiecare cu avantajele sale.
+O strategie eficientă implică o ierarhie a surselor de drivere. Windows
+Update este prima și cea mai sigură opțiune pentru majoritatea
+componentelor. Driverele oferite prin acest canal sunt, de regulă,
+certificate WHQL (Windows Hardware Quality Labs), ceea ce înseamnă
+că au fost testate extensiv de Microsoft pentru stabilitate și
+compatibilitate. Acestea se găsesc adesea în secțiunea Setări >
+Windows Update > Opțiuni complexe > Actualizări opționale. Deși
+sigure, aceste drivere pot fi uneori mai vechi sau generice.
+Pentru componente critice de performanță, cum ar fi plăcile video
+(Nvidia, AMD, Intel) sau plăcile de sunet, sau pentru periferice cu
+funcționalități avansate (mouse-uri de gaming, scanere profesionale),
+este recomandat să se descarce driverele direct de pe site-ul web al
+producătorului. Aceste pachete software includ adesea cele mai
+recente optimizări de performanță, remedieri de erori și panouri de
+control complete, care nu sunt disponibile prin Windows Update.
+O a treia metodă este actualizarea direct din Manager dispozitive:
+1. Deschideți Manager dispozitive (apăsați Win + X și selectați
+Manager dispozitive).
+2. Extindeți categoria corespunzătoare (de ex., Plăci video).
+3. Faceți clic dreapta pe dispozitiv și selectați Actualizare driver.
+4. Alegeți Căutare automată software de driver actualizat pentru a
+lăsa Windows să caute online și pe computerul local. Alternativ,
+dacă ați descărcat manual un driver, alegeți Răsfoire computer
+pentru drivere și indicați locația fișierelor.
+Revenirea la o versiune anterioară a unui driver (roll back)
+Uneori, o actualizare de driver poate introduce instabilitate, conflicte sau
+poate cauza funcționarea defectuoasă a unui dispozitiv. În astfel de
+cazuri, Windows oferă o metodă rapidă de a anula actualizarea și de a
+reveni la versiunea anterioară a driverului, care era stabilă.
+Pentru a reveni la un driver anterior:
+1. Deschideți Manager
+dispozitive.
+2. Localizați și faceți dublu clic
+pe dispozitivul problematic
+pentru a deschide fereastra
+de proprietăți.
+3. Navigați la fila Driver.
+4. Faceți clic pe butonul
+Revenire la driverul anterior
+(Roll Back Driver).
+Această opțiune este disponibilă doar dacă fișierele driverului anterior
+sunt încă stocate de sistem. Dacă butonul este inactiv (gri), înseamnă că
+nu există o versiune anterioară la care să se poată reveni, iar singura
+soluție este dezinstalarea driverului curent și instalarea manuală a unei
+versiuni mai vechi, descărcată de pe site-ul producătorului.
+Dezinstalarea și reinstalarea completă a unui dispozitiv pentru
+reconfigurarea driverelor
+Când actualizările sau revenirea la versiuni anterioare nu rezolvă
+problemele persistente, o dezinstalare completă a dispozitivului poate fi
+soluția. Această metodă este mai mult decât o simplă ștergere de fișiere;
+ea elimină și intrările de configurare asociate din registrul Windows, care
+ar putea fi corupte și care nu sunt remediate de o simplă suprascriere a
+driverului. Este un pas de "curățare" profundă a configurației unui
+dispozitiv.
+Procedura este următoarea:
+1. Deschideți Manager dispozitive.
+2. Faceți clic dreapta pe dispozitivul problematic și selectați
+Dezinstalare dispozitiv.
+3. În fereastra de confirmare, bifați opțiunea Ștergeți software-ul de
+driver pentru acest dispozitiv (dacă este disponibilă) pentru a
+asigura o eliminare completă.
+4. Confirmați dezinstalarea.
+5. Pentru a reinstala dispozitivul, aveți două opțiuni:
+○ Reporniți computerul: La pornire, Windows va detecta
+automat hardware-ul și va încerca să instaleze un driver de
+bază.
+○ Scanare pentru modificări de hardware: În Manager
+dispozitive, faceți clic pe meniul Acțiune și selectați Scanare
+pentru modificări de hardware. Acest lucru va declanșa
+același proces de detecție și instalare fără a necesita o
+repornire.
+Instrumente esențiale de sistem
+Manager dispozitive: scop și capabilități
+Manager dispozitive (Device Manager) este un instrument central în
+Windows, care oferă o interfață grafică pentru vizualizarea și controlul
+tuturor componentelor hardware recunoscute de sistemul de operare.
+Acesta permite utilizatorilor să gestioneze drivere, să modifice setări
+hardware, să identifice conflicte și să depaneze dispozitive.
+Metode de accesare:
+● Meniul Power User: Apăsați tastele Win + X și selectați Manager
+dispozitive din listă.
+● Căutare în Start: Tastați "manager dispozitive" în bara de căutare
+și selectați rezultatul corespunzător.
+● Comanda Run: Apăsați Win + R, tastați devmgmt.msc și apăsați
+Enter.
+În Manager dispozitive, componentele sunt organizate pe categorii (de
+ex., Plăci video, Adaptoare de rețea). Starea fiecărui dispozitiv este
+indicată de pictograma sa:
+● Pictogramă normală: Dispozitivul funcționează corect.
+● Semn de exclamare galben (!): Indică o problemă. Aceasta poate
+fi legată de un driver lipsă, corupt, incompatibil sau un conflict de
+resurse. Codul de eroare specific poate fi vizualizat în proprietățile
+dispozitivului.
+● Săgeată neagră în jos (↓): Dispozitivul este dezactivat. Poate fi
+reactivat făcând clic dreapta și selectând Activare dispozitiv.
+Următorul tabel sintetizează cele mai comune coduri de eroare întâlnite
+în Manager dispozitive, oferind un ghid rapid pentru diagnosticare și
+rezolvare.
+Cod
+eroar
+e
+Mesaj de
+eroare tipic
+Cauză probabilă Soluție
+recomandată
+Cod
+10
+Acest dispozitiv
+nu poate porni.
+O eroare
+generică
+raportată de
+driver sau de
+hardware.
+Adesea, cheia
+hardware a
+dispozitivului
+conține un mesaj
+de eroare specific
+de la producător.
+Actualizați driverul
+dispozitivului. Dacă
+problema persistă,
+poate indica o
+defecțiune
+hardware.
+Cod
+12
+Imposibil ca
+dispozitivul să
+găsească
+suficiente
+resurse libere
+pentru a le
+utiliza.
+Conflict de
+resurse (porturi
+I/O, IRQ) între
+două sau mai
+multe dispozitive.
+BIOS-ul nu a
+alocat corect
+resursele.
+Utilizați
+depanatorul
+hardware din
+proprietățile
+dispozitivului
+pentru a identifica
+conflictul. Uneori,
+este necesară o
+actualizare de
+BIOS.
+Cod
+19
+Windows nu
+poate porni
+acest dispozitiv
+hardware
+deoarece
+informațiile sale
+de configurare
+(din registry)
+sunt incomplete
+sau deteriorate.
+Informațiile de
+configurare din
+registrul Windows
+pentru acest
+dispozitiv sunt
+corupte sau
+invalide.
+Dezinstalați și
+reinstalați driverul.
+Ca alternativă,
+utilizați un punct de
+restaurare a
+sistemului pentru a
+reveni la o
+configurație
+anterioară
+funcțională.
+Cod
+22
+Acest dispozitiv
+este dezactivat.
+Dispozitivul a fost
+dezactivat
+manual de către
+un utilizator sau o
+aplicație din
+Manager
+dispozitive.
+Faceți clic dreapta
+pe dispozitiv în
+Manager
+dispozitive și
+selectați Activare
+dispozitiv.
+Cod
+28
+Driverele pentru
+acest dispozitiv
+nu sunt
+instalate.
+Driverele pentru
+dispozitiv lipsesc
+complet din
+sistem.
+Instalați driverul
+corect, fie prin
+Windows Update,
+fie descărcându-l
+manual de pe
+site-ul
+producătorului.
+Cod
+43
+Windows a oprit
+acest dispozitiv
+deoarece a
+raportat
+probleme.
+Un driver a
+notificat sistemul
+de operare că
+dispozitivul
+hardware a
+suferit o
+defecțiune. Este
+o eroare comună
+pentru plăcile
+video și
+dispozitivele
+USB.
+Reporniți
+computerul.
+Reinstalați complet
+driverul. Dacă
+problema persistă,
+este foarte probabil
+să fie o defecțiune
+hardware.
+Cod
+45
+În prezent,
+acest dispozitiv
+hardware nu
+este conectat la
+computer.
+Dispozitivul a fost
+conectat anterior,
+dar acum este
+deconectat.
+Această intrare
+este de obicei
+vizibilă doar când
+se afișează
+dispozitivele
+ascunse.
+Reconectați
+dispozitivul
+hardware la
+computer. Nu este
+necesară nicio altă
+acțiune.
+Gestionare disc: scop și capabilități
+Gestionare disc (Disk Management) este un utilitar de sistem puternic,
+integrat în Windows, care permite efectuarea de operațiuni avansate de
+stocare, cum ar fi crearea, formatarea, redimensionarea și ștergerea
+partițiilor pe hard disk-uri (HDD), unități solid-state (SSD) și alte medii de
+stocare.
+Metode de accesare:
+● Meniul Start: Faceți clic dreapta pe butonul Start și selectați
+Gestionare disc.
+● Comanda Run: Apăsați Win + R, tastați diskmgmt.msc și apăsați
+Enter.
+Gestionarea corectă a partițiilor este fundamentală nu doar pentru
+organizarea datelor, ci și ca o măsură de protecție. Separarea sistemului
+de operare (de obicei pe partiția C:) de fișierele personale (pe o altă
+partiție, de ex., D:) este o practică recomandată. Aceasta reduce riscul
+de pierdere a datelor în cazul unei defecțiuni a sistemului de operare,
+permițând reinstalarea Windows pe partiția C: fără a afecta datele de pe
+partiția D:.
+Capabilități principale:
+● Inițializarea discurilor noi: Când un disc nou este adăugat la
+sistem, acesta trebuie inițializat înainte de a putea fi utilizat.
+Gestionare disc vă solicită să alegeți un stil de partiționare:
+○ MBR (Master Boot Record): Un stil mai vechi, compatibil cu
+sistemele BIOS tradiționale. Are limitări, cum ar fi suportul
+pentru discuri de până la 2 TB și un maxim de 4 partiții
+primare.
+○ GPT (GUID Partition Table): Stilul modern, asociat cu
+sistemele UEFI. Suportă discuri mult mai mari și un număr
+practic nelimitat de partiții. Este alegerea recomandată
+pentru toate sistemele moderne.
+● Crearea, formatarea și ștergerea partițiilor:
+○ Creare: Puteți crea un Volum simplu nou pe spațiul marcat
+ca Nealocat. Expertul vă ghidează prin procesul de alegere a
+dimensiunii, a literei de unitate și a setărilor de formatare.
+○ Formatare: O partiție existentă poate fi formatată pentru a
+șterge tot conținutul și a pregăti-o pentru utilizare. Puteți
+alege sistemul de fișiere (NTFS este standardul pentru
+Windows, exFAT este recomandat pentru compatibilitate
+între sisteme de operare) și eticheta de volum (numele
+partiției).
+○ Ștergere: Ștergerea unui volum elimină partiția și transformă
+spațiul respectiv înapoi în Nealocat, gata pentru a fi utilizat în
+alt scop.
+● Redimensionarea partițiilor:
+○ Micșorare volum (Shrink): Această funcție permite
+reducerea dimensiunii unei partiții existente (dacă are spațiu
+liber) pentru a crea spațiu Nealocat.
+○ Extindere volum (Extend): Permite adăugarea de spațiu
+Nealocat la o partiție existentă. Condiția este ca spațiul
+nealocat să fie imediat adiacent (în dreapta) partiției pe care
+doriți să o extindeți în interfața grafică a utilitarului.
+Depanarea perifericelor de intrare și afișare
+Gestionarea și depanarea tastaturilor
+Problemele cu tastatura pot varia de la taste individuale care nu răspund
+la comportamente incorecte ale întregului dispozitiv. Depanarea
+urmează o abordare logică:
+1. Verificări de bază: Asigurați-vă că tastatura este conectată corect.
+Pentru tastaturile cu fir, încercați un alt port USB. Pentru cele
+wireless, verificați bateriile și receptorul USB. Testarea tastaturii pe
+un alt computer poate izola rapid dacă problema este la tastatură
+sau la PC.
+2. Probleme software și de configurare:
+○ Layout de tastatură: O cauză frecventă pentru caracterele
+incorecte este un layout de tastatură greșit selectat (de ex.,
+US în loc de UK sau RO). Verificați și corectați acest lucru în
+Setări > Oră și limbă > Limbă și regiune.
+○ Funcții de accesibilitate: Funcții precum Taste adezive
+(Sticky Keys) sau Taste filtru (Filter Keys) pot modifica
+comportamentul tastaturii. Asigurați-vă că acestea sunt
+dezactivate în Setări > Accesibilitate > Tastatură dacă nu
+sunt necesare.
+3. Depanare la nivel de driver:
+○ Deschideți Manager dispozitive și localizați tastatura sub
+categoria Tastaturi.
+○ Încercați să actualizați driverul. Dacă problema a apărut
+recent, încercați să reveniți la o versiune anterioară.
+○ Ca ultimă soluție, dezinstalați dispozitivul și reporniți
+computerul pentru a permite Windows să reinstaleze
+automat driverul.
+4. Specific pentru laptopuri: Multe funcții sunt controlate prin tasta
+Fn în combinație cu tastele F1-F12. Dacă aceste taste rapide nu
+funcționează, este posibil să fie necesar să instalați software-ul
+sau driverele specifice de la producătorul laptopului (de ex., ASUS
+System Control Interface).
+Gestionarea și depanarea mouse-urilor
+Un mouse care nu răspunde sau se comportă haotic poate perturba
+semnificativ productivitatea. Pașii de depanare sunt similari cu cei pentru
+tastaturi:
+1. Verificări fizice și de bază: Curățați senzorul optic de praf sau
+scame. Verificați conexiunea cablului sau a receptorului USB și
+încercați un alt port. Pentru mouse-urile wireless, înlocuiți bateriile.
+2. Probleme de performanță: Un cursor care se mișcă lent sau
+sacadat poate fi cauzat de setări incorecte sau de o încărcare
+mare a sistemului.
+○ Ajustați viteza pointerului în Setări > Bluetooth și dispozitive
+> Mouse > Opțiuni suplimentare pentru mouse.
+○ Închideți aplicațiile care consumă multe resurse de procesor,
+deoarece acestea pot interfera cu timpul de răspuns al
+perifericelor.
+3. Depanare la nivel de driver: Utilizați Manager dispozitive pentru
+a actualiza sau reinstala driverul pentru Mouse-uri și alte
+dispozitive de indicare. Procesul este identic cu cel pentru
+tastaturi.
+4. Specific pentru mouse-uri wireless: Interferențele radio sunt o
+cauză comună a problemelor. Evitați plasarea receptorului USB
+lângă alte dispozitive wireless, cabluri de alimentare sau aparate
+precum cuptoarele cu microunde. Dacă conexiunea se pierde,
+încercați să re-asociați (re-pair) mouse-ul cu receptorul său.
+Gestionarea și depanarea monitoarelor
+Problemele de afișare, în special în configurațiile cu mai multe
+monitoare, sunt frecvente și pot fi cauzate de conexiuni, setări sau
+drivere.
+1. Verificări fizice: Asigurați-vă că cablurile video (HDMI,
+DisplayPort, DVI, VGA) sunt conectate ferm la ambele capete.
+Verificați dacă pe monitor este selectată sursa de intrare corectă
+(de ex., HDMI 1, DisplayPort).
+2. Configurarea în Windows:
+○ Detectarea monitoarelor: Dacă un al doilea monitor nu este
+detectat, navigați la Setări > Sistem > Afișaj. Derulați în jos la
+secțiunea Mai multe afișaje și faceți clic pe butonul Detectare
+pentru a forța Windows să caute din nou ecrane conectate.
+○ Modul de proiecție: Utilizați comanda rapidă Win + P pentru
+a comuta rapid între modurile de afișare: Doar ecran PC,
+Duplicat, Extindere și Doar al doilea ecran.
+3. Depanarea avansată:
+○ Driverul plăcii video: Driverul grafic este componenta
+software cea mai importantă pentru funcționarea
+monitoarelor. Asigurați-vă că aveți cea mai recentă versiune
+instalată, de preferință de pe site-ul producătorului (Nvidia,
+AMD, Intel).
+○ Rata de reîmprospătare (Refresh Rate): O neconcordanță
+între rata de reîmprospătare setată în Windows și cea
+suportată de monitor poate duce la un ecran negru. Verificați
+și ajustați această setare în Setări > Sistem > Afișaj > Afișaj
+avansat.
+○ Resetarea driverului grafic: O metodă rapidă și eficientă de
+a rezolva probleme temporare de afișare (ecran negru,
+artefacte vizuale) este resetarea driverului grafic. Apăsați
+simultan tastele Win + Ctrl + Shift + B. Ecranul se va stinge
+pentru o secundă și veți auzi un bip, indicând că driverul a
+fost reinițializat. Acest proces forțează o renegociere a
+parametrilor de afișare între placa video și monitor, rezolvând
+adesea problemele de detectare sau de afișare incorectă.
+Depanarea perifericelor audio și video
+Gestionarea și depanarea căștilor și a microfoanelor
+Problemele audio sunt adesea o combinație de factori hardware,
+software și, din ce în ce mai frecvent, de permisiuni.
+1. Verificări hardware: Asigurați-vă că dispozitivul este conectat la
+porturile corecte: mufa verde este de obicei pentru ieșire audio
+(căști/boxe), iar cea roz pentru intrare (microfon). Verificați dacă
+există butoane fizice de mute pe căști sau pe cablu și asigurați-vă
+că nu sunt activate. Pentru dispozitivele USB, încercați un alt port.
+2. Setările de sunet în Windows:
+○ Navigați la Setări > Sistem > Sunet.
+○ În secțiunile Ieșire și Intrare, asigurați-vă că ați selectat
+dispozitivul corect din lista derulantă (de ex., căștile pentru
+ieșire, microfonul USB pentru intrare).
+○ Verificați nivelurile de volum și asigurați-vă că dispozitivele
+nu sunt pe mute.
+○ Uneori, opțiunea "Îmbunătățiri audio" poate cauza conflicte.
+Încercați să o dezactivați din proprietățile avansate ale
+dispozitivului.
+3. Setările de confidențialitate (pas critic): O cauză modernă și
+adesea trecută cu vederea pentru microfoanele care nu
+funcționează în aplicații (cum ar fi Teams, Zoom, Discord) este
+legată de permisiunile de confidențialitate. Windows necesită
+acordul explicit al utilizatorului pentru ca aplicațiile să poată accesa
+microfonul. Aceasta este o barieră software, nu o problemă
+hardware.
+○ În Windows 11: Navigați la Setări > Confidențialitate și
+securitate > Microfon.
+○ În Windows 10: Navigați la Setări > Confidențialitate >
+Microfon.
+○ Asigurați-vă că opțiunile Acces la microfon și Permiteți
+aplicațiilor să vă acceseze microfonul sunt activate. Derulați
+în jos pentru a verifica dacă aplicația specifică în care
+întâmpinați probleme are permisiunea activată.
+Gestionarea și depanarea camerelor web
+Similar microfoanelor, funcționarea camerelor web depinde de o triadă
+de factori: hardware, drivere și permisiuni de confidențialitate.
+1. Verificări fizice: Pentru camerele externe, verificați conexiunea
+USB. Pentru camerele integrate în laptopuri, un aspect crucial este
+verificarea existenței unui comutator fizic sau a unui obturator de
+confidențialitate. Multe laptopuri moderne au un mic glisor
+deasupra lentilei sau o tastă funcțională (de ex., F8 sau F10) care
+dezactivează camera la nivel hardware.
+2. Setările de confidențialitate: La fel ca în cazul microfoanelor,
+accesul la camera web este controlat de setările de
+confidențialitate.
+○ În Windows 11: Navigați la Setări > Confidențialitate și
+securitate > Cameră.
+○ În Windows 10: Navigați la Setări > Confidențialitate >
+Cameră.
+○ Asigurați-vă că accesul general și accesul pentru aplicații
+specifice sunt activate.
+3. Depanare software:
+○ Testați cu aplicația nativă: Deschideți aplicația Cameră din
+meniul Start. Dacă camera funcționează aici, problema este
+probabil legată de setările aplicației terțe (de ex., Meet,
+Teams) și nu de sistemul de operare sau de driver.
+○ Verificați software-ul antivirus: Unele suite de securitate
+includ funcții de "protecție a camerei web" care pot bloca
+accesul neautorizat, dar uneori blochează și aplicațiile
+legitime. Verificați setările antivirusului.
+4. Depanare la nivel de driver: Utilizați Manager dispozitive pentru
+a actualiza, a reveni la o versiune anterioară sau a reinstala
+complet driverul camerei, care se găsește de obicei sub categoria
+Camere sau Dispozitive de imagine.
+Depanarea dispozitivelor de stocare
+Gestionarea și depanarea unităților de stocare locale (hdd, ssd,
+unități externe)
+Când o unitate de stocare externă sau internă nu este recunoscută,
+procesul de depanare trebuie să fie sistematic.
+1. Pași de bază pentru unități externe: Începeți prin a exclude
+problemele fizice simple. Încercați un alt cablu USB și un alt port
+USB pe computer. Dacă este posibil, testați unitatea pe un alt PC
+pentru a determina dacă problema este la unitate sau la
+computerul original. Pentru hard disk-urile externe de 3.5 inch,
+asigurați-vă că adaptorul de alimentare extern este conectat și
+funcțional.
+2. Verificarea în Gestionare disc: Acesta este cel mai important
+instrument pentru diagnosticarea problemelor de stocare.
+○ Deschideți Gestionare disc și verificați dacă unitatea apare în
+listă.
+○ Stări comune ale problemelor:
+■ Neinițializat: Unitatea este văzută de sistem, dar nu
+are un stil de partiționare. Faceți clic dreapta și
+selectați Inițializare disc (alegeți GPT pentru unități
+moderne).
+■ Nealocat: Unitatea este inițializată, dar nu are nicio
+partiție. Faceți clic dreapta pe spațiul nealocat și creați
+un Volum simplu nou.
+■ RAW: Sistemul de fișiere al partiției este corupt sau
+nerecunoscut. Acest lucru indică o problemă logică. Nu
+formatați imediat dacă aveți date importante. Încercați
+mai întâi pasul următor.
+3. Repararea sistemului de fișiere: Utilitarul chkdsk (Check Disk)
+este un instrument puternic în linie de comandă pentru a scana și
+repara erorile logice și fizice de pe o unitate.
+○ Deschideți Linia de comandă ca administrator (Win + X >
+Terminal (Admin)).
+○ Tastați comanda chkdsk X: /f /r, unde X: este litera unității cu
+probleme.
+■ /f remediază erorile de pe disc.
+■ /r localizează sectoarele defecte și recuperează
+informațiile lizibile.
+○ Acest proces poate dura mult timp, în special pe unități mari.
+4. Gestionarea literei de unitate: Uneori, o unitate este sănătoasă,
+dar nu apare în Acest PC deoarece nu i s-a atribuit o literă de
+unitate. În Gestionare disc, faceți clic dreapta pe partiție și selectați
+Modificare literă unitate și căi... pentru a atribui o literă disponibilă.
+5. Depanarea driverelor: În Manager dispozitive, verificați secțiunile
+Unități de disc și Controlere Universal Serial Bus. Încercați să
+actualizați sau să reinstalați driverele relevante, în special dacă
+unitatea nu apare deloc.
+Gestionarea și depanarea unităților de stocare în rețea (dispozitive
+nas și unități mapate)
+Problemele cu unitățile de rețea sunt adesea legate de conectivitate,
+permisiuni sau configurații de protocol.
+1. Verificarea conectivității: Asigurați-vă că PC-ul are o conexiune
+funcțională la rețea. Utilizați comanda ping <adresa_IP_NAS> în
+Linia de comandă pentru a verifica dacă există o comunicare de
+bază cu dispozitivul de stocare.
+2. Protocoale de partajare (SMB): Dispozitivele de stocare în rețea
+mai vechi pot necesita protocolul SMBv1, care este dezactivat în
+mod implicit în versiunile recente de Windows din motive de
+securitate. Dacă nu puteți accesa un dispozitiv mai vechi, poate fi
+necesar să activați manual SMB 1.0/CIFS Client din Panou de
+control > Programe > Activare sau dezactivare caracteristici
+Windows.
+3. Utilizarea liniei de comandă: Uneori, maparea unei unități prin
+interfața grafică eșuează. Utilizarea comenzii net use în Linia de
+comandă este o alternativă mai robustă.
+○ Pentru a mapa o unitate: net use Z:
+\\<adresa_IP_NAS>\<nume_partajare>
+○ Pentru a șterge o mapare: net use Z: /delete.
+4. Probleme de vizibilitate legate de UAC (User Account
+Control): O problemă subtilă poate apărea pe conturile de
+administrator. Datorită UAC, un administrator are două contexte de
+securitate (token-uri): unul standard și unul elevat. O unitate
+mapată într-un context (de ex., printr-un script rulat cu privilegii
+standard) s-ar putea să nu fie vizibilă într-o aplicație rulată ca
+administrator (context elevat). Pentru a unifica vizibilitatea unităților
+mapate între cele două contexte, este necesară o modificare în
+registru. Navigați la
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Curren
+tVersion\Policies\System și creați o nouă valoare DWORD (32-bit)
+numită EnableLinkedConnections, setându-i valoarea la 1. Este
+necesară o repornire.
+Depanarea imprimantelor și a scanerelor
+Gestionarea și depanarea imprimantelor (locale și de rețea)
+Problemele de imprimare sunt printre cele mai frecvente frustrări ale
+utilizatorilor. O abordare metodică poate rezolva majoritatea acestora.
+1. Verificări de bază: Confirmați că imprimanta este pornită,
+conectată la PC (prin USB) sau la rețea (Wi-Fi/Ethernet) și nu are
+erori afișate pe ecranul propriu. Verificați nivelurile de cerneală sau
+toner și asigurați-vă că nu există blocaje de hârtie.
+2. Gestionarea cozii de imprimare: O lucrare de imprimare blocată
+poate opri toate lucrările ulterioare.
+○ Deschideți coada de imprimare din Setări > Bluetooth și
+dispozitive > Imprimante și scanere > > Deschidere coadă de
+imprimare.
+○ Anulați toate documentele din listă.
+○ Dacă acest lucru nu funcționează, este necesar să reporniți
+serviciul "Print Spooler". Deschideți services.msc (din Run),
+localizați Print Spooler, faceți clic dreapta și selectați
+Repornire.
+3. Reinstalarea imprimantei: O configurație coruptă a imprimantei
+poate fi rezolvată printr-o reinstalare completă.
+○ Navigați la Setări > Bluetooth și dispozitive > Imprimante și
+scanere.
+○ Selectați imprimanta și alegeți Eliminare.
+○ Apoi, faceți clic pe Adăugare dispozitiv pentru a permite
+Windows să o detecteze și să o reinstaleze automat. Dacă
+nu este găsită, utilizați opțiunea Adăugare manuală.
+4. Rularea depanatorului: Utilizați depanatorul specific pentru
+imprimantă din setările Windows pentru a verifica automat
+problemele comune, cum ar fi serviciul Spooler oprit sau
+problemele de conectivitate.
+Gestionarea și depanarea scanerelor
+Funcționalitatea de scanare depinde de servicii specifice Windows și de
+drivere corecte.
+1. Verificarea serviciilor Windows: Două servicii sunt esențiale
+pentru scanare:
+○ Windows Image Acquisition (WIA): Principalul serviciu
+care gestionează comunicarea cu dispozitivele de imagine.
+○ Shell Hardware Detection: Ajută la detectarea
+evenimentelor de la dispozitive hardware.
+○ Deschideți services.msc și asigurați-vă că ambele servicii
+sunt În execuție și au tipul de pornire setat pe Automat.
+2. Drivere TWAIN și WIA: Scanerele comunică cu software-ul prin
+intermediul unor drivere standard, cele mai comune fiind TWAIN și
+WIA. O problemă cu aceste drivere poate împiedica funcționarea
+scanerului, chiar dacă imprimanta funcționează. Reinstalarea
+pachetului complet de software de la producătorul scanerului este
+cea mai bună modalitate de a repara aceste drivere.
+3. Reinstalarea software-ului: Dezinstalați complet orice software
+specific scanerului (de ex., HP Universal Scan, Epson Scan) și
+descărcați cea mai recentă versiune de pe site-ul producătorului
+pentru a vă asigura de compatibilitatea cu versiunea dvs. de
+Windows.
+Gestionarea conexiunilor fără fir
+Conectarea și depanarea dispozitivelor bluetooth
+Bluetooth permite conectarea unei game largi de periferice fără fir, dar
+poate fi uneori capricios.
+1. Procesul de asociere (Pairing):
+○ Asigurați-vă că Bluetooth este activat pe computerul dvs.
+Puteți face acest lucru din Setări rapide (pictograma de
+rețea/sunet din bara de activități) sau din Setări > Bluetooth
+și dispozitive.
+○ Puneți dispozitivul periferic (căști, mouse, tastatură) în modul
+de asociere. Acest proces variază în funcție de dispozitiv; de
+obicei, implică apăsarea și menținerea unui buton specific
+până când un LED începe să clipească.
+○ Pe PC, în Setări > Bluetooth și dispozitive, faceți clic pe
+Adăugare dispozitiv, alegeți Bluetooth și selectați dispozitivul
+dvs. din lista celor descoperite.
+2. Pași comuni de depanare:
+○ Repornirea serviciului Bluetooth: O soluție rapidă pentru
+multe probleme de conectivitate este repornirea serviciului.
+Deschideți services.msc, localizați Serviciul de asistență
+Bluetooth, faceți clic dreapta și selectați Repornire.
+○ Eliminarea și re-asocierea: Dacă un dispozitiv conectat
+anterior nu mai funcționează, mergeți la Setări > Bluetooth și
+dispozitive, găsiți dispozitivul în listă, selectați Eliminare
+dispozitiv și apoi reluați procesul de asociere de la zero.
+Aceasta șterge cheile de asociere vechi, care ar putea fi
+corupte.
+○ Depanarea la nivel de driver: În Manager dispozitive, sub
+categoria Bluetooth, puteți actualiza sau dezinstala și
+reinstala adaptorul Bluetooth al computerului. La repornire,
+Windows va reinstala driverul, ceea ce poate rezolva
+problemele de la nivel inferior.
+○ Rularea depanatorului Bluetooth: Utilizați depanatorul
+integrat în Windows pentru a verifica automat setările, starea
+serviciilor și alte probleme comune de configurare.

@@ -1,0 +1,322 @@
+
+ 
+lDevice Configuration 
+and 
+Management 
+ 
+ 
+ 
+ 
+ 
+Windows Installation 
+and Configuration 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+●​1.3 Install Windows using the default settings  
+• Time zone options, Microsoft account vs. local 
+account, upgrade vs. custom install  
+• Installation scenarios include domain-joined and 
+non-domain-joined computers. 
+●​ 1.4 Configure user account options  
+• User account (Microsoft, Domain, or local) 
+ • Standard user and administrative account types, 
+ • User profiles 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+Un sistem de operare (SO) este software-ul fundamental care 
+permite unui utilizator să comunice cu computerul. Acesta gestionează 
+fișierele, rulează programele și se conectează la internet. Acest ghid 
+explică pașii și opțiunile cheie din timpul procesului de instalare a 
+sistemului de operare Windows. 
+Înțelegerea acestor opțiuni vă va ajuta să configurați sistemul optim 
+pentru nevoile dumneavoastră. 
+ 
+Time Zone Options and Upgrade vs. Custom Install.mp4
+1. Tipuri de Instalare: Upgrade vs. Custom 
+Una dintre primele și cele mai importante decizii pe care trebuie să le iei 
+la instalarea Windows este alegerea tipului de instalare. Fiecare opțiune 
+are un scop diferit. 
+●​ Upgrade (Actualizare): Această opțiune păstrează fișierele 
+personale, setările și aplicațiile existente. Este, în esență, o trecere 
+la o versiune mai nouă de Windows peste cea veche. 
+○​ Când se folosește? Se alege atunci când vrei să treci de la 
+o versiune mai veche de Windows (de exemplu, de la 
+Windows 10 la Windows 11) pe același computer, fără a 
+pierde datele. 
+○​ Avantaj: Convenabil și rapid, deoarece nu necesită 
+reinstalarea programelor și restaurarea fișierelor din backup. 
+○​ Dezavantaj: Eventualele probleme sau erori din sistemul de 
+operare vechi pot fi transferate în cel nou. 
+●​ Custom (Personalizată / Instalare Curată): Această opțiune 
+instalează o copie nouă, "curată" a sistemului de operare. În timpul 
+acestui proces, partiția (secțiunea de pe hard disk) pe care 
+instalezi Windows este formatată, ceea ce înseamnă că toate 
+datele de pe acea partiție (inclusiv fișiere, programe și 
+sistemul de operare vechi) vor fi șterse definitiv. 
+○​ Când se folosește? Este metoda recomandată pentru un 
+computer nou (care nu are un SO), pentru a rezolva 
+probleme majore de sistem (viruși, erori grave) sau dacă vrei 
+
+
+ 
+să pornești de la zero, fără nicio "moștenire" de la sistemul 
+vechi. 
+○​ Avantaj: Oferă performanță maximă și stabilitate, eliminând 
+orice problemă software preexistentă. 
+○​ Dezavantaj: Necesită mai mult timp, deoarece trebuie să 
+faci un backup al tuturor datelor importante înainte de a 
+începe și să reinstalezi toate aplicațiile după finalizarea 
+instalării. 
+Recomandare: Dacă nu aveți un motiv specific și puternic pentru a face 
+un upgrade, o instalare personalizată (curată) este aproape 
+întotdeauna cea mai bună alegere pentru a asigura un sistem rapid, 
+stabil și fără probleme. 
+2. Cheia de Produs și Etapele Inițiale 
+Înainte ca instalarea propriu-zisă să înceapă, Windows îți va solicita 
+câteva informații esențiale. 
+Este mereu necesară o cheie de produs? 
+Nu, o cheie de produs (product key) nu este întotdeauna obligatorie 
+în timpul procesului de instalare. 
+Windows îți permite să selectezi opțiunea "Nu am o cheie de produs" ("I 
+don't have a product key"). Acest lucru îți permite să continui instalarea 
+și să folosești Windows pentru o perioadă limitată, cu unele 
+funcționalități restricționate (de exemplu, opțiunile de personalizare). Poți 
+introduce cheia de produs mai târziu, după ce instalarea s-a încheiat, 
+pentru a activa complet sistemul de operare. 
+Mai mult, computerele moderne vin adesea cu o licență digitală legată 
+de hardware-ul computerului. În acest caz, Windows se va activa 
+automat odată ce se conectează la internet, fără a necesita introducerea 
+manuală a unei chei. 
+Opțiunile de confirmare înainte de instalare 
+
+
+ 
+Chiar la începutul procesului, programul de instalare Windows îți va cere 
+să confirmi următoarele setări, care sunt de obicei pre-configurate pe 
+baza locației, dar pot fi modificate: 
+●​ Limba de instalare: Limba în care se va desfășura procesul de 
+instalare. 
+●​ Formatul orei și al monedei: Acesta determină cum vor fi afișate 
+datele, orele și simbolurile valutare în sistemul de operare. 
+●​ Tastatura sau metoda de introducere: Stabilește layout-ul 
+tastaturii (de ex., RO, US, UK). 
+După ce fișierele principale sunt copiate și instalarea de bază este gata, 
+vei fi rugat să confirmi regiunea și fusul orar (Time Zone) pentru ca 
+ceasul computerului să fie sincronizat corect. 
+3. Opțiuni Fus Orar (Time Zone Options)  
+Ce înseamnă? 
+Selectarea fusului orar este un pas esențial prin care îi spuneți 
+sistemului de operare în ce regiune a lumii vă aflați din punct de vedere 
+temporal. Această setare asigură că ceasul computerului afișează ora 
+corectă. 
+De ce este important? 
+●​ Acuratețea Orei: Toate fișierele pe care le creați sau modificați 
+vor avea o marcă temporală (timestamp) corectă. Acest lucru este 
+crucial pentru organizarea și urmărirea versiunilor documentelor. 
+●​ Sincronizarea Serviciilor: Multe aplicații și servicii online, inclusiv 
+e-mailul (de exemplu, Outlook), calendarele și software-ul de 
+colaborare (de exemplu, Microsoft Teams), se bazează pe setarea 
+corectă a orei pentru a programa întâlniri, a trimite notificări și a se 
+sincroniza corespunzător. 
+●​ Securitate: Protocoalele de securitate și autentificare, cum ar fi 
+Kerberos (utilizat în rețelele de tip domeniu), necesită ca ceasurile 
+computerelor dintr-o rețea să fie sincronizate cu o marjă de eroare 
+foarte mică. Discrepanțele de timp pot duce la erori de 
+autentificare. 
+
+
+ 
+●​ Actualizări de Sistem: Windows Update se bazează pe ora 
+corectă pentru a programa și a rula verificările pentru actualizări. 
+ 
+Ce trebuie să faceți? 
+În timpul instalării, vi se va prezenta o listă de fusuri orare. Pentru 
+România, selectați "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, 
+Vilnius" sau, în versiunile mai noi de Windows, direct "(UTC+02:00) 
+Bucharest". De asemenea, Windows va gestiona automat trecerea la 
+ora de vară dacă opțiunea corespunzătoare este activată. 
+ 
+4. Cont Microsoft vs. Cont Local  
+ 
+Microsoft Account vs. Custom Install.mp4
+ 
+Aceasta este una dintre cele mai importante decizii, care influențează 
+modul în care interacționați cu sistemul de operare și serviciile asociate. 
+Cont Microsoft 
+●​ Ce este? Un cont Microsoft este o adresă de e-mail (de exemplu, 
+nume@outlook.com, nume@hotmail.com sau chiar un cont de la 
+alt furnizor precum Gmail) și o parolă pe care le utilizați pentru a 
+vă conecta la Windows. 
+●​ Avantaje: 
+○​ Sincronizare în Cloud: Setările sistemului (tema, parola, 
+preferințele de limbă), fișierele salvate în OneDrive și 
+parolele din browserul Edge sunt sincronizate automat pe 
+toate dispozitivele Windows la care vă conectați cu același 
+cont. 
+○​ Integrare cu Servicii Microsoft: Oferă acces direct și 
+integrat la servicii precum OneDrive (stocare în cloud), 
+Microsoft Store (pentru a descărca aplicații), Xbox, 
+Skype(a fost) și suita Office 365/Microsoft 365. 
+○​ Securitate Îmbunătățită: Permite utilizarea unor opțiuni de 
+securitate avansate, cum ar fi autentificarea în doi pași 
+
+
+ 
+(2FA), Windows Hello (autentificare facială sau cu amprentă) 
+și recuperarea parolei online în caz de uitare. 
+○​ Găsește-mi dispozitivul (Find My Device): Permite 
+localizarea de la distanță a laptopului sau tabletei în caz de 
+pierdere sau furt. 
+ 
+ 
+Cont Local 
+●​ Ce este? Un cont local este un cont tradițional, format dintr-un 
+nume de utilizator și o parolă, care există doar pe computerul 
+respectiv. Nu este legat de nicio adresă de e-mail sau serviciu 
+online. 
+●​ Avantaje: 
+○​ Confidențialitate: Nu se trimit date sau setări către 
+serverele Microsoft. Este o alegere preferată de utilizatorii 
+care doresc un control maxim asupra confidențialității datelor 
+lor. 
+○​ Independență de Internet: Vă puteți conecta și utiliza 
+computerul fără a avea nevoie de o conexiune la internet. 
+○​ Simplitate: Nu necesită crearea unui cont online sau 
+furnizarea unei adrese de e-mail. 
+●​ Dezavantaje: 
+○​ Fără Sincronizare: Nicio setare nu se va sincroniza automat 
+pe alte dispozitive. 
+○​ Recuperare Dificilă a Parolei: Dacă uitați parola, procesul 
+de recuperare este mult mai complex și poate necesita un 
+disc de resetare a parolei (pe care trebuie să-l creați în 
+prealabil) sau chiar reinstalarea sistemului de operare în 
+scenarii extreme. 
+○​ Acces Limitat: Pentru a utiliza Microsoft Store sau alte 
+servicii Microsoft, va trebui să vă conectați separat la 
+acestea cu un cont Microsoft, chiar dacă folosiți un cont local 
+pentru a vă loga în Windows. 
+
+
+ 
+Recomandare: Pentru majoritatea utilizatorilor casnici, un cont 
+Microsoft oferă o experiență mai modernă, mai sigură și mai 
+convenabilă. Un cont local este recomandat pentru utilizatorii avansați, 
+preocupați de confidențialitate, sau pentru computere care nu vor fi 
+conectate la internet. 
+ 
+ Niveluri de Permisiuni: Administrator vs. Utilizator Standard 
+ 
+ 
+Account Types.mp4
+Indiferent dacă un cont este Microsoft sau local, acesta va avea unul din 
+cele două niveluri de permisiuni: Administrator sau Standard. 
+Contul de Administrator (Administrator Account)  
+ 
+Acesta este contul cu cele mai înalte privilegii. Un administrator are 
+control total asupra sistemului de operare. 
+●​ Ce poate face un administrator? 
+○​ Instalează și dezinstalează orice software și hardware. 
+○​ Modifică setări de sistem critice (de exemplu, setări de 
+securitate, rețea). 
+○​ Accesează toate fișierele de pe computer, inclusiv cele ale 
+altor utilizatori. 
+○​ Creează, modifică și șterge alte conturi de utilizator. 
+○​ Poate acorda privilegii de administrator altor conturi. 
+Important: Primul cont creat în timpul instalării Windows este 
+întotdeauna un cont de administrator. 
+Contul de Utilizator Standard (Standard User Account)  
+Acesta este tipul de cont recomandat pentru activitățile de zi cu zi. Are 
+permisiuni limitate pentru a proteja sistemul de modificări accidentale 
+malware. 
+●​ Ce poate face un utilizator standard? 
+
+
+ 
+○​ Rulează majoritatea aplicațiilor deja instalate. 
+○​ Își personalizează propriul mediu de lucru (fundal, iconițe 
+etc.). 
+○​ Gestionează propriile fișiere (în folderele sale de utilizator: 
+Documente, Imagini etc.). 
+●​ Ce NU poate face? 
+○​ Nu poate instala programe care afectează toți utilizatorii. 
+○​ Nu poate modifica setări importante de sistem. 
+○​ Nu poate accesa fișierele private ale altor utilizatori. 
+Pentru a efectua o acțiune care necesită privilegii superioare (de 
+exemplu, instalarea unui program), un utilizator standard va vedea o 
+fereastră de dialog (User Account Control - UAC) care îi va cere parola 
+unui cont de administrator. 
+ 
+5. Scenarii: Calculator în Domeniu vs. în Afara Domeniului  
+Această opțiune este relevantă în principal pentru mediile de afaceri, 
+instituționale sau academice. 
+Calculator în afara Domeniului (Non-domain-joined / Workgroup) 
+●​ Ce este? Acesta este modul de funcționare standard pentru 
+computerele personale și de acasă. Fiecare computer este 
+independent și se gestionează individual. Utilizatorii se conectează 
+folosind un cont local sau un cont Microsoft. 
+●​ Caracteristici: 
+○​ Administrare locală: Toate setările de securitate, 
+actualizările și instalările de software sunt gestionate direct 
+pe acel computer. 
+○​ Partajare în rețea simplă (Workgroup): Computerele se 
+pot vedea între ele într-o rețea locală pentru a partaja fișiere 
+și imprimante, dar securitatea este gestionată pe bază de 
+parolă pentru fiecare resursă partajată. 
+●​ Când se folosește? În aproape toate scenariile de acasă, pentru 
+liber-profesioniști și în birouri foarte mici unde nu există o 
+infrastructură IT centralizată. 
+Calculator în Domeniu (Domain-joined) 
+
+
+ 
+●​ Ce este? Un domeniu este o rețea de computere gestionată 
+centralizat de un server special numit Controler de Domeniu 
+(Domain Controller), care rulează de obicei Windows Server cu 
+serviciul Active Directory. 
+●​ Caracteristici: 
+○​ Autentificare Centralizată: Utilizatorii au un singur cont de 
+domeniu (de exemplu, student@itstep.md) și o singură 
+parolă pentru a se conecta la orice computer din rețeaua 
+respectivă și pentru a accesa resursele partajate (servere de 
+fișiere, imprimante de rețea etc.). 
+○​ Management Centralizat: Administratorii IT pot impune 
+politici de securitate, pot instala software de la distanță și pot 
+gestiona actualizările pe toate computerele din domeniu 
+simultan, dintr-o singură locație. 
+○​ Securitate Sporită: Politicile de securitate (complexitatea 
+parolei, blocarea contului după încercări eșuate, etc.) sunt 
+aplicate uniform în întreaga rețea. 
+●​ Când se folosește? În companii medii și mari, universități, școli și 
+orice organizație care necesită un control centralizat și securizat 
+asupra computerelor și resurselor sale. 
+Cum se realizează? 
+În timpul instalării Windows (în special în edițiile Pro, Enterprise sau 
+Education), după configurarea rețelei, veți fi întrebat dacă doriți să 
+configurați dispozitivul pentru "uz personal" (ceea ce duce la un cont 
+Microsoft/local) sau pentru "o organizație" (ceea ce inițiază procesul de 
+alăturare la un domeniu sau Azure Active Directory). Alăturarea la un 
+domeniu necesită un nume de utilizator și o parolă cu permisiuni 
+administrative în acel domeniu, furnizate de departamentul IT. 
+ 

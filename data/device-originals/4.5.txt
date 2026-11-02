@@ -1,0 +1,504 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+4. Device Security 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+4.5 Manage User Account Control (UAC) settings 
+• Describe the function of UAC 
+• Identify appropriate UAC settings for specific purposes 
+• Elevate permissions in UAC 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Fundamentele controlului contului de utilizator (UAC) 
+Ce este UAC: prima linie de apărare împotriva modificărilor 
+neautorizate 
+Controlul Contului de Utilizator (User Account Control - UAC) este o 
+caracteristică fundamentală de securitate a sistemelor de operare 
+Microsoft Windows, introdusă inițial în Windows Vista și perfecționată în 
+toate versiunile ulterioare, inclusiv Windows 10 și Windows 11. Funcția 
+sa principală este de a proteja integritatea sistemului de operare prin 
+prevenirea modificărilor neautorizate. Acționează ca un mecanism de 
+control obligatoriu al accesului, care interceptează orice acțiune ce 
+necesită privilegii la nivel de administrator și solicită consimțământul 
+explicit al utilizatorului înainte de a permite executarea acesteia. Aceste 
+acțiuni pot fi inițiate de aplicații, viruși sau chiar de utilizator, fie 
+intenționat, fie accidental. 
+În esență, UAC funcționează ca un punct de control. Când un program 
+încearcă să instaleze software, să modifice setări critice de sistem sau 
+să scrie în directoare protejate, UAC oprește procesul și afișează o 
+fereastră de dialog. Această fereastră solicită utilizatorului să confirme 
+acțiunea printr-un clic pe "Da" (dacă este conectat ca administrator) sau 
+să furnizeze credențialele unui cont de administrator (dacă este conectat 
+ca utilizator standard). Acest flux de lucru asigură că nicio modificare la 
+nivel de sistem nu poate avea loc în tăcere, fără cunoștința și aprobarea 
+explicită a utilizatorului. UAC este activat în mod implicit și este proiectat 
+astfel încât software-ul malițios să nu poată dezactiva sau modifica 
+setările sale. Astfel, UAC reprezintă o componentă esențială într-o 
+strategie de securitate complexă, de tip "apărare în profunzime" 
+(defense-in-depth), completând funcționalitatea software-ului antivirus și 
+a firewall-ului. 
+Principiul privilegiului minim în practică 
+UAC este implementarea practică a unui concept de securitate 
+cibernetică esențial, cunoscut sub numele de "Principiul Privilegiului 
+Minim" (Principle of Least Privilege - PoLP). Acest principiu stipulează 
+că orice proces, program sau utilizator ar trebui să primească doar setul 
+minim de permisiuni necesare pentru a-și îndeplini funcțiile legitime. Prin 
+
+
+ 
+aderarea la acest principiu, se reduce semnificativ suprafața de atac a 
+sistemului. 
+Modul în care UAC aplică PoLP este o schimbare de paradigmă 
+fundamentală față de arhitectura de securitate a versiunilor mai vechi de 
+Windows, precum Windows XP. Înainte de UAC, dacă un utilizator era 
+autentificat cu un cont de administrator, orice program pe care îl lansa 
+moștenea automat toate privilegiile administrative. Acest model era 
+extrem de periculos, deoarece un singur clic greșit pe un atașament 
+malițios putea compromite întregul sistem. UAC a schimbat acest 
+comportament. Chiar și atunci când sunteți autentificat ca administrator, 
+majoritatea proceselor, inclusiv interfața grafică a sistemului (Windows 
+Explorer), sunt lansate cu un set de permisiuni de utilizator standard, 
+limitate. Privilegiile administrative nu mai sunt o stare permanentă, ci 
+trebuie solicitate și acordate în mod explicit pentru fiecare sarcină care le 
+necesită. Astfel, UAC transformă contul de administrator dintr-o stare de 
+putere absolută constantă într-un rol care poate acorda privilegii la 
+cerere, limitând drastic daunele pe care le poate provoca un malware 
+care reușește să se execute în sesiunea unui utilizator. 
+Arhitectura tehnică a UAC 
+Pentru a implementa Principiul Privilegiului Minim, UAC se bazează pe o 
+arhitectură tehnică ingenioasă, centrată pe câteva concepte cheie: 
+Token-uri de acces duale: La autentificarea unui utilizator care face 
+parte din grupul de administratori, sistemul de operare creează două 
+token-uri de acces distincte. Primul este un token de utilizator standard, 
+care conține permisiuni limitate, similare cu cele ale unui cont de 
+utilizator non-administrativ. Al doilea este un token de administrator 
+complet, care include toate privilegiile administrative. În mod implicit, 
+toate aplicațiile lansate de utilizator, inclusiv desktop-ul, primesc token-ul 
+de utilizator standard. Procesul de "elevare" a privilegiilor constă în 
+obținerea permisiunii de a utiliza token-ul de administrator complet 
+pentru un anumit proces, după confirmarea prin fereastra de dialog 
+UAC. 
+Modul de aprobare administrator (Admin Approval Mode): Aceasta 
+este starea de funcționare implicită pentru toate conturile de 
+
+
+ 
+administrator atunci când UAC este activ. Acest mod este cel care 
+impune utilizarea token-ului standard pentru majoritatea operațiunilor și 
+declanșează solicitările de consimțământ pentru elevare. Deși acest 
+mod poate fi dezactivat prin politici de securitate avansate, o astfel de 
+acțiune este puternic nerecomandată, deoarece anulează practic 
+beneficiile de securitate ale UAC și reduce semnificativ protecția 
+sistemului. 
+Virtualizarea fișierelor și a registrului: Pentru a asigura 
+compatibilitatea cu aplicațiile mai vechi (legacy), care nu au fost 
+proiectate având în vedere restricțiile UAC, sistemul utilizează o tehnică 
+numită virtualizare. Multe aplicații vechi încearcă să scrie fișiere de 
+configurare în directoare protejate, cum ar fi C:\Program Files, sau să 
+modifice chei de registru în secțiunea protejată 
+HKEY_LOCAL_MACHINE. Când UAC detectează o astfel de tentativă 
+de la o aplicație care nu are privilegii elevate, redirecționează în mod 
+transparent operațiunea de scriere către o locație specifică profilului 
+utilizatorului (de exemplu, în 
+C:\Users\<NumeUtilizator>\AppData\Local\VirtualStore). Acest 
+mecanism permite aplicațiilor vechi să funcționeze corect, fără a 
+necesita privilegii administrative și fără a compromite integritatea 
+fișierelor de sistem. 
+Procesul de ridicare a permisiunilor 
+Declanșarea unei solicitări de elevare 
+O solicitare de elevare UAC nu apare aleatoriu; este declanșată de 
+acțiuni specifice care încearcă să modifice componente protejate ale 
+sistemului de operare. Utilizatorii pot identifica vizual aplicațiile care vor 
+necesita elevare prin prezența unei pictograme cu un scut de securitate 
+galben și albastru, suprapusă peste iconița programului sau a scurtăturii 
+acestuia. 
+Printre cele mai comune acțiuni care necesită elevare se numără: 
+●​ Instalarea și dezinstalarea aplicațiilor care se plasează în 
+directoare de sistem, cum ar fi %ProgramFiles% sau 
+%ProgramFiles(x86)%. 
+●​ Instalarea de drivere pentru hardware sau de controale ActiveX. 
+
+
+ 
+●​ Modificarea setărilor la nivel de sistem, cum ar fi setările Windows 
+Firewall, configurarea Windows Update, modificarea setărilor de 
+dată și oră sau schimbarea tipului de cont al unui utilizator. 
+●​ Modificarea fișierelor sau folderelor din directoare protejate, 
+precum %SystemRoot% (de obicei C:\Windows) sau 
+%ProgramFiles%. 
+●​ Modificarea listelor de control al accesului (ACL), cunoscute și sub 
+numele de permisiuni pentru fișiere și foldere. 
+●​ Rularea explicită a unei aplicații cu privilegii administrative, prin clic 
+dreapta pe executabil și selectarea opțiunii "Executare ca 
+administrator" ("Run as administrator"). 
+Tipuri de solicitări: consimțământ vs. credențiale 
+Interfața UAC prezintă două tipuri distincte de ferestre de dialog, iar tipul 
+afișat depinde de nivelul de privilegiu al contului de utilizator activ. 
+Această diferențiere nu este doar cosmetică, ci reflectă modelul de 
+încredere fundamental al sistemului de operare. 
+Solicitarea de consimțământ (Consent Prompt): 
+Această solicitare este destinată utilizatorilor care sunt deja membri ai 
+grupului local de administratori și rulează în "Modul de aprobare 
+administrator". Deoarece sistemul știe deja că utilizatorul are autoritatea 
+necesară, nu îi cere să-și reintroducă parola. În schimb, solicită o simplă 
+confirmare a intenției. Fereastra de dialog prezintă informații despre 
+programul care solicită acces și două butoane: "Da" și "Nu". Un clic pe 
+"Da" acordă procesului token-ul de acces administrativ complet. 
+Sistemul practic întreabă: "Confirm că tu, o entitate de încredere, dorești 
+să execuți această acțiune privilegiată?".
+ 
+
+
+ 
+Solicitarea de credențiale (Credential Prompt): 
+Această solicitare este afișată utilizatorilor cu conturi standard, care nu 
+dețin privilegii administrative. Deoarece acești utilizatori nu sunt entități 
+de încredere pentru acțiuni administrative, un simplu consimțământ nu 
+este suficient. Fereastra de dialog le solicită să introducă numele de 
+utilizator și parola unui cont de administrator valid pentru a autoriza 
+acțiunea. Acest mecanism permite unui utilizator standard să efectueze 
+sarcini administrative ocazionale (cum ar fi instalarea unui program 
+aprobat) fără a fi necesară deconectarea și reconectarea. Aici, sistemul 
+întreabă: "Poți să-mi demonstrezi că ai autoritatea unei entități de 
+încredere (un administrator) pentru a executa această acțiune?". 
+Există și un caz special în care administratorii pot fi configurați, prin 
+politici de securitate, să primească o solicitare de credențiale în loc de 
+una de consimțământ, adăugând un nivel suplimentar de securitate prin 
+solicitarea reintroducerii parolei. 
+Rolul critic al desktop-ului securizat (Secure Desktop) 
+În mod implicit, atunci când apare o solicitare UAC, interfața sistemului 
+de operare comută de la desktop-ul normal, interactiv, la o stare specială 
+numită "desktop securizat" (Secure Desktop). Acest proces este 
+responsabil pentru efectul vizual de estompare (dimming) a fundalului. 
+Desktop-ul securizat este, în esență, o sesiune de interfață grafică 
+izolată, care rulează la un nivel de integritate superior și unde doar 
+procesele de sistem de încredere (care rulează sub contul SYSTEM) au 
+permisiunea de a funcționa. 
+Rolul său principal este de a preveni atacurile de tip "spoofing" și de 
+manipulare a interfeței. Comutarea la acest desktop este echivalentul 
+intrării într-o "cameră curată" digitală pentru a lua o decizie de securitate 
+critică. Deoarece malware-ul care rulează pe desktop-ul normal al 
+utilizatorului nu are acces la acest mediu izolat, nu poate: 
+●​ Falsifica interfața: Un program malițios nu poate desena peste 
+fereastra UAC pentru a schimba textul sau pentru a păcăli 
+utilizatorul să aprobe o acțiune periculoasă. 
+●​ Manipula input-ul: Malware-ul nu poate simula clicuri pe butonul 
+"Da" și nici nu poate intercepta parola introdusă în fereastra de 
+
+
+ 
+dialog (keylogging), deoarece nu poate monitoriza intrările de la 
+tastatură sau mouse în acest context securizat. 
+Dezactivarea desktop-ului securizat, o opțiune disponibilă în setările 
+UAC, nu este o simplă modificare cosmetică pentru a elimina efectul de 
+estompare. Aceasta reprezintă renunțarea voluntară la o barieră de 
+securitate esențială, expunând procesul de elevare la riscuri 
+semnificative, tranzacționând securitatea robustă pentru o mică 
+îmbunătățire a performanței sau a confortului vizual. 
+Identificarea vizuală a solicitărilor UAC 
+Pentru a ajuta utilizatorii să evalueze rapid nivelul de risc asociat cu o 
+solicitare de elevare, ferestrele de dialog UAC utilizează un sistem de 
+codificare prin culori (deși designul exact poate varia ușor între Windows 
+10 și 11): 
+●​ Fundal gri sau albastru deschis: Indică cel mai înalt nivel de 
+încredere. Solicitarea provine de la o aplicație care este o 
+componentă administrativă a Windows sau de la un software 
+semnat digital de un editor verificat și de încredere (de exemplu, 
+Microsoft, HP, Dell etc.). 
+●​ Fundal galben sau portocaliu: Indică un avertisment. Solicitarea 
+provine de la o aplicație care nu este semnată digital sau care este 
+semnată de un editor care nu este încă de încredere pentru 
+sistemul dumneavoastră. Aceste solicitări necesită o atenție 
+sporită și o verificare atentă a sursei aplicației înainte de a acorda 
+permisiunea. 
+Configurarea setărilor UAC pentru scopuri specifice 
+Ghid pas cu pas pentru modificarea setărilor UAC 
+Modificarea nivelului de notificare UAC este un proces simplu și identic 
+în Windows 10 și Windows 11. Există două metode principale pentru a 
+accesa fereastra de setări. 
+ 
+ 
+
+
+ 
+Metoda universală (prin căutare): 
+1.​ Faceți clic pe butonul Start sau pe 
+pictograma de căutare din bara de 
+activități. 
+2.​ Tastați UAC în caseta de căutare. 
+3.​ În lista de rezultate, faceți clic pe 
+"Modificare setări Control cont utilizator" 
+("Change User Account Control settings"). 
+ 
+Metoda prin Panoul de Control: 
+1.​ Deschideți Panoul de Control (îl puteți găsi prin căutare, dacă nu 
+este vizibil). 
+2.​ Navigați la secțiunea "Conturi de utilizator" ("User Accounts"). 
+3.​ Faceți clic din nou pe link-ul "Conturi de utilizator". 
+4.​ Selectați opțiunea "Modificare setări Control cont utilizator". 
+Indiferent de metoda aleasă, se va deschide fereastra "Setări Control 
+cont utilizator". Aici, un glisor vertical vă permite să alegeți unul dintre 
+cele patru niveluri de notificare. După ce selectați un nou nivel și faceți 
+clic pe "OK", sistemul vă va solicita o ultimă confirmare UAC pentru a 
+aplica modificarea. 
+Analiza detaliată a celor patru niveluri de notificare 
+Glisorul UAC nu este o simplă scală de frecvență a notificărilor, ci o 
+interfață simplificată pentru a gestiona compromisuri de securitate 
+complexe. Fiecare treaptă în jos reprezintă o decizie conștientă de a 
+elimina un strat specific de protecție. 
+
+
+ 
+ 
+Nivelul 
+glisorului 
+Descriere 
+Utilizare
+a 
+Desktop
+-ului 
+Securiz
+at 
+Nivel 
+de 
+Securit
+ate 
+Recomandare de 
+Utilizare 
+4. Notifică 
+întotdeauna 
+Vă notifică atunci 
+când aplicațiile 
+încearcă să 
+instaleze software 
+sau să facă 
+modificări la 
+computer ȘI când 
+modificați setările 
+Windows. 
+Da 
+Maxim 
+Medii cu securitate 
+foarte înaltă, unde 
+fiecare modificare 
+trebuie auditată. 
+Poate fi intruziv 
+pentru utilizarea 
+zilnică. 
+
+
+ 
+3. Notifică 
+doar la 
+modificări 
+de aplicații 
+(Implicit) 
+Vă notifică numai 
+atunci când 
+aplicațiile încearcă 
+să facă modificări 
+la computer. Nu vă 
+notifică atunci când 
+modificați setările 
+Windows. 
+Da 
+Ridicat 
+(Reco
+manda
+t) 
+Setarea ideală 
+pentru majoritatea 
+utilizatorilor. Oferă 
+un echilibru 
+excelent între 
+securitate robustă 
+și confort în 
+utilizare. 
+2. Notifică 
+doar la 
+modificări 
+de aplicații 
+(fără 
+estompare) 
+Identic cu nivelul 
+implicit, dar 
+solicitarea nu este 
+afișată pe 
+desktop-ul 
+securizat. 
+Desktop-ul nu este 
+estompat. 
+Nu 
+Mediu 
+Nerecomandat, cu 
+excepția cazurilor 
+în care există 
+probleme de 
+compatibilitate 
+video. Renunță la 
+protecția împotriva 
+atacurilor de 
+spoofing. 
+1. Nu 
+notifica 
+niciodată 
+Dezactivează 
+complet UAC. 
+Aplicațiile și 
+utilizatorii pot face 
+modificări la sistem 
+fără nicio notificare 
+sau permisiune. 
+Nu 
+Minim 
+(Peric
+ulos) 
+Nerecomandat 
+categoric. Utilizați 
+doar temporar 
+pentru depanare în 
+medii izolate. 
+Expune sistemul la 
+riscuri maxime. 
+ 
+Trecerea de la Nivelul 4 la Nivelul 3 (Implicit) elimină verificarea pentru 
+acțiunile inițiate direct de utilizator în setările Windows. Sistemul are 
+acum încredere că utilizatorul știe ce face. Trecerea de la Nivelul 3 la 
+Nivelul 2 elimină Desktop-ul Securizat, renunțând la protecția împotriva 
+atacurilor de manipulare a interfeței. Trecerea la Nivelul 1 elimină 
+întregul mecanism de aprobare, revenind la un model de încredere 
+totală, similar cu cel periculos din Windows XP. 
+
+
+ 
+Recomandări de configurare pentru diverse scenarii 
+●​ Utilizator casnic / Mediu de birou standard: Menținerea setării 
+implicite (Nivelul 3) este ferm recomandată. Aceasta oferă cea mai 
+bună combinație de securitate proactivă și o experiență de utilizare 
+fluidă, protejând împotriva acțiunilor neașteptate ale software-ului 
+fără a întrerupe constant fluxul de lucru. 
+●​ Administrator de sistem / Dezvoltator: Deși tentația de a reduce 
+nivelul UAC pentru a evita întreruperile frecvente este mare, 
+menținerea setării implicite este cea mai bună practică. Pentru 
+sarcinile repetitive care necesită elevare (de exemplu, utilizarea 
+unui terminal administrativ), este mai sigur să se deschidă o 
+singură instanță elevată la începutul sesiunii de lucru, în loc să se 
+compromită securitatea întregului sistem. 
+●​ Mediu cu securitate înaltă: Pentru sistemele care gestionează 
+date critice sau în medii corporative cu politici de securitate stricte, 
+setarea "Notifică întotdeauna" (Nivelul 4) poate fi luată în 
+considerare. Aceasta asigură un control granular și o 
+conștientizare completă asupra tuturor modificărilor de sistem, 
+indiferent de inițiator. 
+●​ Scenarii de depanare (Troubleshooting): Dezactivarea 
+temporară a UAC (Nivelul 1) poate fi un pas necesar în 
+diagnosticarea unor probleme complexe de compatibilitate 
+software. Totuși, acest lucru trebuie făcut cu maximă precauție, de 
+preferat cu sistemul deconectat de la rețea, iar UAC trebuie 
+reactivat la setarea implicită imediat după finalizarea testelor. 
+Gestionarea avansată a UAC 
+Introducere în metodele de configurare avansată 
+Interfața cu glisor a UAC este o abstractizare convenabilă, dar oferă 
+acces doar la patru pachete predefinite de setări. Pentru un control 
+granular, administratorii de sistem și utilizatorii avansați pot folosi 
+instrumente mai puternice care permit configurarea individuală a 
+politicilor de securitate UAC. 
+●​ Editorul de Politici de Grup Locale (gpedit.msc) / Politica de 
+Securitate Locală (secpol.msc): Aceste instrumente, disponibile 
+
+
+ 
+în edițiile Windows Pro, Enterprise și Education, permit 
+configurarea detaliată a politicilor UAC pe un singur computer. 
+●​ Editorul de Registru (regedit.exe): Permite modificarea directă a 
+valorilor de registru care controlează UAC. Aceasta este metoda 
+principală de configurare pentru edițiile Windows Home și este 
+utilă pentru automatizarea setărilor prin scripturi. 
+●​ Management centralizat: În mediile de afaceri, setările UAC pot fi 
+gestionate centralizat pentru mii de computere prin Politici de Grup 
+(GPO) în Active Directory sau prin soluții moderne de 
+management al dispozitivelor (MDM), cum ar fi Microsoft Intune. 
+ 
+Concluzii și puncte cheie pentru certificare 
+Sinteza rolului UAC în securitatea Windows 
+Controlul Contului de Utilizator este mult mai mult decât o simplă 
+fereastră de dialog; este un pilon fundamental al arhitecturii de securitate 
+a sistemelor de operare Windows moderne. Rolul său principal este de a 
+impune Principiul Privilegiului Minim, asigurând că procesele rulează cu 
+cele mai scăzute permisiuni necesare. Prin aceasta, UAC reduce drastic 
+suprafața de atac, limitează potențialele daune cauzate de malware și 
+previne modificările neautorizate sau accidentale ale sistemului. Este o 
+componentă critică, proactivă, în strategia de apărare împotriva 
+amenințărilor cibernetice. 
+Puncte cheie de reținut  
+Asigurați-vă că stăpâniți următoarele concepte: 
+●​ Diferența dintre token-ul de acces standard și token-ul de 
+administrator și cum sunt utilizate acestea. 
+●​ Ce înseamnă "Admin Approval Mode" și de ce este esențial 
+pentru funcționarea UAC. 
+●​ Diferența fundamentală dintre "Consent Prompt" (prezentat 
+administratorilor) și "Credential Prompt" (prezentat utilizatorilor 
+standard). 
+●​ Rolul și importanța critică a "Secure Desktop" în prevenirea 
+atacurilor de tip spoofing și manipulare a interfeței. 
+
+
+ 
+●​ Implicațiile de securitate precise ale fiecăruia dintre cele patru 
+niveluri ale glisorului, în special faptul că setarea "fără 
+estompare" dezactivează Secure Desktop. 
+●​ Cheia de registru EnableLUA este comutatorul principal care 
+activează sau dezactivează complet UAC. 
+●​ UAC este un mecanism de control al elevării privilegiilor, nu o 
+soluție antivirus completă; funcționează în tandem cu alte 
+tehnologii de securitate. 
+Recomandarea finală: de ce nu ar trebui să dezactivați niciodată 
+UAC 
+Dezactivarea Controlului Contului de Utilizator este o practică extrem de 
+periculoasă și puternic nerecomandată în orice mediu, fie el personal 
+sau de afaceri. A face acest lucru este echivalentul renunțării la centura 
+de siguranță și la airbag-uri într-o mașină doar pentru că sunt 
+considerate uneori incomode. Deși notificările pot părea ocazional 
+intruzive, ele servesc ca un memento constant al acțiunilor cu potențial 
+impact asupra sistemului. Dezactivarea UAC anulează unul dintre cele 
+mai eficiente straturi de protecție ale Windows, lăsând sistemul 
+vulnerabil la malware, care poate executa modificări critice fără nicio 
+notificare sau permisiune, transformând o potențială infecție minoră 
+într-o compromitere totală a sistemului. 
+ 

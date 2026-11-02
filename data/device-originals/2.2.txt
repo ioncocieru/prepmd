@@ -1,0 +1,488 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+2 Windows Feature, 
+Application and 
+Peripheral 
+Management 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+2.2  Explain the purpose and capabilities of Windows Copilot 
+(Windows 11 Only) 
+• Direct users to troubleshooting tools within Windows 11 
+• Can open applications, access settings, generate content, translate 
+text into different languages, generate programming code and retrieve 
+information. 
+• Installed with Windows 11 by default 
+• Limitations of Copilot 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Introducere: rolul, arhitectura și ecosistemul Windows Copilot 
+Windows Copilot reprezintă un asistent digital avansat, bazat pe inteligență 
+artificială (AI), integrat profund în sistemul de operare Windows 11. Scopul său 
+fundamental este de a spori productivitatea utilizatorilor prin centralizarea accesului 
+la informații, automatizarea sarcinilor repetitive și oferirea de asistență contextuală, 
+adaptată activității curente. Acesta succede asistentului Cortana, marcând o tranziție 
+strategică de la asistenți bazați pe comenzi predefinite la o interfață conversațională 
+fluidă, susținută de modele lingvistice mari (LLM), cum ar fi cele din seria GPT-4 de 
+la OpenAI, în combinație cu tehnologii proprietare Microsoft. 
+Arhitectura sa de bază funcționează ca un motor sofisticat de procesare și 
+orchestratie. Acesta coordonează puterea LLM-urilor cu datele contextuale ale 
+utilizatorului, accesate prin intermediul Microsoft Graph (în edițiile de business) și al 
+aplicațiilor Microsoft 365, pentru a livra răspunsuri relevante și actualizate. Această 
+integrare îi permite să depășească funcționalitatea unui chatbot standard, oferind 
+asistență care ține cont de fișierele, emailurile și întâlnirile utilizatorului. 
+Este esențial de înțeles că experiența Copilot în Windows 11 este definită de o 
+diviziune în două părți a unui concept hardware fundamentală, care segmentează 
+funcționalitățile disponibile: 
+●​ PC-uri Standard cu Windows 11: Acestea oferă experiența de bază Copilot, 
+care se bazează preponderent pe procesarea în cloud pentru sarcinile AI 
+complexe, cum ar fi generarea de imagini sau analiza aprofundată a datelor. 
+●​ Copilot+ PC: Reprezintă o nouă clasă de dispozitive, proiectate special 
+pentru AI. Acestea sunt echipate cu un Neural Processing Unit (NPU) capabil 
+să execute peste 40 de trilioane de operațiuni pe secundă (TOPS). Prezența 
+acestui NPU puternic permite executarea locală, pe dispozitiv, a multor sarcini 
+AI intensive. Această capacitate de procesare locală nu doar că deblochează 
+funcționalități exclusive, dar oferă și o performanță superioară, o latență 
+redusă și un nivel sporit de confidențialitate, deoarece datele sensibile nu 
+trebuie să părăsească dispozitivul pentru a fi procesate. 
+Această diferențiere hardware nu este doar un detaliu tehnic, ci o componentă 
+centrală a strategiei Microsoft. Prin legarea celor mai avansate funcționalități AI de 
+un hardware specific, se creează o nouă categorie de produse, "AI PC", și se 
+segmentează piața. Experiența completă a inteligenței artificiale în Windows devine, 
+astfel, condiționată de achiziționarea unui nou dispozitiv. Pentru un examen de 
+certificare precum Certiport, cunoașterea acestei distincții este crucială, deoarece o 
+întrebare ar putea testa tocmai identificarea funcționalităților care necesită un 
+Copilot+ PC. 
+ 
+
+
+ 
+Tabel Comparativ: Funcționalități Windows Copilot (PC Standard vs. Copilot+ 
+PC) 
+Următorul tabel sintetizează diferențele cheie de funcționalitate între un PC standard 
+cu Windows 11 și un Copilot+ PC, o distincție esențială pentru înțelegerea completă 
+a ecosistemului Copilot. 
+Funcționalitate / 
+Caracteristică 
+Disponibil pe 
+PC Windows 11 
+Standard? 
+Disponibil pe 
+Copilot+ 
+PC? 
+Observații Cheie 
+(Procesare Cloud/Locală, 
+Cerințe) 
+Interfață Chat & 
+Generare Text 
+Da 
+Da 
+Procesare în principal în 
+cloud.  
+Generare Imagini 
+(via Designer) 
+Da 
+Da 
+Necesită conexiune la 
+internet; procesare în 
+cloud.  
+Control Setări OS & 
+Lansare Aplicații 
+Da 
+Da 
+Comenzi locale, 
+orchestrate de Copilot.  
+Căutare Fișiere 
+(Local & OneDrive) 
+Da 
+Da 
+Indexare locală, interogare 
+orchestrată de Copilot.  
+Copilot Vision 
+(Analiză Ecran) 
+Da 
+Da 
+Procesare în cloud a 
+capturii de ecran/fereastră.  
+Traducere Text 
+(Standard) 
+Da 
+Da 
+Procesare în cloud.  
+Generare Cod (în 
+VS Code etc.) 
+Da 
+Da 
+Procesare în cloud, 
+integrată în IDE.  
+
+
+ 
+Recall (Căutare în 
+cronologia vizuală) 
+Nu 
+Da 
+Exclusiv Copilot+ PC. 
+Necesită NPU; procesare 
+100% locală. 
+Live Captions 
+(Traducere 
+audio/video 
+real-time) 
+Nu (doar 
+transcriere 
+standard) 
+Da 
+Exclusiv Copilot+ PC. 
+Necesită NPU; procesare 
+locală.  
+Cocreator în Paint 
+(Generare AI 
+on-device) 
+Nu 
+Da 
+Exclusiv Copilot+ PC. 
+Necesită NPU; procesare 
+locală.  
+Windows Studio 
+Effects (Avansat) 
+Nu (doar efecte 
+de bază) 
+Da 
+Exclusiv Copilot+ PC. 
+Efecte avansate (ex: 
+Portrait Light) necesită 
+NPU.  
+Super Rezoluție 
+(Foto & Jocuri) 
+Nu 
+Da 
+Exclusiv Copilot+ PC. 
+Necesită NPU.  
+ 
+Secțiunea 1: Instalarea, accesarea și administrarea Windows 
+Copilot 
+1.1 Confirmarea Instalării Implicite cu Windows 11 
+Windows Copilot este o componentă integrată a sistemului de operare Windows 11 
+și este activat în mod implicit pe versiunile recente, cum ar fi 23H2. Distribuția sa se 
+realizează prin actualizări periodice ale sistemului de operare, un exemplu notabil 
+fiind actualizarea KB5030310 din septembrie 2023. Pe versiuni mai vechi, precum 
+22H2, deși componenta poate fi prezentă, este posibil să fie dezactivată implicit, 
+necesitând activare manuală din partea utilizatorului. Lansarea sa a fost graduală, 
+fiind disponibil inițial pe piețe selectate, cu planuri de extindere globală în timp. 
+Recent, experiența de utilizare a suferit o modificare semnificativă, trecând de la o 
+bară laterală andocată permanent în dreapta ecranului la o aplicație de sine 
+stătătoare (standalone app). Această nouă versiune se comportă ca orice altă 
+aplicație, putând fi fixată pe bara de activități, redimensionată și mutată liber pe 
+
+
+ 
+ecran. Această tranziție a dus la eliminarea scurtăturii de la tastatură Win + C (implicit) 
+pentru mulți utilizatori, o schimbare percepută de unii ca o reducere a integrării fluide 
+cu sistemul de operare. 
+Pentru a beneficia de întregul set de funcționalități, este recomandată 
+autentificarea cu un cont Microsoft. Deși este posibilă efectuarea unui număr 
+limitat de interogări (până la 10) fără a fi conectat, autentificarea deblochează 
+accesul la istoricul conversațiilor, capacitatea de a genera imagini și posibilitatea de 
+a purta conversații mai lungi și mai complexe. 
+1.2 Metode de Accesare 
+Utilizatorii pot lansa și interacționa cu Windows Copilot prin mai multe metode, 
+adaptate diferitelor fluxuri de lucru: 
+●​ Pictograma din Bara de Activități: Pe majoritatea sistemelor Windows 11 
+actualizate, o pictogramă dedicată Copilot este vizibilă în bara de activități, 
+oferind acces direct cu un singur clic.
+ 
+●​ Comenzi Rapide de la Tastatură: 
+○​ Alt + Spacebar: Această comandă lansează o fereastră compactă a 
+interfeței Copilot, care apare deasupra aplicațiilor active, permițând 
+interogări rapide fără a întrerupe fluxul de lucru curent. 
+○​ Alt + Spacebar (ținut apăsat timp de 2 secunde): Activează direct 
+interfața vocală, Copilot Voice, pentru comenzi și conversații 
+hands-free.( Sursa ) 
+●​ Tasta Hardware Copilot: Noile PC-uri, în special cele din categoria Copilot+ 
+PC, sunt echipate cu o tastă fizică dedicată pe tastatură. Apăsarea acestei 
+taste lansează instantaneu asistentul AI. Comportamentul acestei taste poate 
+fi personalizat de către administratori prin politici de grup sau de către 
+utilizatori din meniul de Setări, pentru a lansa, de exemplu, o altă aplicație. 
+●​ Alte Puncte de Acces: Ecosistemul Copilot se extinde dincolo de desktopul 
+Windows. Acesta este accesibil și prin browserul Microsoft Edge (unde are 
+funcționalități suplimentare, precum rezumarea paginilor web), direct pe web 
+la adresa copilot.microsoft.com, și prin aplicații mobile dedicate pentru iOS și 
+Android. 
+1.3 Administrare și Control (Relevanță pentru IT) 
+Pentru mediile de afaceri și utilizatorii avansați, Windows oferă instrumente 
+granulare pentru gestionarea Copilot: 
+●​ Dezinstalare: Utilizatorii individuali pot elimina aplicația Copilot urmând calea 
+standard: Settings > Apps > Installed Apps, unde pot selecta aplicația și alege 
+opțiunea de dezinstalare. 
+
+
+ 
+●​ Dezinstalare prin PowerShell: Administratorii IT pot automatiza eliminarea 
+aplicației pe mai multe sisteme folosind un script PowerShell. Comanda 
+Get-AppxPackage -Name "Microsoft.Copilot" | Remove-AppxPackage este eficientă 
+pentru implementări la scară largă. 
+●​ Prevenirea Instalării (AppLocker): Metoda modernă și recomandată pentru 
+a controla prezența Copilot într-un mediu enterprise este prin utilizarea 
+politicilor AppLocker. Administratorii pot configura o politică care blochează 
+executabilul aplicației Copilot pe baza semnăturii sale digitale. Această 
+abordare înlocuiește vechile setări de politică de grup (Group Policy) care 
+vizau "Turn Off Windows Copilot" și care sunt în curs de depreciere. 
+Este posibil ca o integrare mai profundă în sistemul de operare să fie rezervată sau 
+reintrodusă ca o caracteristică premium pentru dispozitivele Copilot+ PC, în timp ce 
+PC-urile standard primesc o experiență mai modulară, similară cu cea a unei aplicații 
+tradiționale. Pentru un examen, este important de reținut că interfața și metodele de 
+acces nu sunt statice, ci evoluează odată cu actualizările sistemului de operare și cu 
+strategia de produs a Microsoft. 
+Secțiunea 2: Capacități de interacțiune cu sistemul de operare 
+și aplicațiile 
+Copilot se distinge prin capacitatea sa de a acționa ca o interfață inteligentă între 
+utilizator și complexitatea sistemului de operare Windows 11, traducând cererile 
+formulate în limbaj natural în acțiuni concrete. 
+2.1 Direcționarea Utilizatorilor către Instrumentele de Depanare 
+Copilot funcționează ca un prim nivel de suport tehnic, capabil să interpreteze 
+descrierea unei probleme și să ghideze utilizatorul către soluția corespunzătoare. 
+Acesta nu înlocuiește instrumentele de depanare (troubleshooters) existente în 
+Windows, ci le face mai accesibile. 
+●​ Exemple de Prompt-uri pentru Depanare: 
+○​ Probleme de Rețea: O solicitare precum "De ce nu mă pot conecta la 
+Wi-Fi?" sau, mai direct, "Rulează depanatorul de rețea" va determina 
+Copilot să inițieze Network Troubleshooter, care va diagnostica și va 
+încerca să remedieze automat problemele de conectivitate. 
+○​ Probleme cu Aplicații: Dacă un utilizator raportează "Aplicația X se 
+blochează la pornire", Copilot poate sugera o serie de pași logici: 
+rularea Windows Store Apps troubleshooter, verificarea actualizărilor pentru 
+aplicație în Microsoft Store sau resetarea datelor aplicației din meniul 
+de Setări. 
+○​ Probleme de Conectivitate Bluetooth: La întrebarea "Cum conectez 
+căștile mele Bluetooth?", Copilot poate oferi instrucțiuni pas cu pas, 
+
+
+ 
+adaptate pentru Windows 11, sau poate deschide direct pagina de 
+setări Bluetooth pentru a facilita procesul de împerechere. 
+○​ Depanare Specifică Copilot: Pentru probleme legate de funcționarea 
+asistentului însuși, utilizatorii pot folosi aplicația Get Help pentru a lansa 
+depanatoare dedicate, cum ar fi Copilot license troubleshooter sau Copilot 
+connectivity troubleshooter. 
+Mecanismul de funcționare este unul de orchestrare: Copilot înțelege intenția din 
+spatele solicitării utilizatorului și lansează instrumentul de sistem adecvat, eliminând 
+necesitatea ca utilizatorul să cunoască locația exactă a fiecărui depanator. 
+2.2 Deschiderea Aplicațiilor și Accesarea Setărilor 
+O funcționalitate de bază a Copilot este capacitatea de a lansa aplicații și de a 
+naviga la secțiuni specifice din meniul de Setări, simplificând interacțiunea zilnică cu 
+PC-ul. Această capacitate este amplificată de funcția Device Context, care permite 
+Copilot să ofere răspunsuri personalizate, ținând cont de versiunea specifică a 
+sistemului de operare și de configurația hardware a utilizatorului. 
+2.3 Preluarea și Gestionarea Informațiilor 
+Copilot extinde conceptul de căutare dincolo de simple fișiere, permițând interogări 
+contextuale despre conținutul de pe ecran sau din documente. 
+●​ Căutare Fișiere: Utilizatorii pot căuta fișiere pe dispozitivul local și în contul 
+OneDrive sincronizat, folosind limbaj natural. Copilot poate procesa cereri 
+precum "Găsește prezentarea despre bugetul Q3" sau "Arată-mi toate 
+fișierele PDF modificate săptămâna trecută". Mai mult, poate citi conținutul 
+fișierelor suportate (inclusiv.docx,.pdf,.xlsx) pentru a răspunde la întrebări 
+despre acestea. 
+●​ Copilot Vision: Această funcționalitate permite Copilot să "vadă" și să 
+analizeze conținutul afișat într-o fereastră de aplicație sau browser. Un 
+utilizator poate partaja fereastra și poate pune întrebări de genul "Explică-mi 
+acest grafic din Excel" sau "Ce opțiune ar trebui să selectez în acest meniu 
+pentru a exporta fișierul?". În unele cazuri, Copilot poate oferi ghidaj vizual, 
+indicând cu o săgeată unde să se facă clic într-o aplicație complexă precum 
+Photoshop. 
+●​ Capturi de Ecran: Utilizatorii pot selecta o porțiune a ecranului, o pot captura 
+și o pot încărca direct în chat-ul Copilot pentru a pune întrebări specifice 
+despre imaginea respectivă. 
+În esență, Copilot acționează ca un strat de abstractizare peste interfața tradițională 
+a Windows. Valoarea sa nu constă în crearea de noi funcționalități de sistem, ci în a 
+face funcționalitățile existente mult mai accesibile. Complexitatea navigării prin 
+meniuri și submeniuri este înlocuită de o simplă conversație, în care Copilot traduce 
+
+
+ 
+intenția umană în acțiunea de sistem corespunzătoare. Pentru un examen, este 
+important de reținut acest rol de "orchestrator" și "translator de intenție", care 
+simplifică fluxurile de lucru fără a le reinventa. 
+Secțiunea 3: Generarea de Conținut Inteligent 
+Pe lângă interacțiunea cu sistemul de operare, funcția principală a Copilot este de a 
+asista utilizatorii în crearea de conținut nou, de la text și imagini la cod de 
+programare complex. 
+3.1 Generarea de Conținut Textual și Vizual 
+●​ Generare de Text: Copilot excelează la producerea unei game variate de 
+conținut textual. Utilizatorii pot solicita redactarea de emailuri, rapoarte, 
+articole de blog, postări pentru rețelele sociale, rezumate sau chiar poezii. Un 
+avantaj major este posibilitatea de a controla rezultatul prin specificarea 
+tonului (de exemplu, formal, prietenos, profesional), a lungimii (concis, 
+detaliat) și a formatului (listă cu marcatori, paragraf). 
+○​ Exemple de Prompt-uri: "Scrie un email echipei mele pentru a anunța 
+noul plan de marketing pentru trimestrul următor, evidențiind cele trei 
+obiective principale".​
+"Creează o listă de cumpărături pentru o cină cu paste pentru patru 
+persoane".​
+"Rezumă acest document într-o listă de cinci puncte cheie". 
+●​ Generare de Imagini: Prin integrarea cu serviciul Microsoft Designer, Copilot 
+poate transforma descrieri textuale în imagini vizuale, de la ilustrații artistice la 
+imagini fotorealiste. 
+●​ Cocreator în Paint (Exclusiv Copilot+ PC): Această funcționalitate 
+avansată, disponibilă doar pe dispozitivele Copilot+ PC, duce generarea de 
+imagini la un alt nivel. Ea permite utilizatorilor să combine schițe desenate 
+direct în aplicația Paint cu prompt-uri textuale. AI-ul generează apoi o imagine 
+în timp real, pe dispozitiv, care evoluează pe măsură ce utilizatorul desenează 
+sau modifică textul. 
+3.2 Traducerea Textului 
+●​ Traducere Standard: Copilot poate traduce fragmente de text, documente 
+încărcate sau conținut lipit în și din peste 50 de limbi. Utilizatorul poate furniza 
+textul direct în chat sau poate încărca un fișier (.docx,.pdf etc.) pentru 
+traducere. 
+○​ Exemplu de Prompt: "Tradu 'The quick brown fox jumps over the lazy 
+dog' în limba română." 
+●​ Live Captions cu Traducere în Timp Real (Exclusiv Copilot+ PC): Aceasta 
+este o funcționalitate revoluționară care rulează local pe NPU-ul dispozitivelor 
+Copilot+ PC. Poate genera subtitrări în timp real pentru orice conținut audio 
+sau video (fie că este o conferință video live, un film preînregistrat sau un 
+
+
+ 
+stream online) și le poate traduce din 44 de limbi în limba engleză, indiferent 
+de aplicația utilizată. 
+3.3 Generarea de Cod de Programare 
+Prin integrarea strânsă cu GitHub Copilot, asistentul devine un instrument 
+indispensabil pentru dezvoltatorii de software, fiind disponibil în medii de dezvoltare 
+precum Visual Studio Code. 
+●​ Capacități Cheie: 
+○​ Completare de Cod (Code Completion): Pe măsură ce un 
+programator scrie cod, Copilot oferă sugestii inteligente, de la 
+completarea unei singure linii până la implementarea unor funcții sau 
+clase întregi. 
+○​ Generare de la Zero: Poate genera blocuri de cod, scripturi sau chiar 
+scheletul unor aplicații de bază, pornind de la o descriere în limbaj 
+natural. Un exemplu de prompt ar fi: "Generează un script Python care 
+citește date dintr-un fișier CSV numit 'vanzari.csv' și calculează media 
+valorilor din coloana 'Profit'". 
+○​ Explicarea Codului (Explain): Un dezvoltator poate selecta un 
+fragment de cod existent, iar Copilot îi poate oferi o explicație detaliată 
+a funcționalității acestuia, ceea ce este extrem de util pentru 
+înțelegerea codului moștenit sau complex. 
+○​ Depanare și Testare: Copilot poate analiza erorile din cod și poate 
+sugera corecții. De asemenea, poate genera automat teste unitare 
+pentru a asigura calitatea și robustețea codului. 
+○​ Traducere de Cod: Poate converti un fragment de cod dintr-un limbaj 
+de programare în altul, de exemplu, din Python în JavaScript. 
+Eficiența generării de conținut, indiferent de tipul acestuia, este direct proporțională 
+cu calitatea și specificitatea solicitării (prompt). Un prompt vag va genera un rezultat 
+generic. În schimb, un prompt detaliat, care oferă context, exemple și constrângeri, 
+va ghida AI-ul către un rezultat mult mai precis și mai util. Abilitatea de a formula 
+prompt-uri eficiente ("prompt engineering") devine, astfel, o competență esențială 
+pentru a maximiza potențialul instrumentelor AI precum Copilot. 
+Secțiunea 4: Limitări, confidențialitate și bune practici 
+Deși Windows Copilot este un instrument puternic, este esențial să se înțeleagă 
+limitările sale tehnice, implicațiile asupra confidențialității datelor și cele mai bune 
+practici pentru o utilizare responsabilă și eficientă. 
+ 
+ 
+
+
+ 
+4.1 Limitări Funcționale și Tehnice 
+●​ Dependența de Hardware (Standard vs. Copilot+ PC): Cea mai 
+semnificativă limitare este diferența de capabilități dictată de hardware. 
+Funcționalități de vârf, care necesită procesare AI intensivă și în timp real, 
+precum Recall, Live Captions cu traducere și Cocreator în Paint, sunt 
+exclusive pentru dispozitivele Copilot+ PC și indisponibile pe hardware-ul 
+standard din cauza absenței unui NPU dedicat. 
+●​ Acuratețea și "Halucinațiile": Ca orice model AI generativ, Copilot poate 
+produce informații care par corecte și plauzibile, dar care sunt, de fapt, 
+incorecte. Acest fenomen este cunoscut sub numele de "halucinație AI". Este 
+crucial ca utilizatorii să manifeste un scepticism sănătos și să verifice 
+informațiile critice, în special atunci când Copilot generează date factuale sau 
+rezumă surse externe. 
+●​ Performanță Variabilă între Aplicații: Experiența de utilizare nu este 
+uniformă în întregul ecosistem. De exemplu, utilizatorii au raportat că 
+funcționalitatea Copilot în Microsoft Excel, deși utilă, necesită adesea 
+prompt-uri extrem de detaliate și granulare pentru a genera formule sau 
+analize corecte, nefiind încă un substitut complet pentru cunoștințele 
+avansate de analiză a datelor. De asemenea, funcționarea cu fișiere 
+nesalvate în OneDrive este o limitare în Excel. 
+●​ Disponibilitate Geografică și Lingvistică: Lansarea Copilot și a 
+funcționalităților sale este un proces treptat. Acestea nu sunt disponibile 
+simultan în toate regiunile sau pentru toate limbile. Inițial, multe funcționalități 
+avansate sunt optimizate doar pentru limba engleză. 
+●​ Restricții de Vârstă: Utilizarea funcțiilor AI poate fi supusă unor limite minime 
+de vârstă, care pot varia în funcție de legislația regională. 
+4.2 Confidențialitate și Securitatea Datelor 
+Gestionarea datelor este un aspect fundamental al utilizării Copilot, cu politici diferite 
+pentru utilizatorii individuali și pentru organizații. 
+●​ Controlul Utilizatorului Individual: Microsoft oferă utilizatorilor cu conturi 
+personale controale de confidențialitate clare, accesibile din setările contului. 
+Aceștia pot: 
+○​ Vizualiza și șterge istoricul conversațiilor, fie individual, fie în totalitate. 
+○​ Dezactiva personalizarea, ceea ce împiedică Copilot să "memoreze" 
+detalii din conversațiile anterioare pentru a oferi răspunsuri viitoare mai 
+adaptate. 
+○​ Opta pentru a nu permite utilizarea conversațiilor lor (text și voce) 
+pentru antrenarea și îmbunătățirea viitoarelor modele AI ale Microsoft. 
+●​ Protecția Datelor în Mediile de Afaceri: Pentru clienții comerciali care 
+utilizează Microsoft 365 Copilot (cu un cont Entra ID), garanțiile de 
+confidențialitate sunt mult mai stricte. Toate datele procesate – inclusiv 
+
+
+ 
+prompt-urile, datele accesate și răspunsurile generate – rămân în interiorul 
+granițelor de securitate și conformitate ale tenant-ului Microsoft 365 al 
+organizației. Aceste date sunt protejate de aceleași politici ca și restul datelor 
+din Microsoft 365 și respectă reglementări precum GDPR și EU Data 
+Boundary. Cel mai important, Microsoft nu utilizează datele clienților 
+comerciali pentru a-și antrena modelele lingvistice fundamentale. 
+●​ Riscul de Expunere a Datelor prin Supra-Partajare (Oversharing): O 
+limitare majoră și un risc de securitate, în special în mediile corporate, este 
+faptul că Copilot va accesa și va utiliza toate datele la care un utilizator are 
+permisiuni de acces. Copilot respectă modelul de permisiuni existent; nu va 
+arăta unui utilizator date la care acesta nu are deja dreptul de a le vedea. Cu 
+toate acestea, dacă permisiunile din cadrul organizației sunt gestionate 
+necorespunzător (un fenomen comun cunoscut sub numele de "permission 
+creep" sau "oversharing"), Copilot poate, neintenționat, să extragă și să 
+prezinte date sensibile dintr-un fișier la care utilizatorul nu ar fi trebuit să aibă 
+acces. Astfel, Copilot nu "sparge" securitatea, ci amplifică și face vizibile 
+problemele de guvernanță a datelor deja existente în cadrul unei organizații. 
+Nu există un singur răspuns la întrebarea "Este Copilot privat?". Răspunsul depinde 
+fundamental de context: tipul de cont utilizat (personal vs. de afaceri) și licența 
+deținută. Este vitală înțelegerea acestei dihotomii între politicile de confidențialitate 
+pentru consumatori și garanțiile de securitate de nivel enterprise. Riscul de 
+"oversharing" este o problemă de guvernanță internă a datelor, pe care Copilot o 
+poate scoate la lumină, subliniind necesitatea unor politici de acces stricte înainte de 
+implementarea la scară largă a instrumentelor AI. 
+ 
+ 

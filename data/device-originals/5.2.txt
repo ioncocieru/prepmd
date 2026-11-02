@@ -1,0 +1,619 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+5. Windows 
+Management and 
+Troubleshooting 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+5.2 Troubleshoot operating system and application issues 
+• Reset or roll back the operating system 
+• Advanced startup (System repair) 
+• Features of safe mode 
+• Use troubleshooting tools to identify application compatibility issues 
+• Resolve Store app installation issues 
+• Reinstall or repair desktop applications 
+• Escalate problems dealing with ‘S’ mode 
+• Troubleshoot services 
+• Use Task Manager to disable a startup app, end a task, manage a 
+service 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Introducere 
+Înainte de a iniția oricare dintre procedurile invazive descrise, precum 
+resetarea sau reinstalarea sistemului de operare, este de o importanță 
+critică realizarea unei copii de siguranță (backup) complete a tuturor 
+datelor personale. Procese precum resetarea cu eliminarea fișierelor sau 
+instalarea curată vor duce la pierderea ireversibilă a datelor stocate pe 
+partiția de sistem. Prin urmare, o strategie de backup robustă este o 
+precondiție esențială pentru orice intervenție majoră asupra sistemului. 
+Opțiuni fundamentale de recuperare a sistemului 
+Atunci când un sistem de operare Windows întâmpină probleme severe 
+de performanță, instabilitate sau erori critice, instrumentele de 
+recuperare încorporate oferă o primă linie de apărare. Aceste opțiuni 
+sunt proiectate pentru a restabili sistemul la o stare funcțională, cu 
+diferite grade de impact asupra datelor și aplicațiilor utilizatorului. 
+Resetarea sistemului de operare 
+Funcționalitatea cunoscută sub numele de "Resetați acest PC" (Reset 
+this PC) este o metodă puternică de a reinstala sistemul de operare 
+Windows direct de pe dispozitiv, fără a necesita un mediu de instalare 
+extern. Această procedură este utilă pentru a rezolva probleme 
+complexe de software, pentru a elimina malware persistent, pentru a 
+remedia o degradare generală a performanței sau pentru a pregăti 
+computerul în vederea înstrăinării. 
+Metode de inițiere a procesului 
+Procesul de resetare poate fi inițiat din două puncte de plecare, în 
+funcție de starea sistemului: 
+1.​ Din meniul Setări (când Windows este funcțional): Aceasta 
+este metoda standard, accesibilă atunci când utilizatorul poate 
+porni și naviga în sistemul de operare. 
+○​ Pentru Windows 11: Navigați la Setări > Sistem > 
+Recuperare. În secțiunea "Opțiuni de recuperare", selectați 
+butonul Resetați PC-ul. 
+
+
+ 
+○​ Pentru Windows 10: Navigați la Setări > Actualizare și 
+securitate > Recuperare. Sub titlul "Resetați acest PC", 
+selectați butonul Începeți. 
+2.​ Din mediul de recuperare Windows (WinRE): Atunci când 
+Windows nu mai pornește corespunzător, procesul de resetare 
+poate fi lansat din mediul de recuperare. După accesarea WinRE, 
+navigați la Depanare > Resetați acest PC. Această dualitate de 
+acces asigură disponibilitatea funcției chiar și în caz de eșec al 
+pornirii sistemului principal. 
+Analiza opțiunilor de resetare 
+La inițierea procesului, utilizatorului i se prezintă două opțiuni 
+fundamentale care determină soarta fișierelor personale: 
+●​ "Păstrați fișierele mele" (Keep my files): Această opțiune 
+reinstalează Windows, dar păstrează fișierele personale, cum ar fi 
+documentele, imaginile și alte date stocate în profilul de utilizator. 
+Cu toate acestea, toate aplicațiile software instalate (de ex., 
+Microsoft Office, Adobe Photoshop, jocuri) și driverele terțe vor fi 
+eliminate, iar setările de sistem vor fi readuse la valorile implicite. 
+După finalizarea procesului, Windows generează un fișier HTML 
+pe desktop, denumit Removed Apps (Aplicații eliminate), care 
+listează tot software-ul care a fost dezinstalat, pentru a facilita 
+reinstalarea manuală a acestuia de către utilizator. 
+●​ "Eliminați totul" (Remove everything): Această opțiune 
+efectuează o reinstalare completă și curată a sistemului de 
+operare, ștergând toate fișierele personale, conturile de utilizator, 
+aplicațiile și setările. Este opțiunea recomandată atunci când doriți 
+să vindeți sau să donați dispozitivul. Această cale oferă două 
+sub-opțiuni suplimentare: 
+○​ Ștergere rapidă: Elimină fișierele rapid, dar datele ar putea 
+fi recuperabile cu software specializat. 
+○​ Curățarea completă a unității (Clean the drive): Șterge 
+fișierele și apoi suprascrie spațiul liber de pe disc, făcând 
+recuperarea datelor extrem de dificilă. Acest proces este 
+mult mai sigur, dar poate dura câteva ore. 
+
+
+ 
+Tipuri de reinstalare 
+Indiferent de opțiunea aleasă pentru fișiere, Windows oferă două metode 
+pentru a obține fișierele de instalare necesare: 
+●​ Reinstalare locală (Local reinstall): Utilizează fișierele de sistem 
+deja existente pe o partiție de recuperare a computerului pentru a 
+reinstala Windows. Aceasta este metoda mai rapidă și nu necesită 
+o conexiune la internet. Totuși, dacă partiția de recuperare este 
+coruptă (de exemplu, din cauza unei erori de disc sau a unui 
+malware), procesul de resetare poate eșua. 
+●​ Descărcare din cloud (Cloud download): Descarcă o copie nouă 
+și curată a fișierelor de instalare Windows direct de pe serverele 
+Microsoft. Aceasta este opțiunea mai fiabilă și este recomandată 
+pentru a asigura o instalare curată, neafectată de eventualele 
+coruperi locale. Necesită o conexiune stabilă la internet și va 
+descărca aproximativ 4 GB de date. 
+Introducerea opțiunii "Descărcare din cloud" reprezintă o evoluție 
+importantă a mecanismelor de recuperare Windows. Aceasta a fost 
+implementată ca o soluție directă la o problemă frecventă a metodei 
+locale: eșecul procesului din cauza coruperii fișierelor de recuperare de 
+pe disc. Prin ocolirea completă a stocării locale, Microsoft a creat un 
+mecanism de recuperare mult mai rezilient, deși introduce o dependență 
+de conectivitatea la internet. 
+Revenirea la o versiune anterioară (rollback) 
+Funcția "Revenire" (Go back) permite utilizatorilor să anuleze o 
+actualizare majoră a sistemului de operare și să revină la versiunea 
+instalată anterior. Acest lucru este deosebit de util dacă, după un 
+upgrade (de exemplu, de la Windows 10 la Windows 11 sau după o 
+actualizare de caracteristici semestrială), apar probleme de 
+compatibilitate cu drivere sau aplicații critice. 
+Scop și limitări 
+Principalul factor limitativ al acestei funcționalități este timpul. Opțiunea 
+de a reveni la versiunea anterioară este disponibilă doar pentru o 
+perioadă limitată, de obicei 10 zile de la efectuarea upgrade-ului. 
+
+
+ 
+Această limitare există deoarece, pentru a facilita revenirea, Windows 
+păstrează o copie completă a sistemului de operare anterior în folderul 
+C:\windows.old. După expirarea perioadei de 10 zile, acest folder este 
+șters automat pentru a elibera o cantitate semnificativă de spațiu pe disc 
+(adesea 15-30 GB). 
+Fereastra de 10 zile este un compromis strategic din partea Microsoft. 
+Ea oferă o plasă de siguranță utilizatorilor, permițându-le să testeze noul 
+sistem, dar în același timp asigură recuperarea rapidă a spațiului de 
+stocare, o resursă valoroasă, în special pe dispozitivele cu SSD-uri de 
+capacitate redusă. Aceasta implică faptul că utilizatorii ar trebui să 
+efectueze teste amănunțite ale aplicațiilor și perifericelor critice în prima 
+săptămână după un upgrade major. 
+Cerințe și procedură 
+Pentru ca procesul de revenire să aibă succes, trebuie îndeplinite câteva 
+condiții: 
+●​ Folderul windows.old și folderul $windows.~bt trebuie să fie intacte 
+și nemodificate. 
+●​ Orice cont de utilizator adăugat după upgrade trebuie eliminat 
+înainte de a iniția procesul de revenire. 
+Procedura de inițiere este următoarea: 
+●​ Pentru Windows 11: Navigați la Setări > Sistem > Recuperare și 
+selectați opțiunea Revenire. 
+●​ Pentru Windows 10: Navigați la Setări > Actualizare și securitate 
+> Recuperare și selectați Începeți sub secțiunea "Reveniți la 
+versiunea anterioară de Windows". 
+Dacă opțiunea de revenire nu mai este disponibilă (fie pentru că au 
+trecut cele 10 zile, fie pentru că folderul windows.old a fost șters 
+manual), singura modalitate de a reveni la versiunea anterioară este 
+printr-o "instalare curată" (clean install). Acest proces implică crearea 
+unui mediu de instalare bootabil (USB sau DVD) cu versiunea dorită de 
+Windows și ștergerea completă a partiției de sistem, necesitând un 
+backup prealabil al tuturor datelor. 
+
+
+ 
+Instrumente avansate de pornire și diagnosticare 
+Când problemele de sistem împiedică pornirea normală a Windows, este 
+necesar să se recurgă la un set de instrumente mai avansate, care 
+funcționează într-un mediu special, independent de sistemul de operare 
+principal. 
+Pornirea avansată (mediul de recuperare Windows - WinRE) 
+Mediul de recuperare Windows (WinRE) este un sistem de operare 
+complementar, minimalist, care conține o suită de utilitare pentru 
+diagnosticarea, repararea și recuperarea sistemului principal Windows. 
+Acesta este proiectat să pornească chiar și atunci când sistemul de 
+operare principal este nefuncțional. Arhitectural, WinRE este decuplat de 
+sistemul principal, ceea ce îi conferă o reziliență excepțională. Chiar 
+dacă fișierele de sistem, regiștrii sau driverele din instalarea principală 
+sunt sever corupte, WinRE poate oferi o cale de acces la instrumentele 
+de reparație. 
+Metode de accesare 
+Există multiple căi pentru a accesa WinRE, asigurând disponibilitatea sa 
+în aproape orice scenariu: 
+●​ Din Windows (metoda planificată): Navigați la Setări > 
+Recuperare, iar sub secțiunea "Pornire complexă", selectați 
+Reporniți acum. Această acțiune va reporni computerul direct în 
+meniul WinRE. 
+●​ De la ecranul de conectare: Faceți clic pe pictograma Alimentare 
+din colțul din dreapta jos, apoi, ținând apăsată tasta Shift, selectați 
+Repornire. 
+●​ Prin pornire eșuată (metoda de urgență): Dacă Windows nu 
+reușește să pornească de două sau trei ori consecutiv, sistemul va 
+intra automat în WinRE la următoarea încercare de pornire. 
+●​ De pe un mediu de instalare: Porniți computerul de pe o unitate 
+USB sau un DVD de instalare Windows. După selectarea limbii, 
+alegeți opțiunea Reparați computerul în loc de Instalați acum. 
+ 
+ 
+ 
+
+
+ 
+Opțiuni cheie din WinRE 
+Odată ajuns în ecranul "Alegeți o opțiune", navigați la Depanare > 
+Opțiuni complexe pentru a accesa următoarele instrumente: 
+●​ Reparare la pornire (Startup Repair): Un instrument automatizat 
+care scanează sistemul în căutarea problemelor comune care 
+împiedică pornirea (de ex., fișiere de boot corupte, setări BCD 
+invalide) și încearcă să le repare automat. Este util pentru erori 
+precum "Bootmgr lipsește". 
+●​ Restaurare sistem (System Restore): Permite revenirea 
+sistemului la o stare anterioară, salvată ca "punct de restaurare". 
+Acest proces anulează modificările recente aduse sistemului (cum 
+ar fi instalarea de drivere, aplicații sau actualizări), dar nu 
+afectează fișierele personale. 
+●​ Setări pornire (Startup Settings): Repornește computerul într-un 
+meniu special care permite activarea unor moduri de pornire 
+alternative, cel mai important fiind Modul de siguranță (Safe 
+Mode). 
+●​ Resetați acest PC: Oferă acces la aceeași funcționalitate de 
+resetare a sistemului descrisă în secțiunea anterioară. 
+ 
+ 
+ 
+
+
+ 
+Caracteristicile modului de siguranță (safe mode) 
+Modul de siguranță este un mod de diagnosticare fundamental pentru 
+Windows. Acesta pornește sistemul de operare într-o stare de bază, 
+încărcând doar un set minim de fișiere, drivere și servicii esențiale 
+necesare pentru funcționarea sa. Scopul principal este izolarea sursei 
+unei probleme: dacă o problemă (de ex., o eroare de tip "ecran 
+albastru", instabilitate, blocări) nu se manifestă în Modul de siguranță, 
+atunci cauza este, cel mai probabil, un software terț, un driver sau un 
+serviciu care este încărcat în modul normal de funcționare, dar nu și în 
+Modul de siguranță. 
+Accesare și evoluția metodei 
+Modul de siguranță se accesează din mediul de recuperare Windows 
+(WinRE), prin Depanare > Opțiuni complexe > Setări pornire > 
+Repornire. După repornire, va apărea un meniu unde se poate selecta 
+tipul de Mod de siguranță dorit, de obicei prin apăsarea tastelor F4, F5 
+sau F6. 
+În versiunile mai vechi de Windows (XP, 7), Modul de siguranță putea fi 
+accesat simplu, prin apăsarea repetată a tastei F8 în timpul pornirii. În 
+Windows 10 și 11, această metodă a fost în mare parte eliminată. 
+Această schimbare reprezintă un compromis tehnic deliberat: pentru a 
+accelera dramatic timpii de pornire pe sistemele moderne cu UEFI și 
+SSD-uri, Microsoft a eliminat pauza necesară pentru a verifica apăsarea 
+tastei F8. Deși acest lucru îmbunătățește experiența de utilizare zilnică, 
+a complicat accesul la un instrument de depanare esențial, făcându-l 
+mai puțin intuitiv pentru utilizatorii care se confruntă cu probleme ce 
+împiedică accesul la WinRE prin metodele standard. 
+Tipurile de mod de siguranță 
+Există trei variante principale ale Modului de siguranță, fiecare adaptată 
+pentru un anumit scenariu de depanare. 
+ 
+ 
+ 
+
+
+ 
+Tabelul 1: Comparația tipurilor de mod de siguranță 
+Caracteristică 
+Mod de 
+siguranță (F4)  
+Mod de 
+siguranță cu 
+rețea (F5)  
+Mod de siguranță 
+cu linie de 
+comandă (F6)  
+Interfață 
+grafică 
+Da 
+(minimalistă, 
+rezoluție 
+redusă) 
+Da 
+(minimalistă, 
+rezoluție 
+redusă) 
+Nu (doar 
+fereastra 
+cmd.exe) 
+Acces la 
+internet 
+Nu 
+Da (de obicei 
+doar prin cablu 
+Ethernet; Wi-Fi 
+poate fi 
+nesuportat)  
+Da (dacă este 
+configurat manual 
+din linia de 
+comandă) 
+Drivere 
+încărcate 
+Doar cele 
+esențiale pentru 
+funcționarea de 
+bază. 
+Drivere 
+esențiale + 
+drivere de 
+rețea. 
+Drivere esențiale 
++ drivere de 
+rețea. 
+Caz de 
+utilizare 
+Dezinstalarea 
+de software 
+problematic, 
+scanare 
+antivirus offline, 
+depanare 
+drivere video. 
+Descărcarea 
+de drivere noi, 
+căutarea de 
+soluții online, 
+accesarea 
+resurselor de 
+rețea. 
+Utilizatori 
+avansați și 
+administratori IT 
+pentru rularea de 
+scripturi, comenzi 
+de diagnosticare 
+(de ex., sfc, 
+dism). 
+ 
+ 
+ 
+
+
+ 
+Ieșirea din Modul de siguranță 
+În mod normal, pentru a ieși din Modul de siguranță, este suficientă o 
+simplă repornire a computerului. Dacă, din diverse motive, sistemul 
+continuă să pornească în Modul de siguranță, problema poate fi 
+rezolvată manual: 
+1.​ Apăsați tasta Windows + R pentru a deschide caseta de dialog 
+"Executare". 
+2.​ Tastați msconfig și apăsați Enter. 
+3.​ În fereastra "Configurare sistem", navigați la fila Bootare. 
+4.​ Debifați caseta de selectare Bootare sigură (Safe boot). 
+5.​ Selectați OK și reporniți computerul. 
+Depanarea problemelor legate de aplicații 
+Problemele software nu se limitează întotdeauna la nivelul sistemului de 
+operare. Adesea, defecțiunile sunt localizate la nivelul unor aplicații 
+specifice, fie din cauza incompatibilităților, a fișierelor corupte sau a 
+erorilor de instalare. 
+Identificarea problemelor de compatibilitate 
+Aplicațiile mai vechi, proiectate pentru versiuni anterioare de Windows, 
+pot întâmpina probleme de funcționare pe sistemele moderne. Aceste 
+probleme apar din cauza modificărilor aduse de Microsoft la nivelul 
+API-urilor (Application Programming Interfaces), a bibliotecilor de sistem 
+sau a politicilor de securitate. Existența instrumentelor de compatibilitate 
+subliniază faptul că retrocompatibilitatea nu este absolută și garantată, 
+reprezentând un factor de risc important, în special pentru mediile de 
+afaceri care depind de software specializat, vechi. 
+Utilizarea depanatorului de compatibilitate a programelor 
+Windows include un instrument automatizat, conceput pentru a rezolva 
+aceste probleme: 
+●​ Accesare în Windows 11: Navigați la Setări > Sistem > Depanare 
+> Alte depanatoare și rulați Depanatorul compatibilitate programe. 
+●​ Accesare în Windows 10: Navigați la Setări > Actualizare și 
+securitate > Depanare > Depanatoare suplimentare și rulați 
+Depanator compatibilitate programe. 
+
+
+ 
+Acest instrument ghidează utilizatorul printr-un proces de diagnosticare, 
+permițându-i să selecteze aplicația problematică. Depanatorul va încerca 
+să aplice setări de compatibilitate recomandate sau va oferi opțiunea de 
+a selecta manual versiunea de Windows pentru care a fost creată 
+aplicația (de ex., Windows 7 sau Windows XP Service Pack 3). 
+Configurarea manuală a compatibilității 
+Pentru un control mai granular, setările de compatibilitate pot fi aplicate 
+manual: 
+1.​ Faceți clic-dreapta pe fișierul 
+executabil al aplicației (.exe) și 
+selectați Proprietăți. 
+2.​ Navigați la fila Compatibilitate. 
+3.​ Aici, puteți bifa opțiunea "Rulați 
+acest program în modul de 
+compatibilitate pentru:" și alege o 
+versiune mai veche de Windows 
+din meniul derulant. Alte opțiuni 
+utile includ "Rulați acest program 
+ca administrator". 
+Rezolvarea problemelor de instalare 
+din Microsoft Store 
+Microsoft Store este platforma 
+centralizată pentru distribuția de aplicații 
+moderne (UWP), dar poate întâmpina probleme de funcționare, cum ar fi 
+eșecuri la descărcare, instalare sau actualizare. 
+Pași de depanare 
+1.​ Verificări preliminare: Asigurați-vă că aveți o conexiune la 
+internet funcțională, că data, ora și regiunea sistemului sunt setate 
+corect și că atât Windows, cât și aplicația Microsoft Store sunt 
+actualizate la zi. 
+2.​ Resetarea cache-ului Microsoft Store (wsreset.exe): Aceasta 
+este cea mai rapidă metodă de a rezolva problemele minore. 
+Apăsați tasta Windows + R, tastați wsreset.exe și apăsați Enter. O 
+fereastră de linie de comandă se va deschide și se va închide 
+
+
+ 
+automat, după care Microsoft Store se va lansa, cu memoria 
+cache golită. 
+3.​ Repararea și resetarea aplicației: Navigați la Setări > Aplicații > 
+Aplicații instalate (în Win 11) sau Aplicații și caracteristici (în Win 
+10). Găsiți Microsoft Store, selectați Opțiuni complexe și alegeți 
+Reparare (care încearcă să remedieze problemele fără a pierde 
+date) sau Resetare (care șterge datele aplicației și o readuce la 
+starea inițială). 
+4.​ Reînregistrarea Microsoft Store (metodă avansată): Dacă 
+metodele anterioare eșuează, puteți forța reînregistrarea aplicației 
+în sistem folosind PowerShell. Deschideți PowerShell ca 
+administrator și executați comanda:​
+Get-AppXPackage -AllUsers *WindowsStore* | Foreach 
+{Add-AppxPackage -DisableDevelopmentMode -Register 
+"$($_.InstallLocation)\AppXManifest.xml"}. 
+Deși comanda wsreset.exe este larg recomandată, surse tehnice mai 
+recente o consideră uneori insuficientă sau "învechită" pentru 
+problemele complexe din Windows 10 și 11. Aceasta reflectă o evoluție 
+a arhitecturii Store, unde problemele pot apărea nu doar la nivel de 
+cache, ci și la nivel de înregistrare a pachetului software în sistem. În 
+aceste cazuri, o simplă golire a cache-ului nu este eficientă, fiind 
+necesară intervenția mai puternică a comenzilor PowerShell pentru a 
+repara integrarea la un nivel mai profund. 
+Reinstalarea sau repararea aplicațiilor desktop 
+Pentru aplicațiile instalate în afara Microsoft Store, Windows oferă, de 
+asemenea, mecanisme de reparare, deși experiența poate varia în 
+funcție de tipul aplicației. Existența a două metode distincte de reparare 
+(din Setări și din Panoul de control) reflectă diviziunea fundamentală a 
+ecosistemului de aplicații Windows: aplicațiile moderne UWP/Store și 
+programele desktop tradiționale Win32. 
+1.​ Din meniul Setări (pentru aplicații UWP (Universal Windows 
+Platform) și unele aplicații Win32 moderne): 
+○​ Windows 11: Setări > Aplicații > Aplicații instalate. Găsiți 
+aplicația, faceți clic pe cele trei puncte și selectați Opțiuni 
+complexe. 
+
+
+ 
+○​ Windows 10: Setări > Aplicații > Aplicații și caracteristici. 
+Selectați aplicația și apoi Opțiuni complexe. 
+○​ Aici veți găsi opțiunile Reparare și Resetare, dacă sunt 
+disponibile pentru aplicația respectivă. 
+2.​ Din Panoul de control (pentru programe Win32 tradiționale): 
+○​ Deschideți Panou de control > Programe > Programe și 
+caracteristici. 
+○​ Găsiți programul în listă, selectați-l și faceți clic pe opțiunea 
+Reparare (Repair) sau Modificare (Change) din bara de sus. 
+Acest lucru va lansa programul de instalare al aplicației, care 
+vă va ghida prin procesul de reparare. 
+Aplicațiile UWP(Universal Windows Platform), fiind gestionate centralizat 
+de sistemul de operare, oferă opțiuni de reparare standardizate și 
+previzibile. În contrast, programele Win32 își gestionează propriul proces 
+de instalare și reparare, ceea ce duce la o experiență mai puțin 
+consistentă pentru utilizator. 
+Gestionarea configurațiilor și proceselor de sistem 
+Depanarea eficientă implică adesea și gestionarea directă a 
+configurațiilor de sistem, a serviciilor de fundal și a proceselor active. 
+Gestionarea problemelor legate de modul ‘S’ 
+Modul S este o configurație specială a Windows, optimizată pentru 
+securitate și performanță. Aceasta realizează acest lucru prin impunerea 
+a două restricții majore: permite instalarea de software exclusiv din 
+Microsoft Store și forțează utilizarea browserului Microsoft Edge pentru 
+navigarea web. 
+●​ Avantaje: Securitate sporită (riscul de malware este practic 
+eliminat), performanță constantă și o autonomie mai bună a 
+bateriei, fiind ideal pentru mediul educațional sau pentru utilizatorii 
+care doresc o experiență simplă și sigură. 
+●​ Dezavantaje: Limitarea severă a selecției de software. Utilizatorii 
+nu pot instala browsere alternative (Chrome, Firefox), suite de 
+productivitate avansate (Adobe Creative Cloud) sau unelte de 
+dezvoltare. 
+
+
+ 
+Modul S reprezintă încercarea Microsoft de a crea un ecosistem 
+software controlat, similar cu ChromeOS, promovând în același timp 
+platformele proprii (Store și Edge). "Problema" pe care o întâmpină 
+majoritatea utilizatorilor nu este o eroare tehnică, ci o limitare 
+fundamentală de design. Prin urmare, "escaladarea" problemei 
+înseamnă, în acest context, abandonarea completă a modului. 
+Procedura de ieșire din modul S 
+Ieșirea din Modul S este o acțiune permanentă și ireversibilă. Odată 
+ce comutarea este făcută, nu se mai poate reveni la Modul S pe acel 
+dispozitiv. 
+1.​ Windows 11: Navigați la Setări > Sistem > Activare. În secțiunea 
+corespunzătoare (de ex., "Comutați la Windows 11 Home/Pro"), 
+selectați linkul Accesați Magazinul. 
+2.​ Windows 10: Navigați la Setări > Actualizare și securitate > 
+Activare. În secțiunea corespunzătoare, selectați linkul Accesați 
+Store. 
+3.​ În pagina din Microsoft Store care se deschide, selectați butonul 
+Obțineți. Procesul este gratuit și va elimina restricțiile Modului S. 
+Depanarea serviciilor Windows 
+Serviciile Windows sunt programe care rulează în fundal, independent 
+de interacțiunea directă a utilizatorului, și care asigură funcționalități 
+esențiale ale sistemului de operare (de ex., actualizări, conectivitate de 
+rețea, sunet). Consola de gestionare a serviciilor, services.msc, este 
+instrumentul principal pentru a le controla. 
+Utilizarea consolei services.msc 
+Pentru a deschide consola, apăsați tasta Windows + R, tastați 
+services.msc și apăsați Enter. În consolă, puteți efectua următoarele 
+acțiuni pe un serviciu: 
+●​ Pornire, Oprire, Repornire: Acțiuni disponibile prin clic-dreapta, 
+utile pentru a rezolva defecțiuni temporare. 
+●​ Modificarea tipului de pornire: Prin dublu-clic pe un serviciu, se 
+deschide fereastra de proprietăți, unde se poate seta tipul de 
+pornire: 
+
+
+ 
+○​ Automat: Serviciul pornește odată cu Windows. 
+○​ Automat (Pornire întârziată): Pornește la scurt timp după 
+boot, pentru a accelera pornirea vizibilă a sistemului. 
+○​ Manual: Pornește doar la cerere (de ex., când o aplicație are 
+nevoie de el). 
+○​ Dezactivat: Serviciul nu poate fi pornit. 
+ 
+Un aspect critic în depanarea serviciilor este rețeaua complexă de 
+dependențe dintre ele. Un serviciu poate necesita ca alte servicii să fie 
+deja pornite pentru a funcționa. Fila "Dependențe" din proprietățile unui 
+serviciu este esențială pentru diagnosticare. Oprirea unui serviciu de 
+bază poate provoca o eroare în cascadă, afectând funcționalități aparent 
+neînrudite. Prin urmare, o abordare sistemică, care analizează întregul 
+lanț de dependențe, este mult mai eficientă. 
+Dacă însăși consola services.msc nu pornește, acest lucru indică o 
+corupere a fișierelor de sistem, care poate fi adesea remediată prin 
+rularea comenzilor sfc /scannow și DISM /Online /Cleanup-Image 
+/RestoreHealth într-o linie de comandă cu privilegii de administrator. 
+ 
+ 
+
+
+ 
+Utilizarea managerului de activități (task manager) 
+Managerul de activități (Task Manager) a evoluat de la un simplu 
+instrument pentru închiderea aplicațiilor blocate la un centru de comandă 
+complex pentru monitorizarea și optimizarea performanței sistemului. 
+Acesta oferă o imagine de ansamblu în timp real asupra a tot ceea ce 
+rulează pe computer. 
+Accesare și funcții esențiale 
+●​ Metode de accesare: Cea mai rapidă metodă este combinația de taste 
+Ctrl + Shift + Esc. Alternativele comune includ​
+ Ctrl + Alt + Del sau clic-dreapta pe bara de activități. 
+●​ Fila "Procese": Permite vizualizarea tuturor aplicațiilor și 
+proceselor de fundal, sortate după consumul de CPU, memorie, 
+disc și rețea. Este instrumentul principal pentru a identifica și a 
+închide forțat (Terminare activitate) aplicațiile care nu răspund sau 
+care consumă resurse în mod excesiv. 
+●​ Fila "Performanță": Oferă grafice detaliate în timp real pentru 
+utilizarea componentelor hardware cheie (CPU, memorie, disc, 
+rețea, GPU). Este esențială pentru diagnosticarea blocajelor de 
+performanță ("bottlenecks"). 
+●​ Fila "Pornire": Afișează o listă a tuturor aplicațiilor configurate să 
+pornească automat odată cu Windows. Pentru fiecare aplicație, 
+este indicat impactul asupra timpului de pornire (Ridicat, Mediu, 
+Scăzut). Utilizatorii pot face clic-dreapta pe o aplicație și pot 
+selecta Dezactivare pentru a preveni pornirea ei automată, 
+accelerând astfel semnificativ timpul de boot al sistemului. 
+Această evoluție a transformat Managerul de activități dintr-o unealtă 
+reactivă într-una proactivă. Centralizarea funcționalităților de 
+monitorizare a performanței și de gestionare a pornirii (anterior localizate 
+în unelte separate precum msconfig) creează un flux de lucru integrat și 
+eficient pentru diagnosticare și optimizare. 
+ 
+ 
+ 
+
+
+ 
+Concluzie 
+Depanarea problemelor în Windows 10 și 11 necesită o abordare 
+structurată și o înțelegere a instrumentelor disponibile. Acest ghid a 
+prezentat o gamă largă de strategii, de la cele mai simple la cele mai 
+complexe, permițând utilizatorilor să abordeze eficient diverse scenarii 
+de defecțiune. 
+Se recomandă o abordare metodică, care începe cu soluții mai puțin 
+invazive, cum ar fi utilizarea Managerului de activități pentru a opri 
+procese problematice sau repararea unei aplicații individuale. Măsuri 
+mai drastice, precum accesarea Modului de siguranță sau resetarea 
+completă a sistemului de operare, ar trebui luate în considerare doar 
+după ce metodele mai simple au fost epuizate. 
+În final, întreținerea proactivă a sistemului — prin efectuarea regulată a 
+actualizărilor, gestionarea atentă a aplicațiilor care pornesc automat și 
+monitorizarea periodică a performanței — rămâne cea mai eficientă 
+strategie pentru a preveni apariția problemelor și pentru a asigura o 
+experiență de utilizare stabilă și sigură. 
+ 

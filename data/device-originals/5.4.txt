@@ -1,0 +1,695 @@
+
+ 
+Device Configuration and 
+Management 
+ 
+ 
+ 
+ 
+ 
+5. Windows 
+Management and 
+Troubleshooting 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+5.4 Manage and troubleshoot device connections to networks and 
+domains 
+• Wired and wireless connections (Ethernet cable, wireless signal 
+strength,SSID, ipconfig options [flushdns, release, renew, all], security 
+key), ping, traceroute, nmap 
+• Remove or Join devices to domains 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+Capitolul 1: Gestionarea conexiunilor de bază 
+Fundamentul oricărei interacțiuni în rețea este stabilirea unei conexiuni 
+fiabile. Această secțiune detaliază procedurile standard pentru 
+conectarea la rețele cu fir și fără fir, precum și metodele de verificare a 
+stării și configurației acestor conexiuni. O înțelegere solidă a acestor 
+principii de bază este esențială înainte de a aborda scenarii complexe de 
+depanare. 
+1.1. Conectarea la o rețea cu fir (ethernet) 
+Conexiunile Ethernet sunt recunoscute pentru stabilitatea și viteza lor, iar 
+stabilirea uneia este, în general, un proces 
+"plug-and-play". Cu toate acestea, o verificare 
+vizuală a componentelor fizice este întotdeauna 
+un prim pas prudent. Este importantă 
+verificarea LED-urilor de stare de pe portul de 
+rețea al computerului și al routerului sau 
+switch-ului. Un LED de legătură (link) aprins 
+confirmă o conexiune fizică validă, în timp ce 
+un LED de activitate care clipește indică faptul că datele sunt transmise 
+prin rețea. 
+Pași pentru Windows 11 și Windows 10: 
+1.​ Se conectează fizic un capăt al cablului Ethernet la portul de rețea 
+al computerului și celălalt capăt la un port activ al routerului sau 
+switch-ului. 
+2.​ Sistemul de operare, fie Windows 10 sau 11, va detecta automat 
+conexiunea. În bara de activități, pictograma de rețea se va 
+schimba pentru a indica o conexiune cu fir reușită. 
+3.​ Pentru a verifica starea detaliată, se poate naviga la Setări > 
+Rețea și internet > Ethernet. În această secțiune, atât în Windows 
+10, cât și în 11, se pot vizualiza informații esențiale precum viteza 
+de legătură (de exemplu, 1.0 Gbps) și adresa IPv4 alocată de 
+rețea. 
+ 
+ 
+
+
+ 
+1.2. Conectarea la o rețea fără fir (Wi-Fi) 
+Conectarea la o rețea Wi-Fi necesită identificarea rețelei corecte, 
+cunoscută sub numele de SSID (Service Set Identifier), și furnizarea 
+parolei corespunzătoare, denumită cheie de securitate. 
+Identificarea rețelei (SSID) și introducerea cheii de securitate 
+SSID-ul este, în esență, numele public al rețelei wireless, pe care 
+dispozitivele îl afișează în lista de rețele disponibile. Cheia de securitate 
+este parola care protejează rețeaua împotriva accesului neautorizat. 
+Protocoalele moderne de securitate, cum ar fi WPA2 și, mai recent, 
+WPA3, asigură criptarea traficului între dispozitiv și router. 
+●​ Windows 11: Procesul este simplificat prin meniul de setări rapide. 
+Se selectează grupul de pictograme Rețea, Sunet sau Baterie din 
+colțul din dreapta al barei de activități. În panoul care apare, se 
+selectează opțiunea Gestionare conexiuni Wi-Fi. Apoi, se alege 
+rețeaua dorită (SSID) din listă, se apasă Conectare și se introduce 
+cheia de securitate (parola) atunci când este solicitată. 
+●​ Windows 10: Procedura este similară, dar accesată direct prin 
+pictograma Rețea din bara de activități. Se face clic pe pictogramă, 
+se alege rețeaua Wi-Fi dorită din lista afișată, se apasă Conectare 
+și se introduce parola de rețea. 
+Evaluarea puterii semnalului wireless 
+Puterea semnalului Wi-Fi nu este doar un indicator de confort, ci un 
+factor direct care influențează performanța rețelei. Un semnal slab poate 
+duce la viteze reduse, latență crescută și deconectări frecvente. Prin 
+urmare, evaluarea puterii semnalului este un prim pas esențial în 
+diagnosticarea problemelor de stabilitate și viteză. Există mai multe 
+metode pentru a verifica acest parametru: 
+1.​ Pictograma din bara de activități: Oferă o reprezentare vizuală 
+rapidă (de obicei, prin numărul de "liniuțe" pline). 
+2.​ Aplicația Setări: În Setări > Rețea și Internet > Wi-Fi, pictograma 
+de lângă proprietățile rețelei conectate indică, de asemenea, 
+puterea semnalului. 
+
+
+ 
+3.​ Panoul de Control: Navigând la Centru rețea și partajare, 
+pictograma verde de lângă conexiunea Wi-Fi activă reflectă 
+calitatea recepției. 
+4.​ Linia de Comandă (Command Prompt): Aceasta este cea mai 
+precisă metodă. Se deschide Linia de Comandă și se execută 
+comanda netsh wlan show interfaces. Rezultatul va afișa un 
+procentaj numeric pentru câmpul "Semnal". O valoare între 80% și 
+100% indică o putere excelentă, în timp ce valorile sub 60% 
+semnalează o calitate slabă care poate cauza probleme. 
+5.​ PowerShell: Aceeași comandă, netsh wlan show interfaces, 
+funcționează și în PowerShell, oferind aceleași informații detaliate. 
+O calitate slabă a semnalului poate fi adesea remediată prin 
+repoziționarea dispozitivului sau a routerului, asigurându-vă că există cât 
+mai puține obstacole fizice între ele și reducând interferențele de la alte 
+dispozitive electronice, cum ar fi cuptoarele cu microunde. 
+1.3. Verificarea detaliilor și stării conexiunii 
+Odată stabilită o conexiune, este adesea necesar să se verifice detaliile 
+complete ale configurației de rețea pentru diagnosticare sau configurare 
+avansată. Windows 11 demonstrează o tendință clară de a centraliza 
+aceste setări, care în Windows 10 erau dispersate între noua aplicație 
+Setări și vechiul Panou de Control. Această convergență, deși necesită o 
+scurtă perioadă de adaptare pentru administratorii obișnuiți cu Windows 
+10, duce la un management mai eficient și mai puțin fragmentat pe 
+termen lung. 
+●​ Metode GUI (Interfață Grafică): 
+○​ Windows 11: Calea cea mai directă pentru a vizualiza toate 
+proprietățile hardware și de conexiune pentru toate 
+adaptoarele este Setări > Rețea și internet > Setări complexe 
+de rețea > Hardware and connection properties. Această 
+secțiune oferă o imagine de ansamblu completă și 
+centralizată. 
+○​ Windows 10: Pentru a obține informații similare, procesul 
+este adesea în doi pași. Informațiile de bază se găsesc în 
+Setări > Rețea și Internet > Stare. Pentru detalii amănunțite, 
+calea tradițională prin Panou de control > Centru rețea și 
+
+
+ 
+partajare > Modificare setări adaptor, urmată de un dublu clic 
+pe adaptor și selectarea butonului Detalii, rămâne cea mai 
+completă metodă. 
+Indiferent de metodă, informațiile cheie de urmărit includ: Adresa IPv4, 
+Adresa fizică (MAC), Gateway-ul implicit (adresa IP a routerului) și 
+serverele DNS utilizate. 
+Capitolul 2: Depanarea sistematică a problemelor de 
+conectivitate 
+Problemele de rețea sunt o realitate în orice mediu IT. O abordare 
+structurată, care progresează de la soluții simple și automate la 
+intervenții mai complexe și manuale, este esențială pentru o rezolvare 
+rapidă și eficientă. Această metodologie ierarhizată, observată în 
+documentația oficială și ghidurile producătorilor, previne aplicarea unor 
+măsuri drastice inutile și economisește timp prețios. Fluxul de depanare 
+ar trebui să înceapă întotdeauna cu cele mai probabile și mai ușor de 
+remediat cauze. 
+2.1. Diagnosticarea inițială și soluții rapide 
+Acestea sunt primele acțiuni care ar trebui întreprinse atunci când apare 
+o problemă de conectivitate. 
+●​ Utilizarea depanatorului de rețea Windows: Acesta este primul 
+pas recomandat de Microsoft. Instrumentul automatizat rulează o 
+serie de diagnostice pentru a identifica și a încerca să remedieze 
+automat problemele comune, cum ar fi setările IP incorecte sau 
+problemele cu driverele. Poate fi lansat din Setări > Rețea și 
+internet > Stare > Depanator de rețea (calea este foarte similară 
+atât în Windows 10, cât și în 11). 
+●​ Verificări fizice (cabluri, router, modem): O cauză frecventă a 
+problemelor este o defecțiune fizică. Pentru o conexiune Ethernet, 
+este esențial să se verifice dacă cablul este conectat ferm la 
+ambele capete. Încercarea unui alt cablu Ethernet sau a unui alt 
+port pe router poate izola rapid o problemă de hardware. Pentru 
+conexiunile Wi-Fi, este important să se confirme că funcția 
+
+
+ 
+wireless este activată pe dispozitiv, fie printr-un comutator fizic, fie 
+printr-o combinație de taste. 
+●​ Repornirea echipamentelor de rețea: O repornire completă, 
+cunoscută sub numele de "power cycling", poate rezolva 
+numeroase probleme temporare de software sau de stare a 
+echipamentelor. Procedura corectă implică deconectarea cablurilor 
+de alimentare atât de la modem, cât și de la router, așteptarea a 
+cel puțin 10-30 de secunde pentru a permite descărcarea 
+completă a condensatorilor, și apoi reconectarea lor în ordine: mai 
+întâi modemul, așteptând ca luminile de stare să se stabilizeze, și 
+apoi routerul. 
+2.2. Rezolvarea problemelor avansate 
+Dacă pașii inițiali nu rezolvă problema, sunt necesare intervenții mai 
+specifice la nivelul software-ului sistemului de operare. 
+●​ Actualizarea, reinstalarea și resetarea driverelor de rețea: 
+Driverul este software-ul care permite sistemului de operare să 
+comunice cu hardware-ul de rețea. Un driver corupt, învechit sau 
+incompatibil este o sursă comună de probleme. Prin Manager 
+dispozitive (Device Manager), se poate încerca actualizarea 
+automată a driverului. Dacă acest lucru eșuează, o metodă 
+eficientă este dezinstalarea completă a dispozitivului de rețea. La 
+repornirea computerului, Windows va detecta hardware-ul și va 
+încerca să reinstaleze automat un driver funcțional. 
+●​ Configurarea opțiunilor de alimentare pentru adaptoarele 
+wireless: O cauză subtilă, dar frecventă, a deconectărilor Wi-Fi 
+intermitente pe laptopuri este modul agresiv de economisire a 
+energiei. Pentru a asigura o conexiune stabilă, se recomandă 
+setarea adaptorului wireless pe modul "Performanță maximă". 
+Această setare se găsește în Panou de control > Opțiuni de 
+alimentare > Modificare setări plan > Modificați setările avansate 
+de alimentare > Setări adaptor wireless > Mod de economisire a 
+energiei. 
+●​ Utilizarea funcției de resetare a rețelei: Aceasta este o măsură 
+drastică, dar adesea eficientă, care ar trebui utilizată ca ultimă 
+soluție software. Funcția de Resetare a rețelei elimină complet 
+toate adaptoarele de rețea instalate și resetează toate 
+
+
+ 
+componentele de rețea (cum ar fi stiva TCP/IP) la setările lor 
+implicite din fabrică. După repornire, adaptoarele sunt reinstalate. 
+Este important de reținut că această acțiune va șterge toate 
+rețelele Wi-Fi salvate și parolele acestora, precum și orice 
+configurație VPN sau IP statică. 
+○​ Windows 11: Calea este Setări > Rețea și internet > Setări 
+complexe de rețea > Resetare rețea. 
+○​ Windows 10: Calea este Setări > Rețea și internet > Stare > 
+Resetare rețea. 
+Capitolul 3: Utilizarea liniei de comandă CMD pentru 
+diagnosticare 
+Deși interfața grafică (GUI) oferă accesibilitate, linia de comandă pune la 
+dispoziție instrumente precise și puternice pentru diagnosticarea 
+problemelor de rețea la un nivel fundamental. Utilitarele ipconfig, ping și 
+tracert nu sunt instrumente izolate, ci formează un set complementar 
+care, utilizat într-o secvență logică, permite o depanare eficientă. 
+Rezultatul unei comenzi informează adesea necesitatea și modul de 
+utilizare a următoarei, creând un flux de lucru de diagnosticare robust. 
+3.1. Analiza configurației ip cu ipconfig 
+ipconfig este instrumentul principal pentru vizualizarea și gestionarea 
+configurației TCP/IP a unui computer. Pentru a utiliza opțiunile care 
+modifică configurația, cum ar fi /release sau /renew, este necesar să se 
+deschidă Linia de Comandă (Command Prompt) sau PowerShell cu 
+privilegii de administrator. 
+ 
+
+
+ 
+Explicația detaliată a opțiunilor: 
+●​ /all: Această opțiune afișează configurația TCP/IP completă pentru 
+toate adaptoarele de rețea. Spre deosebire de comanda de bază, 
+/all include informații critice pentru diagnosticare, cum ar fi adresa 
+fizică (MAC), dacă DHCP este activat, adresa serverului DHCP 
+care a alocat IP-ul, adresele serverelor DNS și durata de viață a 
+"închirierii" adresei IP (lease duration). Este comanda de pornire în 
+aproape orice scenariu de depanare pentru a obține o imagine de 
+ansamblu completă. 
+●​ /release: Această comandă trimite un mesaj DHCP RELEASE 
+serverului DHCP pentru a elibera configurația DHCP curentă și a 
+anula adresa IP pentru adaptorul specificat (sau pentru toate, dacă 
+nu este specificat niciunul). Este utilă în special pentru a rezolva 
+conflictele de adrese IP, unde două dispozitive din rețea au primit 
+din greșeală aceeași adresă IP. 
+●​ /renew: După eliberarea adresei IP cu /release (sau dacă nu există 
+nicio adresă), comanda /renew trimite un mesaj DHCPDISCOVER 
+pentru a solicita o nouă configurație IP de la un server DHCP. 
+Acest proces poate remedia problemele în care computerul a 
+primit o configurație incorectă (de exemplu, un server DNS greșit) 
+sau nu a reușit să obțină o adresă IP validă, rezultând într-o 
+adresă APIPA (de forma 169.254.x.x). 
+●​ /flushdns: Această comandă golește și resetează conținutul 
+memoriei cache a resolver-ului DNS local. Sistemul de operare 
+stochează temporar (în cache) rezultatele interogărilor DNS 
+recente pentru a accelera accesul la site-urile și resursele vizitate 
+frecvent. /flushdns este crucială atunci când adresa IP a unui 
+server sau site web se schimbă, dar computerul local continuă să 
+încerce să se conecteze la vechea adresă stocată în cache, 
+ducând la erori de conectare. 
+ 
+ 
+ 
+ 
+
+
+ 
+Tabelul 1: Comparație opțiuni ipconfig 
+Opțiune 
+Funcționalitate 
+Scenariu de utilizare tipic 
+/all 
+Afișează toate 
+detaliile de 
+configurare TCP/IP. 
+Obținerea unei imagini de 
+ansamblu complete; verificarea 
+adresei MAC, a serverelor DNS 
+și DHCP. 
+/release 
+Eliberează adresa 
+IP curentă de la 
+serverul DHCP. 
+Rezolvarea conflictelor de 
+adrese IP; inițierea procesului 
+de reînnoire a IP-ului. 
+/renew 
+Solicită o nouă 
+adresă IP de la 
+serverul DHCP. 
+Remedierea problemelor de 
+alocare IP (adrese APIPA); 
+obținerea unei noi configurații 
+de rețea. 
+/flushdns 
+Golește memoria 
+cache locală a 
+resolver-ului DNS. 
+Rezolvarea problemelor de 
+acces la site-uri web care și-au 
+schimbat recent adresa IP; 
+depanarea erorilor de nume. 
+ 
+3.2. Testarea conectivității cu ping 
+ping este un utilitar de diagnosticare fundamental care testează dacă un 
+dispozitiv de destinație este accesibil printr-o rețea. Acesta funcționează 
+prin trimiterea de pachete ICMP "Echo Request" și așteptarea 
+răspunsurilor "Echo Reply", măsurând timpul total al călătoriei 
+dus-întors. 
+Sintaxa de bază și exemple practice: 
+
+
+ 
+Sintaxa este simplă: ping <adresă_ip_sau_hostname>. 
+●​ ping 8.8.8.8: Testează conectivitatea la un server public de 
+încredere (serverul DNS al Google), verificând dacă există o 
+conexiune la internet funcțională dincolo de rețeaua locală. 
+●​ ping www.google.com: Testează atât conectivitatea la internet, cât 
+și funcționalitatea rezoluției DNS (dacă numele de domeniu este 
+tradus corect într-o adresă IP). 
+●​ ping 127.0.0.1: Cunoscut și ca adresa "localhost" sau "loopback", 
+acest test verifică dacă stiva TCP/IP a computerului local 
+funcționează corect, fără a trimite pachete în rețea. 
+ 
+Interpretarea rezultatelor: 
+Un răspuns ping reușit oferă mai multe informații valoroase: 
+●​ Timpul de răspuns (time=): Măsurat în milisecunde (ms), 
+reprezintă latența conexiunii. Valori mai mici indică o conexiune 
+mai rapidă și mai receptivă. 
+●​ TTL (Time To Live): O valoare care scade cu fiecare "hop" 
+(router) traversat de pachet. Poate oferi o idee aproximativă 
+despre numărul de routere între sursă și destinație. 
+●​ Pachete pierdute (Lost packets): Un procentaj de pachete 
+pierdute (de exemplu, "Lost = 1 (25% loss)") este un indicator clar 
+
+
+ 
+al unei probleme de rețea, cum ar fi congestia, hardware defectuos 
+sau o conexiune wireless slabă. 
+Tabelul 2: Interpretarea rezultatelor ping 
+Rezultat 
+Semnificație 
+Acțiune recomandată 
+Reply from... 
+Conexiunea este 
+funcțională; host-ul 
+de destinație a 
+răspuns. 
+Nicio acțiune necesară dacă 
+timpii de răspuns și 
+pierderile de pachete sunt în 
+limite normale. 
+Request timed 
+out 
+Nu s-a primit 
+niciun răspuns în 
+intervalul de timp 
+alocat. 
+Verificați dacă host-ul de 
+destinație este online; 
+verificați setările firewall de 
+pe destinație sau de-a lungul 
+rutei. 
+Destination 
+host 
+unreachable 
+Un router de pe 
+traseu nu are o 
+rută către 
+destinație. 
+Problema este probabil la 
+nivelul rețelei, nu la host-ul 
+local. Verificați adresa IP a 
+destinației și configurația 
+routerului. 
+x% packet 
+loss 
+Unele pachete se 
+pierd pe drum. 
+Indicație de congestie în 
+rețea, semnal Wi-Fi slab, 
+cablu Ethernet defect sau 
+hardware de rețea 
+problematic. 
+ 
+ 
+
+
+ 
+3.3. Urmărirea rutei pachetelor cu traceroute (tracert) 
+tracert este un instrument de diagnosticare care mapează calea, hop cu 
+hop, pe care o parcurg pachetele de la computerul sursă la o destinație. 
+Este extrem de util pentru a identifica punctul exact dintr-o rețea 
+complexă unde apar întârzieri mari (latență) sau unde se întrerupe 
+conexiunea. 
+ 
+Interpretarea rezultatelor: 
+tracert afișează o listă numerotată de linii, fiecare reprezentând un router 
+(hop) de pe traseu. Fiecare linie conține trei măsurători de timp 
+(reprezentând timpul de răspuns pentru trei pachete de test separate) și 
+adresa IP sau numele de gazdă al routerului respectiv. 
+●​ Creșteri bruște ale latenței: Dacă timpul de răspuns crește 
+semnificativ la un anumit hop și rămâne ridicat pentru toate 
+hop-urile ulterioare, acel router sau legătura de rețea de după el 
+reprezintă un punct de congestie sau o problemă. 
+●​ Timeout-uri (* * *): Apariția a trei asteriscuri într-o linie indică 
+faptul că routerul respectiv nu a răspuns la pachetele de test în 
+intervalul de timp alocat. Acest lucru se poate datora faptului că 
+routerul este configurat să nu răspundă la cereri ICMP (o practică 
+de securitate comună) sau poate indica o problemă reală de 
+conectivitate la acel punct. 
+ 
+ 
+
+
+ 
+Capitolul 4: Scanarea avansată a rețelei cu nmap 
+Dincolo de diagnosticarea propriei conexiuni, administratorii de sistem și 
+profesioniștii în securitate trebuie adesea să inventarieze, să auditeze și 
+să securizeze întreaga rețea. Nmap (Network Mapper) este standardul 
+industriei pentru aceste sarcini. Deși este adesea asociat cu activități 
+ofensive, Nmap este un instrument defensiv indispensabil pentru o bună 
+"igienă" a rețelei. Permite administratorilor să identifice dispozitive 
+neautorizate, să verifice dacă serviciile rulează pe porturile corecte și să 
+confirme că firewall-urile blochează traficul nedorit. Utilizarea sa ar trebui 
+să fie întotdeauna încadrată într-un context de administrare legitimă și 
+audit de securitate, respectând politicile organizaționale și legislația, 
+deoarece scanarea rețelelor fără permisiune este ilegală și neetică. 
+ 
+4.1. Instalarea nmap pe windows 
+Instalarea Nmap pe un sistem Windows este un proces simplu și direct. 
+Pași: 
+1.​ Se navighează la pagina oficială de descărcare a proiectului 
+Nmap: nmap.org/download.html. 
+2.​ Se descarcă cea mai recentă versiune stabilă a fișierului de 
+instalare executabil (de exemplu, nmap-x.xx-setup.exe) pentru 
+Windows. 
+
+
+ 
+3.​ Se rulează fișierul .exe descărcat. Se recomandă păstrarea 
+setărilor implicite în timpul procesului de instalare. Acestea includ, 
+de obicei, interfața grafică Zenmap (utilă pentru începători) și, cel 
+mai important, biblioteca Npcap. Npcap este esențială, deoarece 
+este driverul care permite Nmap să trimită și să capteze pachete 
+de rețea la nivel brut, necesare pentru multe dintre tehnicile sale 
+avansate de scanare. 
+4.​ După finalizarea instalării, se poate verifica dacă Nmap a fost 
+instalat corect și adăugat la PATH-ul sistemului. Se deschide o 
+nouă fereastră de Linie de Comandă sau PowerShell și se 
+tastează comanda nmap --version. Dacă instalarea a avut succes, 
+se va afișa versiunea Nmap instalată. 
+4.2. Principii de bază: descoperirea host-urilor și stările porturilor 
+Conceptul fundamental din spatele Nmap este scanarea rețelei: 
+trimiterea de pachete special construite către dispozitivele țintă pentru a 
+determina dacă acestea sunt active (online) și ce servicii (aplicații) 
+rulează pe ele. Serviciile sunt identificate prin porturile pe care ascultă 
+conexiuni. 
+Stările porturilor Nmap: 
+Nmap oferă o clasificare mai nuanțată a stării porturilor decât simpla 
+dihotomie "deschis/închis". Cele mai comune stări raportate sunt: 
+●​ open: O aplicație ascultă activ pentru conexiuni pe acest port. 
+Acesta este, de obicei, cel mai interesant rezultat, indicând un 
+serviciu funcțional. 
+●​ closed: Portul este accesibil (răspunde la pachetele Nmap), dar 
+nicio aplicație nu ascultă pe el. Acest lucru indică faptul că host-ul 
+este activ, dar serviciul respectiv nu rulează. 
+●​ filtered: Nmap nu poate determina starea portului (deschis sau 
+închis) deoarece un dispozitiv de filtrare a pachetelor (cum ar fi un 
+firewall) blochează pachetele de test. Aceasta este o informație 
+valoroasă în sine, deoarece confirmă prezența unui firewall. 
+4.3. Comenzi esențiale pentru scanarea rețelei 
+
+
+ 
+Deși Nmap are zeci de opțiuni, un set mic de comenzi de bază acoperă 
+majoritatea nevoilor de inventariere și audit. 
+●​ Scanarea de tip ping pentru identificarea dispozitivelor active: 
+○​ Comanda: nmap -sn <interval_ip> (de exemplu, nmap -sn 
+192.168.1.0/24) 
+○​ Explicație: Opțiunea -sn (Scan No Port) instruiește Nmap să 
+efectueze doar o descoperire de host-uri, fără a scana 
+porturile. Este extrem de rapidă și eficientă pentru a obține o 
+listă a tuturor dispozitivelor active dintr-o subrețea, fiind 
+primul pas ideal în crearea unui inventar de rețea. 
+●​ Scanarea porturilor deschise pe un dispozitiv specific: 
+○​ Comanda de bază: nmap <adresă_ip_sau_hostname> (de 
+exemplu, nmap 192.168.1.1). Această comandă simplă 
+scanează cele mai comune 1000 de porturi TCP, ceea ce 
+este suficient în majoritatea cazurilor pentru a identifica 
+serviciile standard (web, email, etc.). 
+○​ Scanarea porturilor populare: nmap --top-ports 20 
+192.168.1.1. Această opțiune este utilă pentru o verificare 
+foarte rapidă, concentrându-se doar pe cele mai frecvent 
+utilizate porturi. 
+○​ Scanarea unui port specific: nmap -p 80,443 192.168.1.1. 
+Opțiunea -p permite specificarea exactă a porturilor sau a 
+intervalelor de porturi care trebuie scanate, economisind 
+timp. 
+○​ Detectarea serviciilor și versiunilor: nmap -sV 
+<adresă_ip>. Opțiunea -sV este extrem de puternică. După 
+ce găsește un port deschis, Nmap trimite probe suplimentare 
+pentru a încerca să determine cu exactitate ce software (de 
+exemplu, Apache, Microsoft-IIS) și ce versiune a acestuia 
+rulează. Această informație este vitală pentru auditul de 
+securitate, deoarece vulnerabilitățile sunt adesea specifice 
+anumitor versiuni de software. 
+ 
+ 
+
+
+ 
+Tabelul 3: Comenzi nmap fundamentale 
+Obiectiv 
+Comandă 
+Explicație 
+Descoperă 
+host-uri active 
+nmap -sn 
+<rețea/CIDR> 
+Listează toate IP-urile care 
+răspund într-o subrețea, fără a 
+scana porturi. Ideal pentru 
+inventariere rapidă. 
+Scanează 
+rapid porturile 
+comune 
+nmap <țintă> 
+Scanează cele mai comune 
+1000 de porturi TCP pe o 
+singură țintă. 
+Scanează un 
+port specific 
+nmap -p <port> 
+<țintă> 
+Scanează doar portul sau 
+porturile specificate (ex: -p 80 
+sau -p 22,80,443). 
+Identifică 
+versiunea 
+serviciului 
+nmap -sV 
+<țintă> 
+Încearcă să determine 
+software-ul și versiunea care 
+rulează pe porturile deschise. 
+ 
+Capitolul 5: Managementul dispozitivelor într-un 
+domeniu 
+În mediile de afaceri și enterprise, computerele sunt rareori gestionate 
+individual. Ele sunt, de obicei, parte a unui domeniu Active Directory, 
+ceea ce permite administrarea centralizată a conturilor de utilizator, a 
+politicilor de securitate și a resurselor de rețea. Acest capitol detaliază 
+procedurile standard pentru alăturarea și scoaterea unui computer 
+dintr-un astfel de domeniu. 
+ 
+
+
+ 
+5.1. Alăturarea unui computer la un domeniu 
+Pentru a integra un computer într-un domeniu, trebuie îndeplinite câteva 
+condiții esențiale. În primul rând, computerul trebuie să aibă conectivitate 
+de rețea la un controler de domeniu (DC). În al doilea rând, setările DNS 
+ale computerului client trebuie să indice către serverul DNS al 
+domeniului (care este adesea același cu DC-ul), pentru a putea rezolva 
+numele domeniului. În al treilea rând, este necesar un cont de utilizator 
+de domeniu care are permisiunile necesare pentru a adăuga computere 
+în domeniu. 
+●​ Metoda GUI (Interfață Grafică): 
+○​ Windows 11 (Metoda modernă): Calea preferată în 
+Windows 11 este prin aplicația Setări: Setări > Conturi > 
+Acces la serviciu sau la școală. De aici, se selectează 
+Conectare, apoi opțiunea Alăturați acest dispozitiv la un 
+domeniu Active Directory local. Urmează introducerea 
+numelui de domeniu și a credențialelor de domeniu valide. 
+○​ Windows 10/11 (Metoda clasică): O metodă care 
+funcționează identic pe ambele sisteme de operare este prin 
+intermediul proprietăților de sistem: Panou de control > 
+Sistem și securitate > Sistem (sau clic dreapta pe "This PC" 
+> Properties), apoi Modificare setări > Modificare.... În 
+fereastra care apare, se selectează opțiunea Membru al: 
+Domeniu, se introduce numele domeniului și se finalizează 
+procesul cu credențialele necesare. 
+●​ Metoda prin linia de comandă:​
+Pentru automatizare și administrare la scară largă, linia de 
+comandă este superioară. PowerShell a devenit standardul de 
+facto pentru administrarea modernă a sistemelor Windows, oferind 
+cmdlet-uri dedicate care sunt mai intuitive și mai puternice decât 
+utilitarele mai vechi. 
+○​ PowerShell: Comanda Add-Computer -DomainName 
+"NumeDomeniu" -Credential (Get-Credential) -Restart este 
+metoda recomandată. Aceasta va solicita interactiv 
+credențialele, va alătura computerul la domeniul specificat și 
+va reporni automat sistemul pentru a aplica modificările. 
+○​ Netdom (Command Prompt): Utilitarul netdom este o 
+alternativă mai veche, dar încă funcțională. Comanda este 
+
+
+ 
+netdom join %COMPUTERNAME% /domain:NumeDomeniu 
+/userd:UtilizatorDomeniu /passwordd:*. Asteriscul la finalul 
+parametrului /passwordd va determina o solicitare interactivă 
+a parolei. Este important de menționat că netdom.exe nu 
+este întotdeauna prezent în mod implicit și poate necesita 
+instalarea pachetului Remote Server Administration Tools 
+(RSAT). 
+5.2. Scoaterea unui computer dintr-un domeniu 
+Scoaterea unui computer dintr-un domeniu este un proces care trebuie 
+pregătit cu atenție pentru a evita pierderea accesului la sistem. Riscul de 
+"lockout" este real și provine dintr-o greșeală comună: utilizatorul, 
+obișnuit să se autentifice doar cu contul de domeniu, uită că aceste 
+credențiale nu vor mai funcționa după părăsirea domeniului. Fără un 
+cont de administrator local funcțional și a cărui parolă este cunoscută, 
+accesul la computer poate fi blocat permanent. Prin urmare, este 
+imperativ ca, înainte de a iniția procedura de scoatere din domeniu, să 
+se verifice existența unui cont de administrator local, să se asigure că 
+parola acestuia este cunoscută (sau să fie resetată) și, ideal, să se 
+testeze autentificarea cu acel cont. 
+●​ Metoda GUI (Interfață Grafică): 
+○​ Windows 11: Similar procesului de alăturare, se navighează 
+la Setări > Conturi > Acces la serviciu sau la școală, se 
+selectează contul de domeniu conectat și se alege opțiunea 
+Deconectare. 
+○​ Windows 10/11 (Metoda clasică): Se urmează aceeași cale 
+ca la alăturare, Panou de control > Sistem > Modificare 
+setări > Modificare..., dar de data aceasta se selectează 
+opțiunea Membru al: Grup de lucru (Workgroup) și se 
+introduce un nume pentru grupul de lucru (de exemplu, 
+"WORKGROUP"). 
+●​ Metoda prin linia de comandă: 
+○​ PowerShell: Cmdlet-ul corespunzător este 
+Remove-Computer. O comandă tipică este 
+Remove-Computer -UnjoinDomainCredential 
+(Get-Credential) -WorkgroupName "NUMEGRUP" -Restart. 
+
+
+ 
+Aceasta va solicita credențialele necesare pentru a autoriza 
+scoaterea din domeniu, va muta computerul în grupul de 
+lucru specificat și îl va reporni. 
+○​ Netdom (Command Prompt): Comanda echivalentă este 
+netdom remove %COMPUTERNAME% 
+/domain:NumeDomeniu /userd:UtilizatorDomeniu 
+/passwordd:*. 
+5.3. Considerații critice: conturi locale și backup de date 
+Părăsirea unui domeniu are implicații semnificative care trebuie înțelese. 
+●​ Profiluri de utilizator: Profilul de utilizator de domeniu, care 
+conține folderele Desktop, Documents, Downloads și alte setări 
+personale, nu va mai fi accesibil direct după autentificarea cu un 
+cont local. Datele nu sunt șterse; ele rămân pe hard disk în folderul 
+C:\Users\<nume_utilizator_domeniu>. Cu toate acestea, aceste 
+date trebuie migrate manual (copiate) într-un profil de utilizator 
+local nou creat pentru a fi utilizate în continuare. Este important de 
+reținut că aplicațiile instalate pe computer nu sunt afectate de 
+acest proces. 
+●​ Politici de grup (GPO): Odată ce un computer este scos din 
+domeniu, acesta nu va mai primi și nu va mai aplica politicile de 
+configurare și securitate (Group Policy Objects) impuse de 
+controlerul de domeniu. Acest lucru înseamnă că setări precum 
+restricțiile de software, configurările de securitate ale parolelor sau 
+mapările de unități de rețea vor înceta să mai fie aplicate. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

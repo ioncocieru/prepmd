@@ -1,0 +1,632 @@
+Device Configuration and
+Management
+2 Windows Feature,
+Application and
+Peripheral
+Management
+2.1 Manage applications and Windows features
+• Identify user account requirements and permissions for application
+installation
+• Modify application installations
+• Remove desktop applications
+• Locate and identify optional Windows features
+• Describe the purpose of the Microsoft Store
+• Understand default locations for applications based on architecture
+• Remote Desktop
+Capitolul 1: Conturi de utilizator și permisiuni de instalare
+Gestionarea eficientă a unui sistem de operare Windows începe cu o înțelegere
+aprofundată a conturilor de utilizator și a permisiunilor asociate acestora. Structura
+de securitate a Windows este construită pe o ierarhie de privilegii, concepută pentru
+a proteja integritatea sistemului și datele utilizatorilor. Acest capitol explorează
+tipurile fundamentale de conturi, mecanismele de control care guvernează acțiunile
+administrative și implicațiile practice ale acestora asupra instalării aplicațiilor, oferind
+o bază esențială pentru orice profesionist IT.
+1.1 Tipuri de conturi în windows: Administrator vs. Standard
+În ecosistemul Windows, conturile de utilizator sunt clasificate în principal în două
+categorii, fiecare cu un set distinct de drepturi și limitări: Administrator și Utilizator
+Standard. Diferențierea dintre acestea este fundamentală pentru securitatea și
+stabilitatea sistemului.
+Contul de Administrator deține controlul complet asupra sistemului de operare. Un
+utilizator cu privilegii de administrator poate efectua orice modificare la nivel de
+sistem, inclusiv instalarea și dezinstalarea de software pentru toți utilizatorii,
+modificarea setărilor critice de securitate (cum ar fi firewall-ul), gestionarea fișierelor
+de sistem, crearea, modificarea și ștergerea altor conturi de utilizator. Practic, un
+cont de administrator are autoritate deplină asupra tuturor resurselor locale ale
+dispozitivului.
+Este important de menționat că Windows include un cont încorporat numit
+"Administrator", care este dezactivat în mod implicit după instalarea inițială din
+motive de securitate. Conturile create de utilizatori în timpul configurării sistemului
+sau ulterior, care sunt adăugate în grupul de securitate "Administrators", moștenesc
+aceste privilegii extinse.
+Contul de Utilizator Standard este conceput pentru activitățile de zi cu zi și
+funcționează cu privilegii limitate. Utilizatorii standard pot rula aplicații deja instalate,
+pot naviga pe internet și pot modifica setări care afectează exclusiv propriul lor profil
+de utilizator (de exemplu, imaginea de fundal a desktopului sau setările personale
+ale unei aplicații). Cu toate acestea, ei nu pot instala software care necesită
+modificări la nivel de sistem, nu pot altera setări de securitate critice și nu pot accesa
+fișierele altor utilizatori fără a furniza credențialele unui cont de administrator atunci
+când li se solicită.
+Procesul de creare și gestionare a conturilor este similar în Windows 10 și Windows
+11, fiind centralizat în aplicația Setări.
+● În Windows 11: Navigați la Setări > Conturi > Familie și alți utilizatori.
+● În Windows 10: Navigați la Setări > Conturi > Familie și alte persoane (sau Alți
+utilizatori).
+User Account Requirements.mp4
+De aici, un administrator poate adăuga un cont nou, fie prin asocierea cu un cont
+Microsoft, fie prin crearea unui cont local, și poate schimba tipul unui cont existent
+între "Utilizator standard" și "Administrator".
+Separarea rolurilor de Administrator și Utilizator Standard nu este doar o facilitate de
+organizare, ci o implementare directă a unui principiu fundamental de securitate
+cibernetică: principiul privilegiului minim. Acest principiu dictează că un utilizator
+sau un proces ar trebui să aibă doar privilegiile minime necesare pentru a-și îndeplini
+sarcinile. Prin utilizarea unui cont standard pentru activitățile curente, suprafața de
+atac a sistemului este drastic redusă. Un software malițios (malware) executat sub
+un cont standard nu are, în mod implicit, permisiunea de a modifica fișiere de sistem,
+de a instala drivere sau de a se înregistra ca serviciu de sistem. Astfel, o potențială
+compromitere a sistemului este limitată la profilul utilizatorului respectiv, protejând
+nucleul sistemului de operare și datele celorlalți utilizatori. Recomandarea fermă de
+a utiliza un cont standard pentru uzul zilnic și de a apela la privilegiile de
+administrator doar atunci când este absolut necesar este, prin urmare, o măsură
+proactivă esențială pentru menținerea unui sistem sigur și stabil.
+Acțiune Cont
+Standard
+Cont
+Administrator
+Necesită Elevare (UAC)
+Instalare software
+pentru toți utilizatorii
+Nu Da Da (Prompt de
+consimțământ)
+Modificare setări de
+sistem (ex: Firewall)
+Nu Da Da (Prompt de
+consimțământ)
+Rulare aplicații
+existente
+Da Da Nu (pentru aplicații
+standard)
+Modificare fișiere în
+profilul propriu
+Da Da Nu
+Accesare fișiere ale
+altor utilizatori
+Nu Da Da (dacă se accesează
+foldere protejate)
+Creare/Ștergere conturi
+de utilizator
+Nu Da Da (Prompt de
+consimțământ)
+Dezinstalare aplicații la
+nivel de sistem
+Nu Da Da (Prompt de
+consimțământ)
+1.2 Mecanismul de securitate User Account Control (UAC)
+User Account Control (UAC) este un component de securitate fundamental în
+Windows, introdus începând cu Windows Vista, care acționează ca un gardian
+împotriva modificărilor neautorizate la nivel de sistem. Scopul său principal este de a
+se asigura că modificările care ar putea afecta stabilitatea sau securitatea
+computerului sunt efectuate numai cu aprobarea explicită a unui administrator.
+User Account Control.mp4
+Când o aplicație sau un proces încearcă să execute o acțiune care necesită privilegii
+administrative – cum ar fi instalarea unui program, modificarea unor chei de registru
+protejate sau schimbarea setărilor de sistem – UAC intervine și întrerupe temporar
+activitatea. Acesta afișează o fereastră de dialog (prompt) pe un desktop securizat.
+Comportamentul promptului depinde de tipul contului de utilizator activ:
+● Pentru un cont de Administrator: UAC afișează un prompt de
+consimțământ, solicitând utilizatorului să confirme acțiunea printr-un simplu
+clic pe "Da".
+● Pentru un cont de Utilizator Standard: UAC afișează un prompt de
+credențiale, solicitând introducerea parolei unui cont de administrator pentru a
+autoriza acțiunea.
+Conceptul de Secure Desktop este esențial pentru funcționarea UAC. Când apare
+promptul, întregul ecran este estompat, cu excepția ferestrei UAC. Acest mod
+izolează fereastra de dialog de restul proceselor care rulează pe desktop, prevenind
+astfel ca un software malițios să simuleze un clic pe butonul "Da" sau să
+intercepteze credențialele introduse (o tehnică cunoscută sub numele de
+"clickjacking" sau "UI spoofing").
+Funcționalitatea de bază a UAC este identică în Windows 10 și Windows 11, dar
+există o diferență subtilă în comportamentul promptului din Windows 11 în anumite
+scenarii, în special în mediile gestionate prin politici de grup (GPO). Atunci când un
+utilizator standard trebuie să introducă credențiale, Windows 11 poate necesita
+click-uri suplimentare pentru a selecta opțiunea "Utilizați un alt cont" înainte de a
+putea introduce un nume de utilizator și o parolă, spre deosebire de promptul mai
+direct din Windows 10.
+Utilizatorii pot configura nivelul de sensibilitate al UAC prin intermediul a patru setări,
+accesibile prin căutarea "UAC" în meniul Start sau din Panoul de Control :
+1. Notifică întotdeauna: Cel mai înalt nivel de securitate. UAC va solicita
+confirmare nu doar când aplicațiile încearcă să facă modificări, ci și atunci
+când utilizatorul însuși modifică setările Windows.
+2. Notifică-mă numai atunci când aplicațiile încearcă să facă modificări la
+computer (implicit): Nivelul recomandat. UAC solicită confirmare pentru
+acțiunile aplicațiilor, dar nu și pentru modificările manuale ale setărilor
+Windows.
+3. Notifică-mă numai atunci când aplicațiile încearcă să facă modificări (nu
+estompa desktopul): Similar cu nivelul implicit, dar fără a utiliza Secure
+Desktop. Acest nivel este mai puțin sigur.
+4. Nu notifica niciodată: Dezactivează complet UAC. Această opțiune nu este
+recomandată, deoarece reduce semnificativ securitatea sistemului.
+Existența UAC rezolvă un conflict fundamental între securitate și uzabilitate. Fără
+acest mecanism, un utilizator ar fi forțat să aleagă între a lucra constant într-un cont
+de administrator (nesigur) sau a comuta manual între conturi pentru fiecare sarcină
+administrativă (neproductiv). UAC introduce conceptul de "elevare de privilegii
+temporară și la cerere".
+1.3 Scenarii practice de instalare a aplicațiilor
+Procesul de instalare a unei aplicații desktop variază semnificativ în funcție de tipul
+de cont utilizat, ilustrând în mod practic rolul UAC și diferențele de privilegii.
+● Scenariul 1: Instalarea cu un Cont de Administrator
+1. Utilizatorul descarcă un fișier de instalare (de exemplu, setup.exe).
+2. La dublu clic pe fișier, instalatorul solicită permisiunea de a face
+modificări pe dispozitiv.
+3. UAC intervine, estompează desktopul și afișează un prompt de
+consimțământ.
+4. Utilizatorul face clic pe "Da".
+5. Instalatorul primește privilegiile administrative necesare și continuă
+procesul, copiind fișiere în directoare protejate precum C:\Program Files
+și creând chei de registru în HKEY_LOCAL_MACHINE. Aplicația devine
+disponibilă pentru toți utilizatorii de pe computer.
+● Scenariul 2: Instalarea cu un Cont de Utilizator Standard
+1. Utilizatorul descarcă același fișier de instalare.
+2. La dublu clic pe fișier, instalatorul solicită permisiunea de a face
+modificări.
+3. UAC intervine, estompează desktopul și afișează un prompt de
+credențiale.
+4. Utilizatorul trebuie să introducă numele de utilizator și parola unui cont
+de administrator de pe acel computer și să facă clic pe "Da".
+5. Dacă credențialele sunt corecte, procesul continuă ca în Scenariul 1.
+Dacă utilizatorul nu cunoaște credențialele unui administrator,
+instalarea este blocată.
+Anumite aplicații, cum ar fi Google Chrome sau unele aplicații portabile, sunt
+proiectate să gestioneze această limitare. Dacă un utilizator standard rulează
+instalatorul și nu poate oferi credențiale de administrator, instalatorul poate oferi
+opțiunea de a instala aplicația "doar pentru utilizatorul curent". În acest caz, fișierele
+nu sunt copiate în C:\Program Files, ci într-un folder din profilul utilizatorului (de
+exemplu, C:\Users\NumeUtilizator\AppData\Local), o locație în care utilizatorul standard
+are drepturi de scriere. Această abordare permite instalarea fără privilegii
+administrative, dar aplicația va fi disponibilă doar pentru acel utilizator.
+Capitolul 2: Gestionarea ciclului de viață al aplicațiilor desktop
+Odată instalate, aplicațiile necesită o gestionare continuă. Sistemele de operare
+Windows 10 și 11 oferă instrumente integrate pentru a modifica, repara sau elimina
+complet programele. Deși funcționalitatea de bază este similară, interfețele și căile
+de acces au evoluat, reflectând tranziția Microsoft către o experiență de utilizare mai
+modernă.
+2.1 Modificarea și repararea instalațiilor
+Pe lângă dezinstalare, multe aplicații desktop oferă opțiuni pentru a-și modifica sau
+repara propria instalare. Aceste funcții sunt utile pentru a adăuga sau elimina
+componente opționale sau pentru a remedia probleme precum fișiere corupte sau
+setări incorecte, fără a fi necesară o reinstalare completă.
+Disponibilitatea și funcționalitatea acestor opțiuni nu sunt controlate de Windows, ci
+sunt implementate direct de către dezvoltatorul aplicației în pachetul său de instalare
+(de exemplu, un fișier MSI). Windows oferă doar interfața (butoanele "Modificare"
+sau "Reparare") care invocă aceste rutine din instalator. Dacă dezvoltatorul nu a
+inclus o logică specifică pentru aceste acțiuni, butoanele pot fi inactive, pot lipsi sau
+pot lansa pur și simplu procesul de dezinstalare. Acest lucru explică de ce
+experiența utilizatorului este inconsistentă de la o aplicație la alta.
+Pentru a accesa aceste opțiuni, există două căi principale, cu diferențe de navigare
+între Windows 10 și 11.
+Acces prin Aplicația Setări:
+● În Windows 11: Navigați la Setări > Aplicații > Aplicații instalate. Găsiți aplicația în
+listă, faceți clic pe pictograma cu trei puncte (...) și selectați Modificare. Pentru
+unele aplicații, în special cele din Microsoft Store, opțiunea Opțiuni complexe
+poate dezvălui butoane pentru Reparare și Resetare. Opțiunea Reparare
+încearcă să remedieze problemele fără a pierde datele aplicației, în timp ce
+Resetare va șterge datele aplicației și o va readuce la starea inițială.
+● În Windows 10: Navigați la Setări > Aplicații > Aplicații și caracteristici. Selectați
+aplicația din listă pentru a afișa butoanele Modificare și Dezinstalare. Similar cu
+Windows 11, opțiunea Opțiuni complexe este disponibilă pentru anumite aplicații
+pentru a accesa funcțiile de Reparare și Resetare.
+Acces prin Panoul de Control (metoda tradițională):
+Această metodă este identică pentru ambele sisteme de operare și este
+adesea singura disponibilă pentru programele desktop mai vechi.
+1. Deschideți Panoul de Control.
+2. Navigați la Programe > Programe și caracteristici.
+3. Selectați programul dorit din listă.
+4. Faceți clic pe butonul Dezinstalare/Modificare sau Reparare din bara de
+instrumente de deasupra listei.
+2.2 Metode de Eliminare (Dezinstalare) a Aplicațiilor
+Eliminarea aplicațiilor care nu mai sunt necesare este o sarcină de întreținere
+esențială pentru a elibera spațiu pe disc și a menține performanța sistemului.
+Windows oferă multiple căi pentru a realiza acest lucru.
+● Dezinstalarea din Meniul Start: Aceasta este cea mai rapidă și directă
+metodă. Atât în Windows 10, cât și în Windows 11, faceți clic dreapta pe
+pictograma aplicației din Meniul Start (sau din lista "Toate aplicațiile") și
+selectați opțiunea Dezinstalare. O fereastră de confirmare va apărea pentru a
+finaliza procesul.
+● Dezinstalarea din Aplicația Setări: Aceasta este metoda modernă și
+recomandată de Microsoft.
+1. În Windows 11: Accesați Setări > Aplicații > Aplicații instalate. Găsiți
+aplicația, faceți clic pe cele trei puncte (...) și selectați Dezinstalare.
+Interfața din Windows 11 permite sortarea și filtrarea listei de aplicații,
+facilitând găsirea programului dorit.
+2. În Windows 10: Accesați Setări > Aplicații > Aplicații și caracteristici. Faceți
+clic pe aplicația dorită din listă pentru a expune butonul Dezinstalare și
+apoi faceți clic pe el.
+● Dezinstalarea din Panoul de Control: Metoda clasică, încă funcțională și
+necesară pentru anumite programe care nu sunt gestionate corespunzător de
+interfața modernă Setări.
+1. Deschideți Panoul de Control (căutați "control panel" în Start).
+2. Accesați Programe > Programe și caracteristici.
+3. Selectați programul din listă și faceți clic pe butonul Dezinstalare din
+partea de sus.
+Existența acestor metode multiple nu este o dovadă de redundanță, ci un simptom al
+tranziției îndelungate și încă nefinalizate a sistemului Windows de la paradigma sa
+tradițională, bazată pe Panoul de Control, la cea modernă, centrată pe aplicația
+Setări. Panoul de Control rămâne esențial pentru compatibilitatea cu aplicațiile
+Win32 mai vechi, care au fost proiectate să interacționeze cu applet-urile sale
+specifice. Aplicația Setări a fost introdusă pentru a unifica gestionarea atât a
+aplicațiilor moderne din Store, cât și a celor desktop, într-o interfață mai simplă și
+prietenoasă cu ecranele tactile. Deși Microsoft intenționează să retragă complet
+Panoul de Control în viitor, complexitatea ecosistemului Win32 face acest proces
+dificil. Prin urmare, un tehnician trebuie să cunoască ambele interfețe, deoarece pot
+exista situații în care o aplicație cu probleme de dezinstalare poate fi eliminată cu
+succes doar prin metoda clasică din Panoul de Control.
+2.3 Rezolvarea problemelor comune la dezinstalare
+Ocazional, procesul de dezinstalare poate eșua, lăsând în urmă componente ale
+aplicației sau intrări corupte în lista de programe. În astfel de cazuri, se pot încerca
+următoarele strategii:
+1. Repornirea Computerului: O repornire poate elibera fișiere sau procese
+blocate care împiedică dezinstalarea.
+2. Închiderea Proceselor în Task Manager: Înainte de a încerca dezinstalarea,
+deschideți Task Manager (Ctrl + Shift + Esc), găsiți toate procesele asociate cu
+aplicația și selectați "End Task".
+3. Dezinstalarea în Safe Mode: Pornirea Windows în Safe Mode încarcă doar
+driverele și serviciile esențiale, ceea ce poate permite eliminarea unei aplicații
+care altfel ar fi blocată de un conflict software.
+4. Utilizarea Depanatorului Microsoft: Microsoft oferă un instrument numit
+"Program Install and Uninstall Troubleshooter" care poate repara automat
+problemele ce blochează instalarea sau dezinstalarea programelor, inclusiv
+chei de registru corupte sau intrări invalide.
+5. Utilizarea Uninstaller-elor Terțe: Programe precum Revo Uninstaller sau
+IObit Uninstaller sunt specializate în eliminarea completă a aplicațiilor.
+Acestea rulează mai întâi dezinstalatorul standard al programului, apoi
+scanează sistemul pentru fișiere, foldere și intrări de registru reziduale,
+oferind o curățare mult mai profundă decât instrumentele native Windows.
+Capitolul 3: Caracteristici opționale și arhitectura sistemului
+Dincolo de aplicațiile instalate de utilizator, Windows însuși este un sistem modular,
+compus dintr-un nucleu de bază și o serie de caracteristici opționale care pot fi
+activate pentru a extinde funcționalitatea. Înțelegerea modului de gestionare a
+acestor caracteristici, precum și a arhitecturii fundamentale pe care rulează sistemul,
+este crucială pentru administrarea avansată și depanarea problemelor.
+3.1 Localizarea și gestionarea caracteristicilor opționale windows
+Caracteristicile opționale sunt componente integrate în sistemul de operare
+Windows, dar care nu sunt activate implicit pentru a menține o instalare de bază cât
+mai suplă. Acestea pot fi adăugate ulterior de către un administrator pentru a
+satisface nevoi specifice, cum ar fi virtualizarea, găzduirea web sau utilizarea unor
+instrumente de rețea mai vechi.
+Gestionarea acestor caracteristici se face prin două interfețe distincte, o dualitate
+care reflectă evoluția sistemului de operare. Această distincție, deși nu este evidentă
+la prima vedere, este importantă:
+● Dialogul Clasic "Activare sau dezactivare caracteristici Windows":
+Această interfață, parte a vechiului Panou de Control, gestionează
+componente majore care sunt integrate în imaginea de instalare a Windows
+(de exemplu, Hyper-V,.NET Framework 3.5, Internet Information Services).
+Acestea sunt fie activate, fie dezactivate, folosind fișiere deja prezente pe
+sistem.
+● Meniul Modern "Caracteristici opționale" din Setări: Această interfață
+gestionează componente care sunt adesea descărcate la cerere (cunoscute
+ca "Features on Demand"), cum ar fi pachete de limbă, instrumente de
+dezvoltare, OpenSSH Client/Server sau instrumente grafice. Acestea sunt
+instalate sau dezinstalate și pot necesita o conexiune la internet.
+Căi de Acces:
+● În Windows 11:
+○ Pentru caracteristicile la cerere: Setări > Sistem > Caracteristici opționale.
+Aici se poate folosi butonul Vizualizați caracteristicile pentru a adăuga noi
+componente.
+○ Pentru caracteristicile integrate: Din aceeași pagină, derulați în jos și
+faceți clic pe Mai multe caracteristici Windows pentru a deschide dialogul
+clasic.
+● În Windows 10:
+○ Pentru caracteristicile la cerere: Setări > Aplicații > Aplicații și caracteristici >
+Caracteristici opționale.
+○ Pentru caracteristicile integrate: Linkul către dialogul clasic este, de
+asemenea, prezent în această secțiune.
+● Metoda Universală (ambele SO): Cea mai rapidă cale de a ajunge la
+dialogul clasic este să tastați "caracteristici Windows" sau "Turn Windows
+features on or off" în bara de căutare din Start și să selectați rezultatul
+corespunzător.
+Exemple de Caracteristici Opționale Esențiale:
+● Hyper-V: O platformă de virtualizare de tip hypervisor nativ, care permite
+crearea și rularea de mașini virtuale (VM-uri) direct pe sistemul de operare
+Windows. Este o unealtă puternică pentru dezvoltatori, testeri și profesioniști
+IT care au nevoie să ruleze mai multe sisteme de operare în paralel.
+Activarea sa necesită o ediție Pro, Enterprise sau Education și suport
+hardware pentru virtualizare (activat în BIOS/UEFI).
+● Windows Sandbox: Oferă un mediu desktop temporar, izolat și de unică
+folosință. Orice software instalat sau fișier descărcat în Sandbox rămâne
+complet separat de sistemul gazdă. La închiderea ferestrei Sandbox, întregul
+conținut este șters permanent, oferind un mediu sigur pentru testarea
+aplicațiilor suspecte sau navigarea pe site-uri web neverificate.
+● Internet Information Services (IIS): Serverul web robust al Microsoft, utilizat
+pentru a găzdui site-uri web, servicii și aplicații. Acesta include suport pentru
+tehnologii precum ASP.NET și PHP și oferă funcționalități avansate de
+gestionare, securitate și logging.
+3.2 Înțelegerea arhitecturii și a locațiilor de instalare implicite
+Structura folderelor de pe un sistem Windows pe 64 de biți poate părea confuză la
+început, în special prezența a două directoare "Program Files". Această structură
+este însă o necesitate tehnică dictată de arhitectura procesorului și de nevoia de a
+asigura compatibilitatea inversă.
+Arhitectura x86 vs. x64:
+Termenii se referă la setul de instrucțiuni al procesorului și la lățimea de bandă a
+datelor pe care le poate procesa.
+● x86: Se referă la arhitectura pe 32 de biți. O limitare fundamentală a acesteia
+este capacitatea de a adresa un maxim de 4 GB de memorie RAM.
+● x64: Se referă la arhitectura pe 64 de biți. Aceasta poate adresa cantități
+teoretic vaste de memorie (peste 16 exabytes) și poate procesa date în
+fragmente mai mari, ceea ce duce la o performanță superioară în aplicațiile
+optimizate.
+Procesoarele x64 moderne sunt proiectate să fie complet retrocompatibile, putând
+executa cod pe 32 de biți fără probleme de performanță semnificative.
+Folderele Program Files și Program Files (x86):
+Pe un sistem de operare Windows pe 64 de biți, aplicațiile sunt instalate în locații
+diferite, în funcție de arhitectura lor:
+● C:\Program Files: Este directorul implicit pentru toate aplicațiile și programele
+native pe 64 de biți.
+● C:\Program Files (x86): Este directorul implicit pentru toate aplicațiile și
+programele pe 32 de biți.
+Această separare este crucială. O aplicație pe 64 de biți nu poate încărca o
+bibliotecă cu legare dinamică (DLL) pe 32 de biți și viceversa. Dacă ambele tipuri de
+aplicații ar fi instalate în același director, ar apărea conflicte catastrofale. De
+exemplu, instalarea unei versiuni pe 64 de biți a unui program ar putea suprascrie un
+DLL partajat cu versiunea sa pe 32 de biți, făcând ca versiunea pe 32 de biți a altui
+program care depinde de acel DLL să nu mai funcționeze. Prin izolarea celor două
+arhitecturi în foldere separate, Windows asigură că fiecare aplicație găsește
+versiunea corectă a bibliotecilor de care are nevoie.
+Rolul WoW64 (Windows 32-bit on Windows 64-bit):
+Această structură duală este posibilă datorită unui subsistem de compatibilitate
+numit WoW64. Acesta nu este un emulator în sensul tradițional (deoarece
+procesorul x64 execută nativ codul x86), ci mai degrabă un strat de translație care
+interceptează apelurile făcute de aplicațiile pe 32 de biți și le adaptează pentru
+nucleul pe 64 de biți al sistemului de operare. WoW64 este responsabil pentru:
+● Redirecționarea Sistemului de Fișiere: Când o aplicație pe 32 de biți
+încearcă să acceseze directorul C:\Windows\System32 (care pe un sistem pe 64
+de biți conține fișiere de sistem pe 64 de biți), WoW64 o redirecționează
+transparent către C:\Windows\SysWOW64, care conține versiunile pe 32 de biți
+ale acelor fișiere.
+● Redirecționarea Registrului: În mod similar, accesările la cheia de registru
+HKEY_LOCAL_MACHINE\Software sunt redirecționate către o ramură specială,
+HKEY_LOCAL_MACHINE\Software\Wow6432Node, unde aplicațiile pe 32 de biți își
+stochează setările la nivel de sistem.
+Această arhitectură complexă, deși poate părea greoaie, este piatra de temelie a
+succesului platformei Windows. Ea a permis o tranziție lină de la 32 la 64 de biți,
+menținând un grad excepțional de compatibilitate inversă. Fără izolarea oferită de
+folderele separate și fără translația transparentă realizată de WoW64, mii de aplicații
+mai vechi ar fi devenit instantaneu inutilizabile pe sistemele moderne, creând o
+barieră insurmontabilă pentru adoptarea noii arhitecturi. Este un compromis tehnic
+fundamental care prioritizează stabilitatea și continuitatea ecosistemului software.
+Capitolul 4: Rolul și funcționalitatea Microsoft Store
+Microsoft Store reprezintă efortul companiei de a moderniza și securiza procesul de
+distribuție a software-ului pe platforma Windows. Evoluând de la un concept restrictiv
+în Windows 10 la o platformă deschisă în Windows 11, Store-ul a devenit un element
+central în ecosistemul de aplicații, oferind beneficii atât pentru utilizatori, cât și pentru
+dezvoltatori.
+4.1 Scopul și Avantajele Microsoft Store
+Scopul principal al Microsoft Store este de a oferi un canal de distribuție digital,
+centralizat, de încredere și sigur pentru aplicații, jocuri și conținut media, direct
+integrat în sistemul de operare Windows. Acesta adresează mai multe provocări ale
+modelului tradițional de instalare a software-ului.
+Avantaje Cheie pentru Utilizatori:
+● Securitate și Încredere: Toate aplicațiile publicate în Store sunt supuse unui
+proces de verificare de către Microsoft, care testează pentru malware,
+probleme de compatibilitate și respectarea politicilor de conținut. Acest proces
+de curatoriere reduce drastic riscul ca utilizatorii să instaleze software
+dăunător sau nedorit. Valoarea fundamentală a Store-ului nu constă doar în
+aplicațiile pe care le oferă, ci în stratul de încredere pe care îl adaugă
+procesului de achiziție de software, acționând ca un filtru de siguranță între
+utilizator și internet.
+● Gestionare Centralizată: Store-ul oferă un singur punct de contact pentru
+descoperirea, instalarea și, cel mai important, actualizarea aplicațiilor.
+Utilizatorii pot vedea toate aplicațiile instalate prin Store într-o singură
+bibliotecă și pot aplica toate actualizările disponibile cu un singur clic,
+simplificând semnificativ întreținerea software-ului.
+● Actualizări Automate și Fiabile: În mod implicit, Microsoft Store gestionează
+automat actualizările pentru aplicațiile instalate prin intermediul său. Acest
+lucru asigură că utilizatorii beneficiază în mod constant de cele mai recente
+funcționalități și, mai ales, de patch-uri de securitate, fără a necesita
+intervenție manuală.
+● Instalare și Dezinstalare Curată: În special în cazul aplicațiilor moderne
+(UWP), procesul de instalare și dezinstalare este gestionat complet de
+sistemul de operare. Aplicațiile rulează într-un mediu izolat (sandbox) și, la
+dezinstalare, sunt eliminate complet, fără a lăsa în urmă fișiere reziduale sau
+intrări de registru care ar putea încetini sistemul pe termen lung (un fenomen
+cunoscut ca "machine rot").
+4.2 Evoluția de la Windows 10 la Windows 11
+Diferența dintre Microsoft Store în Windows 10 și Windows 11 este una dintre cele
+mai semnificative îmbunătățiri aduse de noul sistem de operare. Aceasta nu este
+doar o schimbare estetică, ci o revizuire fundamentală a filozofiei și funcționalității
+platformei.
+● Interfață și Performanță: Store-ul din Windows 10 a fost adesea criticat
+pentru performanța sa lentă, interfața neintuitivă și erorile frecvente la
+descărcare sau actualizare. În Windows 11, aplicația a fost reconstruită de la
+zero, folosind tehnologii native Windows. Rezultatul este o experiență mult
+mai rapidă, fluidă și fiabilă, cu un design modern (Fluent Design) aliniat cu
+estetica generală a sistemului de operare.
+● Extinderea Radicală a Catalogului de Aplicații: Aceasta este cea mai
+importantă schimbare. Store-ul din Windows 10 era în mare parte limitat la
+aplicații UWP. În Windows 11, Microsoft a deschis porțile pentru practic orice
+tip de aplicație desktop, inclusiv aplicațiile tradiționale Win32 (.exe,.msi).
+Dezvoltatorii pot acum lista aplicații precum OBS Studio, Adobe Creative
+Cloud, Firefox sau Discord direct în Store, fără a fi nevoie să-și modifice codul
+sau să-l împacheteze într-un format special.
+● Politici Deschise pentru Dezvoltatori: Pentru a atrage dezvoltatorii,
+Microsoft a relaxat politicile Store-ului în Windows 11. Acum, dezvoltatorii pot
+folosi propriile rețele de livrare de conținut (CDN) pentru a găzdui fișierele de
+instalare și, crucial, pot utiliza propriile sisteme de plată pentru achizițiile din
+aplicație, fără a plăti un comision către Microsoft (pentru aplicațiile
+non-gaming).
+● Suport pentru Aplicații Android: Prin parteneriatul cu Amazon, Windows 11
+integrează Amazon Appstore, permițând utilizatorilor să descopere și să
+ruleze aplicații Android direct pe PC-urile lor. Aceste aplicații sunt listate și pot
+fi găsite prin intermediul Microsoft Store, extinzând și mai mult ecosistemul
+software disponibil.
+Aceste schimbări marchează o repoziționare strategică. Microsoft a recunoscut
+eșecul strategiei de a forța adoptarea platformei UWP și a transformat Store-ul
+dintr-o "grădină îngrădită" (walled garden), cu reguli stricte și conținut limitat, într-un
+"agregator universal" deschis. În loc să oblige dezvoltatorii să vină la Store, a adus
+Store-ul la dezvoltatori, eliminând barierele tehnice și financiare. Astfel, Microsoft
+Store din Windows 11 a devenit un catalog mult mai relevant și util, acționând ca un
+portal de încredere către întregul ecosistem de aplicații Windows.
+4.3 Tipuri de Aplicații: UWP, Win32 și PWA
+Microsoft Store găzduiește acum o varietate de tipuri de aplicații, fiecare cu propriile
+caracteristici tehnice și avantaje.
+● Aplicații UWP (Universal Windows Platform): Reprezintă viziunea modernă
+a Microsoft pentru aplicații. Acestea sunt construite pe o platformă comună
+care le permite să ruleze pe o gamă largă de dispozitive Windows, de la
+PC-uri și tablete la console Xbox și dispozitive HoloLens. Caracteristicile lor
+definitorii sunt securitatea (rulează într-un sandbox cu permisiuni granulare,
+controlate de utilizator) și un ciclu de viață gestionat de sistem, ceea ce
+asigură o instalare și dezinstalare curată.
+● Aplicații Win32: Acestea sunt aplicațiile desktop tradiționale pe care
+utilizatorii Windows le cunosc de zeci de ani (fișiere.exe și.msi). Ele au acces
+direct la resursele sistemului (în limitele permisiunilor contului de utilizator) și
+oferă cea mai mare flexibilitate și putere. Datorită noilor politici, aceste
+aplicații pot fi acum distribuite prin Microsoft Store fără modificări majore,
+ceea ce a dus la o creștere exponențială a catalogului de software disponibil.
+● Aplicații PWA (Progressive Web Apps): Acestea sunt, în esență, site-uri
+web avansate, construite cu tehnologii web standard (HTML5, CSS3,
+JavaScript), dar care oferă o experiență similară cu cea a aplicațiilor native. O
+PWA poate fi "instalată" din browser sau din Store, poate funcționa offline,
+poate trimite notificări push și poate avea propria sa pictogramă în Meniul
+Start și pe bara de activități. Ele reprezintă o punte între lumea web și cea a
+aplicațiilor native.
+În practică, granițele dintre aceste tipuri de aplicații devin tot mai difuze. Tehnologii
+precum MSIX permit împachetarea aplicațiilor Win32 într-un container modern,
+oferindu-le beneficiile de instalare și actualizare fiabile ale UWP. În același timp,
+biblioteci precum WinUI 3 permit dezvoltatorilor să creeze interfețe moderne pentru
+aplicații Win32 puternice. Pentru utilizatorul final este important de reținut că
+Microsoft Store a evoluat pentru a îmbrățișa diversitatea ecosistemului Windows,
+oferind un punct de acces unic și sigur pentru toate aceste tehnologii.
+Capitolul 5: Utilizarea și configurarea remote desktop
+Remote Desktop este o funcționalitate puternică, integrată în Windows, care permite
+utilizatorilor să se conecteze și să controleze un alt computer de la distanță, prin
+intermediul unei rețele. Această capacitate este indispensabilă pentru munca la
+distanță, administrarea de sisteme și oferirea de suport tehnic.
+5.1 Concepte fundamentale și ediții suportate
+Protocolul Remote Desktop (RDP) permite transmiterea interfeței grafice a unui
+computer (numit gazdă sau server) către un alt dispozitiv (numit client), permițând
+controlul complet al acestuia de la distanță. Pentru a înțelege cum funcționează, este
+esențială distincția dintre rolul de gazdă și cel de client:
+● Computerul Gazdă (Host/Server): Acesta este computerul care este
+controlat de la distanță. Pentru a putea accepta conexiuni RDP, acest
+computer trebuie să ruleze o ediție superioară de Windows, cum ar fi
+Windows 10 Pro/Enterprise/Education sau Windows 11
+Pro/Enterprise/Education. Edițiile Home ale ambelor sisteme de operare nu
+pot funcționa ca gazdă pentru Remote Desktop.
+● Dispozitivul Client: Acesta este dispozitivul de pe care se inițiază
+conexiunea. Clientul poate rula orice ediție de Windows, inclusiv Home, sau
+chiar un sistem de operare complet diferit, precum macOS, iOS sau Android,
+folosind aplicația Microsoft Remote Desktop disponibilă pe platformele
+respective.
+Această limitare a funcționalității de gazdă la edițiile Pro și Enterprise nu este una
+tehnică, ci o decizie strategică de business a Microsoft. Prin rezervarea acestei
+caracteristici, esențială pentru mediul de afaceri și utilizatorii avansați, pentru edițiile
+mai scumpe, Microsoft creează un stimulent comercial pentru upgrade, segmentând
+astfel piața între utilizatori casnici și profesioniști.
+Deși funcționalitatea de bază RDP este consistentă între Windows 10 și 11,
+Windows 11 aduce câteva îmbunătățiri, precum o interfață de configurare mai
+modernă, performanțe optimizate și o gestionare mai bună a sesiunilor cu monitoare
+multiple și rate de reîmprospătare dinamice. Totuși, au fost raportate și cazuri de
+probleme de compatibilitate sau performanță la conectarea la gazde Windows 11 cu
+software mai vechi.
+5.2 Activarea accesului la distanță pe computerul gazdă
+Pentru ca un computer să poată fi accesat de la distanță, funcția Remote Desktop
+trebuie activată manual. Acest lucru se poate face prin mai multe metode.
+● Prin Aplicația Setări (metoda recomandată):
+○ În Windows 11: Navigați la Setări > Sistem > Remote Desktop. Activați
+comutatorul "Remote Desktop" și confirmați acțiunea în fereastra de
+dialog.
+○ În Windows 10: Navigați la Setări > Sistem > Remote Desktop și activați
+comutatorul "Enable Remote Desktop".
+În ambele cazuri, pagina de setări va afișa numele PC-ului, informație
+esențială pentru stabilirea conexiunii.83
+● Prin Panoul de Control (metoda tradițională):
+○ Deschideți Panoul de Control și navigați la Sistem și Securitate > Sistem.
+○ Faceți clic pe Setări la distanță (Allow remote access).
+○ În fereastra "Proprietăți sistem", sub fila "La distanță", bifați opțiunea
+"Permiteți conexiuni la distanță la acest computer".
+● Prin Linie de Comandă (pentru Automatizare):
+○ Command Prompt (ca Administrator):
+■ Pentru a activa RDP: reg add
+"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
+Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f.
+■ Pentru a permite prin firewall: netsh advfirewall firewall set rule
+group="remote desktop" new enable=Yes.
+○ PowerShell (ca Administrator):
+■ Pentru a activa RDP: Set-ItemProperty -Path
+'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name
+"fDenyTSConnections" -value 0.
+■ Pentru a permite prin firewall: Enable-NetFirewallRule -DisplayGroup
+"Remote Desktop".
+Indiferent de metoda aleasă, activarea Remote Desktop va configura automat și
+Windows Defender Firewall pentru a permite traficul pe portul standard TCP 3389.
+5.3 Gestionarea Permisiunilor de Acces
+Activarea RDP nu este suficientă; trebuie să vă asigurați că doar utilizatorii autorizați
+se pot conecta. Aceasta este o responsabilitate de securitate crucială.
+● Adăugarea Utilizatorilor: În mod implicit, toți membrii grupului local
+"Administrators" au permisiunea de a se conecta de la distanță. Pentru a
+acorda acces utilizatorilor standard, aceștia trebuie adăugați manual în grupul
+"Remote Desktop Users". Acest lucru se poate face din:
+○ Setări > Sistem > Remote Desktop > Utilizatori Remote Desktop (în Windows
+11).
+○ Fereastra "Proprietăți sistem" (accesată prin Panoul de Control),
+făcând clic pe butonul Selectare utilizatori.
+● Network Level Authentication (NLA): Aceasta este o setare de securitate
+vitală, activată implicit, care obligă clientul să se autentifice în fața gazdei
+înainte ca o sesiune grafică completă să fie stabilită. NLA reduce semnificativ
+expunerea serverului la atacuri de tip "denial-of-service" și la încercări de
+exploatare a vulnerabilităților RDP, deoarece resursele de sistem nu sunt
+alocate până la finalizarea autentificării. Se recomandă ferm menținerea NLA
+activată.
+Configurarea RDP implică o responsabilitate activă de a securiza un potențial vector
+de atac. Pentru conexiunile expuse la internet, este esențială utilizarea de parole
+puternice, limitarea accesului la utilizatorii strict necesari și, ideal, plasarea
+conexiunii în spatele unei rețele private virtuale (VPN) pentru a cripta întregul trafic și
+a ascunde portul RDP de accesul public.
+5.4 Conectarea de la un Computer Client
+Odată ce computerul gazdă este configurat corect, conectarea de la un dispozitiv
+client este un proces simplu.
+1. Lansarea Clientului RDP: Pe un PC Windows, căutați "Conexiune desktop la
+distanță" (Remote Desktop Connection) în meniul Start sau rulați comanda
+mstsc.exe.
+2. Introducerea Detaliilor de Conectare: În fereastra clientului, introduceți
+numele PC-ului gazdă (notat la pasul de activare) sau adresa sa IP în
+câmpul "Computer" și faceți clic pe Conectare.
+3. Autentificarea: Vi se vor solicita credențialele (nume de utilizator și parolă)
+pentru un cont care are permisiunea de a se conecta la distanță pe
+computerul gazdă.
+4. Acceptarea Certificatului: La prima conectare, va apărea un avertisment de
+securitate legat de certificatul computerului gazdă. Deoarece acesta este un
+certificat auto-semnat, este un comportament normal într-o rețea locală. Puteți
+bifa opțiunea de a nu mai afișa acest mesaj pentru conexiuni viitoare la
+același PC și să continuați.
+După finalizarea acestor pași, desktopul computerului gazdă va fi afișat pe
+dispozitivul client, permițând controlul complet. Clientul RDP oferă și opțiuni
+avansate pentru a configura calitatea afișajului, a redirecționa resurse locale (cum ar
+fi imprimantele și clipboard-ul) și a optimiza performanța în funcție de viteza
+conexiunii la rețea.
+Concluzii
+Analiza detaliată a gestionării aplicațiilor și caracteristicilor în Windows 10 și
+Windows 11 relevă câteva teme transversale esențiale pentru orice profesionist IT
+care se pregătește pentru certificarea Certiport.
+În primul rând, se observă o tranziție continuă, dar incompletă, de la interfețele
+tradiționale la cele moderne. Coexistența Panoului de Control și a aplicației Setări,
+fiecare cu propriile căi de acces și, uneori, cu funcționalități exclusive, este o realitate
+tehnică impusă de necesitatea menținerii compatibilității cu vastul ecosistem de
+aplicații Win32. Cunoașterea ambelor medii de configurare este, prin urmare,
+obligatorie.
+În al doilea rând, securitatea prin separare și izolare este un principiu de design
+fundamental. Acest lucru este evident în ierarhia conturilor Administrator/Standard,
+în mecanismul de elevare temporară a privilegiilor prin UAC, în separarea
+arhitecturală a folderelor Program Files și Program Files (x86) prin intermediul WoW64,
+și în mediul controlat oferit de Microsoft Store. Fiecare dintre aceste elemente
+contribuie la reducerea suprafeței de atac și la protejarea integrității sistemului.
+În al treilea rând, evoluția strategică a ecosistemului Microsoft este vizibilă în
+mod special în transformarea Microsoft Store. Trecerea de la un model închis, axat
+pe UWP, la o platformă deschisă care îmbrățișează toate tipurile de aplicații
+Windows, marchează o schimbare pragmatică menită să crească relevanța și
+utilitatea magazinului, transformându-l într-un agregator central și de încredere
+pentru software.
+În final, funcționalități puternice precum Remote Desktop subliniază segmentarea
+pieței între edițiile Home și Pro/Enterprise, dar și responsabilitatea care revine
+administratorului de a configura aceste servicii într-un mod securizat.
+Înțelegerea raționamentului tehnic și strategic din spatele fiecărei funcționalități va
+permite nu doar răspunsul corect la întrebări specifice, ci și dezvoltarea abilităților de
+depanare și administrare necesare într-un mediu IT real.
