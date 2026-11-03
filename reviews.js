@@ -14,6 +14,6 @@ window.PREP_REVIEWS = {
     { src: "assets/reviews/parere1.mp4", name: "Cristian", note: "Elev clasa 12" }
   ],
   quotes: [
-     { text: "Am început cu videourile și abia apoi am trecut la întrebări. La examen am recunoscut aproape toate tipurile de întrebări, așa că nu am avut surprize.", name: "Cristian", note: "a susținut examenele Python, Databases,Device Configuration and Management" }
+     { text: "Am început cu videourile și abia apoi am trecut la întrebări. La examen am recunoscut aproape toate tipurile de întrebări, așa că nu am avut surprize.", name: "Cristian", note: "a susținut examenele Python, Databases, Device Configuration and Management" }
   ]
 };

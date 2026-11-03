@@ -1,0 +1,23 @@
+PREP — VERSIUNE LOCALĂ INTERACTIVĂ
+
+Acest pachet nu modifică automat GitHub, Vercel, Paddle sau Supabase.
+
+CE CONȚINE
+- Device Configuration and Management: 249 de exerciții noi, în engleză. Auditul automat al structurii a fost finalizat; verificarea manuală completă a conținutului vechi rămâne de făcut. Detalii în RAPORT-AUDIT-TESTE.txt.
+- Pagina principală: sigle pentru module, oferte colorate, pachet recomandat și patru pași interactivi, cu swipe și exemple în telefoane. Conversația Telegram și certificatul sunt modele demonstrative. Videoclipul și extrasele conturate din ordinul MEC sunt păstrate.
+- Vizitatorul își creează mai întâi contul, apoi poate alege modulele din cont și trimite selecția către @prepadm pe Telegram. Site-ul nu inițiază plăți cu cardul și acest pachet nu închide contul Paddle.
+- Seria de zile apare în dashboard și în lista de utilizatori din administrare, pentru conturile cu cel puțin un examen activat. Criteriul este accesul activ, nu verificarea separată a plății: include și accesul acordat manual. Seria numără zile calendaristice consecutive după ora Chișinăului, o singură dată pe zi, și se resetează după o zi lipsă. Începe după instalarea actualizării SQL; nu reconstituie zile din trecut.
+- Python Next Generation este un modul de pregătire, nu un examen oficial separat.
+
+ÎNAINTE DE PUBLICARE
+1. Salvează o copie a repository-ului și un backup Supabase. Despachetează într-un folder nou și testează înainte de actualizare.
+2. Dacă actualizezi un proiect existent prin suprascriere, fișierele șterse din arhivă nu dispar automat din proiectul vechi. După verificare, elimină vechile api/_payment-common.js, api/checkout-status.js și README-PLATI-PADDLE.md, dacă există. Nu șterge alte fișiere API fără verificare.
+3. Pentru vânzarea manuală și catalog, dacă nu au fost deja instalate, verifică și rulează după backup în Supabase SQL Editor, în proiectul corect:
+   a) sql/vanzare-manuala-mdl-eur.sql
+   b) sql/actualizare-catalog-python.sql
+4. Pentru seria de zile, verifică și rulează separat sql/serie-zile.sql. Aceasta necesită tabelele și funcția de administrator existente în proiect. Până la instalare, seria nu este afișată. Scriptul a fost testat într-o bază locală simulată, nu în Supabase-ul real. Testează întâi într-un mediu separat, inclusiv un cont cu acces și un cont de administrator.
+5. Verifică funcționarea vânzării și a selecției cu un cont de test. Confirmă că prețurile anterioare și reducerile afișate sunt reale și respectă regulile aplicabile. Valorile în MDL sunt aproximative. Completează datele operatorului în politica de confidențialitate înainte de publicare.
+
+LIMITĂRI IMPORTANTE
+- Accesul nu expiră automat după un an și nu există reînnoire automată implementată sau testată.
+- Ordinul inclus este din 2023. Verifică lista și calendarul actual la ANCE; Prep nu garantează nota 10.

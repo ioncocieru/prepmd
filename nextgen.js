@@ -22,7 +22,7 @@ function configureNextGenSetup(){
  let picker=document.getElementById('ng-kind'),selection=document.getElementById('ng-selection');
  if(!picker){
   picker=document.createElement('section');picker.id='ng-kind';picker.className='ng-mode-picker';
-  const modes=[['combined','layers','Întrebări + laburi','Teorie și cod, într-o singură sesiune.','700 + 300 puncte'],['questions','questions','Doar întrebări','Concentrează-te pe concepte și explicații.','1000 de puncte'],['labs','code','Doar laburi','Învață scriind și testând cod Python.','1000 de puncte']];
+  const modes=[['combined','layers','Întrebări + laburi','Exersează teoria și codul.','700 + 300 puncte'],['questions','questions','Doar întrebări','Exersează conceptele.','1000 de puncte'],['labs','code','Doar laburi','Scrie și testează cod.','1000 de puncte']];
   const icons={layers:'<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',questions:'<path d="M8 3h10a2 2 0 0 1 2 2v16H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2V3Z"/><path d="M9 9h7M9 13h7M9 17h4"/>',code:'<path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/>'};
   picker.innerHTML='<div class="ng-section-heading"><span class="ng-step-number">01</span><div><h2>Tipul testului</h2><p>Alege întrebări, laburi sau ambele.</p></div></div><div class="ng-mode-grid">'+modes.map(([value,ico,title,desc,score])=>`<label><input type="radio" name="ng-kind" value="${value}" ${value==='combined'?'checked':''}><span class="ng-kind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">${icons[ico]}</svg></span><span class="ng-kind-check" aria-hidden="true">✓</span><strong>${title}</strong><span class="ng-kind-desc">${desc}</span><span class="ng-kind-footer">${score}</span></label>`).join('')+'</div>';
   document.querySelector('.setup-layout').prepend(picker);
@@ -31,6 +31,7 @@ function configureNextGenSetup(){
  }
  picker.hidden=!isNG;selection.hidden=!isNG;
  if(!isNG)return;
+ state.ngExcludedChapters=new Set();
  state.nextGenSelection=new Set(getExam('pythonNextGen').QUESTIONS.map(q=>q.id));
  state.nextGenKind=picker.querySelector('input:checked').value;
  const exam=getExam('pythonNextGen');document.getElementById('setup-question-total').textContent=`${exam.QUESTIONS.filter(q=>q.type!=='lab').length} întrebări · ${exam.QUESTIONS.filter(q=>q.type==='lab').length} laburi`;
@@ -39,20 +40,20 @@ function configureNextGenSetup(){
 function renderNextGenSelection(){
  const panel=document.getElementById('ng-selection'),exam=getExam('pythonNextGen'),pool=nextGenEligible();
  const chapters=exam.CHAPTERS.filter(ch=>pool.some(q=>q.chapter===ch.id));
- panel.innerHTML=`<div class="ng-section-heading"><span class="ng-step-number">02</span><div><h2>Conținutul testului</h2><p>Selectează capitolele sau bifează exercițiile individual.</p></div></div>
- <div class="ng-chapter-filters">${chapters.map(ch=>`<label class="ng-chapter-chip"><input type="checkbox" data-ng-chapter="${escapeHtml(ch.id)}"><span>${escapeHtml(ch.name)}</span><small>${pool.filter(q=>q.chapter===ch.id).length}</small></label>`).join('')}</div>
- <div class="ng-quick-pick"><div><strong>Numărul de exerciții</strong><span>Introdu numărul dorit, apoi apasă „Aplică”. Poți ajusta și selecția individual.</span></div><div class="ng-quick-controls">${state.nextGenKind!=='labs'?`<label>Câte întrebări?<input id="ng-theory-count" type="number" min="1" max="${pool.filter(q=>q.type!=='lab').length}" value="${pool.filter(q=>q.type!=='lab'&&state.nextGenSelection.has(q.id)).length}" inputmode="numeric"></label>`:''}${state.nextGenKind!=='questions'?`<label>Câte laburi?<input id="ng-lab-count" type="number" min="1" max="${pool.filter(q=>q.type==='lab').length}" value="${pool.filter(q=>q.type==='lab'&&state.nextGenSelection.has(q.id)).length}" inputmode="numeric"></label>`:''}<button class="btn btn-secondary" id="ng-random-pick" type="button">Aplică</button></div></div>
+ panel.innerHTML=`<div class="ng-section-heading"><span class="ng-step-number">02</span><div><h2>Conținutul testului</h2><p>Alege capitolele și câte exerciții vrei.</p></div></div>
+ <details class="ng-chapter-details"><summary>Alege capitolele</summary><div class="ng-chapter-filters">${chapters.map(ch=>`<label class="ng-chapter-chip"><input type="checkbox" data-ng-chapter="${escapeHtml(ch.id)}"><span>${escapeHtml(ch.name)}</span><small>${pool.filter(q=>q.chapter===ch.id).length}</small></label>`).join('')}</div></details>
+ <div class="ng-quick-pick"><div><strong>Numărul de exerciții</strong><span>Alege câte exerciții vrei, apoi apasă „Aplică”.</span></div><div class="ng-quick-controls">${state.nextGenKind!=='labs'?`<label>Câte întrebări?<input id="ng-theory-count" type="number" min="1" max="${pool.filter(q=>q.type!=='lab').length}" value="${pool.filter(q=>q.type!=='lab'&&state.nextGenSelection.has(q.id)).length}" inputmode="numeric"></label>`:''}${state.nextGenKind!=='questions'?`<label>Câte laburi?<input id="ng-lab-count" type="number" min="1" max="${pool.filter(q=>q.type==='lab').length}" value="${pool.filter(q=>q.type==='lab'&&state.nextGenSelection.has(q.id)).length}" inputmode="numeric"></label>`:''}<button class="btn btn-secondary" id="ng-random-pick" type="button">Aplică</button></div></div>
  <details class="ng-manual-picker"><summary><span>Alege individual întrebările și laburile</span><span class="ng-selected-pill" id="ng-picked-total"></span></summary><div class="ng-list-tools"><label class="ng-search-wrap"><span class="sr-only">Caută un exercițiu</span><input id="ng-question-search" type="search" placeholder="Caută după text, capitol sau număr…"></label><div><button class="link-btn" type="button" id="ng-pick-all">Selectează tot</button><button class="link-btn" type="button" id="ng-pick-none">Deselectează tot</button></div></div><div class="ng-question-picker" id="ng-question-picker"></div><p class="muted small" id="ng-search-empty" hidden>Nu am găsit exerciții pentru această căutare.</p></details>
  <div class="ng-session-preview" aria-live="polite"><div><span>SELECTATE</span><strong id="ng-session-count"></strong><p id="ng-session-points"></p></div><div class="ng-pass-chip"><b>700</b><span>prag de trecere<br>din 1000 de puncte</span></div></div>
  <p class="ng-selection-error" id="ng-selection-error" role="status" hidden></p>`;
  const list=panel.querySelector('#ng-question-picker');
  pool.forEach(q=>{const pos=exam.QUESTIONS.filter(x=>(x.type==='lab')===(q.type==='lab')).indexOf(q)+1;const ch=exam.CHAPTERS.find(c=>c.id===q.chapter);const row=document.createElement('label');row.className='ng-question-choice';row.dataset.search=(q.id+' '+pos+' '+(q.title||'')+' '+q.question+' '+ch?.name).toLocaleLowerCase();row.innerHTML=`<input type="checkbox" data-ng-question="${escapeHtml(q.id)}"><span class="ng-question-number">${q.type==='lab'?'&lt;/&gt;':String(pos).padStart(2,'0')}</span><span><strong>${escapeHtml(q.type==='lab'?(q.title||q.question):q.question)}</strong><small>${q.type==='lab'?'Lab Python':typeLabel(q.type)} · ${escapeHtml(ch?.name||'')}</small></span>`;list.append(row);});
  panel.onchange=handleNextGenSelectionChange;
- panel.querySelector('#ng-pick-all').onclick=()=>{pool.forEach(q=>state.nextGenSelection.add(q.id));updateNextGenSelection();};
+ panel.querySelector('#ng-pick-all').onclick=()=>{state.ngExcludedChapters.clear();pool.forEach(q=>state.nextGenSelection.add(q.id));updateNextGenSelection();};
  panel.querySelector('#ng-pick-none').onclick=()=>{pool.forEach(q=>state.nextGenSelection.delete(q.id));updateNextGenSelection();};
  panel.querySelector('#ng-question-search').oninput=e=>{const term=e.target.value.trim().toLocaleLowerCase();let found=0;list.querySelectorAll('.ng-question-choice').forEach(row=>{row.hidden=!row.dataset.search.includes(term);if(!row.hidden)found++;});panel.querySelector('#ng-search-empty').hidden=found>0;};
  panel.querySelector('#ng-random-pick').onclick=()=>{
-  const groups=[['ng-theory-count',pool.filter(q=>q.type!=='lab')],['ng-lab-count',pool.filter(q=>q.type==='lab')]];
+  const chapterPool=pool.filter(q=>!state.ngExcludedChapters.has(q.chapter)); const groups=[['ng-theory-count',chapterPool.filter(q=>q.type!=='lab')],['ng-lab-count',chapterPool.filter(q=>q.type==='lab')]];
   const sizes=groups.map(([id,items])=>{const field=panel.querySelector('#'+id);if(!field)return 0;const n=Number(field.value);if(!Number.isInteger(n)||n<1||n>items.length){field.setCustomValidity(`Alege un număr întreg între 1 și ${items.length}.`);field.reportValidity();return null;}field.setCustomValidity('');return n;});
   if(sizes.includes(null))return false;
   state.ngCountDirty=false;
@@ -65,8 +66,8 @@ function renderNextGenSelection(){
 function handleNextGenSelectionChange(e){
  const el=e.target,pool=nextGenEligible();
  if(el.type==='number')return;
- if(el.dataset.ngQuestion){if(el.checked)state.nextGenSelection.add(el.dataset.ngQuestion);else state.nextGenSelection.delete(el.dataset.ngQuestion);}
- if(el.dataset.ngChapter)pool.filter(q=>q.chapter===el.dataset.ngChapter).forEach(q=>el.checked?state.nextGenSelection.add(q.id):state.nextGenSelection.delete(q.id));
+ if(el.dataset.ngQuestion){if(el.checked){state.nextGenSelection.add(el.dataset.ngQuestion);const q=pool.find(q=>q.id===el.dataset.ngQuestion);if(q)state.ngExcludedChapters.delete(q.chapter);}else state.nextGenSelection.delete(el.dataset.ngQuestion);}
+ if(el.dataset.ngChapter){el.checked?state.ngExcludedChapters.delete(el.dataset.ngChapter):state.ngExcludedChapters.add(el.dataset.ngChapter);pool.filter(q=>q.chapter===el.dataset.ngChapter).forEach(q=>el.checked?state.nextGenSelection.add(q.id):state.nextGenSelection.delete(q.id));}
  updateNextGenSelection();
 }
 function updateNextGenSelection(){
@@ -153,12 +154,12 @@ window.nextGenTourSteps=function(){
   showScreen('screen-quiz');renderQuizQuestion();document.getElementById('quiz-timer').textContent='DEMO';
  };
  return [
- {prepare:dash,target:'[data-exam="pythonNextGen"]',title:'Python Next Generation',html:'<p>Ai acces la acest examen. De aici deschizi <strong>137 de întrebări și 21 de laburi Python</strong>. Poți învăța teoria separat sau poți scrie cod.</p>'},
+ {prepare:dash,target:'[data-exam="pythonNextGen"]',title:'Python Next Generation',html:'<p>Ai acces la acest examen. De aici deschizi <strong>întrebări și laburi Python</strong>. Poți învăța teoria separat sau poți scrie cod.</p>'},
  {prepare:setup,target:'#ng-kind label:has([value="combined"])',title:'Simularea completă',html:'<p>Alege <strong>Întrebări + laburi</strong> pentru ambele secțiuni. Întrebările valorează până la 700 de puncte, laburile până la 300. Ai nevoie de minimum 700 din 1000.</p>'},
- {prepare:setup,target:'#ng-kind label:has([value="questions"])',title:'Doar întrebări',html:'<p>Aici exersezi cele 137 de întrebări fără editorul de cod. Secțiunea este normalizată la <strong>1000 de puncte</strong>.</p>'},
- {prepare:setup,target:'#ng-kind label:has([value="labs"])',title:'Doar laburi',html:'<p>Alege această variantă când vrei să scrii și să testezi Python. Cele 21 de laburi însumează <strong>1000 de puncte</strong> în acest mod.</p>'},
- {prepare:setup,target:'.ng-chapter-filters',title:'Alege capitolele tale',html:'<p>Bifează sau debifează capitolele. Selecția se aplică doar întrebărilor și laburilor din modul ales. Un capitol bifat parțial păstrează exercițiile alese individual.</p>'},
- {prepare:setup,target:'.ng-quick-pick',title:'O sesiune mai scurtă',html:'<p>Introdu câte întrebări și câte laburi vrei, apoi apasă <strong>Aplică</strong>. Aceasta înlocuiește selecția curentă cu exerciții din întreaga bancă a modului ales.</p>'},
+ {prepare:setup,target:'#ng-kind label:has([value="questions"])',title:'Doar întrebări',html:'<p>Aici exersezi întrebările fără editorul de cod. Secțiunea este normalizată la <strong>1000 de puncte</strong>.</p>'},
+ {prepare:setup,target:'#ng-kind label:has([value="labs"])',title:'Doar laburi',html:'<p>Alege această variantă când vrei să scrii și să testezi Python. Laburile însumează <strong>1000 de puncte</strong> în acest mod.</p>'},
+ {prepare:()=>{setup();document.querySelector('.ng-chapter-details').open=true;},target:'.ng-chapter-filters',title:'Alege capitolele tale',html:'<p>Bifează sau debifează capitolele. Selecția se aplică doar întrebărilor și laburilor din modul ales. Un capitol bifat parțial păstrează exercițiile alese individual.</p>'},
+ {prepare:setup,target:'.ng-quick-pick',title:'O sesiune mai scurtă',html:'<p>Introdu câte întrebări și câte laburi vrei, apoi apasă <strong>Aplică</strong>. Aceasta înlocuiește selecția curentă cu exerciții din capitolele selectate în modul ales.</p>'},
  {prepare:()=>{setup();document.querySelector('.ng-manual-picker').open=true;},target:'.ng-manual-picker',title:'Alege exact ce vrei să rezolvi',html:'<p>Deschide lista, caută după text sau număr și bifează exercițiile dorite. Rezumatul arată câte ai ales. Pentru modul combinat ai nevoie de cel puțin o întrebare și un lab.</p>'},
  {prepare:setup,target:'.mode-toggle',title:'Exersezi sau te testezi?',html:'<p>În <strong>Mod exercițiu</strong> poți verifica soluția imediat. În <strong>Mod examen</strong> poți rula codul pentru depanare, dar verificările de punctaj apar doar la final.</p>'},
  {prepare:setup,target:'#start-quiz-btn',title:'De aici pornești',html:'<p>După alegerea modului, apasă <strong>Începe testul</strong>. Urmează acum o demonstrație a editorului: <strong>nu pornește un test real și nu modifică progresul</strong>.</p>'},

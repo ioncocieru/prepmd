@@ -112,6 +112,34 @@ def evaluate(code, lab_id, action):
                     try:
                         with _REAL_OPEN('temp.txt') as h:record('Actual file content',h.read()=='Hello')
                     except Exception:record('Actual file content',False)
+            elif lab_id.startswith('its-l'):
+                cases_by_lab={
+                  'its-l01':('apreciere',[(4,'Insuficient'),(6,'Insuficient'),(7,'Bine'),(8,'Bine'),(9,'Foarte bine'),(10,'Foarte bine')]),
+                  'its-l02':('salut',[(0,'Buna dimineata'),(11,'Buna dimineata'),(12,'Buna ziua'),(17,'Buna ziua'),(18,'Buna seara'),(23,'Buna seara')]),
+                  'its-l03':('mesaje_punctaj',[(500,['Nepromovat']),(699,['Nepromovat']),(700,['Promovat']),(899,['Promovat']),(900,['Promovat','Cu distinctie'])]),
+                  'its-l05':('ghiceste',[([],[]),([7,3],['Ghicit: 7']),([3,9,7,5],['Gresit: 3','Gresit: 9','Ghicit: 7']),([1,2],['Gresit: 1','Gresit: 2'])]),
+                  'its-l06':('note_numere',[([],[]),(['9','8','10'],[9,8,10]),(['0','-2'],[0,-2])]),
+                  'its-l07':('ore_si_minute',[(135,(2,15)),(60,(1,0)),(0,(0,0)),(59,(0,59))]),
+                  'its-l10':('suma_cifre',[(4096,19),(0,0),(12345,15),(1000,1)])}
+                if lab_id=='its-l04':
+                    check('Suma impară înainte de 6',fn('suma_impare_pana_la_sase'),(),9,int)
+                    record('Folosește break și continue', any(isinstance(n,ast.Break) for n in ast.walk(tree)) and any(isinstance(n,ast.Continue) for n in ast.walk(tree)))
+                elif lab_id=='its-l08':
+                    f=fn('media_note')
+                    for a,b in [(9,6),(0,10),(3,3),(-2,2)]:check(f'Media {a}, {b}',f,(a,b),(a+b)/2)
+                elif lab_id=='its-l09':
+                    f=fn('total_plata')
+                    for a,b,t in [(1200,50,1.2),(0,0,1),(100,0,1.2),(10,10,1)]:check(f'Total {a}, {b}, {t}',f,(a,b,t),(a+b)*t)
+                elif lab_id in cases_by_lab:
+                    name,tests=cases_by_lab[lab_id]; f=fn(name)
+                    for value,expected in tests:
+                        before=value[:] if isinstance(value,list) else value
+                        if lab_id=='its-l06':
+                            try:
+                                got=f(value); record('Caz '+repr(before),got==expected and value==before,'Lista inițială trebuie păstrată.')
+                            except Exception as exc:record('Caz '+repr(before),False,str(exc))
+                        else:check('Caz '+repr(value),f,(value,),expected)
+                else:raise ValueError('Unknown lab.')
             else:raise ValueError('Unknown lab.')
         passed=sum(c['passed'] for c in cases)
         return {'stdout':output.getvalue(),'cases':cases,'passed':passed,'total':len(cases),'ratio':passed/len(cases) if cases else 0}

@@ -835,7 +835,7 @@ window.EXAM_DATA.networking = {
       "id": "net-051",
       "chapter": "infrastructura",
       "type": "single",
-      "question": "What replaced X.25?",
+      "question": "Which WAN technology is commonly described as a successor to X.25?",
       "options": [
         "Frame relay",
         "ATM",

@@ -91,6 +91,7 @@ function typeLabel(type) {
     drag_drop: "Drag & drop",
     dropdown: "Choose One",
     numeric: "Răspuns numeric",
+    cloze: "Completează codul",
     lab: "Python Lab"
   }[type] || type;
 }
@@ -635,6 +636,7 @@ async function enterApp() {
 
   renderDashboard();
   showScreen("screen-dashboard");
+  window.prepUpdateStreak?.();
   if (needsContactPhone) { openContactPrompt(contactUser); return; }
 
   // ghid de utilizare: doar la prima intrare cu examene, pentru conturi create prin „Creare cont”
@@ -671,22 +673,12 @@ sb.auth.getSession().then(({ data }) => {
     const nav = document.getElementById("lp-nav-reviews"); if (nav) nav.hidden = false;
     const vbox = document.getElementById("lp-vids");
     vbox.innerHTML = vids.map(v => `
-      <div class="lp-vid">
-        <div class="lp-vid-circle"><video src="${esc(v.src)}" muted loop playsinline preload="metadata"></video><span class="snd">♪</span></div>
-        <b>${esc(v.name)}</b><span>${esc(v.note || "")}</span>
+      <div class="home-review-video">
+        <video src="${esc(v.src)}" controls playsinline preload="metadata" aria-label="Videoclip: ${esc(v.name)}"></video>
+        <div><b>${esc(v.name)}</b><span>${esc(v.note || "")}</span></div>
       </div>`).join("");
-    vbox.querySelectorAll(".lp-vid-circle").forEach(c => {
-      const vid = c.querySelector("video"), snd = c.querySelector(".snd");
-      vid.play().catch(() => {});
-      c.addEventListener("click", () => {
-        const on = vid.muted;                        // primul click: pornește cu sunet de la început
-        vbox.querySelectorAll("video").forEach(o => { if (o !== vid) { o.muted = true; o.play().catch(() => {}); } });
-        vid.muted = !on; if (on) vid.currentTime = 0; vid.play().catch(() => {});
-        snd.textContent = on ? "🔊" : "♪";
-      });
-    });
     document.getElementById("lp-quotes").innerHTML = quotes.map(q => `
-      <blockquote class="lp-quote"><p>${esc(q.text)}</p><cite><b>${esc(q.name)}</b>${q.note ? " · " + esc(q.note) : ""}</cite></blockquote>`).join("");
+      <blockquote class="home-review-quote"><p>“${esc(q.text)}”</p><cite><b>${esc(q.name)}</b>${q.note ? " · " + esc(q.note) : ""}</cite></blockquote>`).join("");
   }
   const items = document.querySelectorAll("#screen-landing .lp-h2, #screen-landing .lp-panel, #screen-landing .lp-step, #screen-landing .lp-arr, #screen-landing .lp-price-box, #screen-landing .lp-faq, #screen-landing .lp-vid, #screen-landing .lp-quote, #screen-landing .lp-duo, #screen-landing .lp-duo-copy");
   if (!("IntersectionObserver" in window)) return;
@@ -731,30 +723,13 @@ const LOCK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 
 /* Pagina afișată când contul nu are încă niciun examen */
 function renderNoAccess(grid) {
-  const login = currentUserEmail ? currentUserEmail.split("@")[0] : "";
   grid.innerHTML = `
     <section class="noaccess">
       <div class="noaccess-icon">${LOCK_ICON}</div>
       <span class="noaccess-badge">Cont creat cu succes</span>
       <h2>Mai ai un singur pas</h2>
-      <p class="noaccess-lead">Contul tău este activ, dar nu include încă niciun examen.
-        Pentru a primi accesul, <strong>contactează un administrator</strong> pe Telegram.</p>
-
-      <a class="noaccess-tg" href="https://t.me/prepadm" target="_blank" rel="noopener">
-        <span class="noaccess-tg-icon">${TG_ICON}</span>
-        <span class="noaccess-tg-text"><strong>Scrie administratorului</strong><small>Telegram · @prepadm</small></span>
-        <span class="noaccess-tg-arrow">${ARROW_ICON}</span>
-      </a>
-
-      <ol class="noaccess-steps">
-        <li><span>1</span><div><strong>Trimite-i login-ul contului</strong>
-          <small>${login ? `Login-ul tău: <code>${escapeHtml(login)}</code>` : "Scrie-i login-ul cu care te-ai înregistrat."}</small></div></li>
-        <li><span>2</span><div><strong>Spune-i la ce examene vrei acces</strong>
-          <small>Python, Databases, Device Configuration and Management, Networking, HTML5 Application Development sau Python Next Generation.</small></div></li>
-        <li><span>3</span><div><strong>Apasă „Verifică accesul”</strong>
-          <small>După ce primești confirmarea, examenele apar aici.</small></div></li>
-      </ol>
-
+      <p class="noaccess-lead">Alege modulele dorite și trimite selecția pe Telegram. După confirmarea achitării, activăm accesul.</p>
+      <div id="noaccess-shop"></div>
       <div class="noaccess-actions">
         <button class="btn btn-primary" id="recheck-access-btn" type="button">Verifică accesul</button>
       </div>
@@ -799,7 +774,7 @@ function renderDashboard() {
     card.style.setProperty("--accent", exam.accent);
     card.innerHTML = `
       <div class="exam-card-head">
-        <div class="exam-card-icon">${EXAM_ICONS[key] || ""}</div>
+        <div class="exam-card-icon${key === "pythonNextGen" ? " ng-icon-next" : ""}">${EXAM_ICONS[key] || ""}${key === "pythonNextGen" ? `<span class="ng-spark" aria-label="Next Generation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c.8 6 3.5 8.7 9.5 9.5-6 .8-8.7 3.5-9.5 9.5-.8-6-3.5-8.7-9.5-9.5 6-.8 8.7-3.5 9.5-9.5Z"/></svg></span>` : ""}</div>
       </div>
       <h3>${exam.name} </h3>
       <p>${exam.description}</p>
@@ -1130,7 +1105,10 @@ function renderQuizQuestion() {
   html += imageHtml(q);                                   // imaginea întrebării (dacă există)
   if (q.code) html += `<pre class="q-code"><code>${highlightCode(q.code)}</code></pre>`;
 
-  if (q.type === "numeric") {
+  if (q.type === "cloze") {
+    const answers=state.userAnswers[q.id]||[];
+    html += `<div class="ng-cloze"><p class="q-hint">Completează câmpurile numerotate. Spațiile din jurul operatorilor și ghilimelele simple sau duble sunt acceptate.</p>${q.answers.map((_,i)=>`<label>Câmpul ${i+1}<input type="text" data-cloze="${i}" value="${escapeHtml(answers[i]||'')}" autocomplete="off" spellcheck="false" ${locked?'disabled':''}></label>`).join('')}</div>`;
+  } else if (q.type === "numeric") {
     const value = String(state.userAnswers[q.id] ?? "");
     html += `<div class="q-numeric"><label for="q-numeric-answer">Răspunsul tău</label><input id="q-numeric-answer" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="9" autocomplete="off" placeholder="Introdu un număr întreg" value="${escapeHtml(value)}" ${locked ? 'disabled' : ''}><p class="q-hint">Scrie un număr întreg, fără alte caractere.</p></div>`;
   } else if (q.type === "true_false") {
@@ -1397,7 +1375,15 @@ function renderDropdown(q, locked) {
   }).join('')}</div>`;
 }
 
+function normalizeCloze(s) {
+ const tokens=String(s).match(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|[A-Za-z_]\w*|\d+(?:\.\d+)?|\*\*=?|\/\/=?|==|!=|>=|<=|[+*\/%<>-]=?|[^\s]/g)||[];
+ return tokens.map(t=>/^["']/.test(t)?JSON.stringify(t.slice(1,-1)):t).join('\u0001');
+}
+
 function attachQuestionHandlers(q, locked) {
+  if(q.type === 'cloze' && !locked){
+    $all('#quiz-card [data-cloze]').forEach(el=>el.addEventListener('input',()=>{const a=state.userAnswers[q.id]||[];a[Number(el.dataset.cloze)]=el.value;state.userAnswers[q.id]=a;updateQuizSummary();}));
+  }
   if(q.type === "numeric" && !locked) {
     const input = document.getElementById('q-numeric-answer');
     input.addEventListener('input', () => {
@@ -1547,6 +1533,7 @@ function placeDndItem(q, itemId, zoneId) {
 function isAnswerCorrect(q) {
   if(q.type === "lab") return labRatio(q) === 1;
   const ans = state.userAnswers[q.id];
+  if(q.type === "cloze") return Array.isArray(ans) && q.answers.every((accepted,i)=>accepted.some(a=>normalizeCloze(a)===normalizeCloze(ans[i]||'')));
   if(q.type === "numeric") return /^\d+$/.test(String(ans ?? '')) && Number(ans) === q.correct;
   if (q.type === "true_false" || q.type === "single") {
     return ans === q.correct;
@@ -1566,6 +1553,7 @@ function isAnswerCorrect(q) {
 }
 
 function isAnswered(q) {
+  if(q.type === "cloze") return (state.userAnswers[q.id]||[]).some(v=>v?.trim());
   if(q.type === "lab") return !!state.labCode?.[q.id] && state.labCode[q.id].trim() !== q.starter.trim();
   if ((q.type === "drag_drop" || q.type === "dropdown")) {
     const zones = state.dndState[q.id];
@@ -1691,6 +1679,7 @@ async function finishQuiz() {
 }
 
 function describeUserAnswer(q) {
+  if(q.type === "cloze") return (state.userAnswers[q.id]||[]).map((v,i)=>`${i+1}: ${v||"—"}`).join("; ");
   if(q.type === "numeric") return String(state.userAnswers[q.id] ?? '');
   if(q.type === "lab") return state.labCode?.[q.id] || "";
   if (q.type === "true_false" || q.type === "single") {
@@ -1712,6 +1701,7 @@ function describeUserAnswer(q) {
 }
 
 function describeCorrectAnswer(q) {
+  if(q.type === "cloze") return q.answers.map((a,i)=>`${i+1}: ${a[0]}`).join("; ");
   if(q.type === "numeric") return String(q.correct);
   if(q.type === "lab") return q.solution;
   if (q.type === "true_false" || q.type === "single") {
@@ -1825,6 +1815,9 @@ $("#guide-btn").addEventListener("click", () => showGuide(false));
 })();
 /* Compact question navigator: no additional HTML/CSS files required. */
 function quizAnswerStatus(q) {
+  if(q.type==='lab') return isAnswered(q)?'complete':'empty';
+  if(q.type==='numeric') return /^\d+$/.test(String(state.userAnswers[q.id]??''))?'complete':'empty';
+  if(q.type === 'cloze'){ const a=state.userAnswers[q.id]||[];const filled=q.answers.filter((_,i)=>a[i]?.trim()).length;return filled===q.answers.length?'complete':filled?'partial':'empty';}
   if ((q.type === 'drag_drop' || q.type === 'dropdown')) {
     const zones = state.dndState[q.id] || {};
     const filled = q.dropZones.filter(z => q.dragItems.some(i => i.id === zones[z.id])).length;

@@ -1,0 +1,15 @@
+PREP — RAPORT DE REVIZIE A TESTELOR
+
+ÎNTREBĂRI NOI
+- Au fost adăugate 249 de exerciții pentru Device Configuration and Management: 40 de exerciții traduse în engleză din primul set și 209 exerciții din seturile în engleză pentru obiectivele 1–5. Sunt organizate în cele cinci capitole existente ale modulului. IDs noi sunt stabile.
+- Enunțurile au fost adaptate unde era necesar pentru a evita ambiguități ori recomandări nesigure, fără a schimba tema: de exemplu stick-ul necunoscut nu trebuie conectat doar pentru că a fost scanat; copierea/permisunile și ping sunt descrise cu condițiile relevante; revenirea la o versiune Windows nu garantează păstrarea aplicațiilor instalate ulterior; o grilă de phishing a primit opțiunea lipsă; întrebarea despre mouse testează atât distanța, cât și bateria, în loc să impună un răspuns arbitrar. Copilot și funcțiile Windows pot varia după versiune, hardware și regiune.
+- Teste locale ale interfeței pe mobil și desktop: toate cele 249 au fost afișate și motorul a acceptat răspunsurile configurate ca fiind corecte și le-a respins pe cele greșite. Aceste teste verifică funcționarea mecanismului de evaluare, nu constituie verificare independentă exhaustivă a faptelor.
+
+AUDITUL BĂNCII EXISTENTE
+- Au fost verificate automat 2.967 de exerciții existente (3.216 în total cu cele noi): ID-uri duplicate, capitole, indici invalizi, opțiuni exact duplicate, corespondențele pentru dropdown/drag-and-drop, explicații și fișiere de imagine. Nu au rezultat erori structurale în aceste verificări.
+- Am verificat și expresii numerice de comparație care se termină imediat după un operator, precum și enunțuri care fac referire evident la cod lipsă. Nu a fost identificat exemplul „3==”; o captură sau ID-ul ar permite verificarea precisă.
+- Două enunțuri au fost clarificate: py-239 specifică datetime.date.weekday(), iar net-051 întreabă despre succesorul obișnuit istoric al X.25. ID-urile și răspunsurile sunt păstrate.
+- O verificare automată structurală NU demonstrează corectitudinea logică sau factuală a tuturor celor 2.967 de exerciții vechi. Acestea nu au fost revizuite manual integral; nu considera auditul de conținut încheiat.
+
+PUBLICARE
+- Aceasta este o copie locală; site-ul live și baza de date nu au fost modificate. Fișierele noi se încarcă din index.html. Citiți și CITESTE-MA.txt pentru instalare și limitări.

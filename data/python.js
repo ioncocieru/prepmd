@@ -4613,7 +4613,7 @@ window.EXAM_DATA.python = {
       "id": "py-239",
       "chapter": "module-librarii",
       "type": "single",
-      "question": "What does weekday() return?",
+      "question": "In Python, what does the datetime.date.weekday() method return?",
       "options": [
         "A weekday name",
         "An integer from 0 to 6",
