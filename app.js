@@ -493,8 +493,10 @@ function openContactPrompt(user, editing = false) {
   dialog.dataset.mode = editing ? "edit" : "required";
   $("#phone-title").textContent = editing ? "Actualizează profilul" : "Confirmă datele tale";
   const m=user.user_metadata || {};
-  $("#contact-last").value = m.last_name || "";
-  $("#contact-first").value = m.first_name || "";
+  // Google trimite numele în alt format: îl pre-completăm, utilizatorul îl confirmă
+  const pn = normalizeProfileName(m.full_name || m.name || "").split(" ");
+  $("#contact-first").value = m.first_name || m.given_name || (pn.length > 1 ? pn[0] : "");
+  $("#contact-last").value = m.last_name || m.family_name || (pn.length > 1 ? pn.slice(1).join(" ") : (pn[0] || ""));
   $("#phone-cancel").hidden = !editing;
   $("#phone-signout").hidden = editing;
   $("#contact-phone").value = user.user_metadata?.contact_phone || "";
@@ -547,7 +549,12 @@ $("#phone-form").addEventListener("submit", async e => {
   if (!phone) { err.textContent = "Introdu un număr de telefon valid, de exemplu 069 123 456."; err.hidden = false; return; }
   btn.disabled = true; $("#phone-cancel").disabled = true;
   try {
-    const {data, error} = await sb.auth.updateUser({data: {contact_phone: phone, ...accountNameData(first, last)}});
+    const extra = {};
+    if ($("#screen-phone").dataset.mode !== "edit") {   // prima completare după Google
+      const cu = (await sb.auth.getUser()).data?.user, prov = cu?.app_metadata?.provider;
+      if (prov && prov !== "email" && cu.user_metadata?.self_registered === undefined) extra.self_registered = true;
+    }
+    const {data, error} = await sb.auth.updateUser({data: {contact_phone: phone, ...accountNameData(first, last), ...extra}});
     if (error) throw error;
     paintAccountName(data.user);
     window.dispatchEvent(new CustomEvent("prep-profile-updated", {detail:{user:data.user}}));
@@ -644,6 +651,15 @@ async function enterApp() {
     setTimeout(() => showGuide(true), 350);
   }
 }
+
+/* Autentificare cu Google (Supabase OAuth). Numele și telefonul se cer apoi în „Confirmă datele tale”. */
+document.querySelectorAll("[data-oauth]").forEach(btn => btn.addEventListener("click", async () => {
+  const box = btn.closest(".auth-pane") || document, err = box.querySelector(".auth-social-error");
+  if (err) err.hidden = true;
+  btn.disabled = true;
+  const { error } = await sb.auth.signInWithOAuth({ provider: btn.dataset.oauth, options: { redirectTo: location.origin + location.pathname } });
+  if (error) { btn.disabled = false; if (err) { err.textContent = "Nu am putut începe autentificarea: " + error.message; err.hidden = false; } }
+}));
 
 $("#logout-btn").addEventListener("click", async () => {
   await sb.auth.signOut();
