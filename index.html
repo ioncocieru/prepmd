@@ -26,45 +26,172 @@
 <link rel="stylesheet" href="prep-nou.css?v=20261104-2">
 <link rel="stylesheet" href="landing-nou.css?v=20261105-3">
 <link rel="stylesheet" href="auth-social.css?v=3">
+<link rel="stylesheet" href="landing-prep.css?v=2">
 </head>
 <body>
 
 <!-- ============ ECRAN 0: PREZENTARE (vizitatori neautentificați) ============ -->
 <section id="screen-landing" class="screen screen-landing active">
-  <header class="home-nav"><a class="home-brand" href="#" data-scroll="home-top">Prep<span>.</span></a><nav aria-label="Navigare"><a href="#home-bac" data-scroll="home-bac">Nota 10</a><a href="#home-exams" data-scroll="home-exams">Examene</a><a href="#home-steps" data-scroll="home-steps">Cum începi</a><a href="#home-price" data-scroll="home-price">Prețuri</a></nav><div class="home-nav-actions"><button class="home-link" data-go-login="login">Intră în cont</button><button class="home-button small" data-go-login="register">Creează cont</button></div></header>
-  <main id="home-top" class="home-main">
-    <div class="home-hero"><div class="home-copy"><span class="hero-label">PREGĂTIRE PENTRU CERTIPORT</span><h1>Pregătește-te pentru <em>Certiport.</em><br>Țintește nota 10 la BAC.</h1><p class="home-lead">Lecții, întrebări și simulări. Tot ce ai nevoie ca să exersezi pentru certificări.</p><div class="home-actions"><button class="home-button" data-go-login="register">Creează cont</button><a href="#home-steps" class="home-secondary" data-scroll="home-steps">Cum începi</a></div><p class="home-micro">Îți creezi contul gratuit.</p></div><aside class="hero-study" aria-label="Exemplu de întrebare din Prep"><div class="study-window"><div class="study-top"><span class="study-logo">Prep<span>.</span></span><span>SPAȚIUL TĂU DE ÎNVĂȚARE</span><span class="study-dots" aria-hidden="true">•••</span></div><div class="study-content"><div class="study-intro"><div><span class="study-kicker">EXEMPLU DE ÎNTREBARE</span><h2>Python</h2></div><span class="study-tag">Exersează în ritmul tău</span></div><div class="study-question"><div class="study-meta"><span>PROGRAMARE</span><span>Întrebare de exemplu</span></div><h3>Ce tip de date are rezultatul?</h3><pre><code>rezultat = 17 // 5</code></pre><div class="study-answer"><span></span> int</div><div class="study-answer"><span></span> float</div><div class="study-answer study-muted"><span></span> str</div></div><div class="study-bottom"><span>O întrebare pe rând.</span><strong>Înveți. Exersezi. Progresezi.</strong></div></div></div></aside></div>
-    <section id="home-exams" class="home-section exam-simple" aria-labelledby="exam-simple-title">
-      <div class="exam-simple-header"><div><span class="section-eyebrow">EXAMENE</span><h2 id="exam-simple-title">Alege câte unul.</h2><p>Pentru BAC: un certificat din fiecare domeniu.</p></div><span class="exam-simple-count">3 domenii <span aria-hidden="true">/</span> 3 certificate</span></div>
-      <div class="exam-simple-grid">
-        <article class="exam-domain"><div class="domain-header domain-header-a"><div><h3>Programare</h3></div><svg class="domain-illustration" viewBox="0 0 88 64" fill="none" aria-hidden="true"><rect x="13" y="8" width="62" height="47" rx="7" stroke="currentColor" stroke-width="2"/><path d="M13 20h62M25 14h1m6 0h1m6 0h1M36 28l-7 6 7 6m17-12 7 6-7 6m-5-16-6 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="domain-options">
-          <button type="button" class="domain-exam" data-pick-exam="python"><img src="assets/exam-badges/python.webp" alt=""><span>Python</span><span class="domain-arrow" aria-hidden="true">↗</span></button>
-          <button type="button" class="domain-exam" data-pick-exam="html5"><img src="assets/exam-badges/html5.webp" alt=""><span>HTML5 Application Development</span><span class="domain-arrow" aria-hidden="true">↗</span></button>
-        </div></article>
-        <article class="exam-domain"><div class="domain-header domain-header-b"><div><h3>Calculatoare și rețele</h3></div><svg class="domain-illustration" viewBox="0 0 88 64" fill="none" aria-hidden="true"><rect x="27" y="5" width="34" height="21" rx="4" stroke="currentColor" stroke-width="2"/><path d="M44 26v12m-22 0h44M22 38v7m44-7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="10" y="45" width="24" height="14" rx="3" stroke="currentColor" stroke-width="2"/><rect x="54" y="45" width="24" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M38 19h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="domain-options">
-          <button type="button" class="domain-exam" data-pick-exam="networking"><img src="assets/exam-badges/networking.webp" alt=""><span>Networking</span><span class="domain-arrow" aria-hidden="true">↗</span></button>
-          <button type="button" class="domain-exam" data-pick-exam="deviceConfig"><img src="assets/exam-badges/device.webp" alt=""><span>Device Configuration and Management</span><span class="domain-arrow" aria-hidden="true">↗</span></button>
-        </div></article>
-        <article class="exam-domain"><div class="domain-header domain-header-c"><div><h3>Baze de date</h3></div><svg class="domain-illustration" viewBox="0 0 88 64" fill="none" aria-hidden="true"><ellipse cx="44" cy="15" rx="23" ry="8" stroke="currentColor" stroke-width="2"/><path d="M21 15v32c0 4.4 10.3 8 23 8s23-3.6 23-8V15M21 26c0 4.4 10.3 8 23 8s23-3.6 23-8M21 37c0 4.4 10.3 8 23 8s23-3.6 23-8" stroke="currentColor" stroke-width="2"/></svg></div><div class="domain-options">
-          <button type="button" class="domain-exam" data-pick-exam="databases"><img src="assets/exam-badges/databases.webp" alt=""><span>Databases</span><span class="domain-arrow" aria-hidden="true">↗</span></button>
-        </div></article>
+<div class="pl">
+  <header class="pl-nav"><div class="pl-wrap pl-nav-in">
+    <a class="pl-brand" href="#home-top" data-scroll="home-top">Prep<span>.</span></a>
+    <nav aria-label="Navigare"><a href="#home-bac" data-scroll="home-bac">Nota 10</a><a href="#home-exams" data-scroll="home-exams">Examene</a><a href="#home-steps" data-scroll="home-steps">Cum începi</a><a href="#home-price" data-scroll="home-price">Prețuri</a></nav>
+    <div class="pl-nav-act"><button class="pl-link" data-go-login="login">Intră în cont</button><button class="pl-btn pl-btn-p pl-sm" data-go-login="register">Creează cont</button></div>
+  </div></header>
+
+  <main id="home-top">
+    <section class="pl-hero"><div class="pl-wrap pl-hero-in">
+      <div class="pl-hero-copy">
+        <h1>Exersezi pe Prep. Primești nota 10 din oficiu la BAC.</h1>
+        <p>Curs video, peste 3.100 de întrebări și simulări pentru examenele Certiport. Treci certificările și ai nota 10 la informatică, fără examen.</p>
+        <div class="pl-cta">
+          <button class="pl-btn pl-btn-p" data-go-login="register">Creează cont gratuit</button>
+          <a class="pl-btn pl-btn-o" href="#home-steps" data-scroll="home-steps">Cum începi</a>
+        </div>
+        <ul class="pl-stats"><li><b>3.100+</b>întrebări de exersat</li><li><b>6</b>examene disponibile la alegere</li><li><b>Video</b>curs, teste și simulări</li></ul>
       </div>
-      <button type="button" class="exam-next-link" data-pick-exam="pythonNextGen"><img src="assets/exam-badges/python.webp" alt=""><span><strong>Python Next Generation</strong><small>Modul de pregătire, nu examen separat</small></span><span aria-hidden="true">↗</span></button>
-      <div class="exam-simple-footer"><p>Examenele oficiale se susțin separat.</p><a class="simple-annex" href="#home-bac" data-scroll="home-bac">Vezi condițiile în anexă <span aria-hidden="true">↓</span></a></div>
-    </section>
-    <section id="home-bac" class="home-section home-order"><div class="section-top"><div><span class="section-eyebrow">DOCUMENT OFICIAL</span><h2>Ce spune ordinul?</h2></div><a class="text-link" href="assets/ance/ordin-1326-2023.pdf" target="_blank" rel="noopener">Ordinul integral ↗</a></div><div class="order-pages"><article class="order-page"><div class="order-page-head"><div><span>METODOLOGIE</span><h3>Condițiile și cererea</h3></div><span>Pagina 2</span></div><a href="assets/ance/ordin-conditii.webp" target="_blank" rel="noopener" aria-label="Mărește extrasul cu condițiile"><img src="assets/ance/ordin-conditii.webp" alt="Extras din ordin: condițiile pentru nota 10 și depunerea cererii, evidențiate." loading="lazy" width="1512" height="1228"><span class="order-enlarge">Mărește imaginea ↗</span></a></article><article class="order-page"><div class="order-page-head"><div><span>LISTA EXAMENELOR</span><h3>Examenele recunoscute</h3></div><span>Pagina 5</span></div><a href="assets/ance/ordin-examene.webp" target="_blank" rel="noopener" aria-label="Mărește lista examenelor"><img src="assets/ance/ordin-examene.webp" alt="Extras din lista oficială a examenelor, cu rândurile relevante evidențiate." loading="lazy" width="2136" height="1503"><span class="order-enlarge">Mărește imaginea ↗</span></a></article></div><p class="order-source">Ordinul MEC nr. 1326/2023. <a href="https://ance.gov.md/content/10-zece-din-oficiu-la-proba-de-informatic%C4%83-examenului-na%C8%9Bional-de-bacalaureat" target="_blank" rel="noopener noreferrer">Verifică informațiile actuale la ANCE ↗</a></p></section>
-    <section id="home-steps" class="home-section story-section" aria-labelledby="story-title"><div class="section-top"><div><span class="section-eyebrow">CUM ÎNCEPI</span><h2 id="story-title">Cum începi?</h2></div><p>Glisează sau alege un pas.</p></div>
-<div class="story-shell"><div class="story-track" tabindex="0" role="region" aria-label="Pașii pentru a începe" aria-describedby="story-help">
-<article class="story-slide story-account" aria-label="Pasul 1 din 4"><div class="story-copy"><span class="story-kicker">PASUL 01 / 04</span><h3>Creează-ți contul</h3><p>Înregistrarea este gratuită.</p><button class="story-action" data-go-login="register">Creează cont</button><small>Ai deja cont? <button type="button" data-go-login="login">Intră în cont</button></small></div><div class="story-art phone-stage"><div class="phone-wrap"><span class="phone-example">ECRAN DIN PREP</span><div class="mock-phone" role="img" aria-label="Extras din formularul real Prep pentru crearea contului"><div class="phone-screen real-app"><div class="phone-status"><span>9:41</span><span class="phone-indicators" aria-hidden="true"><svg viewBox="0 0 44 12"><path d="M1 9h2V7H1zm3 0h2V5H4zm3 0h2V3H7zm3 0h2V1h-2z" fill="currentColor"/><path d="M16 4c2.8-2.6 6.8-2.6 9.6 0M18 6c1.7-1.5 3.7-1.5 5.4 0M20.7 8.7h.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="29" y="2" width="12" height="7" rx="1.5" fill="none" stroke="currentColor"/><rect x="30.3" y="3.3" width="9" height="4.4" rx=".6" fill="currentColor"/><path d="M42 4v3" stroke="currentColor" stroke-linecap="round"/></svg></span></div><img src="assets/preview-cont.webp" alt="" loading="lazy"></div></div></div></div></article>
-<article class="story-slide story-telegram" aria-label="Pasul 2 din 4"><div class="story-copy"><span class="story-kicker">PASUL 02 / 04</span><h3>Alege și scrie-ne</h3><p>După ce intri în cont, alegi modulele și ne scrii pe Telegram pentru achitare și acces.</p><button class="story-action" data-open-shop>Alege modulele</button><small>Telegram: @prepadm</small></div><div class="story-art phone-stage"><div class="phone-wrap"><span class="phone-example">EXEMPLU DE CONVERSAȚIE</span><div class="mock-phone" role="img" aria-label="Exemplu de conversație: administratorul confirmă accesul, iar utilizatorul mulțumește"><div class="phone-screen phone-chat"><div class="phone-status"><span>9:41</span><span class="phone-indicators" aria-hidden="true"><svg viewBox="0 0 44 12"><path d="M1 9h2V7H1zm3 0h2V5H4zm3 0h2V3H7zm3 0h2V1h-2z" fill="currentColor"/><path d="M16 4c2.8-2.6 6.8-2.6 9.6 0M18 6c1.7-1.5 3.7-1.5 5.4 0M20.7 8.7h.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="29" y="2" width="12" height="7" rx="1.5" fill="none" stroke="currentColor"/><rect x="30.3" y="3.3" width="9" height="4.4" rx=".6" fill="currentColor"/><path d="M42 4v3" stroke="currentColor" stroke-linecap="round"/></svg></span></div><div class="chat-head"><div class="chat-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.5 2.7 10.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.9 5.8c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.7l3-14.1c.3-1.2-.4-1.7-1.2-1.2Z"/></svg></div><div><b>prepadm</b><small>Telegram</small></div></div><div class="chat-day">EXEMPLU</div><div class="chat-bubble chat-in">Bună! Accesul tău a fost activat cu succes.<small>10:24</small></div><div class="chat-bubble chat-out">Mulțumesc mult!<small>10:25 ✓✓</small></div><div class="chat-compose">Mesaj <span>●</span></div></div></div></div></div></article>
-<article class="story-slide story-practice" aria-label="Pasul 3 din 4"><div class="story-copy"><span class="story-kicker">PASUL 03 / 04</span><h3>Exersează pe Prep</h3><p>După activarea accesului, înveți și verifici ce știi.</p><a class="story-action" href="#home-exams" data-scroll="home-exams">Vezi modulele</a></div><div class="story-art phone-stage"><div class="phone-wrap"><span class="phone-example">ECRAN DIN PREP</span><div class="mock-phone" role="img" aria-label="O întrebare din modul Python Next Generation"><div class="phone-screen real-app"><div class="phone-status"><span>9:41</span><span class="phone-indicators" aria-hidden="true"><svg viewBox="0 0 44 12"><path d="M1 9h2V7H1zm3 0h2V5H4zm3 0h2V3H7zm3 0h2V1h-2z" fill="currentColor"/><path d="M16 4c2.8-2.6 6.8-2.6 9.6 0M18 6c1.7-1.5 3.7-1.5 5.4 0M20.7 8.7h.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="29" y="2" width="12" height="7" rx="1.5" fill="none" stroke="currentColor"/><rect x="30.3" y="3.3" width="9" height="4.4" rx=".6" fill="currentColor"/><path d="M42 4v3" stroke="currentColor" stroke-linecap="round"/></svg></span></div><img src="assets/preview-intrebare.webp" alt="" loading="lazy"></div></div></div></div></article>
-<article class="story-slide story-exam" aria-label="Pasul 4 din 4"><div class="story-copy"><span class="story-kicker">PASUL 04 / 04</span><h3>Susține examenul oficial</h3><p>Îl programezi separat, la un centru autorizat.</p><a class="story-action" href="#certificate" data-scroll="certificate">Vezi certificatul</a></div><div class="story-art phone-stage"><div class="phone-wrap"><span class="phone-example">MODEL DEMONSTRATIV</span><div class="mock-phone" role="img" aria-label="Model demonstrativ de certificat Python; examenul oficial se susține separat"><div class="phone-screen phone-certificate"><div class="phone-status"><span>9:41</span><span class="phone-indicators" aria-hidden="true"><svg viewBox="0 0 44 12"><path d="M1 9h2V7H1zm3 0h2V5H4zm3 0h2V3H7zm3 0h2V1h-2z" fill="currentColor"/><path d="M16 4c2.8-2.6 6.8-2.6 9.6 0M18 6c1.7-1.5 3.7-1.5 5.4 0M20.7 8.7h.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="29" y="2" width="12" height="7" rx="1.5" fill="none" stroke="currentColor"/><rect x="30.3" y="3.3" width="9" height="4.4" rx=".6" fill="currentColor"/><path d="M42 4v3" stroke="currentColor" stroke-linecap="round"/></svg></span></div><div class="certificate-head">Certificatul tău</div><div class="certificate-preview"><img src="assets/certificat-model.webp" alt="" loading="lazy"></div><div class="certificate-caption"><b>Python</b><span>Model demonstrativ</span><p>Examenul oficial se susține separat.</p></div></div></div></div></div></article>
-</div><div class="story-controls"><span id="story-help">Glisează pentru pasul următor</span><div class="story-dots" aria-label="Alege pasul"><button type="button" aria-label="Pasul 1: Creează contul" aria-current="true">01</button><button type="button" aria-label="Pasul 2: Alege și scrie-ne">02</button><button type="button" aria-label="Pasul 3: Exersează">03</button><button type="button" aria-label="Pasul 4: Examenul oficial">04</button></div><button type="button" class="story-next">Următorul pas</button></div></div></section>
-    <section id="certificate" class="home-section cert-section"><div class="cert-copy"><span class="section-eyebrow">URMĂTORUL PAS</span><h2>Certificatul poate purta numele tău.</h2><p>Examenul oficial se susține separat, la un centru autorizat.</p><button class="text-action" data-open-shop>Începe pregătirea</button></div><div class="cert-frame"><span>MODEL DE CERTIFICAT</span><img src="assets/certificat-model.webp" alt="Model demonstrativ de certificat Python, cu textul Numele tău; nu este un certificat real." loading="lazy" width="1600" height="1202"></div></section>
-    <section id="home-price" class="home-section offers"><div class="section-top"><div><span class="section-eyebrow">PREȚURI</span><h2>Alege varianta ta.</h2></div><p>Acces la materialele de pregătire.</p></div><div class="offer-grid"><article class="offer-card"><span class="offer-label">UN MODUL LA ALEGERE</span><h3>Începe cu unul.</h3><p class="offer-old">Preț anterior <s>30 €</s></p><p class="offer-amount"><strong>19,99 €</strong><span>≈ 400 lei MDL</span></p><p>Oricare modul din listă.</p><button class="offer-button" data-open-shop>Alege modulul</button></article><article class="offer-card offer-complete"><div class="offer-card-head"><span class="offer-label">PACHET COMPLET</span><span class="offer-recommended">RECOMANDAT</span></div><h3>Toate cele 6.</h3><p class="offer-old">Preț anterior <s>100 €</s></p><p class="offer-amount"><strong>49,99 €</strong><span>≈ 1.000 lei MDL</span></p><ul class="offer-list"><li>Python</li><li>Databases</li><li>Python Next Generation</li><li>Networking</li><li>Device Configuration and Management</li><li>HTML5 Application Development</li></ul><button class="offer-button" data-open-bundle>Alege pachetul</button></article></div></section>
-    <section id="lp-reviews" class="home-section home-reviews" hidden><span class="section-eyebrow">EXPERIENȚE REALE</span><h2>Cristian îți povestește.</h2><div class="home-review-layout"><div id="lp-vids"></div><div id="lp-quotes"></div></div></section>
-    <section class="home-section faq-section"><span class="section-eyebrow">ÎNTREBĂRI</span><h2>Ai o întrebare?</h2><details><summary>Ce înseamnă o certificare internațională?</summary><p>După pregătire, poți susține separat un examen Certiport, într-un centru autorizat. Dacă îl promovezi, obții o certificare recunoscută internațional, care îți validează competențele și poate fi utilă la facultate sau în carieră. În Moldova, nota 10 din oficiu la informatică poate fi solicitată în condițiile ordinului: sunt necesare trei certificate recunoscute, câte unul din fiecare domeniu, și îndeplinirea celorlalte cerințe. Verifică informațiile actuale la ANCE.</p></details><details><summary>Cum pot lua legătura cu voi?</summary><p>Scrie-ne pe Telegram: <a href="https://t.me/prepadm" target="_blank" rel="noopener noreferrer">@prepadm ↗</a></p></details><details><summary>Prep oferă certificatul oficial?</summary><p>Nu. Pe Prep te pregătești. Examenul oficial se susține separat, la un centru autorizat.</p></details><details><summary>Trebuie să aleg toate modulele?</summary><p>Nu. Poți alege unul, mai multe sau pachetul complet.</p></details><details><summary>Unde pot achita cash?</summary><p>În Bălți. Scrie-ne pe Telegram pentru detalii.</p></details></section>
-  </main><footer class="home-footer"><b>Prep<span>.</span></b><div><a href="termeni-si-conditii.html">Acordul utilizatorului</a><a href="politica-de-confidentialitate.html">Politica de confidențialitate</a><a href="https://t.me/prepadm" target="_blank" rel="noopener noreferrer">Telegram @prepadm</a></div></footer>
+      <figure class="pl-atestat" aria-label="Rezultatele examenelor de bacalaureat, cu nota 10 la Informatică">
+        <div class="pl-paper"><img src="assets/atestat-bac.webp" alt="Rezultatele examenelor de bacalaureat: la Informatică, nota 10 (zece)" width="1600" height="2260"><span class="pl-hl" aria-hidden="true"></span></div>
+        <div class="pl-badge10" aria-hidden="true"><div><b>10</b><small>la BAC<br>din oficiu</small></div></div>
+      </figure>
+    </div></section>
+
+    <section class="pl-sec"><div class="pl-wrap">
+      <div class="pl-head pl-rv"><span class="pl-k">CUM FUNCȚIONEAZĂ</span><h2>Patru pași până la nota 10</h2><p>Parcurgi materialul în ritmul tău, apoi susții examenul oficial.</p></div>
+      <div class="pl-path" id="pl-path">
+        <ol class="pl-nodes">
+          <li><button class="pl-node on" data-i="0"><i>1</i><span><b>Urmărești cursul</b><em>Lecții video scurte, pe capitole, în română.</em></span></button></li>
+          <li><button class="pl-node" data-i="1"><i>2</i><span><b>Exersezi testele</b><em>Peste 3.100 de întrebări, cu explicații la răspunsuri.</em></span></button></li>
+          <li><button class="pl-node" data-i="2"><i>3</i><span><b>Susții examenul Certiport</b><em>Examenul oficial, la un centru autorizat.</em></span></button></li>
+          <li><button class="pl-node" data-i="3"><i>4</i><span><b>Primești nota 10</b><em>Nota 10 din oficiu la informatică, fără examen la BAC.</em></span></button></li>
+        </ol>
+        <div class="pl-stage" aria-hidden="true">
+          <div class="pl-scene on"><figure class="pl-course"><img src="assets/curs-video.webp" alt="" loading="lazy"><div class="pl-pbar"><u></u></div></figure><p class="pl-cap"><small>Domain 1 — Operations Using Data Types and Operators</small><b>Convert and Work With Data Types — Video 2</b></p></div>
+          <div class="pl-scene">
+            <div class="pl-quiz"><span class="pl-chip">1 răspuns corect</span><p>Which database object added on Salary can improve filtering performance?</p><div class="o">NOT NULL constraint</div><div class="o">DEFAULT constraint</div><div class="o k">Index</div><div class="o">Foreign key</div><div class="pl-count"><b>3.100+</b> întrebări de exersat</div></div>
+          </div>
+          <div class="pl-scene">
+            <div class="pl-certm"><img src="assets/certificat-model.webp" alt="" loading="lazy"><span class="pl-stamp">Promovat</span></div>
+          </div>
+          <div class="pl-scene">
+            <div class="pl-atw"><div class="pl-paper"><img src="assets/atestat-bac.webp" alt="" loading="lazy"><span class="pl-hl"></span></div><div class="pl-badge10 sm"><div><b>10</b><small>din oficiu</small></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="home-exams" class="pl-sec pl-white"><div class="pl-wrap">
+      <div class="pl-head pl-rv"><span class="pl-k">EXAMENE</span><h2>Alege examenul tău</h2><p>Fiecare modul are curs video și bancă proprie de întrebări. Pentru nota 10 ai nevoie de câte un certificat din fiecare domeniu.</p></div>
+      <div class="pl-exams">
+        <article class="pl-ex pl-rv" style="--c:#2f6bff;--t:#e8effd"><div class="pl-art"><div class="pl-win"><div class="pl-wh"><i></i><i></i><i></i><span>main.py</span></div><pre class="pl-code"><b class="k">def</b> <b class="f">greet</b>(name):
+    <b class="k">return</b> <b class="s">f"Salut, {name}!"</b>
+
+<b class="k">for</b> i <b class="k">in</b> <b class="f">range</b>(<b class="n">3</b>):
+    <b class="f">print</b>(<b class="f">greet</b>(<b class="s">"Prep"</b>))</pre></div><img class="pl-bdg" src="assets/exam-badges/python.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="pl-ex-b"><span class="pl-chip">Programare</span><h3>Python</h3><p>Variabile, structuri de control, funcții și module.</p><button class="pl-pick" data-pick-exam="python">Alege modulul</button></div></article>
+        <article class="pl-ex pl-rv" style="--c:#2f6bff;--t:#e8effd"><div class="pl-art"><div class="pl-win"><div class="pl-wh"><i></i><i></i><i></i><span>index.html</span></div><pre class="pl-code"><b class="k">&lt;main&gt;</b>
+  <b class="k">&lt;h1&gt;</b>Prep.<b class="k">&lt;/h1&gt;</b>
+  <b class="k">&lt;canvas</b> id=<b class="s">"c"</b><b class="k">&gt;&lt;/canvas&gt;</b>
+<b class="k">&lt;/main&gt;</b>
+<b class="k">&lt;script&gt;</b>
+  <b class="f">localStorage</b>.setItem(<b class="s">"n"</b>, <b class="n">10</b>)
+<b class="k">&lt;/script&gt;</b></pre></div><img class="pl-bdg" src="assets/exam-badges/html5.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="pl-ex-b"><span class="pl-chip">Programare</span><h3>HTML5 Application Development</h3><p>HTML5, CSS, JavaScript și API-urile browserului.</p><button class="pl-pick" data-pick-exam="html5">Alege modulul</button></div></article>
+        <article class="pl-ex pl-rv" style="--c:#12a594;--t:#e1f4ef"><div class="pl-art"><div class="pl-win"><div class="pl-wh"><i></i><i></i><i></i><span>terminal</span></div><pre class="pl-code"><b class="c">$</b> <b class="f">ping</b> 192.168.1.1
+Reply from 192.168.1.1: <b class="n">2ms</b>
+Reply from 192.168.1.1: <b class="n">1ms</b>
+<b class="c">$</b> <b class="f">ipconfig</b>
+IPv4 . . : <b class="s">192.168.1.24</b>
+Mask . . : 255.255.255.0</pre></div><img class="pl-bdg" src="assets/exam-badges/networking.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="pl-ex-b"><span class="pl-chip">Calculatoare și rețele</span><h3>Networking</h3><p>Concepte de rețea, echipamente și protocoale.</p><button class="pl-pick" data-pick-exam="networking">Alege modulul</button></div></article>
+        <article class="pl-ex pl-rv" style="--c:#12a594;--t:#e1f4ef"><div class="pl-art"><div class="pl-win pl-light"><div class="pl-wh"><i></i><i></i><i></i><span>Settings</span></div><ul class="pl-set"><li><span>Windows Update</span><u class="ok">Actualizat</u></li><li><span>Bluetooth</span><u class="tg on"></u></li><li><span>Wi-Fi</span><u class="tg on"></u></li><li><span>Device Manager</span><u class="ar">›</u></li></ul></div><img class="pl-bdg" src="assets/exam-badges/device.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="pl-ex-b"><span class="pl-chip">Calculatoare și rețele</span><h3>Device Configuration and Management</h3><p>Instalarea, configurarea și depanarea dispozitivelor Windows.</p><button class="pl-pick" data-pick-exam="deviceConfig">Alege modulul</button></div></article>
+        <article class="pl-ex pl-rv" style="--c:#7b5cf0;--t:#efeafc"><div class="pl-art"><div class="pl-win"><div class="pl-wh"><i></i><i></i><i></i><span>query.sql</span></div><pre class="pl-code"><b class="k">SELECT</b> name, salary
+<b class="k">FROM</b> ProAthlete
+<b class="k">WHERE</b> salary &gt; <b class="n">500000</b>
+<b class="k">ORDER BY</b> salary <b class="k">DESC</b>;
+<b class="c">-- 3 rânduri</b></pre></div><img class="pl-bdg" src="assets/exam-badges/databases.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="pl-ex-b"><span class="pl-chip">Baze de date</span><h3>Databases</h3><p>Baze de date relaționale: DDL, DML, extragere de date.</p><button class="pl-pick" data-pick-exam="databases">Alege modulul</button></div></article>
+        <article class="pl-ex pl-rv" style="--c:#2f6bff;--t:#e8effd"><div class="pl-art"><div class="pl-win"><div class="pl-wh"><i></i><i></i><i></i><span>lab.py</span></div><pre class="pl-code">total = <b class="f">sum</b>(<b class="f">range</b>(<b class="n">1</b>, <b class="n">11</b>))
+<b class="f">print</b>(total)
+
+<b class="c"># Rulează laburile direct în pagină</b>
+<span class="pl-run">▶ Run</span>  <b class="s">55</b></pre></div><img class="pl-bdg" src="assets/exam-badges/python.webp" alt="" loading="lazy" onerror="this.remove()"></div><div class="pl-ex-b"><span class="pl-chip">Modul de pregătire</span><h3>Python Next Generation</h3><p>Întrebări și laburi interactive. Nu este un examen separat.</p><button class="pl-pick" data-pick-exam="pythonNextGen">Alege modulul</button></div></article>
+      </div>
+      <p class="pl-note">Examenele oficiale se susțin separat. <a href="#home-bac" data-scroll="home-bac">Vezi condițiile în ordin</a></p>
+    </div></section>
+
+    <section id="home-bac" class="pl-sec"><div class="pl-wrap">
+      <div class="pl-head pl-rv"><span class="pl-k">NOTA 10 DIN OFICIU</span><h2>Ce spune ordinul?</h2><p>Nota 10 din oficiu la informatică se solicită în condițiile Ordinului MEC nr. 1326/2023: trei certificate recunoscute, câte unul din fiecare domeniu.</p></div>
+      <div class="pl-order">
+        <figure class="pl-rv"><a href="assets/ance/ordin-conditii.webp" target="_blank" rel="noopener"><img src="assets/ance/ordin-conditii.webp" alt="Extras din ordin: condițiile pentru nota 10 și depunerea cererii, evidențiate." loading="lazy"></a><figcaption><b>Condițiile și cererea</b><span>Pagina 2 · <a href="assets/ance/ordin-conditii.webp" target="_blank" rel="noopener">Mărește imaginea</a></span></figcaption></figure>
+        <figure class="pl-rv"><a href="assets/ance/ordin-examene.webp" target="_blank" rel="noopener"><img src="assets/ance/ordin-examene.webp" alt="Extras din lista oficială a examenelor, cu rândurile relevante evidențiate." loading="lazy"></a><figcaption><b>Examenele recunoscute</b><span>Pagina 5 · <a href="assets/ance/ordin-examene.webp" target="_blank" rel="noopener">Mărește imaginea</a></span></figcaption></figure>
+      </div>
+      <p class="pl-note"><a href="assets/ance/ordin-1326-2023.pdf" target="_blank" rel="noopener">Ordinul integral (PDF)</a> · <a href="https://ance.gov.md/content/10-zece-din-oficiu-la-proba-de-informatic%C4%83-examenului-na%C8%9Bional-de-bacalaureat" target="_blank" rel="noopener noreferrer">Verifică informațiile actuale la ANCE</a></p>
+    </div></section>
+
+    <section id="home-steps" class="pl-sec pl-dark"><div class="pl-wrap">
+      <div class="pl-head pl-rv"><span class="pl-k">GHID</span><h2>Cum începi?</h2><p>Alege un pas și vezi cum arată în aplicație.</p></div>
+      <div class="pl-guide">
+        <div class="pl-tabs">
+          <div class="pl-tab" data-i="0" aria-current="true"><button type="button" class="pl-th"><i>1</i><b>Creează-ți contul</b></button><div class="pl-tb"><span>Înregistrarea este gratuită, cu email sau cu Google.</span><button type="button" class="pl-btn pl-btn-p pl-sm" data-go-login="register">Creează cont</button></div></div>
+          <div class="pl-tab" data-i="1"><button type="button" class="pl-th"><i>2</i><b>Alege și scrie-ne</b></button><div class="pl-tb"><span>Alegi modulele și ne scrii pe Telegram pentru achitare și acces.</span><button type="button" class="pl-btn pl-btn-p pl-sm" data-open-shop>Alege modulele</button></div></div>
+          <div class="pl-tab" data-i="2"><button type="button" class="pl-th"><i>3</i><b>Exersează pe Prep.</b></button><div class="pl-tb"><span>După activarea accesului, înveți din curs și verifici ce știi cu întrebări.</span></div></div>
+          <div class="pl-tab" data-i="3"><button type="button" class="pl-th"><i>4</i><b>Susține examenul oficial</b></button><div class="pl-tb"><span>Îl programezi separat, la un centru autorizat. Cu certificatele obținute ai deja nota 10 la informatică, fără să mai mergi la examen.</span></div></div>
+        </div>
+        <div class="pl-phone" aria-hidden="true">
+          <div class="pl-sb"><span>9:41</span><span class="pl-sbi"><u></u><u></u><u></u></span></div>
+          <div class="pl-screen on"><img src="assets/preview-cont-nou.webp" alt="" loading="lazy"></div>
+          <div class="pl-screen pl-tgs">
+            <div class="pl-tgh"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 5l-7 7 7 7" fill="none" stroke="#2a9bd8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Prep. Administrator</b><small>online</small></div><img src="assets/telegram-profil.webp" alt=""></div>
+            <div class="pl-tgc">
+              <p class="m">Bună! Vreau acces la Python și Databases.<br>Emailul contului: ion@gmail.com<time>10:21 ✓✓</time></p>
+              <p class="a">Salut! Achită și trimite-ne confirmarea.<time>10:22</time></p>
+              <p class="m">Am achitat, mulțumesc!<time>10:24 ✓✓</time></p>
+              <p class="a">Accesul tău a fost activat cu succes.<time>10:24</time></p>
+              <p class="m">Mulțumesc mult!<time>10:25 ✓✓</time></p>
+            </div>
+            <div class="pl-tgi"><span>Mesaj</span></div>
+          </div>
+          <div class="pl-screen pl-qs"><img src="assets/preview-databases.webp" alt="" loading="lazy"><p>Databases · întrebarea 12 din 304</p></div>
+          <div class="pl-screen pl-ats"><b>Rezultatele BAC</b><div class="pl-paper sm"><img src="assets/atestat-bac.webp" alt="" loading="lazy"><span class="pl-hl"></span></div><div class="pl-badge10 sm"><div><b>10</b><small>din oficiu</small></div></div><p>Informatica: nota 10, fără examen.</p></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="certificate" class="pl-sec"><div class="pl-wrap pl-cert">
+      <div class="pl-rv"><span class="pl-k">CERTIFICARE</span><h2>Certificatul pe care îl primești</h2><p>Un certificat internațional emis de Certiport. Îl poți atașa la CV-ul tău. Nu primești doar nota 10 la BAC.</p><button class="pl-btn pl-btn-p" data-open-shop>Începe pregătirea</button><small>Examenul oficial se susține separat, la un centru autorizat.</small></div>
+      <figure class="pl-rv"><img src="assets/certificat-model.webp" alt="Model demonstrativ de certificat Python, cu textul Numele tău; nu este un certificat real." loading="lazy" width="1600" height="1202"><figcaption>Model demonstrativ. Nu este un certificat real.</figcaption></figure>
+    </div></section>
+
+    <section id="lp-reviews" class="home-section home-reviews pl-sec pl-white" hidden><div class="pl-wrap">
+      <div class="pl-head"><span class="pl-k">EXPERIENȚĂ</span><h2>Cristian îți povestește.</h2><p>Experiența unui elev care s-a pregătit pe Prep.</p></div>
+      <div class="home-review-layout"><div id="lp-vids"></div><div id="lp-quotes"></div></div>
+    </div></section>
+
+    <section id="home-price" class="pl-sec pl-soft"><div class="pl-wrap">
+      <div class="pl-head pl-rv"><span class="pl-k">PREȚURI</span><h2>Alege varianta ta</h2><p>Plată o singură dată, acces la materialele de pregătire.</p></div>
+      <div class="pl-prices">
+        <article class="pl-plan pl-rv"><h3>Un examen la alegere</h3><p class="pl-sub">Doar startul.</p><p class="pl-old">Preț anterior <s>30 €</s></p><p class="pl-price"><b>19,99 €</b><small>≈ 400 lei MDL</small></p><ul><li>Curs video</li><li>Toate întrebările modulului</li><li>Progresul tău salvat</li></ul><button class="pl-btn pl-btn-d" data-open-shop>Alege modulul</button></article>
+        <article class="pl-plan pl-best pl-rv"><span class="pl-tag">Recomandat</span><h3>Toate cele 6</h3><p class="pl-sub">Poți schimba oricând examenul la care te pregătești.</p><p class="pl-old">Preț anterior <s>100 €</s></p><p class="pl-price"><b>49,99 €</b><small>≈ 1.000 lei MDL</small></p><ul class="pl-two"><li>Python</li><li>Databases</li><li>Python Next Generation</li><li>Networking</li><li>Device Configuration and Management</li><li>HTML5 Application Development</li></ul><button class="pl-btn pl-btn-p" data-open-bundle>Alege pachetul</button></article>
+      </div>
+    </div></section>
+
+    <section class="pl-sec"><div class="pl-wrap pl-faqw">
+      <span class="pl-k">ÎNTREBĂRI</span><h2>Ai o întrebare?</h2>
+      <div class="pl-faq">
+        <details><summary>Ce înseamnă o certificare internațională?</summary><p>După pregătire, poți susține separat un examen Certiport, într-un centru autorizat. Dacă îl promovezi, obții o certificare recunoscută internațional, care îți validează competențele și poate fi utilă la facultate sau în carieră. În Moldova, nota 10 din oficiu la informatică poate fi solicitată în condițiile ordinului: sunt necesare trei certificate recunoscute, câte unul din fiecare domeniu, și îndeplinirea celorlalte cerințe. Verifică informațiile actuale la ANCE.</p></details>
+        <details><summary>Cum pot lua legătura cu voi?</summary><p>Scrie-ne pe Telegram: <a href="https://t.me/prepadm" target="_blank" rel="noopener noreferrer">@prepadm ↗</a></p></details>
+        <details><summary>Prep oferă certificatul oficial?</summary><p>Nu. Pe Prep te pregătești. Examenul oficial se susține separat, la un centru autorizat.</p></details>
+        <details><summary>Trebuie să aleg toate modulele?</summary><p>Nu. Poți alege unul, mai multe sau pachetul complet.</p></details>
+        <details><summary>Unde pot achita cash?</summary><p>În Bălți. Scrie-ne pe Telegram pentru detalii.</p></details>
+      </div>
+    </div></section>
+
+    <section class="pl-final"><div class="pl-wrap"><h2>Începe azi. Nota 10 se câștigă prin exersare.</h2><div class="pl-cta"><button class="pl-btn pl-btn-w" data-go-login="register">Creează cont gratuit</button><a class="pl-btn pl-btn-o" href="https://t.me/prepadm" target="_blank" rel="noopener noreferrer">Telegram @prepadm</a></div></div></section>
+  </main>
+
+  <footer class="pl-foot"><div class="pl-wrap">
+    <div class="pl-foot-l"><b>Prep<span>.</span></b><p>Platformă de pregătire pentru certificările IT Specialist by Certiport</p></div>
+    <ul><li>Python</li><li>Python Next Generation</li><li>Databases</li><li>Device Configuration and Management</li><li>Networking</li><li>HTML5 Application Development</li></ul>
+    <div class="pl-foot-r"><a href="https://www.prepmd.online/termeni-si-conditii.html">Acordul utilizatorului</a><a href="https://www.prepmd.online/politica-de-confidentialitate.html">Politica de confidențialitate</a><a href="https://t.me/prepadm" target="_blank" rel="noopener noreferrer">Telegram @prepadm</a><a href="https://t.me/prepmd" target="_blank" rel="noopener noreferrer">Comunitatea Prep. pe Telegram</a></div>
+  </div></footer>
+</div>
 </section>
 
 <script>
@@ -531,7 +658,7 @@
 
 <script src="shop.js?v=prep-nou-20261104"></script>
 <script src="home-motion.js?v=1"></script>
-<script src="landing-nou.js?v=20261105-2"></script>
+<script src="landing-prep.js?v=2"></script>
 <script src="home-stories.js?v=1"></script>
 <script src="streak.js?v=1"></script>
 </body>

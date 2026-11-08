@@ -596,6 +596,7 @@ $("#register-form").addEventListener("submit", async (e) => {
   btn.disabled = false;
 
   if (error) {
+    console.error("signUp error:", error.status, error.code, error.message);   // pentru depanare: vezi în consola browserului (F12)
     const m = (error.message || "").toLowerCase();
     if (m.includes("already")) return fail("Acest email este deja înregistrat. Autentifică-te.");
     if (m.includes("rate") || m.includes("too many") || m.includes("seconds")) return fail("Prea multe încercări. Încearcă din nou peste câteva minute.");
