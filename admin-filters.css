@@ -1,0 +1,19 @@
+/* Administrare: filtre bifabile pentru utilizatori */
+.pp-filters{margin:16px 0 8px;border:1px solid var(--line,#dde4ef);border-radius:12px;padding:0 16px 16px;background:var(--surface,#fff)}
+.pp-filters>summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+.pp-filters>summary::-webkit-details-marker{display:none}
+.pp-filters>summary:after{content:"–";font-size:20px;color:var(--muted,#5b6784)}
+.pp-filters:not([open])>summary:after{content:"+"}
+.pp-presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.pp-preset{border:1px solid var(--line,#cfd9ea);background:transparent;color:inherit;border-radius:999px;padding:6px 14px;font:600 13px inherit;font-family:inherit;cursor:pointer}
+.pp-preset:hover{border-color:#2f6bff;color:#2f6bff}
+#pp-filters{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px 20px}
+.pp-fgroup{border:0;margin:0;padding:0;min-width:0}
+.pp-fgroup legend{padding:0;margin-bottom:6px;font:500 11px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#7a8aa0)}
+.pp-check{display:flex;align-items:center;gap:9px;padding:4px 0;font-size:14px;cursor:pointer}
+.pp-check input{width:17px;height:17px;accent-color:#2f6bff;flex:none;margin:0}
+.pp-count{margin-left:auto;font-size:12px;color:var(--muted,#5b6784);background:rgba(127,140,160,.14);border-radius:10px;padding:0 8px;min-width:24px;text-align:center}
+.pp-filter-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid var(--line,#e3e8ef)}
+.pp-sort{display:grid;gap:4px;font-size:13px;margin-right:auto}
+.pp-sort select{min-height:40px;border:1px solid var(--line,#cfd9ea);border-radius:8px;padding:0 10px;background:transparent;color:inherit;font:inherit}
+#pp-user-summary{margin:10px 2px}
