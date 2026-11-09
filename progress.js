@@ -25,7 +25,7 @@
     clearTimeout(syncTimer);
     syncTimer = setTimeout(flush, 2500);
   }
-  function persist(k) { ex(k).updated = Date.now(); saveLocal(); touch(k); }
+  function persist(k) { ex(k).updated = Date.now(); saveLocal(); touch(k); window.dispatchEvent(new Event("prep-progress")); }
   async function flush() {
     if (!P.uid) return;
     const keys = Array.from(dirty); dirty.clear();
@@ -510,6 +510,19 @@
     if (added.includes("questions")) toast("Felicitări! Ai obținut un certificat nou. Îl găsești în Profil.");
   };
 
+  /* statistici pentru mesajele automate (messages.js) */
+  window.PrepStats = { get() {
+    if (!P.ready) return null;
+    const out = {};
+    allowedExams.filter(k => getExam(k)).forEach(k => {
+      const q = qStats(k), c = cStats(k), p = ex(k);
+      out[k] = { name: getExam(k).name, q: { total: q.total, answered: q.answered, done: q.done },
+                 c: { total: c.total, watched: c.watched, done: c.done }, tests: p.tests || 0,
+                 bestPoints: p.bestPoints ?? ((p.best || 0) * 10) };
+    });
+    return out;
+  } };
+
   window.prepRefreshProgress = () => {
     if (!P.ready) return;
     decorateDashboard();
@@ -521,8 +534,8 @@
   const _dash = renderDashboard;
   renderDashboard = function () {
     _dash();
-    if (P.ready) decorateDashboard();
-    else init().then(decorateDashboard);
+    if (P.ready) { decorateDashboard(); window.dispatchEvent(new Event("prep-progress")); }
+    else init().then(() => { decorateDashboard(); window.dispatchEvent(new Event("prep-progress")); });
   };
   $("#logout-btn").addEventListener("click", () => {
     flush();
@@ -531,5 +544,5 @@
   });
   // A cached Supabase session may render the dashboard before this script loads.
   // Initialize progress in that case as well, so native select changes persist per user.
-  if ($("#screen-dashboard")?.classList.contains("active")) init().then(decorateDashboard);
+  if ($("#screen-dashboard")?.classList.contains("active")) init().then(() => { decorateDashboard(); window.dispatchEvent(new Event("prep-progress")); });
 })();

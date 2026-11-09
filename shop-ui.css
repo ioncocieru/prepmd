@@ -1,0 +1,55 @@
+/* Fereastra „Alege modulele” — aspect nou (fără prețuri) */
+.choice-dialog{width:min(780px,calc(100% - 28px));padding:0;border:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(15,27,51,.5)}
+.choice-dialog::backdrop{background:rgba(15,27,51,.55);backdrop-filter:blur(2px)}
+.choice-dialog .choice-root{padding:34px 34px 28px;max-height:calc(100vh - 40px);overflow:auto}
+.choice-close{position:absolute!important;top:18px!important;right:18px!important;left:auto!important;width:38px;height:38px;border-radius:50%!important;z-index:2;display:grid;place-items:center;line-height:1}
+.choice-header{padding-right:46px}
+.choice-eyebrow{display:block;font:500 11.5px "IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.12em!important;color:#2f6bff!important}
+.choice-header h3{font-size:28px!important;letter-spacing:-.02em!important;margin:8px 0 6px!important}
+.choice-header p{font-size:15px!important;color:#5b6784!important;margin:0}
+.choice-list-head{display:flex;align-items:center;justify-content:space-between;margin:26px 0 12px!important}
+.choice-list-head>span{font:500 11px "IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.1em!important;color:#8190a1!important}
+.choice-bundle-btn{border:1px solid #cfd9ea!important;background:#fff!important;border-radius:999px!important;padding:6px 14px!important;font-size:13px!important;font-weight:600!important;color:#2557c9!important;cursor:pointer}
+.choice-bundle-btn:hover{background:#eef3fd!important;border-color:#9db8f0!important}
+.choice-options{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+.choice-option{position:relative;display:flex!important;align-items:center;gap:14px!important;min-height:78px!important;padding:12px 14px!important;border:1.5px solid #e1e7ef!important;border-radius:14px!important;background:#fff;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s}
+.choice-option:hover{border-color:#9db8f0!important;box-shadow:0 8px 18px -12px rgba(47,107,255,.5)}
+.choice-option input{position:absolute;opacity:0;pointer-events:none}
+.choice-option:has(input:focus-visible){outline:3px solid #2f6bff;outline-offset:2px}
+.choice-badge{flex:none;width:52px;height:52px;border-radius:12px;background:#f1f5fb;display:grid;place-items:center;overflow:hidden}
+.choice-badge img{width:44px!important;height:44px!important;object-fit:contain}
+.choice-name{flex:1;min-width:0}
+.choice-name strong{font-size:14px!important;line-height:1.25!important;color:#16203a!important}
+.choice-name small{display:block;margin-top:3px;font-size:12px!important;color:#7a8aa0!important}
+.choice-check{flex:none;width:24px;height:24px;border-radius:50%;border:2px solid #cbd5e3;display:grid;place-items:center;transition:all .15s;background:#fff}
+.choice-check:after{content:"";width:10px;height:5px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) scale(0);margin-top:-2px;transition:transform .15s}
+.choice-option.selected{border-color:#2f6bff!important;background:#f3f7ff!important;box-shadow:0 0 0 3px rgba(47,107,255,.12)}
+.choice-option.selected .choice-check{background:#2f6bff;border-color:#2f6bff}
+.choice-option.selected .choice-check:after{transform:rotate(-45deg) scale(1)}
+.choice-option.selected .choice-badge{background:#fff}
+.choice-account{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px!important;padding:14px 16px!important;border:1px solid #e1e7ef!important;border-radius:12px;background:#f8fafc}
+.choice-account>span{font:500 11px "IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.1em!important;color:#8190a1!important}
+.choice-account strong{font-size:14px!important;color:#16203a!important}
+.choice-summary{display:flex!important;align-items:center;justify-content:space-between;gap:18px;margin-top:20px!important;padding-top:0!important;border:0!important}
+.choice-count{display:block;font-size:15px!important;color:#16203a!important}
+.choice-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.choice-chips span{font-size:12px;font-weight:600;color:#2557c9;background:#e8effd;border-radius:6px;padding:3px 9px}
+.choice-chips small{font-size:13px;color:#7a8aa0}
+.choice-send{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:50px!important;padding:0 24px!important;border-radius:12px!important;background:#2f6bff!important;color:#fff;font-weight:700!important;font-size:15px;border:0;cursor:pointer;transition:background .15s,transform .15s}
+.choice-send:not(:disabled):hover{background:#1f54d6!important;transform:translateY(-1px)}
+.choice-send:disabled{background:#c5d3ee!important;cursor:not-allowed}
+.choice-note{margin-top:14px!important;font-size:12.5px!important;color:#7a8aa0!important}
+:root[data-theme=dark] .choice-dialog{background:#1b2433;color:#e7edf6}
+:root[data-theme=dark] .choice-header h3,:root[data-theme=dark] .choice-name strong,:root[data-theme=dark] .choice-account strong,:root[data-theme=dark] .choice-count{color:#e7edf6!important}
+:root[data-theme=dark] .choice-header p,:root[data-theme=dark] .choice-name small,:root[data-theme=dark] .choice-note{color:#a9b6cc!important}
+:root[data-theme=dark] .choice-option,:root[data-theme=dark] .choice-bundle-btn,:root[data-theme=dark] .choice-check{background:#222d40!important;border-color:#33425a!important}
+:root[data-theme=dark] .choice-option.selected{background:#1f2c46!important;border-color:#5f8cff!important}
+:root[data-theme=dark] .choice-badge{background:#fff}
+:root[data-theme=dark] .choice-account{background:#222d40;border-color:#33425a!important}
+@media(max-width:620px){
+ .choice-dialog .choice-root{padding:26px 18px 20px}
+ .choice-options{grid-template-columns:1fr!important}
+ .choice-summary{flex-direction:column;align-items:stretch}
+ .choice-send{justify-content:center;width:100%}
+ .choice-account{flex-direction:column;align-items:flex-start;gap:4px}
+}

@@ -1,0 +1,3 @@
+/* Antet panou: butoane-iconiță de aceeași mărime */
+.hero-actions #shop-btn,.hero-actions #history-btn{width:44px;height:44px}
+.hero-actions #theme-toggle{display:none!important}

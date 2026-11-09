@@ -149,10 +149,8 @@ function tourSteps() {
       html: `<p>Apasă <strong>Întrebări</strong> ca să pornești un test.</p>
              <p>Nu începe cu ele: se înțeleg mult mai ușor după ce ai văzut cursul.</p>` });
   }
-  st.push({ screen: "dash", target: "#theme-toggle", title: "Tema",
-    html: `<p>Cu acest buton treci între tema luminoasă și cea întunecată. Alegerea se salvează în contul tău.</p>` });
   st.push({ screen: "dash", target: "#profile-btn", title: "Profilul tău",
-    html: `<p>Aici îți setezi numele (apare pe certificate) și poza, și îți vezi progresul și certificatele.</p>` });
+    html: `<p>Aici îți setezi numele (apare pe certificate), poza și tema (luminoasă sau întunecată), și îți vezi progresul și certificatele.</p>` });
   if (key) {
     st.push({ screen: "setup", target: "#chapter-list .chapter-item", title: "Alege capitolele",
       html: `<p>Bifează capitolele pe care vrei să le exersezi: pe toate sau doar pe cele la care ești mai slab.</p>` });

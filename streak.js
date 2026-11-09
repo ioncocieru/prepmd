@@ -13,6 +13,7 @@
    el.querySelector('small').textContent=data.days===1?'zi la rând':'zile la rând';
    el.setAttribute('aria-label',`${data.days} ${data.days===1?'zi consecutivă':'zile consecutive'} de acces, ora Chișinăului`);
    el.hidden=false;
+   window.dispatchEvent(new CustomEvent('prep-streak',{detail:{days:data.days,new_day:!!data.new_day}}));
    if(data.new_day){el.classList.remove('streak-new');void el.offsetWidth;el.classList.add('streak-new')}
   }catch(_){el.hidden=true}finally{running=false}
  };
