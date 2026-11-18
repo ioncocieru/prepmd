@@ -4877,7 +4877,7 @@ window.EXAM_DATA.databases = {
       "id": "db-255",
       "chapter": "manipulare-date",
       "type": "single",
-      "question": "Your database contains a table named Customer. You need to delete the record from the Customer table that has a CusromerID of 12345. Which statement should you use?",
+      "question": "Your database contains a table named Customer. You need to delete the record from the Customer table that has a CustomerID of 12345. Which statement should you use?",
       "options": [
         "UPDATE Customer DELETE * WHERE CustomerID = 12345",
         "DELETE CustomerID FROM Customer WHERE CustomerID = 12345",
