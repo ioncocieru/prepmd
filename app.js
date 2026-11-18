@@ -1048,6 +1048,7 @@ function startQuiz() {
   } else state.quizQuestions=sample(pool,count);
   state.currentIndex = 0;
   state.userAnswers = {};
+  state.optOrder = {};
   state.labCode = {}; state.labResults = {};
   state.lockedQuestions = {};
   state.flagged = {};
@@ -1253,6 +1254,36 @@ function highlightCode(code) {
   );
 }
 
+/* ---------- Ordinea variantelor: se amestecă la fiecare afișare nouă ----------
+   Se schimbă doar ordinea afișată; răspunsurile rămân legate de indexul original (data-idx).
+   Nu se amestecă întrebările cu variante de tip „toate de mai sus”, „A și B” etc. (q.noShuffle === true le exclude manual). */
+const lastOptOrders = {};
+const ORDER_DEPENDENT = /(all|both|none|neither)\s+of\s+(the|these)\b|\b(all|none)\s+of\s+the\s+above\b|\babove\b|\bbelow\b|\bboth\s+[A-D]\b|\b[A-D]\s*(,|and|&|or)\s*[A-D]\b|toate\s+(cele\s+)?(de\s+mai\s+sus|variantele)|niciun[aăe]?\s+dintre|\bambele\b|\bmai\s+sus\b|\bmai\s+jos\b/i;
+const ORDER_REFERENCED = /\b(option|answer|choice|variant[aă]|r[ăa]spuns(ul)?)\s+[A-D]\b|\b(corect[aă]?|correct)\s+(este|e|is)\s+[A-D]\b/i;
+function canShuffleOptions(q) {
+  if (q.noShuffle === true) return false;
+  if ((q.type !== "single" && q.type !== "multiple") || !Array.isArray(q.options) || q.options.length < 2) return false;
+  if (q.options.some(o => ORDER_DEPENDENT.test(String(o)))) return false;
+  if (ORDER_REFERENCED.test(String(q.explanation || "")) || ORDER_REFERENCED.test(String(q.text || q.question || q.prompt || ""))) return false;
+  return true;
+}
+function optionOrder(q) {
+  const n = q.options.length, identity = q.options.map((_, i) => i);
+  if (!canShuffleOptions(q)) return identity;
+  state.optOrder = state.optOrder || {};
+  let o = state.optOrder[q.id];
+  if (!o || o.length !== n) {
+    const prev = lastOptOrders[q.id] ? lastOptOrders[q.id].join() : identity.join();
+    for (let tries = 0; tries < 12; tries++) {
+      o = identity.slice();
+      for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [o[i], o[j]] = [o[j], o[i]]; }
+      if (o.join() !== prev) break;
+    }
+    state.optOrder[q.id] = o; lastOptOrders[q.id] = o;
+  }
+  return o;
+}
+
 /* ---------- Render: True / False ---------- */
 function renderTrueFalse(q, locked) {
   const ans = state.userAnswers[q.id];
@@ -1275,7 +1306,8 @@ function renderTrueFalse(q, locked) {
 function renderSingle(q, locked) {
   const ans = state.userAnswers[q.id];
   let html = `<div class="option-list">`;
-  q.options.forEach((opt, idx) => {
+  optionOrder(q).forEach((idx, pos) => {
+    const opt = q.options[idx];
     let cls = "option-item";
     if (ans === idx) cls += " selected";
     if (locked) {
@@ -1285,7 +1317,7 @@ function renderSingle(q, locked) {
     }
     html += `
       <div class="${cls}" data-idx="${idx}">
-        <span class="opt-mark">${String.fromCharCode(65 + idx)}</span>
+        <span class="opt-mark">${String.fromCharCode(65 + pos)}</span>
         <span class="opt-text">${renderOpt(q, opt)}</span>
       </div>`;
   });
@@ -1297,7 +1329,8 @@ function renderSingle(q, locked) {
 function renderMultiple(q, locked) {
   const ans = Array.isArray(state.userAnswers[q.id]) ? state.userAnswers[q.id] : [];
   let html = `<div class="option-list multi">`;
-  q.options.forEach((opt, idx) => {
+  optionOrder(q).forEach((idx) => {
+    const opt = q.options[idx];
     const selected = ans.includes(idx);
     let cls = "option-item";
     if (selected) cls += " selected";
@@ -1760,6 +1793,7 @@ function restartQuizWith(questions) {
   state.quizQuestions = questions;
   state.currentIndex = 0;
   state.userAnswers = {};
+  state.optOrder = {};
   state.labCode = {}; state.labResults = {};
   state.lockedQuestions = {};
   state.flagged = {};

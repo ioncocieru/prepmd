@@ -500,6 +500,7 @@
       if (isAnswered(q)) p.questions[q.id] = right ? 1 : 0;
       if (right) ok++;
     });
+    window.PrepGoal?.add(qs.filter(q => isAnswered(q)).length);
     window.PrepPortal?.recordTest({p_id: state.attemptId, p_exam_key: k, p_mode: state.quizMode, p_total: qs.length, p_correct: ok, p_seconds: state.elapsedSeconds, p_completed_at: new Date().toISOString(), p_points: state.attemptScore.points, p_components: state.attemptScore.components});
     p.tests++; p.seconds += state.elapsedSeconds;
     p.bestPoints = Math.max(p.bestPoints || (p.best || 0)*10, state.attemptScore.points);
@@ -522,6 +523,20 @@
     });
     return out;
   } };
+
+  /* obiectiv zilnic + plan (goal.js): salvate în profil, deci pe orice dispozitiv */
+  const todayKey = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Chisinau" }).format(new Date());
+  const dailyNow = () => { const d = P.profile.daily; return d && d.date === todayKey() ? (d.count || 0) : 0; };
+  window.PrepGoal = {
+    today: todayKey,
+    get() { return P.ready ? { goal: P.profile.goal || null, count: dailyNow(), date: todayKey() } : null; },
+    set(goal) { P.profile.goal = goal || null; P.profile.updated = Date.now(); saveLocal(); touch("_profile"); window.dispatchEvent(new Event("prep-progress")); },
+    add(n) {
+      if (!P.ready || !(n > 0)) return;
+      P.profile.daily = { date: todayKey(), count: dailyNow() + n };
+      P.profile.updated = Date.now(); saveLocal(); touch("_profile");
+    }
+  };
 
   window.prepRefreshProgress = () => {
     if (!P.ready) return;

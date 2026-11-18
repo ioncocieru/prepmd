@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dezabonare | Prep.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header class="legal-nav"><div class="legal-nav-inner"><a class="legal-brand" href="./" aria-label="Prep. — pagina principală">Prep<span>.</span></a><a class="legal-back" href="./">← Înapoi la pagina principală</a></div></header>
+<main class="legal-main"><div class="legal-layout"><div class="legal-kicker">Prep. / Emailuri</div><article class="legal-content">
+<h1 id="t">Dezabonare</h1>
+<p class="legal-lead" id="m">Se verifică…</p>
+<div class="legal-note">Vei primi în continuare emailurile necesare funcționării contului (confirmarea adresei, resetarea parolei). Pentru întrebări ne poți scrie pe <a href="https://t.me/prepadm" target="_blank" rel="noopener noreferrer">Telegram @prepadm</a>.</div>
+</article></div></main>
+<script>
+(function(){
+  var ok=new URLSearchParams(location.search).get('status');
+  var t=document.getElementById('t'),m=document.getElementById('m');
+  if(ok==='ok'){t.textContent='Te-ai dezabonat';m.textContent='Nu vei mai primi mesajele de reamintire de la Prep.';}
+  else if(ok==='error'){t.textContent='Nu am putut procesa cererea';m.textContent='Linkul este invalid sau a expirat. Scrie-ne pe Telegram și te dezabonăm manual.';}
+  else{t.textContent='Dezabonare';m.textContent='Folosește linkul din emailul primit pentru a te dezabona.';}
+})();
+</script>
+</body>
+</html>

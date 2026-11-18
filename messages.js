@@ -37,6 +37,8 @@
     if (tests >= 1) add("first_test", "Primul test terminat", "Ai terminat primul test. Uită-te la întrebările greșite și revino la ele, așa înveți cel mai repede.");
     TEST_COUNTS.forEach((n) => { if (tests >= n) add(`tests:${n}`, `${n} teste terminate`, `Ai terminat ${n} teste. Exersarea regulată face diferența la examen.`); });
     STREAKS.forEach((n) => { if (streak >= n) add(`streak:${n}`, `${n} zile la rând`, `Felicitări pentru ${n} zile pe platforma noastră. Continuă tot așa!`); });
+    const gs = window.PrepGoal && window.PrepGoal.get();
+    if (gs && gs.goal && gs.goal.perDay && gs.count >= gs.goal.perDay) add("goal_first", "Primul obiectiv zilnic atins", `Ai parcurs ${gs.count} întrebări azi, cât ți-ai propus. Continuă tot așa!`);
     return { list: out, any };
   }
 
